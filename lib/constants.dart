@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:greenit_version1/size_config.dart';
 
-// Colors
+// =============== COLORS ===============
 const kPrimaryActiveColor = Color(0xFF22A45D);
 const kPrimaryDarkColor = Color(0xFF010F07);
 const kPrimaryLightColor = Color(0xFFFFECDF);
@@ -12,7 +12,7 @@ const kBodyTextColor = Color(0xFF868686);
 const kInputColor = Color(0xFFFBFBFB);
 const kBackgroundColor = Colors.white;
 
-// TextStyles
+// =============== TEXT STYLES ===============
 final TextStyle kH1TextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(34),
   fontWeight: FontWeight.w500,
@@ -71,17 +71,20 @@ const TextStyle kAppBarTitleTextStyle = TextStyle(
   color: Color(0xFF8B8B8B),
 );
 
-// Padding
+// =============== PADDINGS ===============
 const double kDefaultPadding = 20.0;
 final EdgeInsets kTextFieldPadding = EdgeInsets.symmetric(
   horizontal: getProportionateScreenWidth(kDefaultPadding),
   vertical: getProportionateScreenHeight(kDefaultPadding),
 );
 
-// Duration
+// =============== DURATION ===============
 const Duration kDefaultDuration = Duration(milliseconds: 250);
 
-// TextFieldDecoration
+// =============== TEXT FIELD DECORATION ===============
+const kErrorBorderSide = BorderSide(color: Colors.red, width: 1);
+const kErrorLabelText = TextStyle(color: Colors.red);
+
 const OutlineInputBorder kDefaultOutlineInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(10)),
   borderSide: BorderSide(color: kBodyTextColor),
@@ -104,10 +107,7 @@ OutlineInputBorder outlineInputBorder() {
   );
 }
 
-const kErrorBorderSide = BorderSide(color: Colors.red, width: 1);
-const kErrorLabelText = TextStyle(color: Colors.red);
-
-// Form Validator
+// =============== FORM VALIDATOR ===============
 final passwordValidator = MultiValidator([
   RequiredValidator(errorText: 'Password is required'),
   MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),

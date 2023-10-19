@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/account_options.dart';
-import 'package:greenit_version1/components/account_options_divider.dart';
-import 'package:greenit_version1/components/no_account.dart';
-import 'package:greenit_version1/components/welcome_text.dart';
 import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/signIn/componenets/sign_in_form.dart';
-import 'package:greenit_version1/screens/social/social_screen.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -22,6 +16,7 @@ class _BodyState extends State<Body> {
       child: Stack(
         alignment: Alignment.topRight,
         children: [
+          // =============== PLACE GOOGLE MAP INTERFACE HERE===============
           Placeholder(
             color: Colors.black,
             child: Container(
@@ -29,6 +24,7 @@ class _BodyState extends State<Body> {
               // color: Colors.white,
             ),
           ),
+          // ==============================================================
           Container(
             padding: const EdgeInsets.symmetric(
               horizontal: kDefaultPadding / 2,
