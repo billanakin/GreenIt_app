@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           child: const Center(
-            child: const Icon(Icons.post_add_outlined,
+            child: Icon(Icons.post_add_outlined,
                 color: Colors.white, size: 35),
           )),
     );

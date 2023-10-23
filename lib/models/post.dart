@@ -1,0 +1,29 @@
+import 'package:greenit_version1/models/profile.dart';
+
+class Post {
+  final int id;
+  final Profile profile;
+  final DateTime time, date;
+  final int locationRange;
+  final String messageTitle;
+  final String messageDescription;
+  final List<String> postImages;
+
+  // TO BE OPTIMIZED
+  // final List<Comment> comments;
+  // final List<Share> shares;
+  // final List<Like> likes;
+
+  Post({
+    required this.id,
+    required this.profile,
+    required this.time,
+    required this.date,
+    required this.locationRange,
+    required this.messageTitle,
+    required this.messageDescription,
+    required this.postImages,
+  });
+
+  String get profileName => profile.name;
+}
