@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/account_options.dart';
-import 'package:greenit_version1/components/account_options_divider.dart';
-import 'package:greenit_version1/components/policy_and_services_text.dart';
-import 'package:greenit_version1/components/welcome_text.dart';
+import 'package:greenit_version1/components/forms/account_options.dart';
+import 'package:greenit_version1/components/forms/account_options_divider.dart';
+import 'package:greenit_version1/components/forms/policy_and_services_text.dart';
+import 'package:greenit_version1/components/forms/welcome_text.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/signUp/components/sign_up_form.dart';
 import 'package:greenit_version1/size_config.dart';

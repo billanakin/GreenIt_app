@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/no_account.dart';
-import 'package:greenit_version1/components/welcome_text.dart';
+import 'package:greenit_version1/components/forms/no_account.dart';
+import 'package:greenit_version1/components/forms/welcome_text.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/forgotPassword/components/forgot_password_form.dart';
 import 'package:greenit_version1/size_config.dart';

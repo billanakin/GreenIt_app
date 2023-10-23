@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/buttons/primary_button.dart';
-import 'package:greenit_version1/components/dot_indicator.dart';
+import 'package:greenit_version1/components/onboarding/dot_indicator.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/onboarding/components/onboarding_content.dart';
 import 'package:greenit_version1/screens/signIn/sign_in_screen.dart';

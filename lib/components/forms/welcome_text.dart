@@ -25,11 +25,6 @@ class WelcomeText extends StatelessWidget {
       children: [
         Text(
           title,
-          // style: TextStyle(
-          //   color: Colors.black,
-          //   fontSize: getProportionateScreenWidth(30),
-          //   fontWeight: FontWeight.bold,
-          // ),
           style: kH2TextStyle.copyWith(
             fontSize: getProportionateScreenWidth(30),
             fontWeight: FontWeight.w600,
