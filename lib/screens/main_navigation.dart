@@ -104,13 +104,14 @@ class _MainNavigationState extends State<MainNavigation>
             dividerColor: Colors.transparent,
             indicatorPadding: EdgeInsets.zero,
             indicatorSize: TabBarIndicatorSize.tab,
-            indicator: const UnderlineTabIndicator(
-              borderRadius: BorderRadius.only(
+            indicator: UnderlineTabIndicator(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20),
               ),
-              borderSide: BorderSide(width: 1.5, color: kPrimaryActiveColor),
-              insets: EdgeInsets.only(bottom: 55),
+              borderSide:
+                  const BorderSide(width: 1.5, color: kPrimaryActiveColor),
+              insets: EdgeInsets.only(bottom: getProportionateScreenHeight(53)),
             ),
             labelStyle: kBodyTextStyle.copyWith(
               color: kPrimaryActiveColor,

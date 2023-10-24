@@ -58,11 +58,12 @@ class _BodyState extends State<Body> {
                     child: TextField(
                       style: kSecondaryBodyTextStyle.copyWith(
                         color: const Color(0xFF6C6C6C),
+                        fontSize: 15,
                         height: 0,
                       ),
                       cursorColor: kPrimaryActiveColor,
                       decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(vertical: 0),
+                        contentPadding: EdgeInsets.symmetric(vertical: 1),
                         hintText: 'Search Maps',
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
