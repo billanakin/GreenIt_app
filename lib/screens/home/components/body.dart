@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_version1/components/logo/inline_logo.dart';
+import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/size_config.dart';
 
@@ -27,69 +29,63 @@ class _BodyState extends State<Body> {
           // ==============================================================
           Container(
             padding: const EdgeInsets.symmetric(
-              horizontal: kDefaultPadding / 2,
-              vertical: kDefaultPadding / 4,
+              horizontal: kDefaultPadding,
+              vertical: 10,
             ),
-            height: getProportionateScreenHeight(60),
+            height: getProportionateScreenHeight(70),
             width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.2),
-              // color: Colors.green,
             ),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
-                  width: 50,
-                  child: AspectRatio(
-                    aspectRatio: 1 / 2,
-                    child: Image.asset('assets/images/Greenit_logo_inline.png'),
-                  ),
-                ),
+                const InlineLogo(width: 50),
                 const HorizontalSpacing(of: 15),
                 Expanded(
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(10),
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 10,
                     ),
-                    child: Container(
-                      height: getProportionateScreenHeight(45),
-                      decoration: BoxDecoration(
-                        color: kInputColor.withOpacity(0.1),
+                    height: getProportionateScreenHeight(38),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFF6F8F6),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: TextField(
+                      style: kSecondaryBodyTextStyle.copyWith(
+                        color: const Color(0xFF6C6C6C),
+                        height: 0,
                       ),
-                      child: TextField(
-                        onChanged: (value) => print(value),
-                        style: kSecondaryBodyTextStyle.copyWith(
-                          color: Colors.black.withOpacity(0.8),
-                        ),
-                        cursorColor: kPrimaryActiveColor,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: getProportionateScreenWidth(20),
-                              vertical: getProportionateScreenWidth(11)),
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          enabledBorder: InputBorder.none,
-                          hintText: "Search Maps",
-                          prefixIcon: const Icon(Icons.search, size: 20),
+                      cursorColor: kPrimaryActiveColor,
+                      decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(vertical: 0),
+                        hintText: 'Search Maps',
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.zero,
+                          child: Icon(Icons.search, size: 22),
                         ),
                       ),
                     ),
                   ),
                 ),
                 const HorizontalSpacing(of: 15),
-                const CircleAvatar(
-                  radius: 25,
-                  backgroundImage:
-                      AssetImage('assets/images/user_profile.jpeg'),
+                const ProfileAvatar(
+                  profileAvatarImage: 'assets/images/user_profile.jpeg',
                 ),
               ],
             ),
           ),
           Positioned(
-            top: 70,
+            top: 90,
             child: Padding(
-              padding: const EdgeInsets.only(right: kDefaultPadding / 2),
+              padding: const EdgeInsets.only(right: kDefaultPadding / 1.5),
               child: SizedBox(
                 height: 110,
                 child: Column(

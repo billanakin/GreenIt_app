@@ -7,7 +7,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        'Notifications',
+        'Hello World',
         style: TextStyle(color: Colors.black),
       ),
     );
