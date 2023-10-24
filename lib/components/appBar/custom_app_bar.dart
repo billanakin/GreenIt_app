@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/logo/inline_logo.dart';
 import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/constants.dart';
+import 'package:greenit_version1/screens/home/home_screen.dart';
+import 'package:greenit_version1/screens/main_navigation.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -34,17 +36,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
           ),
-          child: const Row(
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ProfileAvatar(
+              const ProfileAvatar(
                 profileAvatarImage: 'assets/images/user_profile.jpeg',
               ),
-              SizedBox(width: 10),
-              InlineLogo(width: 90),
-              SizedBox(width: 50),
-              SizedBox.square()
+              const SizedBox(width: 10),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const MainNavigation(overrideScreenIndex: 0),
+                  ),
+                ),
+                child: const InlineLogo(width: 90),
+              ),
+              const SizedBox(width: 50),
+              const SizedBox.square()
             ],
           ),
         ),
