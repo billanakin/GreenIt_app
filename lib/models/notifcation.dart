@@ -2,6 +2,12 @@ import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
 import 'package:intl/intl.dart';
 
+enum NotificationConstructorType {
+  recentlyFollowed,
+  recentlyLikedPost,
+  recentlyPosted,
+}
+
 class Notification {
   final Profile? profileRecentlyFollowing;
 
@@ -11,8 +17,12 @@ class Notification {
   final Profile? profileRecentlyPosted;
   final Post? postRecentlyPosted;
 
+  final NotificationConstructorType notificationConstructorType;
+
   Notification.recentlyFollowed({
     required this.profileRecentlyFollowing,
+    this.notificationConstructorType =
+        NotificationConstructorType.recentlyFollowed,
   })  : listOfProfilesLiked = null,
         postLiked = null,
         profileRecentlyPosted = null,
@@ -21,6 +31,8 @@ class Notification {
   Notification.recentlyLikedPost({
     required this.listOfProfilesLiked,
     required this.postLiked,
+    this.notificationConstructorType =
+        NotificationConstructorType.recentlyLikedPost,
   })  : profileRecentlyFollowing = null,
         profileRecentlyPosted = null,
         postRecentlyPosted = null;
@@ -28,6 +40,8 @@ class Notification {
   Notification.recentlyPosted({
     required this.profileRecentlyPosted,
     required this.postRecentlyPosted,
+    this.notificationConstructorType =
+        NotificationConstructorType.recentlyPosted,
   })  : profileRecentlyFollowing = null,
         listOfProfilesLiked = null,
         postLiked = null;
