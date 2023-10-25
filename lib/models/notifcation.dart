@@ -21,9 +21,9 @@ class Notification {
 
   Notification.recentlyFollowed({
     required this.profileRecentlyFollowing,
-    this.notificationConstructorType =
-        NotificationConstructorType.recentlyFollowed,
-  })  : listOfProfilesLiked = null,
+  })  : notificationConstructorType =
+            NotificationConstructorType.recentlyFollowed,
+        listOfProfilesLiked = null,
         postLiked = null,
         profileRecentlyPosted = null,
         postRecentlyPosted = null;
@@ -31,18 +31,18 @@ class Notification {
   Notification.recentlyLikedPost({
     required this.listOfProfilesLiked,
     required this.postLiked,
-    this.notificationConstructorType =
-        NotificationConstructorType.recentlyLikedPost,
-  })  : profileRecentlyFollowing = null,
+  })  : notificationConstructorType =
+            NotificationConstructorType.recentlyLikedPost,
+        profileRecentlyFollowing = null,
         profileRecentlyPosted = null,
         postRecentlyPosted = null;
 
   Notification.recentlyPosted({
     required this.profileRecentlyPosted,
     required this.postRecentlyPosted,
-    this.notificationConstructorType =
-        NotificationConstructorType.recentlyPosted,
-  })  : profileRecentlyFollowing = null,
+  })  : notificationConstructorType =
+            NotificationConstructorType.recentlyPosted,
+        profileRecentlyFollowing = null,
         listOfProfilesLiked = null,
         postLiked = null;
 
