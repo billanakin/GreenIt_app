@@ -23,7 +23,7 @@ class Profile {
 }
 
 // Demo Profiles
-List<Profile> demoProfiles = [
+List<Profile> demoProfilesData = [
   Profile(
     id: 0,
     name: 'Dominic Osorio',
