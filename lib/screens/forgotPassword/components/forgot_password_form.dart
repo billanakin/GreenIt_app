@@ -49,7 +49,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
 
   TextFormField buildEmailField() {
     return TextFormField(
-      validator: emailValidator,
+      validator: emailValidator.call,
       onSaved: (value) => _email = value,
       keyboardType: TextInputType.emailAddress,
       style: kSecondaryBodyTextStyle.copyWith(

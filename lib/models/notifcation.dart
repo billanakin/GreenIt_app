@@ -2,20 +2,35 @@ import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
 
 class Notification {
-  final Profile? profileFollowing;
+  final Profile? profileRecentlyFollowing;
 
-  final List<Profile>? listOfProfileLiked;
+  final List<Profile>? listOfProfilesLiked;
   final Post? postLiked;
 
-  Notification({
-    required this.profileFollowing,
-  })  : listOfProfileLiked = null,
+  final Profile? profileRecentlyPosted;
+  final Post? postRecentlyPosted;
+
+  Notification.recentlyFollowed({
+    required this.profileRecentlyFollowing,
+  })  : listOfProfilesLiked = null,
+        postLiked = null,
+        profileRecentlyPosted = null,
+        postRecentlyPosted = null;
+
+  Notification.recentlyLikedPost({
+    required this.listOfProfilesLiked,
+    required this.postLiked,
+  })  : profileRecentlyFollowing = null,
+        profileRecentlyPosted = null,
+        postRecentlyPosted = null;
+
+  Notification.recentlyPosted({
+    required this.profileRecentlyPosted,
+    required this.postRecentlyPosted,
+  })  : profileRecentlyFollowing = null,
+        listOfProfilesLiked = null,
         postLiked = null;
 
-  Notification.likedPost({
-    required this.listOfProfileLiked,
-    required this.postLiked,
-  }) : profileFollowing = null;
-
-  String get profileFollowingName => profileFollowing!.name;
+  String get profileRecentlyFollowingName => profileRecentlyFollowing!.name;
+  String get profileRecentlyPostedName => profileRecentlyPosted!.name;
 }

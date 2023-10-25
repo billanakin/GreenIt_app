@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/home/components/body.dart';
-import 'package:greenit_version1/screens/main_navigation.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

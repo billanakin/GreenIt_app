@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/logo/inline_logo.dart';
 import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/home/home_screen.dart';
 import 'package:greenit_version1/screens/main_navigation.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
