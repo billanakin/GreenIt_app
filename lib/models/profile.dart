@@ -24,12 +24,44 @@ class Profile {
 
 // Demo Profiles
 List<Profile> demoProfiles = [
-  Profile(id: 0, name: 'Dominic Osorio', profileAvatar: ''),
-  Profile(id: 1, name: 'Henry Yap Three', profileAvatar: ''),
-  Profile(id: 2, name: 'Anakin Vader', profileAvatar: ''),
-  Profile(id: 3, name: 'Lionel Messi', profileAvatar: ''),
-  Profile(id: 4, name: 'Russy Fluffy', profileAvatar: ''),
-  Profile(id: 5, name: 'Carlos Sainz', profileAvatar: ''),
-  Profile(id: 6, name: 'Bill Zamora', profileAvatar: ''),
-  Profile(id: 7, name: 'Cinate Rica', profileAvatar: '')
+  Profile(
+    id: 0,
+    name: 'Dominic Osorio',
+    profileAvatar: 'assets/images/ Profile/profile1.png',
+  ),
+  Profile(
+    id: 1,
+    name: 'Henry Yap Three',
+    profileAvatar: 'assets/images/ Profile/profile6.png',
+  ),
+  Profile(
+    id: 2,
+    name: 'Anakin Vader',
+    profileAvatar: 'assets/images/ Profile/profile7.png',
+  ),
+  Profile(
+    id: 3,
+    name: 'Lionel Messi',
+    profileAvatar: 'assets/images/ Profile/user_profile.jpeg',
+  ),
+  Profile(
+    id: 4,
+    name: 'Russy Fluffy',
+    profileAvatar: 'assets/images/ Profile/profile5.png',
+  ),
+  Profile(
+    id: 5,
+    name: 'Carlos Sainz',
+    profileAvatar: 'assets/images/ Profile/profile3.png',
+  ),
+  Profile(
+    id: 6,
+    name: 'Bill Zamora',
+    profileAvatar: 'assets/images/ Profile/profile4.png',
+  ),
+  Profile(
+    id: 7,
+    name: 'Cinate Rica',
+    profileAvatar: 'assets/images/ Profile/profile2.png',
+  )
 ];

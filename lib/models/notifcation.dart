@@ -34,3 +34,24 @@ class Notification {
   String get profileRecentlyFollowingName => profileRecentlyFollowing!.name;
   String get profileRecentlyPostedName => profileRecentlyPosted!.name;
 }
+
+// Demo Notification Data
+// List<Notification> demoNotificationData = [
+//   Notification.recentlyPosted(
+//     profileRecentlyPosted: Profile(
+//       id: 0,
+//       name: 'Dominic Osorio',
+//       profileAvatar: '',
+//     ),
+//     postRecentlyPosted: Post(
+//       id: id,
+//       profile: profile,
+//       time: time,
+//       date: date,
+//       locationRange: locationRange,
+//       messageTitle: messageTitle,
+//       messageDescription: messageDescription,
+//       postImages: postImages,
+//     ),
+//   )
+// ];
