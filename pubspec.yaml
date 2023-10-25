@@ -80,10 +80,37 @@ flutter:
     - assets/images/
     - assets/Illustrations/
 
+    # images
+    # images > logo
+    - assets/images/logo/Greenit_logo_main.png
+    - assets/images/logo/Greenit_logo_inline.png
+
+    # images > profile
+    - assets/images/profile/profile1.png
+    - assets/images/profile/profile2.png
+    - assets/images/profile/profile3.png
+    - assets/images/profile/profile4.png
+    - assets/images/profile/profile5.png
+    - assets/images/profile/profile6.png
+    - assets/images/profile/profile7.png
+    - assets/images/profile/user_profile.jpeg
+
+    # images > posts
+    - assets/images/posts/post_image1.png
+    - assets/images/posts/post_image2.png
+    - assets/images/posts/post_image3.png
+    - assets/images/posts/post_image4.png
+    - assets/images/posts/post_image5.png
+    - assets/images/posts/post_image6.png
+    - assets/images/posts/post_image7.png
+    - assets/images/posts/post_image8.png
+    - assets/images/posts/post_image9.png
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
-  # For details regarding adding assets from package dependencies, see
+  # For details regardixng adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 
   # To add custom fonts to your application, add a fonts section here,

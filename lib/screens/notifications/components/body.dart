@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/constants.dart';
+import 'package:greenit_version1/models/notifcation.dart';
 
 class Body extends StatelessWidget {
-  const Body({super.key});
+  Body({super.key});
+
+  final notificationData = demoNotificationData;
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +15,7 @@ class Body extends StatelessWidget {
           horizontal: kDefaultPadding,
         ),
         child: ListView.builder(
+          itemCount: notificationData.length,
           itemBuilder: ((context, index) => const Placeholder()),
         ),
       ),

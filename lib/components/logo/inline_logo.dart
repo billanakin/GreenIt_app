@@ -4,7 +4,7 @@ class InlineLogo extends StatelessWidget {
   const InlineLogo({
     super.key,
     required this.width,
-    this.inlineLogoImage = 'assets/images/Greenit_logo_inline.png',
+    this.inlineLogoImage = 'assets/images/logo/Greenit_logo_inline.png',
   });
 
   final String inlineLogoImage;

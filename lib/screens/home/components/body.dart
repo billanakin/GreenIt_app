@@ -78,7 +78,7 @@ class _BodyState extends State<Body> {
                 ),
                 const HorizontalSpacing(of: 15),
                 const ProfileAvatar(
-                  profileAvatarImage: 'assets/images/user_profile.jpeg',
+                  profileAvatarImage: 'assets/images/profile/user_profile.jpeg',
                 ),
               ],
             ),

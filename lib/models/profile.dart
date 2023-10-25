@@ -63,5 +63,5 @@ List<Profile> demoProfilesData = [
     id: 7,
     name: 'Cinate Rica',
     profileAvatar: 'assets/images/ Profile/profile2.png',
-  )
+  ),
 ];

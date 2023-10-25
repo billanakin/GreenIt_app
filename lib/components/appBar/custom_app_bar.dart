@@ -40,7 +40,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const ProfileAvatar(
-                profileAvatarImage: 'assets/images/user_profile.jpeg',
+                profileAvatarImage: 'assets/images/profile/user_profile.jpeg',
               ),
               const SizedBox(width: 10),
               GestureDetector(
