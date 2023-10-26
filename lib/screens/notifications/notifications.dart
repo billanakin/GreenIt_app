@@ -7,8 +7,8 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(),
+    return const Scaffold(
+      appBar: CustomAppBar(),
       body: Body(),
     );
   }

@@ -52,6 +52,7 @@ final TextStyle kSecondaryBodyTextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(14),
   fontWeight: FontWeight.w500,
   color: kPrimaryDarkColor,
+  fontFamily: 'Helvetica Neue', // TODO: For Debugging Purposes not final
 );
 
 final TextStyle kButtonTextStyle = TextStyle(
@@ -64,6 +65,8 @@ final TextStyle kCaptionTextStyle = TextStyle(
   color: kPrimaryDarkColor.withOpacity(0.64),
   fontSize: getProportionateScreenWidth(12),
   fontWeight: FontWeight.w600,
+  fontFamily: 'Helvetica Neue',
+  // TODO: For Debugging Purposes not final
 );
 
 const TextStyle kAppBarTitleTextStyle = TextStyle(

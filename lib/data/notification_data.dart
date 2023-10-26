@@ -1,56 +1,9 @@
+// Demo Notification Data
+import 'package:greenit_version1/models/notification.dart';
 import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
 import 'package:intl/intl.dart';
 
-enum NotificationConstructorType {
-  recentlyFollowed,
-  recentlyLikedPost,
-  recentlyPosted,
-}
-
-class Notification {
-  final Profile? profileRecentlyFollowing;
-
-  final List<Profile>? listOfProfilesLiked;
-  final Post? postLiked;
-
-  final Profile? profileRecentlyPosted;
-  final Post? postRecentlyPosted;
-
-  final NotificationConstructorType notificationConstructorType;
-
-  Notification.recentlyFollowed({
-    required this.profileRecentlyFollowing,
-  })  : notificationConstructorType =
-            NotificationConstructorType.recentlyFollowed,
-        listOfProfilesLiked = null,
-        postLiked = null,
-        profileRecentlyPosted = null,
-        postRecentlyPosted = null;
-
-  Notification.recentlyLikedPost({
-    required this.listOfProfilesLiked,
-    required this.postLiked,
-  })  : notificationConstructorType =
-            NotificationConstructorType.recentlyLikedPost,
-        profileRecentlyFollowing = null,
-        profileRecentlyPosted = null,
-        postRecentlyPosted = null;
-
-  Notification.recentlyPosted({
-    required this.profileRecentlyPosted,
-    required this.postRecentlyPosted,
-  })  : notificationConstructorType =
-            NotificationConstructorType.recentlyPosted,
-        profileRecentlyFollowing = null,
-        listOfProfilesLiked = null,
-        postLiked = null;
-
-  String get profileRecentlyFollowingName => profileRecentlyFollowing!.name;
-  String get profileRecentlyPostedName => profileRecentlyPosted!.name;
-}
-
-// Demo Notification Data
 List<Notification> demoNotificationData = [
   Notification.recentlyPosted(
     profileRecentlyPosted: Profile(
