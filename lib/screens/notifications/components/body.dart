@@ -98,7 +98,7 @@ class NotificationCard extends StatelessWidget {
                       ),
                       const VerticalSpacing(of: 5),
                       Text(
-                        'Liked your',
+                        'Liked your post',
                         style: kCaptionTextStyle.copyWith(
                           height: 0,
                           fontWeight: FontWeight.w300,
