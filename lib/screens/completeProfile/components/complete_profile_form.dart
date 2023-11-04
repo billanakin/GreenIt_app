@@ -74,7 +74,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildAddressField() {
     return TextFormField(
       focusNode: _addressNode,
-      validator: requiredValidator,
+      validator: requiredValidator.call,
       onSaved: (value) => _address = value,
       textInputAction: TextInputAction.next,
       style: kSecondaryBodyTextStyle.copyWith(
@@ -94,7 +94,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildPhoneNumberField() {
     return TextFormField(
       focusNode: _phoneNumberNode,
-      validator: phoneNumberValidator,
+      validator: phoneNumberValidator.call,
       onSaved: (value) => _phoneNumber = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _addressNode!.requestFocus(),
@@ -115,7 +115,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildLastNameField() {
     return TextFormField(
       focusNode: _lastNameNode,
-      validator: requiredValidator,
+      validator: requiredValidator.call,
       onSaved: (value) => _lastName = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _phoneNumberNode!.requestFocus(),
@@ -135,7 +135,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildFirstNameField() {
     return TextFormField(
-      validator: requiredValidator,
+      validator: requiredValidator.call,
       onSaved: (value) => _firstName = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _lastNameNode!.requestFocus(),

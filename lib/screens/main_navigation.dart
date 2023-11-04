@@ -7,7 +7,12 @@ import 'package:greenit_version1/screens/social/social_screen.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class MainNavigation extends StatefulWidget {
-  const MainNavigation({super.key});
+  const MainNavigation({
+    super.key,
+    this.overrideScreenIndex = 0,
+  });
+
+  final int overrideScreenIndex;
 
   @override
   State<MainNavigation> createState() => _MainNavigationState();
@@ -15,7 +20,7 @@ class MainNavigation extends StatefulWidget {
 
 class _MainNavigationState extends State<MainNavigation>
     with TickerProviderStateMixin {
-  int _currentIndex = 0;
+  late int _currentIndex = widget.overrideScreenIndex;
 
   // // ignore: unused_field
   final List<Map<String, dynamic>> _navItems = [
@@ -104,13 +109,14 @@ class _MainNavigationState extends State<MainNavigation>
             dividerColor: Colors.transparent,
             indicatorPadding: EdgeInsets.zero,
             indicatorSize: TabBarIndicatorSize.tab,
-            indicator: const UnderlineTabIndicator(
-              borderRadius: BorderRadius.only(
+            indicator: UnderlineTabIndicator(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20),
               ),
-              borderSide: BorderSide(width: 1.5, color: kPrimaryActiveColor),
-              insets: EdgeInsets.only(bottom: 55),
+              borderSide:
+                  const BorderSide(width: 1.5, color: kPrimaryActiveColor),
+              insets: EdgeInsets.only(bottom: getProportionateScreenHeight(53)),
             ),
             labelStyle: kBodyTextStyle.copyWith(
               color: kPrimaryActiveColor,

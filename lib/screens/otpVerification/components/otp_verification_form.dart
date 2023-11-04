@@ -7,8 +7,8 @@ import 'package:greenit_version1/size_config.dart';
 
 class OtpVerificationForm extends StatefulWidget {
   const OtpVerificationForm({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<OtpVerificationForm> createState() => _OtpVerificationFormState();
@@ -57,7 +57,7 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
                 child: TextFormField(
                   autofocus: true,
                   maxLength: 1,
-                  validator: RequiredValidator(errorText: ''),
+                  validator: RequiredValidator(errorText: '').call,
                   style: const TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
@@ -71,7 +71,7 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
                   focusNode: pin2FocusNode,
-                  validator: RequiredValidator(errorText: ''),
+                  validator: RequiredValidator(errorText: '').call,
                   maxLength: 1,
                   style: const TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
@@ -84,7 +84,7 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
                   focusNode: pin3FocusNode,
-                  validator: RequiredValidator(errorText: ''),
+                  validator: RequiredValidator(errorText: '').call,
                   maxLength: 1,
                   style: const TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
@@ -97,7 +97,7 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
                   focusNode: pin4FocusNode,
-                  validator: RequiredValidator(errorText: ''),
+                  validator: RequiredValidator(errorText: '').call,
                   maxLength: 1,
                   style: const TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,

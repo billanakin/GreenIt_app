@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/screens/onboarding/onboarding_screen.dart';
+import 'package:greenit_version1/screens/main_navigation.dart';
 import 'package:greenit_version1/size_config.dart';
 import 'package:greenit_version1/theme.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'GreenIt Version 1',
       debugShowCheckedModeBanner: false,
       theme: buildThemeData(),
-      home: const OnBoardingScreen(),
+      home: const MainNavigation(), // For Debug Purposes
     );
   }
 }

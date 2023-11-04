@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_version1/components/appBar/custom_app_bar.dart';
 import 'package:greenit_version1/screens/notifications/components/body.dart';
 
 class NotificationsScreen extends StatelessWidget {
@@ -6,9 +7,9 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: const Body(),
+    return const Scaffold(
+      appBar: CustomAppBar(),
+      body: Body(),
     );
   }
 }

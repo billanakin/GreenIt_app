@@ -103,7 +103,7 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildPasswordField() {
     return TextFormField(
       focusNode: _passwordNode,
-      validator: passwordValidator,
+      validator: passwordValidator.call,
       obscureText: _obscureText,
       onSaved: (value) => _password = value,
       onChanged: (value) => _password = value,
@@ -134,7 +134,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildEmailField() {
     return TextFormField(
-      validator: emailValidator,
+      validator: emailValidator.call,
       onSaved: (value) => _email = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _passwordNode!.requestFocus(),

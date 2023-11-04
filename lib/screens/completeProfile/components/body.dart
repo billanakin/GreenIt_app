@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/policy_and_services_text.dart';
-import 'package:greenit_version1/components/welcome_text.dart';
+import 'package:greenit_version1/components/forms/policy_and_services_text.dart';
+import 'package:greenit_version1/components/forms/welcome_text.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/completeProfile/components/complete_profile_form.dart';
 import 'package:greenit_version1/size_config.dart';
