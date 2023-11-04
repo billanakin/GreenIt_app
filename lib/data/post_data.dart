@@ -9,7 +9,7 @@ List<Post> demoPostData = [
     profile: Profile(
       id: 0,
       name: 'Dominic Osorio',
-      profileAvatar: 'assets/images/ Profile/profile1.png',
+      profileAvatar: 'assets/images/profile/profile1.png',
     ),
     time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
     date: DateFormat.yMMMd().format(DateTime.now()),
@@ -26,7 +26,7 @@ List<Post> demoPostData = [
     profile: Profile(
       id: 1,
       name: 'Henry Yap Three',
-      profileAvatar: 'assets/images/ Profile/profile6.png',
+      profileAvatar: 'assets/images/profile/profile6.png',
     ),
     time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
     date: DateFormat.yMMMd().format(DateTime.now()),
@@ -46,7 +46,7 @@ List<Post> demoPostData = [
     profile: Profile(
       id: 3,
       name: 'Lionel Messi',
-      profileAvatar: 'assets/images/ Profile/user_profile.jpeg',
+      profileAvatar: 'assets/images/profile/user_profile.jpeg',
     ),
     time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
     date: DateFormat.yMMMd().format(DateTime.now()),
@@ -63,7 +63,7 @@ List<Post> demoPostData = [
     profile: Profile(
       id: 2,
       name: 'Anakin Vader',
-      profileAvatar: 'assets/images/ Profile/profile7.png',
+      profileAvatar: 'assets/images/profile/profile7.png',
     ),
     time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
     date: DateFormat.yMMMd().format(DateTime.now()),
@@ -82,7 +82,7 @@ List<Post> demoPostData = [
     profile: Profile(
       id: 4,
       name: 'Russy Fluffy',
-      profileAvatar: 'assets/images/ Profile/profile5.png',
+      profileAvatar: 'assets/images/profile/profile5.png',
     ),
     time: DateFormat('h:mm a').format(DateTime.now()),
     date: DateFormat.yMMMd().format(DateTime.now()),
@@ -109,7 +109,7 @@ List<Post> demoPostData = [
     profile: Profile(
       id: 5,
       name: 'Carlos Sainz',
-      profileAvatar: 'assets/images/ Profile/profile3.png',
+      profileAvatar: 'assets/images/profile/profile3.png',
     ),
     time: DateFormat('h:mm a').format(DateTime.now()),
     date: DateFormat.yMMMd().format(DateTime.now()),

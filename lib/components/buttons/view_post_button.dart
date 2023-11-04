@@ -11,6 +11,7 @@ class ViewPostButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Convert to TextButton
     return GestureDetector(
       onTap: press,
       child: Text(
