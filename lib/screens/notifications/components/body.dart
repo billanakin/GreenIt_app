@@ -18,14 +18,14 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-        child: ListView.builder(
-          itemCount: demoNotificationData.length,
-          itemBuilder: ((context, index) => NotificationCard(
+      child: ListView.builder(
+        itemCount: demoNotificationData.length,
+        itemBuilder: ((context, index) => InkWell(
+              onTap: () {},
+              child: NotificationCard(
                 notificationData: demoNotificationData[index],
-              )),
-        ),
+              ),
+            )),
       ),
     );
   }
