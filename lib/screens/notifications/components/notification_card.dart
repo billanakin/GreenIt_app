@@ -37,16 +37,8 @@ class NotificationCard extends StatelessWidget {
   Container buildRecentlyLikedPostTypeNotificationCard(
       AppNotif.Notification notificationData) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          vertical: kDefaultPadding, horizontal: kDefaultPadding),
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            width: 1,
-            color: Color(0x66868686),
-          ),
-        ),
-      ),
+      padding: const EdgeInsets.only(
+          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,6 +117,8 @@ class NotificationCard extends StatelessWidget {
               )
             ],
           ),
+          const VerticalSpacing(of: 20),
+          const Divider(),
         ],
       ),
     );
@@ -133,16 +127,8 @@ class NotificationCard extends StatelessWidget {
   Container buildRecentlyPostedTypeNotificationCard(
       AppNotif.Notification notificationData) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          vertical: kDefaultPadding, horizontal: kDefaultPadding),
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            width: 1,
-            color: Color(0x66868686),
-          ),
-        ),
-      ),
+      padding: const EdgeInsets.only(
+          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,6 +201,8 @@ class NotificationCard extends StatelessWidget {
               )
             ],
           ),
+          const VerticalSpacing(of: 20),
+          const Divider(),
         ],
       ),
     );
@@ -223,48 +211,49 @@ class NotificationCard extends StatelessWidget {
   Container buildRecentlyFollowedTypeNotificationCard(
       AppNotif.Notification notificationData) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          vertical: kDefaultPadding, horizontal: kDefaultPadding),
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            width: 1,
-            color: Color(0x66868686),
-          ),
-        ),
-      ),
-      child: Row(
+      padding: const EdgeInsets.only(
+          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ProfileAvatar.secondary(
-            profileAvatarImage: notificationData.profileRecentlyFollowingImage,
-          ),
-          const HorizontalSpacing(of: 10),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  notificationData.profileRecentlyFollowingName,
-                  style: kSecondaryBodyTextStyle.copyWith(
-                    height: 0,
-                  ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ProfileAvatar.secondary(
+                profileAvatarImage:
+                    notificationData.profileRecentlyFollowingImage,
+              ),
+              const HorizontalSpacing(of: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      notificationData.profileRecentlyFollowingName,
+                      style: kSecondaryBodyTextStyle.copyWith(
+                        height: 0,
+                      ),
+                    ),
+                    const VerticalSpacing(of: 5),
+                    Text(
+                      'Recently followed you',
+                      style: kCaptionTextStyle.copyWith(
+                        height: 0,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    )
+                  ],
                 ),
-                const VerticalSpacing(of: 5),
-                Text(
-                  'Recently followed you',
-                  style: kCaptionTextStyle.copyWith(
-                    height: 0,
-                    fontWeight: FontWeight.w300,
-                  ),
-                )
-              ],
-            ),
+              ),
+              const HorizontalSpacing(of: 10),
+              const CardOptions(press: null),
+            ],
           ),
-          const HorizontalSpacing(of: 10),
-          const CardOptions(press: null),
+          const VerticalSpacing(of: 20),
+          const Divider(),
         ],
       ),
     );
