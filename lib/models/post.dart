@@ -9,11 +9,6 @@ class Post {
   final String messageDescription;
   final List<String>? postImages;
 
-  // TO BE OPTIMIZED
-  // final List<Comment> comments;
-  // final List<Share> shares;
-  // final List<Like> likes;
-
   final Post? sharedPost;
 
   Post({
@@ -39,4 +34,8 @@ class Post {
         messageTitle = null;
 
   String get profileName => profile.name;
+  String get profileImage => profile.profileAvatar;
+
+  String get profileSharedName => sharedPost!.profileName;
+  String get profileSharedImage => sharedPost!.profileImage;
 }
