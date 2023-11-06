@@ -21,6 +21,7 @@ class _BodyState extends State<Body> {
       child: CustomScrollView(
         slivers: <Widget>[
           const SliverAppBar(
+            leading: SizedBox.shrink(),
             expandedHeight: 70,
             floating: true,
             flexibleSpace: CustomAppBar(),

@@ -6,8 +6,11 @@ class SocialScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Body(),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: const Scaffold(
+        body: Body(),
+      ),
     );
   }
 }

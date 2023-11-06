@@ -80,91 +80,95 @@ class _MainNavigationState extends State<MainNavigation>
   Widget build(BuildContext context) {
     SizeConfig().init(context);
 
-    return Scaffold(
-      body: TabBarView(
-        controller: _tabController,
-        children: const <Widget>[
-          HomeScreen(),
-          SocialScreen(),
-          ExploreScreen(),
-          NotificationsScreen(),
-        ],
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Container(
-          padding: EdgeInsets.zero,
-          height: getProportionateScreenHeight(55),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border(
-              top: BorderSide(
-                color: kBodyTextColor.withOpacity(0.15),
-                width: 1.5,
-              ),
-            ),
-          ),
-          child: TabBar(
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: TabBarView(
+          controller: _tabController,
+          children: const <Widget>[
+            HomeScreen(),
+            SocialScreen(),
+            ExploreScreen(),
+            NotificationsScreen(),
+          ],
+        ),
+        bottomNavigationBar: SafeArea(
+          child: Container(
             padding: EdgeInsets.zero,
-            controller: _tabController,
-            dividerColor: Colors.transparent,
-            indicatorPadding: EdgeInsets.zero,
-            indicatorSize: TabBarIndicatorSize.tab,
-            indicator: UnderlineTabIndicator(
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
+            height: getProportionateScreenHeight(55),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border(
+                top: BorderSide(
+                  color: kBodyTextColor.withOpacity(0.15),
+                  width: 1.5,
+                ),
               ),
-              borderSide:
-                  const BorderSide(width: 1.5, color: kPrimaryActiveColor),
-              insets: EdgeInsets.only(bottom: getProportionateScreenHeight(53)),
             ),
-            labelStyle: kBodyTextStyle.copyWith(
-              color: kPrimaryActiveColor,
-              fontSize: 10,
-              height: 0,
+            child: TabBar(
+              padding: EdgeInsets.zero,
+              controller: _tabController,
+              dividerColor: Colors.transparent,
+              indicatorPadding: EdgeInsets.zero,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicator: UnderlineTabIndicator(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+                borderSide:
+                    const BorderSide(width: 1.5, color: kPrimaryActiveColor),
+                insets:
+                    EdgeInsets.only(bottom: getProportionateScreenHeight(53)),
+              ),
+              labelStyle: kBodyTextStyle.copyWith(
+                color: kPrimaryActiveColor,
+                fontSize: 10,
+                height: 0,
+              ),
+              labelPadding: EdgeInsets.zero,
+              labelColor: kPrimaryActiveColor,
+              unselectedLabelStyle: kBodyTextStyle.copyWith(
+                color: kBodyTextColor,
+                fontSize: 10,
+                height: 0,
+              ),
+              onTap: (value) {
+                setState(() {
+                  _currentIndex = value;
+                });
+              },
+              tabs: [
+                Tab(
+                  icon: _currentIndex == 0
+                      ? _navItems[0]['selected_icon']
+                      : _navItems[0]['unSelected_icon'],
+                  text: _navItems[0]['label'],
+                  iconMargin: const EdgeInsets.only(bottom: 2),
+                ),
+                Tab(
+                  icon: _currentIndex == 1
+                      ? _navItems[1]['selected_icon']
+                      : _navItems[1]['unSelected_icon'],
+                  text: _navItems[1]['label'],
+                  iconMargin: const EdgeInsets.only(bottom: 2),
+                ),
+                Tab(
+                  icon: _currentIndex == 2
+                      ? _navItems[2]['selected_icon']
+                      : _navItems[2]['unSelected_icon'],
+                  text: _navItems[2]['label'],
+                  iconMargin: const EdgeInsets.only(bottom: 2),
+                ),
+                Tab(
+                  icon: _currentIndex == 3
+                      ? _navItems[3]['selected_icon']
+                      : _navItems[3]['unSelected_icon'],
+                  text: _navItems[3]['label'],
+                  iconMargin: const EdgeInsets.only(bottom: 2),
+                ),
+              ],
             ),
-            labelPadding: EdgeInsets.zero,
-            labelColor: kPrimaryActiveColor,
-            unselectedLabelStyle: kBodyTextStyle.copyWith(
-              color: kBodyTextColor,
-              fontSize: 10,
-              height: 0,
-            ),
-            onTap: (value) {
-              setState(() {
-                _currentIndex = value;
-              });
-            },
-            tabs: [
-              Tab(
-                icon: _currentIndex == 0
-                    ? _navItems[0]['selected_icon']
-                    : _navItems[0]['unSelected_icon'],
-                text: _navItems[0]['label'],
-                iconMargin: const EdgeInsets.only(bottom: 2),
-              ),
-              Tab(
-                icon: _currentIndex == 1
-                    ? _navItems[1]['selected_icon']
-                    : _navItems[1]['unSelected_icon'],
-                text: _navItems[1]['label'],
-                iconMargin: const EdgeInsets.only(bottom: 2),
-              ),
-              Tab(
-                icon: _currentIndex == 2
-                    ? _navItems[2]['selected_icon']
-                    : _navItems[2]['unSelected_icon'],
-                text: _navItems[2]['label'],
-                iconMargin: const EdgeInsets.only(bottom: 2),
-              ),
-              Tab(
-                icon: _currentIndex == 3
-                    ? _navItems[3]['selected_icon']
-                    : _navItems[3]['unSelected_icon'],
-                text: _navItems[3]['label'],
-                iconMargin: const EdgeInsets.only(bottom: 2),
-              ),
-            ],
           ),
         ),
       ),
