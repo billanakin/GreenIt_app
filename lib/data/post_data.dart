@@ -4,7 +4,7 @@ import 'package:greenit_version1/models/profile.dart';
 import 'package:intl/intl.dart';
 
 class DemoPostData {
-  static List<Post> demoPostData = [
+  static List<Post> demoPostListData = [
     Post(
       id: 0,
       profile: Profile(

@@ -1,5 +1,10 @@
 import 'package:greenit_version1/models/profile.dart';
 
+enum PostConstructorType {
+  defaultPost,
+  sharedPost,
+}
+
 class Post {
   final int id;
   final Profile profile;
@@ -11,6 +16,8 @@ class Post {
 
   final Post? sharedPost;
 
+  final PostConstructorType postConstructorType;
+
   Post({
     required this.id,
     required this.profile,
@@ -20,7 +27,8 @@ class Post {
     required this.messageTitle,
     required this.messageDescription,
     required this.postImages,
-  }) : sharedPost = null;
+  })  : postConstructorType = PostConstructorType.defaultPost,
+        sharedPost = null;
 
   Post.shared({
     required this.id,
@@ -29,7 +37,8 @@ class Post {
     required this.date,
     required this.messageDescription,
     required this.sharedPost,
-  })  : postImages = null,
+  })  : postConstructorType = PostConstructorType.sharedPost,
+        postImages = null,
         locationRange = null,
         messageTitle = null;
 

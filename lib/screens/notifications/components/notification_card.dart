@@ -9,33 +9,33 @@ import 'package:greenit_version1/size_config.dart';
 class NotificationCard extends StatelessWidget {
   const NotificationCard({
     super.key,
-    required this.notificationData,
+    required this.notification,
   });
 
-  final AppNotif.Notification notificationData;
+  final AppNotif.Notification notification;
 
   @override
   Widget build(BuildContext context) {
     Widget? notificationCardOutput;
 
-    if (notificationData.notificationConstructorType ==
+    if (notification.notificationConstructorType ==
         AppNotif.NotificationConstructorType.recentlyFollowed) {
       notificationCardOutput =
-          buildRecentlyFollowedTypeNotificationCard(notificationData);
-    } else if (notificationData.notificationConstructorType ==
+          buildRecentlyFollowedTypeNotificationCard(notification);
+    } else if (notification.notificationConstructorType ==
         AppNotif.NotificationConstructorType.recentlyPosted) {
       notificationCardOutput =
-          buildRecentlyPostedTypeNotificationCard(notificationData);
-    } else if (notificationData.notificationConstructorType ==
+          buildRecentlyPostedTypeNotificationCard(notification);
+    } else if (notification.notificationConstructorType ==
         AppNotif.NotificationConstructorType.recentlyLikedPost) {
       notificationCardOutput =
-          buildRecentlyLikedPostTypeNotificationCard(notificationData);
+          buildRecentlyLikedPostTypeNotificationCard(notification);
     }
     return notificationCardOutput!;
   }
 
   Container buildRecentlyLikedPostTypeNotificationCard(
-      AppNotif.Notification notificationData) {
+      AppNotif.Notification notification) {
     return Container(
       padding: const EdgeInsets.only(
           left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
@@ -52,7 +52,7 @@ class NotificationCard extends StatelessWidget {
                 (index) => Padding(
                   padding: const EdgeInsets.only(left: 5),
                   child: ProfileAvatar.secondary(
-                      profileAvatarImage: notificationData
+                      profileAvatarImage: notification
                           .listOfProfilesLiked![index].profileAvatar),
                 ),
               ),
@@ -63,7 +63,7 @@ class NotificationCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      notificationData.formattedlistofProfilesLikedNames,
+                      notification.formattedlistofProfilesLikedNames,
                       style: kSecondaryBodyTextStyle.copyWith(
                         height: 0,
                       ),
@@ -89,7 +89,7 @@ class NotificationCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                notificationData.postLiked!.messageTitle!,
+                notification.postLiked!.messageTitle!,
                 style: kSecondaryBodyTextStyle.copyWith(
                   fontWeight: FontWeight.w700,
                   height: 0,
@@ -99,7 +99,7 @@ class NotificationCard extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: Text(
-                  notificationData.postLiked!.messageDescription,
+                  notification.postLiked!.messageDescription,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: kCaptionTextStyle.copyWith(
@@ -125,7 +125,7 @@ class NotificationCard extends StatelessWidget {
   }
 
   Container buildRecentlyPostedTypeNotificationCard(
-      AppNotif.Notification notificationData) {
+      AppNotif.Notification notification) {
     return Container(
       padding: const EdgeInsets.only(
           left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
@@ -138,7 +138,7 @@ class NotificationCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ProfileAvatar.secondary(
-                profileAvatarImage: notificationData.profileRecentlyPostedImage,
+                profileAvatarImage: notification.profileRecentlyPostedImage,
               ),
               const HorizontalSpacing(of: 10),
               Expanded(
@@ -147,7 +147,7 @@ class NotificationCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      notificationData.profileRecentlyPostedName,
+                      notification.profileRecentlyPostedName,
                       style: kSecondaryBodyTextStyle.copyWith(
                         height: 0,
                       ),
@@ -173,7 +173,7 @@ class NotificationCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                notificationData.postRecentlyPosted!.messageTitle!,
+                notification.postRecentlyPosted!.messageTitle!,
                 style: kSecondaryBodyTextStyle.copyWith(
                   fontWeight: FontWeight.w700,
                   height: 0,
@@ -183,7 +183,7 @@ class NotificationCard extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: Text(
-                  notificationData.postRecentlyPosted!.messageDescription,
+                  notification.postRecentlyPosted!.messageDescription,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: kCaptionTextStyle.copyWith(
@@ -209,7 +209,7 @@ class NotificationCard extends StatelessWidget {
   }
 
   Container buildRecentlyFollowedTypeNotificationCard(
-      AppNotif.Notification notificationData) {
+      AppNotif.Notification notification) {
     return Container(
       padding: const EdgeInsets.only(
           left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
@@ -222,8 +222,7 @@ class NotificationCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ProfileAvatar.secondary(
-                profileAvatarImage:
-                    notificationData.profileRecentlyFollowingImage,
+                profileAvatarImage: notification.profileRecentlyFollowingImage,
               ),
               const HorizontalSpacing(of: 10),
               Expanded(
@@ -232,7 +231,7 @@ class NotificationCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      notificationData.profileRecentlyFollowingName,
+                      notification.profileRecentlyFollowingName,
                       style: kSecondaryBodyTextStyle.copyWith(
                         height: 0,
                       ),

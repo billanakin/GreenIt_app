@@ -2,7 +2,7 @@
 import 'package:greenit_version1/models/profile.dart';
 
 class DemoProfilesData {
-  static List<Profile> demoProfilesData = [
+  static List<Profile> demoProfilesListData = [
     Profile(
       id: 0,
       name: 'Dominic Osorio',
