@@ -188,7 +188,6 @@ class NotificationCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: kCaptionTextStyle.copyWith(
                     color: Colors.black,
-                    fontFamily: 'Helvetica Neue',
                     fontWeight: FontWeight.w300,
                     height: 1.7,
                   ),
