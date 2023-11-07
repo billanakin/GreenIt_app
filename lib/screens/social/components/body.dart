@@ -152,9 +152,107 @@ class PostCard extends StatelessWidget {
                     height: 1.7,
                   ),
                 ),
+                const VerticalSpacing(of: 10),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      if (post.postImagesLength == 1)
+                        SizedBox(
+                          width: 340,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: AspectRatio(
+                              aspectRatio: 16 / 9,
+                              child: Image.asset(
+                                post.postImages![0],
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                      if (post.postImagesLength > 1)
+                        ...List.generate(
+                          post.postImagesLength,
+                          (index) => Padding(
+                            padding: const EdgeInsets.only(right: 5),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: SizedBox(
+                                height: 180,
+                                child: AspectRatio(
+                                  aspectRatio: 4 / 5,
+                                  child: Image.asset(
+                                    post.postImages![index],
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                const VerticalSpacing(of: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.mode_comment_outlined,
+                      size: 20,
+                      color: Colors.black.withOpacity(0.6),
+                    ),
+                    const HorizontalSpacing(of: 5),
+                    Text(
+                      '15.3k', // TODO: Change to dynamic soon with  Model
+                      style: kCaptionTextStyle.copyWith(
+                        color: Colors.black,
+                        fontFamily: 'Helvetica Neue',
+                        fontWeight: FontWeight.w200,
+                        height: 1.7,
+                      ),
+                    ),
+                    const HorizontalSpacing(of: 25),
+                    Icon(
+                      Icons.share_outlined,
+                      size: 20,
+                      color: Colors.black.withOpacity(0.6),
+                    ),
+                    const HorizontalSpacing(of: 5),
+                    Text(
+                      '2.3k', // TODO: Change to dynamic soon with  Model
+                      style: kCaptionTextStyle.copyWith(
+                        color: Colors.black,
+                        fontFamily: 'Helvetica Neue',
+                        fontWeight: FontWeight.w200,
+                        height: 1.7,
+                      ),
+                    ),
+                    const HorizontalSpacing(of: 25),
+                    Icon(
+                      Icons.favorite_border_rounded,
+                      size: 20,
+                      color: Colors.black.withOpacity(0.6),
+                    ),
+                    const HorizontalSpacing(of: 5),
+                    Text(
+                      '25.5k', // TODO: Change to dynamic soon with  Model
+                      style: kCaptionTextStyle.copyWith(
+                        color: Colors.black,
+                        fontFamily: 'Helvetica Neue',
+                        fontWeight: FontWeight.w200,
+                        height: 1.7,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
+          const VerticalSpacing(of: 20),
+          const Divider(),
         ],
       ),
     );

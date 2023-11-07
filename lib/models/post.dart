@@ -47,4 +47,6 @@ class Post {
 
   String get profileSharedName => sharedPost!.profileName;
   String get profileSharedImage => sharedPost!.profileImage;
+
+  int get postImagesLength => postImages!.length;
 }
