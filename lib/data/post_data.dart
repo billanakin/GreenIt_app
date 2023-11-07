@@ -91,7 +91,11 @@ class DemoPostData {
           "Absolutely, we can't afford to wait any longer. It's time for our leaders to prioritize climate action and for all of us to take individual steps towards a more sustainable future.",
       sharedPost: Post(
         id: 3,
-        profile: Profile(id: 2, name: 'Anakin Vader', profileAvatar: ''),
+        profile: Profile(
+          id: 2,
+          name: 'Anakin Vader',
+          profileAvatar: 'assets/images/profile/profile7.png',
+        ),
         time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
         date: DateFormat.yMMMd().format(DateTime.now()),
         locationRange: 5,
@@ -118,7 +122,11 @@ class DemoPostData {
           "Climate change is a pressing issue, and it affects us right here in Cebu. Rising sea levels, extreme weather events, and threats to our local ecosystems are all signs that we must act now. We need our local leaders to implement policies that promote clean energy, reduce emissions, and protect our natural resources. But it's not just up to them; as individuals, we can also make a difference through our daily choices. Every small effort counts, from reducing single-use plastic to conserving water and energy. Together, we can create a more resilient and sustainable future for our beautiful Cebu. 🌊🌏 #CebuClimateAction #SustainableLiving #ActOnClimate",
       sharedPost: Post(
         id: 3,
-        profile: Profile(id: 2, name: 'Anakin Vader', profileAvatar: ''),
+        profile: Profile(
+          id: 2,
+          name: 'Anakin Vader',
+          profileAvatar: 'assets/images/profile/profile7.png',
+        ),
         time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
         date: DateFormat.yMMMd().format(DateTime.now()),
         locationRange: 5,
