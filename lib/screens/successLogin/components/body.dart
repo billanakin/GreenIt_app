@@ -21,7 +21,8 @@ class Body extends StatelessWidget {
                 width: getProportionateScreenWidth(350),
                 child: AspectRatio(
                   aspectRatio: 1.0,
-                  child: Image.asset('assets/images/Greenit_logo_main.png'),
+                  child:
+                      Image.asset('assets/images/logo/Greenit_logo_main.png'),
                 ),
               ),
               const Spacer(flex: 2),

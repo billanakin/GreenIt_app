@@ -7,26 +7,29 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Body(),
-      floatingActionButton: Container(
-        height: 75,
-        width: 75,
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: kPrimaryActiveColor,
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              blurRadius: 7,
-              spreadRadius: 0.8,
-              offset: const Offset(1.0, 3.0),
-            ),
-          ],
-        ),
-        child: const Center(
-          child: Icon(Icons.post_add_outlined, color: Colors.white, size: 35),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: const Body(),
+        floatingActionButton: Container(
+          height: 75,
+          width: 75,
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: kPrimaryActiveColor,
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                blurRadius: 7,
+                spreadRadius: 0.8,
+                offset: const Offset(1.0, 3.0),
+              ),
+            ],
+          ),
+          child: const Center(
+            child: Icon(Icons.post_add_outlined, color: Colors.white, size: 35),
+          ),
         ),
       ),
     );

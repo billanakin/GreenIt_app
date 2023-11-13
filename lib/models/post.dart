@@ -1,5 +1,10 @@
 import 'package:greenit_version1/models/profile.dart';
 
+enum PostConstructorType {
+  defaultPost,
+  sharedPost,
+}
+
 class Post {
   final int id;
   final Profile profile;
@@ -9,12 +14,9 @@ class Post {
   final String messageDescription;
   final List<String>? postImages;
 
-  // TO BE OPTIMIZED
-  // final List<Comment> comments;
-  // final List<Share> shares;
-  // final List<Like> likes;
-
   final Post? sharedPost;
+
+  final PostConstructorType postConstructorType;
 
   Post({
     required this.id,
@@ -25,7 +27,8 @@ class Post {
     required this.messageTitle,
     required this.messageDescription,
     required this.postImages,
-  }) : sharedPost = null;
+  })  : postConstructorType = PostConstructorType.defaultPost,
+        sharedPost = null;
 
   Post.shared({
     required this.id,
@@ -34,9 +37,16 @@ class Post {
     required this.date,
     required this.messageDescription,
     required this.sharedPost,
-  })  : postImages = null,
+  })  : postConstructorType = PostConstructorType.sharedPost,
+        postImages = null,
         locationRange = null,
         messageTitle = null;
 
   String get profileName => profile.name;
+  String get profileImage => profile.profileAvatar;
+
+  String get profileSharedName => sharedPost!.profileName;
+  String get profileSharedImage => sharedPost!.profileImage;
+
+  int get postImagesLength => postImages!.length;
 }

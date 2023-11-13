@@ -9,271 +9,250 @@ import 'package:greenit_version1/size_config.dart';
 class NotificationCard extends StatelessWidget {
   const NotificationCard({
     super.key,
-    required this.notificationData,
+    required this.notification,
   });
 
-  final AppNotif.Notification notificationData;
+  final AppNotif.Notification notification;
 
   @override
   Widget build(BuildContext context) {
     Widget? notificationCardOutput;
 
-    if (notificationData.notificationConstructorType ==
+    if (notification.notificationConstructorType ==
         AppNotif.NotificationConstructorType.recentlyFollowed) {
       notificationCardOutput =
-          buildRecentlyFollowedTypeNotificationCard(notificationData);
-    } else if (notificationData.notificationConstructorType ==
+          buildRecentlyFollowedTypeNotificationCard(notification);
+    } else if (notification.notificationConstructorType ==
         AppNotif.NotificationConstructorType.recentlyPosted) {
       notificationCardOutput =
-          buildRecentlyPostedTypeNotificationCard(notificationData);
-    } else if (notificationData.notificationConstructorType ==
+          buildRecentlyPostedTypeNotificationCard(notification);
+    } else if (notification.notificationConstructorType ==
         AppNotif.NotificationConstructorType.recentlyLikedPost) {
       notificationCardOutput =
-          buildRecentlyLikedPostTypeNotificationCard(notificationData);
+          buildRecentlyLikedPostTypeNotificationCard(notification);
     }
     return notificationCardOutput!;
   }
 
-  InkWell buildRecentlyLikedPostTypeNotificationCard(
-      AppNotif.Notification notificationData) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-        decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              width: 1,
-              color: Color(0x66868686),
-            ),
-          ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ...List.generate(
-                  3,
-                  (index) => Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: ProfileAvatar.secondary(
-                        profileAvatarImage: notificationData
-                            .listOfProfilesLiked![index].profileAvatar),
-                  ),
+  Container buildRecentlyLikedPostTypeNotificationCard(
+      AppNotif.Notification notification) {
+    return Container(
+      padding: const EdgeInsets.only(
+          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ...List.generate(
+                3,
+                (index) => Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: ProfileAvatar.secondary(
+                      profileAvatarImage: notification
+                          .listOfProfilesLiked![index].profileAvatar),
                 ),
-                const HorizontalSpacing(of: 10),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        notificationData.formattedlistofProfilesLikedNames,
-                        style: kSecondaryBodyTextStyle.copyWith(
-                          height: 0,
-                        ),
-                      ),
-                      const VerticalSpacing(of: 5),
-                      Text(
-                        'Liked your post',
-                        style: kCaptionTextStyle.copyWith(
-                          height: 0,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const HorizontalSpacing(of: 10),
-                const CardOptions(press: null),
-              ],
-            ),
-            const VerticalSpacing(of: 20),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  notificationData.postLiked!.messageTitle!,
-                  style: kSecondaryBodyTextStyle.copyWith(
-                    fontWeight: FontWeight.w700,
-                    height: 0,
-                  ),
-                ),
-                const VerticalSpacing(of: 10),
-                SizedBox(
-                  width: double.infinity,
-                  child: Text(
-                    notificationData.postLiked!.messageDescription,
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                    style: kCaptionTextStyle.copyWith(
-                      color: Colors.black,
-                      fontFamily: 'Helvetica Neue',
-                      fontWeight: FontWeight.w300,
-                      height: 1.7,
-                    ),
-                  ),
-                ),
-                const VerticalSpacing(of: 20),
-                const SizedBox(
-                  width: double.infinity,
-                  child: ViewPostButton(press: null),
-                )
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  InkWell buildRecentlyPostedTypeNotificationCard(
-      AppNotif.Notification notificationData) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-        decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              width: 1,
-              color: Color(0x66868686),
-            ),
-          ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ProfileAvatar.secondary(
-                  profileAvatarImage:
-                      notificationData.profileRecentlyPostedImage,
-                ),
-                const HorizontalSpacing(of: 10),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        notificationData.profileRecentlyPostedName,
-                        style: kSecondaryBodyTextStyle.copyWith(
-                          height: 0,
-                        ),
-                      ),
-                      const VerticalSpacing(of: 5),
-                      Text(
-                        'Recently Posted',
-                        style: kCaptionTextStyle.copyWith(
-                          height: 0,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const HorizontalSpacing(of: 10),
-                const CardOptions(press: null),
-              ],
-            ),
-            const VerticalSpacing(of: 20),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  notificationData.postRecentlyPosted!.messageTitle!,
-                  style: kSecondaryBodyTextStyle.copyWith(
-                    fontWeight: FontWeight.w700,
-                    height: 0,
-                  ),
-                ),
-                const VerticalSpacing(of: 10),
-                SizedBox(
-                  width: double.infinity,
-                  child: Text(
-                    notificationData.postRecentlyPosted!.messageDescription,
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                    style: kCaptionTextStyle.copyWith(
-                      color: Colors.black,
-                      fontFamily: 'Helvetica Neue',
-                      fontWeight: FontWeight.w300,
-                      height: 1.7,
-                    ),
-                  ),
-                ),
-                const VerticalSpacing(of: 20),
-                const SizedBox(
-                  width: double.infinity,
-                  child: ViewPostButton(press: null),
-                )
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  InkWell buildRecentlyFollowedTypeNotificationCard(
-      AppNotif.Notification notificationData) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-        decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              width: 1,
-              color: Color(0x66868686),
-            ),
-          ),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            ProfileAvatar.secondary(
-              profileAvatarImage:
-                  notificationData.profileRecentlyFollowingImage,
-            ),
-            const HorizontalSpacing(of: 10),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    notificationData.profileRecentlyFollowingName,
-                    style: kSecondaryBodyTextStyle.copyWith(
-                      height: 0,
-                    ),
-                  ),
-                  const VerticalSpacing(of: 5),
-                  Text(
-                    'Recently followed you',
-                    style: kCaptionTextStyle.copyWith(
-                      height: 0,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  )
-                ],
               ),
-            ),
-            const HorizontalSpacing(of: 10),
-            const CardOptions(press: null),
-          ],
-        ),
+              const HorizontalSpacing(of: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      notification.formattedlistofProfilesLikedNames,
+                      style: kSecondaryBodyTextStyle.copyWith(
+                        height: 0,
+                      ),
+                    ),
+                    const VerticalSpacing(of: 5),
+                    Text(
+                      'Liked your post',
+                      style: kCaptionTextStyle.copyWith(
+                        height: 0,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const HorizontalSpacing(of: 10),
+              const CardOptions(press: null),
+            ],
+          ),
+          const VerticalSpacing(of: 20),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                notification.postLiked!.messageTitle!,
+                style: kSecondaryBodyTextStyle.copyWith(
+                  fontWeight: FontWeight.w700,
+                  height: 0,
+                ),
+              ),
+              const VerticalSpacing(of: 10),
+              SizedBox(
+                width: double.infinity,
+                child: Text(
+                  notification.postLiked!.messageDescription,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: kCaptionTextStyle.copyWith(
+                    color: Colors.black,
+                    fontFamily: 'Helvetica Neue',
+                    fontWeight: FontWeight.w300,
+                    height: 1.7,
+                  ),
+                ),
+              ),
+              const VerticalSpacing(of: 20),
+              const SizedBox(
+                width: double.infinity,
+                child: ViewPostButton(press: null),
+              )
+            ],
+          ),
+          const VerticalSpacing(of: 20),
+          const Divider(),
+        ],
+      ),
+    );
+  }
+
+  Container buildRecentlyPostedTypeNotificationCard(
+      AppNotif.Notification notification) {
+    return Container(
+      padding: const EdgeInsets.only(
+          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ProfileAvatar.secondary(
+                profileAvatarImage: notification.profileRecentlyPostedImage,
+              ),
+              const HorizontalSpacing(of: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      notification.profileRecentlyPostedName,
+                      style: kSecondaryBodyTextStyle.copyWith(
+                        height: 0,
+                      ),
+                    ),
+                    const VerticalSpacing(of: 5),
+                    Text(
+                      'Recently Posted',
+                      style: kCaptionTextStyle.copyWith(
+                        height: 0,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const HorizontalSpacing(of: 10),
+              const CardOptions(press: null),
+            ],
+          ),
+          const VerticalSpacing(of: 20),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                notification.postRecentlyPosted!.messageTitle!,
+                style: kSecondaryBodyTextStyle.copyWith(
+                  fontWeight: FontWeight.w700,
+                  height: 0,
+                ),
+              ),
+              const VerticalSpacing(of: 10),
+              SizedBox(
+                width: double.infinity,
+                child: Text(
+                  notification.postRecentlyPosted!.messageDescription,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: kCaptionTextStyle.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w300,
+                    height: 1.7,
+                  ),
+                ),
+              ),
+              const VerticalSpacing(of: 20),
+              const SizedBox(
+                width: double.infinity,
+                child: ViewPostButton(press: null),
+              )
+            ],
+          ),
+          const VerticalSpacing(of: 20),
+          const Divider(),
+        ],
+      ),
+    );
+  }
+
+  Container buildRecentlyFollowedTypeNotificationCard(
+      AppNotif.Notification notification) {
+    return Container(
+      padding: const EdgeInsets.only(
+          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ProfileAvatar.secondary(
+                profileAvatarImage: notification.profileRecentlyFollowingImage,
+              ),
+              const HorizontalSpacing(of: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      notification.profileRecentlyFollowingName,
+                      style: kSecondaryBodyTextStyle.copyWith(
+                        height: 0,
+                      ),
+                    ),
+                    const VerticalSpacing(of: 5),
+                    Text(
+                      'Recently followed you',
+                      style: kCaptionTextStyle.copyWith(
+                        height: 0,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const HorizontalSpacing(of: 10),
+              const CardOptions(press: null),
+            ],
+          ),
+          const VerticalSpacing(of: 20),
+          const Divider(),
+        ],
       ),
     );
   }

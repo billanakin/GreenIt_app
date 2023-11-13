@@ -9,6 +9,7 @@ ThemeData buildThemeData() {
     inputDecorationTheme: inputDecorationTheme,
     buttonTheme: buttonThemeData,
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    dividerTheme: dividerThemeData,
     useMaterial3: true,
   );
 }
@@ -58,4 +59,10 @@ const ButtonThemeData buttonThemeData = ButtonThemeData(
       Radius.circular(10),
     ),
   ),
+);
+
+const DividerThemeData dividerThemeData = DividerThemeData(
+  color: Color(0x66868686),
+  space: 0,
+  thickness: 1,
 );
