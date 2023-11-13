@@ -29,7 +29,12 @@ class _BodyState extends State<Body> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               childCount: demoPostData.length,
-              (context, index) => PostCard(post: demoPostData[index]),
+              (context, index) => InkWell(
+                onTap: () {},
+                child: PostCard(
+                  post: demoPostData[index],
+                ),
+              ),
             ),
           ),
         ],
