@@ -3,6 +3,7 @@ import 'package:greenit_version1/components/appBar/custom_app_bar.dart';
 import 'package:greenit_version1/data/post_data.dart';
 import 'package:greenit_version1/models/post.dart';
 
+import '../../../models/profile.dart';
 import 'post_card.dart';
 
 class Body extends StatefulWidget {
@@ -20,11 +21,17 @@ class _BodyState extends State<Body> {
     return SafeArea(
       child: CustomScrollView(
         slivers: <Widget>[
-          const SliverAppBar(
-            leading: SizedBox.shrink(),
+          SliverAppBar(
+            leading: const SizedBox.shrink(),
             expandedHeight: 70,
             floating: true,
-            flexibleSpace: CustomAppBar(),
+            flexibleSpace: CustomAppBar(
+              userProfile: Profile(
+                id: 3,
+                name: 'Lionel Messi',
+                profileAvatar: 'assets/images/profile/user_profile.jpeg',
+              ),
+            ),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
