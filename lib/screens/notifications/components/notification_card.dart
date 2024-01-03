@@ -239,6 +239,7 @@ class NotificationCard extends StatelessWidget {
                     Text(
                       'Recently followed you',
                       style: kCaptionTextStyle.copyWith(
+                        color: Colors.black,
                         height: 0,
                         fontWeight: FontWeight.w300,
                       ),

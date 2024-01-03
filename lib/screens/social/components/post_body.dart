@@ -61,7 +61,7 @@ Container buildPostBodyDefaultType(Post post) {
           style: kCaptionTextStyle.copyWith(
             color: Colors.black,
             fontFamily: 'Helvetica Neue',
-            fontWeight: FontWeight.w200,
+            fontWeight: FontWeight.w300,
             height: 1.7,
           ),
         ),
@@ -127,7 +127,7 @@ Container buildPostBodySharedType(Post post) {
           style: kCaptionTextStyle.copyWith(
             color: Colors.black,
             fontFamily: 'Helvetica Neue',
-            fontWeight: FontWeight.w200,
+            fontWeight: FontWeight.w300,
             height: 1.7,
           ),
         ),
@@ -175,7 +175,7 @@ Container buildPostBodySharedType(Post post) {
                       style: kCaptionTextStyle.copyWith(
                         color: Colors.black,
                         fontFamily: 'Helvetica Neue',
-                        fontWeight: FontWeight.w200,
+                        fontWeight: FontWeight.w300,
                         height: 1.7,
                       ),
                     ),

@@ -39,7 +39,7 @@ class PostCard extends StatelessWidget {
             post: post,
             suffix: const CardOptions(press: null),
           ),
-          const VerticalSpacing(of: 20),
+          const VerticalSpacing(of: 10),
           PostBody.shared(post: post),
           const VerticalSpacing(of: 20),
           const Divider(),

@@ -4,6 +4,8 @@ import 'package:greenit_version1/data/notification_data.dart';
 import 'package:greenit_version1/models/notification.dart' as AppNotif;
 import 'package:greenit_version1/screens/notifications/components/notification_card.dart';
 
+import '../../../models/profile.dart';
+
 class Body extends StatefulWidget {
   const Body({super.key});
 
@@ -20,17 +22,26 @@ class _BodyState extends State<Body> {
     return SafeArea(
       child: CustomScrollView(
         slivers: <Widget>[
-          const SliverAppBar(
-            leading: SizedBox.shrink(),
+          SliverAppBar(
+            leading: const SizedBox.shrink(),
             expandedHeight: 70,
             floating: true,
-            flexibleSpace: CustomAppBar(),
+            flexibleSpace: CustomAppBar(
+              userProfile: Profile(
+                id: 3,
+                name: 'Lionel Messi',
+                profileAvatar: 'assets/images/profile/user_profile.jpeg',
+              ),
+            ),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               childCount: demoNotificationData.length,
-              (context, index) =>
-                  NotificationCard(notification: demoNotificationData[index]),
+              (context, index) => InkWell(
+                onTap: () {},
+                child:
+                    NotificationCard(notification: demoNotificationData[index]),
+              ),
             ),
           ),
         ],

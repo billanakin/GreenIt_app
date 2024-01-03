@@ -4,12 +4,12 @@ import 'package:greenit_version1/size_config.dart';
 
 // =============== COLORS ===============
 const kPrimaryActiveColor = Color(0xFF22A45D);
-const kPrimaryDarkColor = Color(0xFF010F07);
+const kPrimaryDarkColor = Color.fromRGBO(1, 15, 7, 1);
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryAccentColor = Color(0xFFEF9920);
 
 const kBodyTextColor = Color(0xFF868686);
-const kInputColor = Color(0xFFFBFBFB);
+const kInputColor = Color(0xFFF6F8F6);
 const kBackgroundColor = Colors.white;
 
 // =============== TEXT STYLES ===============
@@ -101,6 +101,11 @@ final otpInputDecoration = InputDecoration(
   focusedBorder: outlineInputBorder(),
   enabledBorder: outlineInputBorder(),
   counterText: '',
+);
+
+final kSearchBarBorder = OutlineInputBorder(
+  borderRadius: BorderRadius.circular(10),
+  borderSide: BorderSide.none,
 );
 
 OutlineInputBorder outlineInputBorder() {
