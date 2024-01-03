@@ -63,7 +63,7 @@ final TextStyle kButtonTextStyle = TextStyle(
 
 final TextStyle kCaptionTextStyle = TextStyle(
   color: kPrimaryDarkColor.withOpacity(0.64),
-  fontSize: getProportionateScreenWidth(12),
+  fontSize: getProportionateScreenWidth(14),
   fontWeight: FontWeight.w600,
   fontFamily: 'Helvetica Neue',
   // TODO: For Debugging Purposes not final
