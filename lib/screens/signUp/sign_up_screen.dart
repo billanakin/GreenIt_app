@@ -9,9 +9,13 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Sign Up',
+          style: kAppBarTitleTextStyle.copyWith(
+            color: kSecondaryBodyTextColor,
+          ),
         ),
       ),
       body: SafeArea(

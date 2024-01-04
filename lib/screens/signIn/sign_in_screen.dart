@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/signIn/componenets/body.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -7,8 +8,14 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Sign In'),
+        title: Text(
+          'Sign In',
+          style: kAppBarTitleTextStyle.copyWith(
+            color: kSecondaryBodyTextColor,
+          ),
+        ),
       ),
       body: const Body(),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/buttons/primary_button.dart';
+import 'package:greenit_version1/components/forms/header_description.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/size_config.dart';
 
@@ -22,16 +23,14 @@ class ResetEmailScreen extends StatelessWidget {
                   VerticalSpacing(of: SizeConfig.screenHeight * 0.04),
                   Text(
                     'Reset Email Sent',
-                    style: kH2TextStyle.copyWith(
-                      fontSize: getProportionateScreenWidth(30),
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: kH2TextStyle,
                   ),
                   const VerticalSpacing(of: 10),
                   Text(
                     "We've sent an email to your account's address with\nreset instructions. Please check your inbox shortly.",
-                    style:
-                        kSecondaryBodyTextStyle.copyWith(color: kBodyTextColor),
+                    style: kPrimaryBodyTextStyle.copyWith(
+                      color: kSecondaryBodyTextColor,
+                    ),
                   ),
                   VerticalSpacing(of: SizeConfig.screenHeight * 0.1),
                   PrimaryButton(

@@ -4,7 +4,7 @@ import 'package:greenit_version1/constants.dart';
 ThemeData buildThemeData() {
   return ThemeData(
     scaffoldBackgroundColor: kBackgroundColor,
-    fontFamily: 'SF Pro Text',
+    fontFamily: 'Helvetica Neue',
     appBarTheme: appBarTheme,
     inputDecorationTheme: inputDecorationTheme,
     buttonTheme: buttonThemeData,
@@ -14,11 +14,11 @@ ThemeData buildThemeData() {
   );
 }
 
-const AppBarTheme appBarTheme = AppBarTheme(
+final AppBarTheme appBarTheme = AppBarTheme(
   color: kBackgroundColor,
   elevation: 0,
   centerTitle: true,
-  iconTheme: IconThemeData(color: Colors.black),
+  iconTheme: const IconThemeData(color: Colors.black),
   titleTextStyle: kAppBarTitleTextStyle,
 );
 
@@ -35,7 +35,7 @@ final InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
       return TextStyle(color: color);
     },
   ),
-  fillColor: kInputColor,
+  fillColor: kTextFieldInputColor,
   filled: true,
   floatingLabelBehavior: FloatingLabelBehavior.auto,
   border: kDefaultOutlineInputBorder,

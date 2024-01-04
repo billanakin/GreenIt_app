@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/forgotPassword/components/body.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
@@ -7,8 +8,14 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Forgot Password'),
+        title: Text(
+          'Forgot Password',
+          style: kAppBarTitleTextStyle.copyWith(
+            color: kSecondaryBodyTextColor,
+          ),
+        ),
       ),
       body: const Body(),
     );

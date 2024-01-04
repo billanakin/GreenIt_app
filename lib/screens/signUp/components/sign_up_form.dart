@@ -77,10 +77,7 @@ class _SignUpFormState extends State<SignUpForm> {
       onSaved: (value) => _confirmPassword = value,
       onChanged: (value) => _confirmPassword = value,
       textInputAction: TextInputAction.next,
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       decoration: InputDecoration(
         hintText: 'Re-enter your password',
@@ -93,8 +90,8 @@ class _SignUpFormState extends State<SignUpForm> {
             });
           },
           child: _obscureText
-              ? const Icon(Icons.visibility_off, color: kBodyTextColor)
-              : const Icon(Icons.visibility, color: kBodyTextColor),
+              ? const Icon(Icons.visibility_off, color: kPrimaryIconColor)
+              : const Icon(Icons.visibility, color: kPrimaryIconColor),
         ),
       ),
     );
@@ -109,10 +106,7 @@ class _SignUpFormState extends State<SignUpForm> {
       onChanged: (value) => _password = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _confirmPasswordNode!.requestFocus(),
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       decoration: InputDecoration(
         hintText: 'Enter your password',
@@ -125,8 +119,8 @@ class _SignUpFormState extends State<SignUpForm> {
             });
           },
           child: _obscureText
-              ? const Icon(Icons.visibility_off, color: kBodyTextColor)
-              : const Icon(Icons.visibility, color: kBodyTextColor),
+              ? const Icon(Icons.visibility_off, color: kPrimaryIconColor)
+              : const Icon(Icons.visibility, color: kPrimaryIconColor),
         ),
       ),
     );
@@ -138,10 +132,7 @@ class _SignUpFormState extends State<SignUpForm> {
       onSaved: (value) => _email = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _passwordNode!.requestFocus(),
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(

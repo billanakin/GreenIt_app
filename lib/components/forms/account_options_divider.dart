@@ -12,7 +12,7 @@ class AccountOptionsDivider extends StatelessWidget {
       children: [
         Expanded(
           child: Divider(
-            color: kBodyTextColor,
+            color: kPrimaryBorderColor,
             indent: 10,
             endIndent: 10,
           ),
@@ -20,7 +20,7 @@ class AccountOptionsDivider extends StatelessWidget {
         Text('OR'),
         Expanded(
           child: Divider(
-            color: kBodyTextColor,
+            color: kPrimaryBorderColor,
             endIndent: 10,
             indent: 10,
           ),

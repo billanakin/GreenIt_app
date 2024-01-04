@@ -52,10 +52,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
       validator: emailValidator.call,
       onSaved: (value) => _email = value,
       keyboardType: TextInputType.emailAddress,
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       decoration: InputDecoration(
         hintText: 'Enter your email',
         labelText: 'Email Address',

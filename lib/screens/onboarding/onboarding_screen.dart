@@ -10,6 +10,7 @@ class OnBoardingScreen extends StatelessWidget {
     SizeConfig().init(context);
 
     return const Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Body(),
     );
   }

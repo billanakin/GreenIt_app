@@ -17,12 +17,7 @@ class ViewPostButton extends StatelessWidget {
       child: Text(
         'View Post',
         textAlign: TextAlign.center,
-        style: kCaptionTextStyle.copyWith(
-          color: kPrimaryActiveColor,
-          fontWeight: FontWeight.w400,
-          height: 0,
-          letterSpacing: 0.24,
-        ),
+        style: kTextButtonTextStyle,
       ),
     );
   }

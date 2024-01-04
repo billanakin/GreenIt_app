@@ -21,11 +21,8 @@ class PostInteractionBar extends StatelessWidget {
         const HorizontalSpacing(of: 5),
         Text(
           '15.3k', // TODO: Change to dynamic soon with  Model
-          style: kCaptionTextStyle.copyWith(
-            color: Colors.black,
-            fontFamily: 'Helvetica Neue',
-            fontWeight: FontWeight.w200,
-            height: 1.7,
+          style: kSecondaryBodyTextStyle.copyWith(
+            color: kPrimaryBodyTextColor,
           ),
         ),
         const HorizontalSpacing(of: 25),
@@ -37,11 +34,8 @@ class PostInteractionBar extends StatelessWidget {
         const HorizontalSpacing(of: 5),
         Text(
           '2.3k', // TODO: Change to dynamic soon with  Model
-          style: kCaptionTextStyle.copyWith(
-            color: Colors.black,
-            fontFamily: 'Helvetica Neue',
-            fontWeight: FontWeight.w200,
-            height: 1.7,
+          style: kSecondaryBodyTextStyle.copyWith(
+            color: kPrimaryBodyTextColor,
           ),
         ),
         const HorizontalSpacing(of: 25),
@@ -53,11 +47,8 @@ class PostInteractionBar extends StatelessWidget {
         const HorizontalSpacing(of: 5),
         Text(
           '25.5k', // TODO: Change to dynamic soon with  Model
-          style: kCaptionTextStyle.copyWith(
-            color: Colors.black,
-            fontFamily: 'Helvetica Neue',
-            fontWeight: FontWeight.w200,
-            height: 1.7,
+          style: kSecondaryBodyTextStyle.copyWith(
+            color: kPrimaryBodyTextColor,
           ),
         ),
       ],
