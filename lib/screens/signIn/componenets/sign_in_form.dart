@@ -67,9 +67,11 @@ class _SignInFormState extends State<SignInForm> {
                     builder: (context) => const ForgotPasswordScreen(),
                   ),
                 ),
-                child: const Text(
+                child: Text(
                   'Forgot Password',
-                  style: TextStyle(decoration: TextDecoration.underline),
+                  style: kPrimaryBodyTextStyle.copyWith(
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               )
             ],
@@ -103,10 +105,7 @@ class _SignInFormState extends State<SignInForm> {
       onSaved: (value) => _password = value,
       onChanged: (value) => _password = value,
       textInputAction: TextInputAction.next,
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       decoration: InputDecoration(
         hintText: 'Enter your password',
@@ -119,8 +118,8 @@ class _SignInFormState extends State<SignInForm> {
             });
           },
           child: _obscureText
-              ? const Icon(Icons.visibility_off, color: kBodyTextColor)
-              : const Icon(Icons.visibility, color: kBodyTextColor),
+              ? const Icon(Icons.visibility_off, color: kPrimaryIconColor)
+              : const Icon(Icons.visibility, color: kPrimaryIconColor),
         ),
       ),
     );
@@ -132,10 +131,7 @@ class _SignInFormState extends State<SignInForm> {
       onSaved: (value) => _email = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _passwordNode!.requestFocus(),
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(

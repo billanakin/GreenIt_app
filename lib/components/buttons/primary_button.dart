@@ -27,11 +27,7 @@ class PrimaryButton extends StatelessWidget {
         onPressed: press,
         child: Text(
           text,
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(18),
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-          ),
+          style: kPrimaryButtonTextStyle,
         ),
       ),
     );

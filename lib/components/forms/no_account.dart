@@ -14,7 +14,7 @@ class NoAccount extends StatelessWidget {
       children: [
         Text(
           "Don't have an account? ",
-          style: kBodyTextStyle,
+          style: kPrimaryBodyTextStyle,
         ),
         GestureDetector(
           onTap: () => Navigator.push(
@@ -25,7 +25,7 @@ class NoAccount extends StatelessWidget {
           ),
           child: Text(
             'Sign Up',
-            style: kBodyTextStyle.copyWith(color: kPrimaryActiveColor),
+            style: kPrimaryBodyTextStyle.copyWith(color: kPrimaryActiveColor),
           ),
         )
       ],

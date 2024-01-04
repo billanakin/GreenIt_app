@@ -77,12 +77,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       validator: requiredValidator.call,
       onSaved: (value) => _address = value,
       textInputAction: TextInputAction.next,
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
-      keyboardType: TextInputType.phone,
+      keyboardType: TextInputType.name,
       decoration: InputDecoration(
         hintText: 'Enter your address',
         labelText: 'Address',
@@ -98,10 +95,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       onSaved: (value) => _phoneNumber = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _addressNode!.requestFocus(),
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       keyboardType: TextInputType.phone,
       decoration: InputDecoration(
@@ -119,10 +113,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       onSaved: (value) => _lastName = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _phoneNumberNode!.requestFocus(),
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       keyboardType: TextInputType.name,
       decoration: InputDecoration(
@@ -139,10 +130,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       onSaved: (value) => _firstName = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _lastNameNode!.requestFocus(),
-      style: kSecondaryBodyTextStyle.copyWith(
-        fontSize: getProportionateScreenWidth(15),
-        height: 1.5,
-      ),
+      style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       keyboardType: TextInputType.name,
       decoration: InputDecoration(

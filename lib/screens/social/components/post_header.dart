@@ -43,16 +43,10 @@ class PostHeader extends StatelessWidget {
             children: [
               Text(
                 post.profileName,
-                style: kSecondaryBodyTextStyle.copyWith(
-                  height: 0,
-                ),
+                style: kPrimaryBodyTextStyle,
               ),
-              const VerticalSpacing(of: 5),
               DefaultTextStyle(
-                style: kCaptionTextStyle.copyWith(
-                  height: 0,
-                  fontWeight: FontWeight.w300,
-                ),
+                style: kSecondaryBodyTextStyle,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,

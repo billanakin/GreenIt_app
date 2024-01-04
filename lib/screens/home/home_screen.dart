@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/appBar/custom_app_bar.dart';
+import 'package:greenit_version1/components/appBar/default_app_bar.dart';
+import 'package:greenit_version1/components/appBar/home_page_app_bar.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/home/components/body.dart';
 
@@ -15,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
           extendBodyBehindAppBar: true,
-          appBar: CustomAppBar.homePage(
+          appBar: HomePageAppBar(
             userProfile: Profile(
               id: 3,
               name: 'Lionel Messi',

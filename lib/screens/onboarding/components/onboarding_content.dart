@@ -29,7 +29,7 @@ class OnBoardingContent extends StatelessWidget {
                 TextSpan(
                   text: 'Green',
                   style: kHeadlineTextStyle.copyWith(
-                    color: kPrimaryDarkColor.withOpacity(0.8),
+                    color: kPrimaryBodyTextColor.withOpacity(0.8),
                   ),
                 ),
                 TextSpan(
@@ -46,15 +46,18 @@ class OnBoardingContent extends StatelessWidget {
             textAlign: TextAlign.center,
             style: kHeadlineTextStyle,
           ),
-        const VerticalSpacing(of: 5),
+        const VerticalSpacing(of: 10),
         Text(
           text!,
           textAlign: TextAlign.center,
-          style: const TextStyle(color: kBodyTextColor),
+          style: kPrimaryBodyTextStyle.copyWith(
+            color: kSecondaryBodyTextColor,
+            fontFamily: kSecondaryFontFamily,
+          ),
         ),
-        const VerticalSpacing(),
+        const VerticalSpacing(of: 10),
         SizedBox(
-          width: getProportionateScreenWidth(350),
+          width: getProportionateScreenWidth(300),
           child: AspectRatio(
             aspectRatio: 1,
             child: Image.asset(

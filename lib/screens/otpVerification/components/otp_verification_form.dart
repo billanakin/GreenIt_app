@@ -148,13 +148,13 @@ class ResendCodeText extends StatelessWidget {
       children: [
         Text(
           "Didn't receive code? ",
-          style: kBodyTextStyle,
+          style: kPrimaryBodyTextStyle,
         ),
         GestureDetector(
           onTap: () {},
           child: Text(
             'Resend Again.',
-            style: kBodyTextStyle.copyWith(color: kPrimaryActiveColor),
+            style: kPrimaryBodyTextStyle.copyWith(color: kPrimaryActiveColor),
           ),
         ),
       ],

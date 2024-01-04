@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/forms/account_options.dart';
 import 'package:greenit_version1/components/forms/account_options_divider.dart';
 import 'package:greenit_version1/components/forms/no_account.dart';
-import 'package:greenit_version1/components/forms/welcome_text.dart';
+import 'package:greenit_version1/components/forms/header_description.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/signIn/componenets/sign_in_form.dart';
 import 'package:greenit_version1/size_config.dart';
@@ -21,7 +21,7 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 VerticalSpacing(of: SizeConfig.screenHeight * 0.04),
-                const WelcomeText(
+                const HeaderDescription(
                   title: 'Welcome Back!',
                   text:
                       'Please enter your credentials\n to access your account.',

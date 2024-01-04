@@ -2,76 +2,89 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:greenit_version1/size_config.dart';
 
+// =============== FONTS ================
+const kPrimaryFontFamily = 'Helvetica Neue'; // DEFAULT
+const kSecondaryFontFamily = 'SF Pro Text';
+
 // =============== COLORS ===============
 const kPrimaryActiveColor = Color(0xFF22A45D);
-const kPrimaryDarkColor = Color.fromRGBO(1, 15, 7, 1);
-const kPrimaryLightColor = Color(0xFFFFECDF);
-const kPrimaryAccentColor = Color(0xFFEF9920);
+const kPrimaryBorderColor = Color(0x66868686);
 
-const kBodyTextColor = Color(0xFF868686);
-const kInputColor = Color(0xFFF6F8F6);
+const kPrimaryBodyTextColor = Colors.black;
+const kSecondaryBodyTextColor = Color(0xFF6C6C6C);
+
+const kPrimaryIconColor = Color(0xFF6C6C6C);
+
+const kTextFieldInputColor = Color(0xFFF6F8F6);
 const kBackgroundColor = Colors.white;
 
 // =============== TEXT STYLES ===============
 final TextStyle kH1TextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(34),
   fontWeight: FontWeight.w500,
+  fontFamily: kSecondaryFontFamily,
   letterSpacing: 0.22,
 );
 
 final TextStyle kH2TextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(28),
   fontWeight: FontWeight.w600,
+  fontFamily: kSecondaryFontFamily,
   letterSpacing: 0.18,
 );
 
 final TextStyle kH3TextStyle = kH2TextStyle.copyWith(
   fontSize: getProportionateScreenWidth(20),
+  fontFamily: kSecondaryFontFamily,
   letterSpacing: 0.14,
 );
 
 final TextStyle kHeadlineTextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(25),
+  fontFamily: kSecondaryFontFamily,
   fontWeight: FontWeight.bold,
 );
 
 final TextStyle kSubHeadTextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(20),
   fontWeight: FontWeight.w500,
-  color: kPrimaryDarkColor,
+  fontFamily: kSecondaryFontFamily,
+  color: kPrimaryBodyTextColor,
   letterSpacing: 0.44,
 );
 
-final TextStyle kBodyTextStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(16),
-  color: kBodyTextColor,
+final TextStyle kPrimaryBodyTextStyle = TextStyle(
+  color: kPrimaryBodyTextColor,
+  fontSize: getProportionateScreenHeight(14),
+  fontWeight: FontWeight.w400,
   height: 1.5,
 );
 
 final TextStyle kSecondaryBodyTextStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(14),
-  fontWeight: FontWeight.w500,
-  color: kPrimaryDarkColor,
-  fontFamily: 'Helvetica Neue', // TODO: For Debugging Purposes not final
+  color: kSecondaryBodyTextColor,
+  fontSize: getProportionateScreenHeight(12),
+  fontWeight: FontWeight.w400,
+  height: 1.5,
 );
 
-final TextStyle kButtonTextStyle = TextStyle(
+final TextStyle kPrimaryButtonTextStyle = TextStyle(
   color: Colors.white,
-  fontSize: getProportionateScreenWidth(14),
+  fontFamily: kSecondaryFontFamily,
   fontWeight: FontWeight.bold,
+  fontSize: getProportionateScreenWidth(14),
 );
 
-final TextStyle kCaptionTextStyle = TextStyle(
-  color: kPrimaryDarkColor.withOpacity(0.64),
-  fontSize: getProportionateScreenWidth(12),
-  fontWeight: FontWeight.w600,
-  fontFamily: 'Helvetica Neue',
-  // TODO: For Debugging Purposes not final
+final TextStyle kTextButtonTextStyle = kSecondaryBodyTextStyle.copyWith(
+  fontFamily: 'Helvetica',
+  fontWeight: FontWeight.w500,
+  letterSpacing: 0.24,
+  color: kPrimaryActiveColor,
 );
 
-const TextStyle kAppBarTitleTextStyle = TextStyle(
-  fontSize: 20,
-  color: Color(0xFF8B8B8B),
+final TextStyle kAppBarTitleTextStyle = TextStyle(
+  color: kPrimaryBodyTextColor,
+  fontSize: getProportionateScreenHeight(14),
+  fontWeight: FontWeight.w700,
 );
 
 // =============== PADDINGS ===============
@@ -90,7 +103,7 @@ const kErrorLabelText = TextStyle(color: Colors.red);
 
 const OutlineInputBorder kDefaultOutlineInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(10)),
-  borderSide: BorderSide(color: kBodyTextColor),
+  borderSide: BorderSide(color: kPrimaryBorderColor),
   gapPadding: 10,
 );
 
@@ -111,7 +124,7 @@ final kSearchBarBorder = OutlineInputBorder(
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(getProportionateScreenWidth(10)),
-    borderSide: const BorderSide(color: kBodyTextColor),
+    borderSide: const BorderSide(color: kPrimaryBorderColor),
   );
 }
 

@@ -49,21 +49,15 @@ Container buildPostBodyDefaultType(Post post) {
       children: [
         Text(
           post.messageTitle!,
-          style: kSecondaryBodyTextStyle.copyWith(
-            letterSpacing: 0.28,
-            fontWeight: FontWeight.w500,
-            height: 0,
+          style: kPrimaryBodyTextStyle.copyWith(
+            fontFamily: 'Helvetica',
+            fontWeight: FontWeight.w600,
           ),
         ),
         const VerticalSpacing(of: 10),
         Text(
           post.messageDescription,
-          style: kCaptionTextStyle.copyWith(
-            color: Colors.black,
-            fontFamily: 'Helvetica Neue',
-            fontWeight: FontWeight.w300,
-            height: 1.7,
-          ),
+          style: kPrimaryBodyTextStyle,
         ),
         const VerticalSpacing(of: 10),
         SingleChildScrollView(
@@ -124,12 +118,7 @@ Container buildPostBodySharedType(Post post) {
       children: [
         Text(
           post.messageDescription,
-          style: kCaptionTextStyle.copyWith(
-            color: Colors.black,
-            fontFamily: 'Helvetica Neue',
-            fontWeight: FontWeight.w300,
-            height: 1.7,
-          ),
+          style: kPrimaryBodyTextStyle,
         ),
         const VerticalSpacing(of: 10),
         Container(
@@ -161,23 +150,17 @@ Container buildPostBodySharedType(Post post) {
                   children: [
                     Text(
                       post.sharedPost!.messageTitle!,
-                      style: kSecondaryBodyTextStyle.copyWith(
-                        letterSpacing: 0.28,
-                        fontWeight: FontWeight.w500,
-                        height: 0,
+                      style: kPrimaryBodyTextStyle.copyWith(
+                        fontFamily: 'Helvetica',
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     const VerticalSpacing(of: 10),
                     Text(
                       post.sharedPost!.messageDescription,
-                      maxLines: 4,
+                      maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: kCaptionTextStyle.copyWith(
-                        color: Colors.black,
-                        fontFamily: 'Helvetica Neue',
-                        fontWeight: FontWeight.w300,
-                        height: 1.7,
-                      ),
+                      style: kPrimaryBodyTextStyle,
                     ),
                   ],
                 ),

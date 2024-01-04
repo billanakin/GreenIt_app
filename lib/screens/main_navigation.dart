@@ -28,28 +28,28 @@ class _MainNavigationState extends State<MainNavigation>
       'selected_icon':
           const Icon(Icons.place, size: 30, color: kPrimaryActiveColor),
       'unSelected_icon':
-          const Icon(Icons.place_outlined, size: 30, color: kBodyTextColor),
+          const Icon(Icons.place_outlined, size: 30, color: kPrimaryIconColor),
       'label': 'Home'
     },
     {
       'selected_icon':
           const Icon(Icons.people, size: 30, color: kPrimaryActiveColor),
       'unSelected_icon':
-          const Icon(Icons.people_outlined, size: 30, color: kBodyTextColor),
+          const Icon(Icons.people_outlined, size: 30, color: kPrimaryIconColor),
       'label': 'Social'
     },
     {
       'selected_icon':
           const Icon(Icons.explore, size: 30, color: kPrimaryActiveColor),
-      'unSelected_icon':
-          const Icon(Icons.explore_outlined, size: 30, color: kBodyTextColor),
+      'unSelected_icon': const Icon(Icons.explore_outlined,
+          size: 30, color: kPrimaryIconColor),
       'label': 'Explore'
     },
     {
       'selected_icon':
           const Icon(Icons.notifications, size: 30, color: kPrimaryActiveColor),
       'unSelected_icon': const Icon(Icons.notifications_outlined,
-          size: 30, color: kBodyTextColor),
+          size: 30, color: kPrimaryIconColor),
       'label': 'Notifications'
     },
   ];
@@ -96,12 +96,12 @@ class _MainNavigationState extends State<MainNavigation>
           child: Container(
             padding: EdgeInsets.zero,
             height: getProportionateScreenHeight(55),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(
                 top: BorderSide(
-                  color: kBodyTextColor.withOpacity(0.15),
-                  width: 1.5,
+                  color: kPrimaryBorderColor,
+                  width: 1,
                 ),
               ),
             ),
@@ -121,17 +121,13 @@ class _MainNavigationState extends State<MainNavigation>
                 insets:
                     EdgeInsets.only(bottom: getProportionateScreenHeight(53)),
               ),
-              labelStyle: kBodyTextStyle.copyWith(
-                color: kPrimaryActiveColor,
+              labelStyle: kSecondaryBodyTextStyle.copyWith(
                 fontSize: 10,
-                height: 0,
               ),
               labelPadding: EdgeInsets.zero,
               labelColor: kPrimaryActiveColor,
-              unselectedLabelStyle: kBodyTextStyle.copyWith(
-                color: kBodyTextColor,
+              unselectedLabelStyle: kSecondaryBodyTextStyle.copyWith(
                 fontSize: 10,
-                height: 0,
               ),
               onTap: (value) {
                 setState(() {

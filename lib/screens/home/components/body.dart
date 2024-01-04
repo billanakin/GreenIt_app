@@ -49,7 +49,7 @@ class _BodyState extends State<Body> {
                       ),
                       child: const Icon(
                         Icons.map_outlined,
-                        color: kBodyTextColor,
+                        color: kPrimaryIconColor,
                       ),
                     ),
                   ),
@@ -65,7 +65,7 @@ class _BodyState extends State<Body> {
                     ),
                     child: const Icon(
                       Icons.near_me_outlined,
-                      color: kBodyTextColor,
+                      color: kPrimaryIconColor,
                     ),
                   ),
                 ],

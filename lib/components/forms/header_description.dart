@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/size_config.dart';
 
-class WelcomeText extends StatelessWidget {
-  const WelcomeText({
+class HeaderDescription extends StatelessWidget {
+  const HeaderDescription({
     super.key,
     required this.title,
     required this.text,
   }) : isVerification = false;
 
-  const WelcomeText.verification({
+  const HeaderDescription.verification({
     super.key,
     required this.title,
     required this.text,
@@ -25,14 +25,13 @@ class WelcomeText extends StatelessWidget {
       children: [
         Text(
           title,
-          style: kH2TextStyle.copyWith(
-            fontSize: getProportionateScreenWidth(30),
-            fontWeight: FontWeight.w600,
-          ),
+          style: kH2TextStyle,
         ),
         Text(
           text,
-          style: kSecondaryBodyTextStyle.copyWith(color: kBodyTextColor),
+          style: kPrimaryBodyTextStyle.copyWith(
+            color: kSecondaryBodyTextColor,
+          ),
           textAlign: TextAlign.center,
         ),
         if (isVerification)
@@ -41,7 +40,9 @@ class WelcomeText extends StatelessWidget {
             children: [
               Text(
                 'This code will expire in ',
-                style: kSecondaryBodyTextStyle.copyWith(color: kBodyTextColor),
+                style: kPrimaryBodyTextStyle.copyWith(
+                  color: kSecondaryBodyTextColor,
+                ),
               ),
               TweenAnimationBuilder(
                 tween: Tween(begin: 30.0, end: 0.0),

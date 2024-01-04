@@ -64,18 +64,9 @@ class NotificationCard extends StatelessWidget {
                   children: [
                     Text(
                       notification.formattedlistofProfilesLikedNames,
-                      style: kSecondaryBodyTextStyle.copyWith(
-                        height: 0,
-                      ),
+                      style: kPrimaryBodyTextStyle,
                     ),
-                    const VerticalSpacing(of: 5),
-                    Text(
-                      'Liked your post',
-                      style: kCaptionTextStyle.copyWith(
-                        height: 0,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    )
+                    Text('Liked your post', style: kSecondaryBodyTextStyle)
                   ],
                 ),
               ),
@@ -90,9 +81,9 @@ class NotificationCard extends StatelessWidget {
             children: [
               Text(
                 notification.postLiked!.messageTitle!,
-                style: kSecondaryBodyTextStyle.copyWith(
+                style: kPrimaryBodyTextStyle.copyWith(
+                  fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w700,
-                  height: 0,
                 ),
               ),
               const VerticalSpacing(of: 10),
@@ -102,12 +93,7 @@ class NotificationCard extends StatelessWidget {
                   notification.postLiked!.messageDescription,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: kCaptionTextStyle.copyWith(
-                    color: Colors.black,
-                    fontFamily: 'Helvetica Neue',
-                    fontWeight: FontWeight.w300,
-                    height: 1.7,
-                  ),
+                  style: kPrimaryBodyTextStyle,
                 ),
               ),
               const VerticalSpacing(of: 20),
@@ -148,17 +134,11 @@ class NotificationCard extends StatelessWidget {
                   children: [
                     Text(
                       notification.profileRecentlyPostedName,
-                      style: kSecondaryBodyTextStyle.copyWith(
-                        height: 0,
-                      ),
+                      style: kPrimaryBodyTextStyle,
                     ),
-                    const VerticalSpacing(of: 5),
                     Text(
                       'Recently Posted',
-                      style: kCaptionTextStyle.copyWith(
-                        height: 0,
-                        fontWeight: FontWeight.w300,
-                      ),
+                      style: kSecondaryBodyTextStyle,
                     )
                   ],
                 ),
@@ -174,9 +154,9 @@ class NotificationCard extends StatelessWidget {
             children: [
               Text(
                 notification.postRecentlyPosted!.messageTitle!,
-                style: kSecondaryBodyTextStyle.copyWith(
+                style: kPrimaryBodyTextStyle.copyWith(
+                  fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w700,
-                  height: 0,
                 ),
               ),
               const VerticalSpacing(of: 10),
@@ -186,11 +166,7 @@ class NotificationCard extends StatelessWidget {
                   notification.postRecentlyPosted!.messageDescription,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: kCaptionTextStyle.copyWith(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w300,
-                    height: 1.7,
-                  ),
+                  style: kPrimaryBodyTextStyle,
                 ),
               ),
               const VerticalSpacing(of: 20),
@@ -231,18 +207,12 @@ class NotificationCard extends StatelessWidget {
                   children: [
                     Text(
                       notification.profileRecentlyFollowingName,
-                      style: kSecondaryBodyTextStyle.copyWith(
-                        height: 0,
-                      ),
+                      style: kPrimaryBodyTextStyle,
                     ),
-                    const VerticalSpacing(of: 5),
+                    const VerticalSpacing(of: 2),
                     Text(
                       'Recently followed you',
-                      style: kCaptionTextStyle.copyWith(
-                        color: Colors.black,
-                        height: 0,
-                        fontWeight: FontWeight.w300,
-                      ),
+                      style: kSecondaryBodyTextStyle,
                     )
                   ],
                 ),
