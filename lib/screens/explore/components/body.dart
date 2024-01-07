@@ -16,7 +16,7 @@ class Body extends StatefulWidget {
   State<Body> createState() => _BodyState();
 }
 
-class _BodyState extends State<Body> {
+class _BodyState extends State<Body> with TickerProviderStateMixin {
   List<Map<String, dynamic>> tabPage = [
     {
       'title': 'Trending',
@@ -40,7 +40,29 @@ class _BodyState extends State<Body> {
     },
   ];
 
+  late ScrollController _scrollController;
+
   int currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.dispose();
+  }
+
+  void _autoScrollToTop() {
+    _scrollController.animateTo(
+      0,
+      duration: const Duration(milliseconds: 250),
+      curve: Curves.linear,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +70,7 @@ class _BodyState extends State<Body> {
 
     return SafeArea(
       child: CustomScrollView(
+        controller: _scrollController,
         slivers: <Widget>[
           SliverAppBar(
             leading: const SizedBox.shrink(),
@@ -98,6 +121,7 @@ class _BodyState extends State<Body> {
                       onPressed: () {
                         setState(() {
                           currentIndex = index;
+                          _autoScrollToTop();
                         });
                       },
                       child: Text(
