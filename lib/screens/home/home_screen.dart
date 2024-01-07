@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/appBar/default_app_bar.dart';
 import 'package:greenit_version1/components/appBar/home_page_app_bar.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/home/components/body.dart';

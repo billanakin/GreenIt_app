@@ -53,6 +53,14 @@ final TextStyle kSubHeadTextStyle = TextStyle(
   letterSpacing: 0.44,
 );
 
+final TextStyle kPrimaryHeaderTextStyle = TextStyle(
+  color: kPrimaryBodyTextColor,
+  fontSize: getProportionateScreenHeight(18),
+  fontFamily: 'Helvetica',
+  fontWeight: FontWeight.w600,
+  height: 1.5,
+);
+
 final TextStyle kPrimaryBodyTextStyle = TextStyle(
   color: kPrimaryBodyTextColor,
   fontSize: getProportionateScreenHeight(14),
