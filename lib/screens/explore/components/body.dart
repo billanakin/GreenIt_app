@@ -6,7 +6,6 @@ import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/data/post_data.dart';
 import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
-import 'package:greenit_version1/screens/social/components/body.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -88,7 +87,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             primary: false,
             pinned: true,
             scrolledUnderElevation: 0,
-            backgroundColor: Colors.transparent,
+            backgroundColor: const Color(0x66868686).withOpacity(0.1),
+            // backgroundColor: Colors.transparent,
             expandedHeight: 70.0,
             collapsedHeight: 70.0,
             flexibleSpace: Container(
