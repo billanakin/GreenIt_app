@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/appBar/explore_page_app_bar.dart';
+import 'package:greenit_version1/components/posts/section_header.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/data/post_data.dart';
 import 'package:greenit_version1/models/profile.dart';
@@ -116,19 +117,10 @@ class _BodyState extends State<Body> {
               vertical: kDefaultPadding,
             ),
             sliver: SliverToBoxAdapter(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    tabPage[currentIndex]['title'].toString(),
-                    style: kPrimaryHeaderTextStyle,
-                  ),
-                  Text(
-                    tabPage[currentIndex]['subtitle'].toString(),
-                    style: kPrimaryBodyTextStyle,
-                  ),
-                ],
+              child: SectionHeader(
+                currentIndex: currentIndex,
+                title: tabPage[currentIndex]['title'].toString(),
+                subtitle: tabPage[currentIndex]['subtitle'].toString(),
               ),
             ),
           ),
