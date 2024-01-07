@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/appBar/explore_page_app_bar.dart';
 import 'package:greenit_version1/constants.dart';
+import 'package:greenit_version1/data/post_data.dart';
 import 'package:greenit_version1/models/profile.dart';
 import 'package:greenit_version1/size_config.dart';
 
@@ -16,18 +17,22 @@ class _BodyState extends State<Body> {
     {
       'title': 'Trending',
       'subtitle': "Explore what's hot and popular!",
+      'data': DemoPostData.demoTrendingPostListData.toList(),
     },
     {
       'title': 'Near Me',
       'subtitle': "Explore local events just steps away!",
+      'data': DemoPostData.demoNearMeListData.toList(),
     },
     {
       'title': 'Latest Now',
       'subtitle': "Explore ahead with the freshest events!",
+      'data': DemoPostData.demoLatestNowPostData.toList(),
     },
     {
       'title': 'Recommended',
       'subtitle': "Explore our highly recommended events!",
+      'data': DemoPostData.demoRecommendedPostListData.toList(),
     },
   ];
 

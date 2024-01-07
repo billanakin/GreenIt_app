@@ -4,6 +4,7 @@ import 'package:greenit_version1/models/profile.dart';
 import 'package:intl/intl.dart';
 
 class DemoPostData {
+  // ================== TRENDING POSTS =====================
   static List<Post> demoTrendingPostListData = [
     Post(
       id: 1,
@@ -94,6 +95,7 @@ class DemoPostData {
     ),
   ];
 
+  // ================== NEAR ME POSTS =====================
   static List<Post> demoNearMeListData = [
     Post(
       id: 0,
@@ -184,6 +186,191 @@ class DemoPostData {
     ),
   ];
 
+  // ================== LATEST NOW POSTS =====================
+  static List<Post> demoLatestNowPostData = [
+    Post.shared(
+      id: 5,
+      profile: Profile(
+        id: 5,
+        name: 'Carlos Sainz',
+        profileAvatar: 'assets/images/profile/profile3.png',
+      ),
+      time: DateFormat('h:mm a').format(DateTime.now()),
+      date: DateFormat.yMMMd().format(DateTime.now()),
+      messageDescription:
+          "Climate change is a pressing issue, and it affects us right here in Cebu. Rising sea levels, extreme weather events, and threats to our local ecosystems are all signs that we must act now. We need our local leaders to implement policies that promote clean energy, reduce emissions, and protect our natural resources. But it's not just up to them; as individuals, we can also make a difference through our daily choices. Every small effort counts, from reducing single-use plastic to conserving water and energy. Together, we can create a more resilient and sustainable future for our beautiful Cebu. 🌊🌏 #CebuClimateAction #SustainableLiving #ActOnClimate",
+      sharedPost: Post(
+        id: 3,
+        profile: Profile(
+          id: 2,
+          name: 'Anakin Vader',
+          profileAvatar: 'assets/images/profile/profile7.png',
+        ),
+        time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
+        date: DateFormat.yMMMd().format(DateTime.now()),
+        locationRange: 5,
+        messageTitle: 'What’s Cebu doing???',
+        messageDescription:
+            "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
+        postImages: [
+          'assets/images/posts/post_image1.png',
+          'assets/images/posts/post_image2.png',
+          'assets/images/posts/post_image3.png',
+        ],
+      ),
+    ),
+    Post(
+      id: 3,
+      profile: Profile(
+        id: 2,
+        name: 'Anakin Vader',
+        profileAvatar: 'assets/images/profile/profile7.png',
+      ),
+      time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
+      date: DateFormat.yMMMd().format(DateTime.now()),
+      locationRange: 5,
+      messageTitle: 'What’s Cebu doing???',
+      messageDescription:
+          "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
+      postImages: [
+        'assets/images/posts/post_image1.png',
+        'assets/images/posts/post_image2.png',
+        'assets/images/posts/post_image3.png',
+      ],
+    ),
+    Post(
+      id: 1,
+      profile: Profile(
+        id: 1,
+        name: 'Henry Yap Three',
+        profileAvatar: 'assets/images/profile/profile6.png',
+      ),
+      time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
+      date: DateFormat.yMMMd().format(DateTime.now()),
+      locationRange: 5,
+      messageTitle: 'Let’s do a costal cleanup!',
+      messageDescription:
+          "🏖️ Join us for a Coastal Cleanup Day! Together, we can make our beaches cleaner and healthier for all. 🌊 Let's protect our oceans and preserve the beauty of our coastal communities. Mark your calendar and be a part of the change! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas",
+      postImages: [
+        'assets/images/posts/post_image4.png',
+        'assets/images/posts/post_image5.png',
+        'assets/images/posts/post_image6.png',
+        'assets/images/posts/post_image7.png',
+      ],
+    ),
+    Post(
+      id: 0,
+      profile: Profile(
+        id: 0,
+        name: 'Dominic Osorio',
+        profileAvatar: 'assets/images/profile/profile1.png',
+      ),
+      time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
+      date: DateFormat.yMMMd().format(DateTime.now()),
+      locationRange: 5,
+      messageTitle: 'The Argao LGU is cruel!',
+      messageDescription:
+          "Recent actions by the Argao LGU have raised concerns within our community. It's crucial that we engage in open dialogue to address these issues and work together for a more transparent and accountable local government. Let's channel our concerns into constructive solutions. 🤝 #CommunityEngagement #ArgaoLGU #Accountability",
+      postImages: [
+        'assets/images/posts/post_image8.png',
+      ],
+    ),
+  ];
+
+  // ================== RECOMMENDED POSTS =====================
+  static List<Post> demoRecommendedPostListData = [
+    Post(
+      id: 3,
+      profile: Profile(
+        id: 2,
+        name: 'Anakin Vader',
+        profileAvatar: 'assets/images/profile/profile7.png',
+      ),
+      time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
+      date: DateFormat.yMMMd().format(DateTime.now()),
+      locationRange: 5,
+      messageTitle: 'What’s Cebu doing???',
+      messageDescription:
+          "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
+      postImages: [
+        'assets/images/posts/post_image1.png',
+        'assets/images/posts/post_image2.png',
+        'assets/images/posts/post_image3.png',
+      ],
+    ),
+    Post(
+      id: 1,
+      profile: Profile(
+        id: 1,
+        name: 'Henry Yap Three',
+        profileAvatar: 'assets/images/profile/profile6.png',
+      ),
+      time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
+      date: DateFormat.yMMMd().format(DateTime.now()),
+      locationRange: 5,
+      messageTitle: 'Let’s do a costal cleanup!',
+      messageDescription:
+          "🏖️ Join us for a Coastal Cleanup Day! Together, we can make our beaches cleaner and healthier for all. 🌊 Let's protect our oceans and preserve the beauty of our coastal communities. Mark your calendar and be a part of the change! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas",
+      postImages: [
+        'assets/images/posts/post_image4.png',
+        'assets/images/posts/post_image5.png',
+        'assets/images/posts/post_image6.png',
+        'assets/images/posts/post_image7.png',
+      ],
+    ),
+    Post.shared(
+      id: 5,
+      profile: Profile(
+        id: 5,
+        name: 'Carlos Sainz',
+        profileAvatar: 'assets/images/profile/profile3.png',
+      ),
+      time: DateFormat('h:mm a').format(DateTime.now()),
+      date: DateFormat.yMMMd().format(DateTime.now()),
+      messageDescription:
+          "Climate change is a pressing issue, and it affects us right here in Cebu. Rising sea levels, extreme weather events, and threats to our local ecosystems are all signs that we must act now. We need our local leaders to implement policies that promote clean energy, reduce emissions, and protect our natural resources. But it's not just up to them; as individuals, we can also make a difference through our daily choices. Every small effort counts, from reducing single-use plastic to conserving water and energy. Together, we can create a more resilient and sustainable future for our beautiful Cebu. 🌊🌏 #CebuClimateAction #SustainableLiving #ActOnClimate",
+      sharedPost: Post(
+        id: 3,
+        profile: Profile(
+          id: 2,
+          name: 'Anakin Vader',
+          profileAvatar: 'assets/images/profile/profile7.png',
+        ),
+        time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
+        date: DateFormat.yMMMd().format(DateTime.now()),
+        locationRange: 5,
+        messageTitle: 'What’s Cebu doing???',
+        messageDescription:
+            "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
+        postImages: [
+          'assets/images/posts/post_image1.png',
+          'assets/images/posts/post_image2.png',
+          'assets/images/posts/post_image3.png',
+        ],
+      ),
+    ),
+    Post(
+      id: 3,
+      profile: Profile(
+        id: 2,
+        name: 'Anakin Vader',
+        profileAvatar: 'assets/images/profile/profile7.png',
+      ),
+      time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
+      date: DateFormat.yMMMd().format(DateTime.now()),
+      locationRange: 5,
+      messageTitle: 'What’s Cebu doing???',
+      messageDescription:
+          "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
+      postImages: [
+        'assets/images/posts/post_image1.png',
+        'assets/images/posts/post_image2.png',
+        'assets/images/posts/post_image3.png',
+      ],
+    ),
+  ];
+
+  // // ================== BROWSE POSTS =====================
   static List<Post> demoPostListData = [
     Post(
       id: 0,
