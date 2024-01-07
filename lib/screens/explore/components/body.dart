@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/appBar/explore_page_app_bar.dart';
+import 'package:greenit_version1/components/posts/post_card/post_card.dart';
 import 'package:greenit_version1/components/posts/section_header.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/data/post_data.dart';
+import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
+import 'package:greenit_version1/screens/social/components/body.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -18,22 +21,22 @@ class _BodyState extends State<Body> {
     {
       'title': 'Trending',
       'subtitle': "Explore what's hot and popular!",
-      'data': DemoPostData.demoTrendingPostListData.toList(),
+      'data': DemoPostData.demoTrendingPostListData,
     },
     {
       'title': 'Near Me',
       'subtitle': "Explore local events just steps away!",
-      'data': DemoPostData.demoNearMeListData.toList(),
+      'data': DemoPostData.demoNearMeListData,
     },
     {
       'title': 'Latest Now',
       'subtitle': "Explore ahead with the freshest events!",
-      'data': DemoPostData.demoLatestNowPostData.toList(),
+      'data': DemoPostData.demoLatestNowPostData,
     },
     {
       'title': 'Recommended',
       'subtitle': "Explore our highly recommended events!",
-      'data': DemoPostData.demoRecommendedPostListData.toList(),
+      'data': DemoPostData.demoRecommendedPostListData,
     },
   ];
 
@@ -41,6 +44,8 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    List<Post> currentPostData = tabPage[currentIndex]['data'];
+
     return SafeArea(
       child: CustomScrollView(
         slivers: <Widget>[
@@ -126,22 +131,13 @@ class _BodyState extends State<Body> {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    color: index % 2 == 0 ? Colors.green : Colors.greenAccent,
-                    height: 80,
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Item $index",
-                      style: const TextStyle(fontSize: 30),
-                    ),
-                  ),
-                );
-              },
-              // 40 list items
-              childCount: 40,
+              childCount: currentPostData.length,
+              (context, index) => InkWell(
+                onTap: () {},
+                child: PostCard(
+                  post: currentPostData[index],
+                ),
+              ),
             ),
           ),
         ],

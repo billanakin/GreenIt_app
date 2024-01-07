@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/appBar/default_app_bar.dart';
+import 'package:greenit_version1/components/posts/post_card/post_card.dart';
 import 'package:greenit_version1/data/post_data.dart';
 import 'package:greenit_version1/models/post.dart';
 
 import '../../../models/profile.dart';
-import 'post_card.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});

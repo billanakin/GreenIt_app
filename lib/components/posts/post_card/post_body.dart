@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/options/card_options.dart';
+import 'package:greenit_version1/components/posts/post_card/post_header.dart';
 import 'package:greenit_version1/components/posts/post_interaction_bar.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/post.dart';
-import 'package:greenit_version1/screens/social/components/post_header.dart';
 import 'package:greenit_version1/size_config.dart';
 
 enum PostBodyType {
