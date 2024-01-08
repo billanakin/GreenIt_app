@@ -37,8 +37,11 @@ class NotificationCard extends StatelessWidget {
   Container buildRecentlyLikedPostTypeNotificationCard(
       AppNotif.Notification notification) {
     return Container(
-      padding: const EdgeInsets.only(
-          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
+      padding: EdgeInsets.only(
+        left: kDefaultHorizontalPadding,
+        right: kDefaultHorizontalPadding,
+        top: kSecondaryVerticalPadding,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,8 +116,11 @@ class NotificationCard extends StatelessWidget {
   Container buildRecentlyPostedTypeNotificationCard(
       AppNotif.Notification notification) {
     return Container(
-      padding: const EdgeInsets.only(
-          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
+      padding: EdgeInsets.only(
+        left: kDefaultHorizontalPadding,
+        right: kDefaultHorizontalPadding,
+        top: kSecondaryVerticalPadding,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,8 +192,11 @@ class NotificationCard extends StatelessWidget {
   Container buildRecentlyFollowedTypeNotificationCard(
       AppNotif.Notification notification) {
     return Container(
-      padding: const EdgeInsets.only(
-          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
+      padding: EdgeInsets.only(
+        left: kDefaultHorizontalPadding,
+        right: kDefaultHorizontalPadding,
+        top: kSecondaryVerticalPadding,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,

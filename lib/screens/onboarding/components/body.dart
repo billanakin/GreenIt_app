@@ -72,7 +72,7 @@ class _BodyState extends State<Body> {
               flex: 1,
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                    EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
                 child: Column(
                   children: [
                     Row(

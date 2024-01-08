@@ -53,8 +53,6 @@ final TextStyle kSubHeadTextStyle = TextStyle(
   letterSpacing: 0.44,
 );
 
-<<<<<<< HEAD
-=======
 final TextStyle kPrimaryHeaderTextStyle = TextStyle(
   color: kPrimaryBodyTextColor,
   fontSize: getProportionateScreenHeight(18),
@@ -63,7 +61,6 @@ final TextStyle kPrimaryHeaderTextStyle = TextStyle(
   height: 1.5,
 );
 
->>>>>>> main
 final TextStyle kPrimaryBodyTextStyle = TextStyle(
   color: kPrimaryBodyTextColor,
   fontSize: getProportionateScreenHeight(14),
@@ -98,11 +95,17 @@ final TextStyle kAppBarTitleTextStyle = TextStyle(
   fontWeight: FontWeight.w700,
 );
 
+// =============== HEIGHT =================
+final kAppBarHeight = getProportionateScreenHeight(70);
+
 // =============== PADDINGS ===============
-const double kDefaultPadding = 20.0;
+final double kDefaultHorizontalPadding = getProportionateScreenWidth(20);
+final double kDefaultVerticalPadding = getProportionateScreenHeight(10);
+final double kSecondaryVerticalPadding = getProportionateScreenHeight(20);
+
 final EdgeInsets kTextFieldPadding = EdgeInsets.symmetric(
-  horizontal: getProportionateScreenWidth(kDefaultPadding),
-  vertical: getProportionateScreenHeight(kDefaultPadding),
+  horizontal: getProportionateScreenWidth(20),
+  vertical: getProportionateScreenHeight(20),
 );
 
 // =============== DURATION ===============

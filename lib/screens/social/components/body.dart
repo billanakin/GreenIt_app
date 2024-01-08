@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/appBar/default_app_bar.dart';
-<<<<<<< HEAD
-=======
 import 'package:greenit_version1/components/posts/post_card/post_card.dart';
->>>>>>> main
 import 'package:greenit_version1/data/post_data.dart';
 import 'package:greenit_version1/models/post.dart';
 

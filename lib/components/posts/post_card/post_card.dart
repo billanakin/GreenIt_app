@@ -29,8 +29,11 @@ class PostCard extends StatelessWidget {
 
   Container buildSharedPostCard(Post post) {
     return Container(
-      padding: const EdgeInsets.only(
-          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
+      padding: EdgeInsets.only(
+        left: kDefaultHorizontalPadding,
+        right: kDefaultHorizontalPadding,
+        top: kSecondaryVerticalPadding,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -50,8 +53,11 @@ class PostCard extends StatelessWidget {
 
   Container buildDefaultPostCard(Post post) {
     return Container(
-      padding: const EdgeInsets.only(
-          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
+      padding: EdgeInsets.only(
+        left: kDefaultHorizontalPadding,
+        right: kDefaultHorizontalPadding,
+        top: kSecondaryVerticalPadding,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,

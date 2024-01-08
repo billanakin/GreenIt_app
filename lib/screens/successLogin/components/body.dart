@@ -13,7 +13,7 @@ class Body extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+          padding: EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
           child: Column(
             children: [
               VerticalSpacing(of: SizeConfig.screenHeight * 0.12),
