@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/constants.dart';
+import 'package:greenit_version1/size_config.dart';
 
 ThemeData buildThemeData() {
   return ThemeData(
@@ -23,9 +24,9 @@ final AppBarTheme appBarTheme = AppBarTheme(
 );
 
 final InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
-  contentPadding: const EdgeInsets.symmetric(
-    vertical: kDefaultPadding,
-    horizontal: kDefaultPadding,
+  contentPadding: EdgeInsets.symmetric(
+    vertical: kSecondaryVerticalPadding,
+    horizontal: kDefaultHorizontalPadding,
   ),
   floatingLabelStyle: MaterialStateTextStyle.resolveWith(
     (states) {

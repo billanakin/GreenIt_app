@@ -15,7 +15,7 @@ class PostInteractionBar extends StatelessWidget {
       children: [
         Icon(
           Icons.mode_comment_outlined,
-          size: 20,
+          size: 22,
           color: Colors.black.withOpacity(0.6),
         ),
         const HorizontalSpacing(of: 5),
@@ -28,7 +28,7 @@ class PostInteractionBar extends StatelessWidget {
         const HorizontalSpacing(of: 25),
         Icon(
           Icons.share_outlined,
-          size: 20,
+          size: 22,
           color: Colors.black.withOpacity(0.6),
         ),
         const HorizontalSpacing(of: 5),
@@ -41,7 +41,7 @@ class PostInteractionBar extends StatelessWidget {
         const HorizontalSpacing(of: 25),
         Icon(
           Icons.favorite_border_rounded,
-          size: 20,
+          size: 22,
           color: Colors.black.withOpacity(0.6),
         ),
         const HorizontalSpacing(of: 5),

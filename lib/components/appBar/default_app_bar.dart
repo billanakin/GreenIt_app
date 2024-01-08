@@ -28,9 +28,9 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: SafeArea(
         child: Container(
           height: height,
-          padding: const EdgeInsets.symmetric(
-            horizontal: kDefaultPadding,
-            vertical: 10,
+          padding: EdgeInsets.symmetric(
+            horizontal: kDefaultHorizontalPadding,
+            vertical: kDefaultVerticalPadding,
           ),
           decoration: const BoxDecoration(
             color: Colors.white,

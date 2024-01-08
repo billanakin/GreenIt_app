@@ -15,30 +15,22 @@ class PolicyAndServicesText extends StatelessWidget {
         Text.rich(
           TextSpan(
             text: "By clicking \"Register Account\", you agree to\n    our ",
-            style: kPrimaryBodyTextStyle.copyWith(
-              fontSize: getProportionateScreenWidth(14),
-            ),
+            style: kPrimaryBodyTextStyle,
             children: <TextSpan>[
               TextSpan(
                 text: 'Terms of Service',
                 style: kPrimaryBodyTextStyle.copyWith(
                   color: Colors.blue,
-                  fontSize: getProportionateScreenWidth(14),
-                  // decoration: TextDecoration.underline,
                 ),
               ),
               TextSpan(
                 text: ' and ',
-                style: kPrimaryBodyTextStyle.copyWith(
-                  fontSize: getProportionateScreenWidth(14),
-                ),
+                style: kPrimaryBodyTextStyle,
               ),
               TextSpan(
                 text: 'Privacy Policy',
                 style: kPrimaryBodyTextStyle.copyWith(
                   color: Colors.blue,
-                  fontSize: getProportionateScreenWidth(14),
-                  // decoration: TextDecoration.underline,
                 ),
               ),
             ],

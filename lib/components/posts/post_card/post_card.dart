@@ -29,42 +29,54 @@ class PostCard extends StatelessWidget {
 
   Container buildSharedPostCard(Post post) {
     return Container(
-      padding: const EdgeInsets.only(
-          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          PostHeader.shared(
-            post: post,
-            suffix: const CardOptions(press: null),
-          ),
-          const VerticalSpacing(of: 10),
-          PostBody.shared(post: post),
-          const VerticalSpacing(of: 20),
-          const Divider(),
-        ],
+      padding: EdgeInsets.only(
+        left: kDefaultHorizontalPadding,
+        right: kDefaultHorizontalPadding,
+        top: kSecondaryVerticalPadding,
+      ),
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            PostHeader.shared(
+              post: post,
+              suffix: const CardOptions(press: null),
+            ),
+            const VerticalSpacing(of: 10),
+            PostBody.shared(post: post),
+            const VerticalSpacing(of: 20),
+            const Divider(),
+          ],
+        ),
       ),
     );
   }
 
   Container buildDefaultPostCard(Post post) {
     return Container(
-      padding: const EdgeInsets.only(
-          left: kDefaultPadding, right: kDefaultPadding, top: kDefaultPadding),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          PostHeader(
-            post: post,
-            suffix: const CardOptions(press: null),
-          ),
-          const VerticalSpacing(of: 20),
-          PostBody(post: post),
-          const VerticalSpacing(of: 20),
-          const Divider(),
-        ],
+      padding: EdgeInsets.only(
+        left: kDefaultHorizontalPadding,
+        right: kDefaultHorizontalPadding,
+        top: kSecondaryVerticalPadding,
+      ),
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            PostHeader(
+              post: post,
+              suffix: const CardOptions(press: null),
+            ),
+            const VerticalSpacing(of: 20),
+            PostBody(post: post),
+            const VerticalSpacing(of: 20),
+            const Divider(),
+          ],
+        ),
       ),
     );
   }

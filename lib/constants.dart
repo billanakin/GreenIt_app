@@ -20,27 +20,27 @@ const kBackgroundColor = Colors.white;
 
 // =============== TEXT STYLES ===============
 final TextStyle kH1TextStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(34),
+  fontSize: getProportionateScreenHeight(34),
   fontWeight: FontWeight.w500,
   fontFamily: kSecondaryFontFamily,
   letterSpacing: 0.22,
 );
 
 final TextStyle kH2TextStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(28),
+  fontSize: getProportionateScreenHeight(28),
   fontWeight: FontWeight.w600,
   fontFamily: kSecondaryFontFamily,
   letterSpacing: 0.18,
 );
 
 final TextStyle kH3TextStyle = kH2TextStyle.copyWith(
-  fontSize: getProportionateScreenWidth(20),
+  fontSize: getProportionateScreenHeight(20),
   fontFamily: kSecondaryFontFamily,
   letterSpacing: 0.14,
 );
 
 final TextStyle kHeadlineTextStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(25),
+  fontSize: getProportionateScreenHeight(25),
   fontFamily: kSecondaryFontFamily,
   fontWeight: FontWeight.bold,
 );
@@ -79,7 +79,7 @@ final TextStyle kPrimaryButtonTextStyle = TextStyle(
   color: Colors.white,
   fontFamily: kSecondaryFontFamily,
   fontWeight: FontWeight.bold,
-  fontSize: getProportionateScreenWidth(14),
+  fontSize: getProportionateScreenHeight(14),
 );
 
 final TextStyle kTextButtonTextStyle = kSecondaryBodyTextStyle.copyWith(
@@ -95,11 +95,17 @@ final TextStyle kAppBarTitleTextStyle = TextStyle(
   fontWeight: FontWeight.w700,
 );
 
+// =============== HEIGHT =================
+final kAppBarHeight = getProportionateScreenHeight(70);
+
 // =============== PADDINGS ===============
-const double kDefaultPadding = 20.0;
+final double kDefaultHorizontalPadding = getProportionateScreenWidth(20);
+final double kDefaultVerticalPadding = getProportionateScreenHeight(10);
+final double kSecondaryVerticalPadding = getProportionateScreenHeight(20);
+
 final EdgeInsets kTextFieldPadding = EdgeInsets.symmetric(
-  horizontal: getProportionateScreenWidth(kDefaultPadding),
-  vertical: getProportionateScreenHeight(kDefaultPadding),
+  horizontal: getProportionateScreenWidth(20),
+  vertical: getProportionateScreenHeight(20),
 );
 
 // =============== DURATION ===============

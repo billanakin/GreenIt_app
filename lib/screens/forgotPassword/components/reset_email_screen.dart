@@ -15,7 +15,8 @@ class ResetEmailScreen extends StatelessWidget {
           width: double.infinity,
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              padding:
+                  EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

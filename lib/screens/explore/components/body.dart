@@ -101,9 +101,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 itemBuilder: (context, index) {
                   return Container(
                     margin: (index == 0 || index == 4)
-                        ? const EdgeInsets.only(left: kDefaultPadding)
+                        ? EdgeInsets.only(left: kDefaultHorizontalPadding)
                         : EdgeInsets.zero,
-                    width: 150,
+                    width: getProportionateScreenWidth(150),
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.white,
@@ -141,9 +141,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: kDefaultPadding,
-              vertical: kDefaultPadding,
+            padding: EdgeInsets.symmetric(
+              horizontal: kDefaultHorizontalPadding,
+              vertical: kSecondaryVerticalPadding,
             ),
             sliver: SliverToBoxAdapter(
               child: SectionHeader(

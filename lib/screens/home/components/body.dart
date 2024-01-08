@@ -28,7 +28,7 @@ class _BodyState extends State<Body> {
         Positioned(
           top: 80,
           child: Padding(
-            padding: const EdgeInsets.only(right: kDefaultPadding / 1.5),
+            padding: EdgeInsets.only(right: kDefaultHorizontalPadding / 1.3),
             child: SizedBox(
               height: 110,
               child: Column(

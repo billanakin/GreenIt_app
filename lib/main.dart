@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:greenit_version1/screens/main_navigation.dart';
+import 'package:greenit_version1/screens/onboarding/onboarding_screen.dart';
 import 'package:greenit_version1/size_config.dart';
 import 'package:greenit_version1/theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
+    (func) {
+      runApp(const MyApp());
+    },
+  );
 }
 
 class MyApp extends StatelessWidget {

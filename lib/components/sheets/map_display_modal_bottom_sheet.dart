@@ -6,6 +6,7 @@ Future mapDisplayModalBottomSheet(BuildContext context) {
     builder: (context) => SafeArea(
       child: Container(
         height: 250,
+        width: double.infinity,
         padding:
             const EdgeInsets.only(top: 25, left: 20, right: 20, bottom: 20),
       ),

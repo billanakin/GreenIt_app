@@ -29,9 +29,9 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: SafeArea(
         child: Container(
           height: height,
-          padding: const EdgeInsets.symmetric(
-            horizontal: kDefaultPadding,
-            vertical: 10,
+          padding: EdgeInsets.symmetric(
+            horizontal: kDefaultHorizontalPadding,
+            vertical: kDefaultVerticalPadding,
           ),
           decoration: BoxDecoration(
             color: const Color(0x66868686).withOpacity(0.5),
