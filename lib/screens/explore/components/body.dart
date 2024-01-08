@@ -103,7 +103,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                     margin: (index == 0 || index == 4)
                         ? EdgeInsets.only(left: kDefaultHorizontalPadding)
                         : EdgeInsets.zero,
-                    width: 150,
+                    width: getProportionateScreenWidth(150),
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.white,

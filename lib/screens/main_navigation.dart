@@ -122,12 +122,12 @@ class _MainNavigationState extends State<MainNavigation>
                     EdgeInsets.only(bottom: getProportionateScreenHeight(53)),
               ),
               labelStyle: kSecondaryBodyTextStyle.copyWith(
-                fontSize: 10,
+                fontSize: getProportionateScreenHeight(10),
               ),
               labelPadding: EdgeInsets.zero,
               labelColor: kPrimaryActiveColor,
               unselectedLabelStyle: kSecondaryBodyTextStyle.copyWith(
-                fontSize: 10,
+                fontSize: getProportionateScreenHeight(10),
               ),
               onTap: (value) {
                 setState(() {

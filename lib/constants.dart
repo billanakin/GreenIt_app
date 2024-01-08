@@ -20,27 +20,27 @@ const kBackgroundColor = Colors.white;
 
 // =============== TEXT STYLES ===============
 final TextStyle kH1TextStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(34),
+  fontSize: getProportionateScreenHeight(34),
   fontWeight: FontWeight.w500,
   fontFamily: kSecondaryFontFamily,
   letterSpacing: 0.22,
 );
 
 final TextStyle kH2TextStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(28),
+  fontSize: getProportionateScreenHeight(28),
   fontWeight: FontWeight.w600,
   fontFamily: kSecondaryFontFamily,
   letterSpacing: 0.18,
 );
 
 final TextStyle kH3TextStyle = kH2TextStyle.copyWith(
-  fontSize: getProportionateScreenWidth(20),
+  fontSize: getProportionateScreenHeight(20),
   fontFamily: kSecondaryFontFamily,
   letterSpacing: 0.14,
 );
 
 final TextStyle kHeadlineTextStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(25),
+  fontSize: getProportionateScreenHeight(25),
   fontFamily: kSecondaryFontFamily,
   fontWeight: FontWeight.bold,
 );
@@ -79,7 +79,7 @@ final TextStyle kPrimaryButtonTextStyle = TextStyle(
   color: Colors.white,
   fontFamily: kSecondaryFontFamily,
   fontWeight: FontWeight.bold,
-  fontSize: getProportionateScreenWidth(14),
+  fontSize: getProportionateScreenHeight(14),
 );
 
 final TextStyle kTextButtonTextStyle = kSecondaryBodyTextStyle.copyWith(

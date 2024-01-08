@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_version1/size_config.dart';
 
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({

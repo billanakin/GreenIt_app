@@ -40,7 +40,7 @@ class PostBody extends StatelessWidget {
 
 Container buildPostBodyDefaultType(Post post) {
   return Container(
-    padding: const EdgeInsets.only(left: 50),
+    padding: EdgeInsets.only(left: getProportionateScreenWidth(50)),
     width: double.infinity,
     child: Column(
       mainAxisSize: MainAxisSize.min,
@@ -66,7 +66,7 @@ Container buildPostBodyDefaultType(Post post) {
             children: [
               if (post.postImagesLength == 1)
                 SizedBox(
-                  width: 340,
+                  width: getProportionateScreenWidth(320),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: AspectRatio(
@@ -86,7 +86,7 @@ Container buildPostBodyDefaultType(Post post) {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: SizedBox(
-                        height: 180,
+                        height: getProportionateScreenHeight(180),
                         child: AspectRatio(
                           aspectRatio: 4 / 5,
                           child: Image.asset(
@@ -110,7 +110,8 @@ Container buildPostBodyDefaultType(Post post) {
 
 Container buildPostBodySharedType(Post post) {
   return Container(
-    padding: const EdgeInsets.only(left: 50),
+    padding: EdgeInsets.only(left: getProportionateScreenWidth(50)),
+    width: double.infinity,
     child: Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -123,7 +124,7 @@ Container buildPostBodySharedType(Post post) {
         const VerticalSpacing(of: 10),
         Container(
           width: double.maxFinite,
-          height: 200,
+          height: getProportionateScreenHeight(200),
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),

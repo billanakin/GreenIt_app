@@ -34,19 +34,22 @@ class PostCard extends StatelessWidget {
         right: kDefaultHorizontalPadding,
         top: kSecondaryVerticalPadding,
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          PostHeader.shared(
-            post: post,
-            suffix: const CardOptions(press: null),
-          ),
-          const VerticalSpacing(of: 10),
-          PostBody.shared(post: post),
-          const VerticalSpacing(of: 20),
-          const Divider(),
-        ],
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            PostHeader.shared(
+              post: post,
+              suffix: const CardOptions(press: null),
+            ),
+            const VerticalSpacing(of: 10),
+            PostBody.shared(post: post),
+            const VerticalSpacing(of: 20),
+            const Divider(),
+          ],
+        ),
       ),
     );
   }
@@ -58,19 +61,22 @@ class PostCard extends StatelessWidget {
         right: kDefaultHorizontalPadding,
         top: kSecondaryVerticalPadding,
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          PostHeader(
-            post: post,
-            suffix: const CardOptions(press: null),
-          ),
-          const VerticalSpacing(of: 20),
-          PostBody(post: post),
-          const VerticalSpacing(of: 20),
-          const Divider(),
-        ],
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            PostHeader(
+              post: post,
+              suffix: const CardOptions(press: null),
+            ),
+            const VerticalSpacing(of: 20),
+            PostBody(post: post),
+            const VerticalSpacing(of: 20),
+            const Divider(),
+          ],
+        ),
       ),
     );
   }
