@@ -8,8 +8,7 @@ class ExploreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: Scaffold(
-        appBar: AppBar(),
+      child: const Scaffold(
         body: const Body(),
       ),
     );
