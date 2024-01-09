@@ -128,6 +128,12 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                       child: Text(
                         tabPage[index]['title'].toString(),
                         style: kPrimaryBodyTextStyle.copyWith(
+                          fontFamily: (currentIndex == index)
+                              ? 'Helvetica'
+                              : 'Helvetica Neue',
+                          fontWeight: (currentIndex == index)
+                              ? FontWeight.w700
+                              : FontWeight.w300,
                           color: (currentIndex == index)
                               ? kPrimaryActiveColor
                               : Colors.black,

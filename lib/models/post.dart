@@ -49,4 +49,6 @@ class Post {
   String get profileSharedImage => sharedPost!.profileImage;
 
   int get postImagesLength => postImages!.length;
+
+  PostConstructorType get postType => postConstructorType;
 }

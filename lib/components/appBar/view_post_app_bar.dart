@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_version1/components/buttons/secondary_button.dart';
 import 'package:greenit_version1/components/fields/search_bar.dart';
 import 'package:greenit_version1/components/profile/profile_avatar.dart';
+import 'package:greenit_version1/components/text/inline_text_divider.dart';
 import 'package:greenit_version1/constants.dart';
+import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/size_config.dart';
-
-import '../../models/profile.dart';
 
 class ViewPostAppBar extends StatelessWidget implements PreferredSizeWidget {
   ViewPostAppBar({
     super.key,
     this.height = 70,
-    required this.userProfile,
+    required this.viewedPost,
   });
 
   final double height;
-  final Profile userProfile;
+  final Post viewedPost;
 
   @override
   Size get preferredSize =>
       Size(double.maxFinite, getProportionateScreenHeight(height));
-
-  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +50,57 @@ class ViewPostAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: const Icon(Icons.arrow_back_rounded),
               ),
               const HorizontalSpacing(of: 15),
-              Expanded(
-                child: CustomSearchBar(
-                  searchController: _searchController,
-                  hintText: 'Search Posts',
+              ProfileAvatar.secondary(
+                profileAvatarImage: viewedPost.profileImage,
+                radius: 18,
+              ),
+              const HorizontalSpacing(of: 10),
+              Flexible(
+                fit: FlexFit.loose,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      viewedPost.profileName,
+                      style: kPrimaryBodyTextStyle.copyWith(
+                        fontSize: getProportionateScreenHeight(12),
+                      ),
+                    ),
+                    DefaultTextStyle(
+                      style: kSecondaryBodyTextStyle.copyWith(
+                        fontSize: getProportionateScreenHeight(10),
+                        height: 0,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(viewedPost.time.toString()),
+                          const HorizontalSpacing(of: 5),
+                          const InlineTextDivider(),
+                          const HorizontalSpacing(of: 5),
+                          Text(viewedPost.date.toString()),
+                          const HorizontalSpacing(of: 5),
+                          if (viewedPost.postType ==
+                              PostConstructorType.defaultPost)
+                            Row(
+                              children: [
+                                const InlineTextDivider(),
+                                const HorizontalSpacing(of: 5),
+                                Text(
+                                    '${viewedPost.locationRange.toString()} km') // TODO: Format location Range
+                              ],
+                            ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
+              ),
+              const HorizontalSpacing(of: 5),
+              const SecondaryButton(
+                text: 'Show Map',
               ),
             ],
           ),

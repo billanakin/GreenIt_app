@@ -23,11 +23,27 @@ class _BodyState extends State<Body> {
             expandedHeight: 70,
             floating: true,
             flexibleSpace: ViewPostAppBar(
-              userProfile: Profile(
-                id: 3,
-                name: 'Lionel Messi',
-                profileAvatar: 'assets/images/profile/user_profile.jpeg',
-              ),
+              viewedPost: postData,
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: index % 2 == 0 ? Colors.green : Colors.greenAccent,
+                    height: 80,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Item $index",
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                  ),
+                );
+              },
+              // 40 list items
+              childCount: 40,
             ),
           ),
         ],
