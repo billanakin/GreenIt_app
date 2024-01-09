@@ -86,6 +86,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           SliverAppBar(
             primary: false,
             pinned: true,
+            leading: const SizedBox.shrink(),
             scrolledUnderElevation: 0,
             backgroundColor: const Color(0x66868686).withOpacity(0.1),
             // backgroundColor: Colors.transparent,

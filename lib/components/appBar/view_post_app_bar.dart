@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/fields/search_bar.dart';
 import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/models/profile.dart';
 import 'package:greenit_version1/size_config.dart';
 
-class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
-  ExplorePageAppBar({
+import '../../models/profile.dart';
+
+class ViewPostAppBar extends StatelessWidget implements PreferredSizeWidget {
+  ViewPostAppBar({
     super.key,
     this.height = 70,
     required this.userProfile,
@@ -45,8 +46,9 @@ class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ProfileAvatar(
-                profileAvatarImage: userProfile.profileAvatar,
+              GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: const Icon(Icons.arrow_back_rounded),
               ),
               const HorizontalSpacing(of: 15),
               Expanded(
