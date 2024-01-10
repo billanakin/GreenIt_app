@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/buttons/secondary_button.dart';
-import 'package:greenit_version1/components/fields/search_bar.dart';
 import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/components/text/inline_text_divider.dart';
 import 'package:greenit_version1/constants.dart';
@@ -57,45 +56,47 @@ class ViewPostAppBar extends StatelessWidget implements PreferredSizeWidget {
               const HorizontalSpacing(of: 10),
               Flexible(
                 fit: FlexFit.loose,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      viewedPost.profileName,
-                      style: kPrimaryBodyTextStyle.copyWith(
-                        fontSize: getProportionateScreenHeight(12),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        viewedPost.profileName,
+                        style: kPrimaryBodyTextStyle.copyWith(
+                          fontSize: getProportionateScreenHeight(12),
+                        ),
                       ),
-                    ),
-                    DefaultTextStyle(
-                      style: kSecondaryBodyTextStyle.copyWith(
-                        fontSize: getProportionateScreenHeight(10),
-                        height: 0,
+                      DefaultTextStyle(
+                        style: kSecondaryBodyTextStyle.copyWith(
+                          fontSize: getProportionateScreenHeight(10),
+                          height: 0,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(viewedPost.time.toString()),
+                            const HorizontalSpacing(of: 5),
+                            const InlineTextDivider(),
+                            const HorizontalSpacing(of: 5),
+                            Text(viewedPost.date.toString()),
+                            const HorizontalSpacing(of: 5),
+                            if (viewedPost.postType ==
+                                PostConstructorType.defaultPost)
+                              Row(
+                                children: [
+                                  const InlineTextDivider(),
+                                  const HorizontalSpacing(of: 5),
+                                  Text(
+                                      '${viewedPost.locationRange.toString()} km') // TODO: Format location Range
+                                ],
+                              ),
+                          ],
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(viewedPost.time.toString()),
-                          const HorizontalSpacing(of: 5),
-                          const InlineTextDivider(),
-                          const HorizontalSpacing(of: 5),
-                          Text(viewedPost.date.toString()),
-                          const HorizontalSpacing(of: 5),
-                          if (viewedPost.postType ==
-                              PostConstructorType.defaultPost)
-                            Row(
-                              children: [
-                                const InlineTextDivider(),
-                                const HorizontalSpacing(of: 5),
-                                Text(
-                                    '${viewedPost.locationRange.toString()} km') // TODO: Format location Range
-                              ],
-                            ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               const HorizontalSpacing(of: 5),

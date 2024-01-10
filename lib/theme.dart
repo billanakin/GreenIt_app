@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/size_config.dart';
 
 ThemeData buildThemeData() {
   return ThemeData(
@@ -63,7 +62,7 @@ const ButtonThemeData buttonThemeData = ButtonThemeData(
 );
 
 const DividerThemeData dividerThemeData = DividerThemeData(
-  color: Color(0x66868686),
+  color: kPrimaryBorderColor,
   space: 0,
   thickness: 1,
 );
