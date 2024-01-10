@@ -1,3 +1,4 @@
+import 'package:greenit_version1/models/comment.dart';
 import 'package:greenit_version1/models/profile.dart';
 
 enum PostConstructorType {
@@ -13,12 +14,14 @@ class Post {
   final String? messageTitle;
   final String messageDescription;
   final List<String>? postImages;
+  final List<Comment>? postComments;
+  final int postLikes;
 
   final Post? sharedPost;
 
   final PostConstructorType postConstructorType;
 
-  Post({
+  const Post({
     required this.id,
     required this.profile,
     required this.time,
@@ -27,16 +30,20 @@ class Post {
     required this.messageTitle,
     required this.messageDescription,
     required this.postImages,
+    this.postComments,
+    this.postLikes = 0,
   })  : postConstructorType = PostConstructorType.defaultPost,
         sharedPost = null;
 
-  Post.shared({
+  const Post.shared({
     required this.id,
     required this.profile,
     required this.time,
     required this.date,
     required this.messageDescription,
     required this.sharedPost,
+    this.postComments,
+    this.postLikes = 0,
   })  : postConstructorType = PostConstructorType.sharedPost,
         postImages = null,
         locationRange = null,
@@ -49,6 +56,7 @@ class Post {
   String get profileSharedImage => sharedPost!.profileImage;
 
   int get postImagesLength => postImages!.length;
+  int get postCommentLength => postComments!.length;
 
   PostConstructorType get postType => postConstructorType;
 }
