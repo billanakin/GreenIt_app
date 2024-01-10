@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/appBar/view_post_app_bar.dart';
+import 'package:greenit_version1/components/posts/comment_card.dart';
 import 'package:greenit_version1/components/posts/post_card/post_body.dart';
 import 'package:greenit_version1/constants.dart';
+import 'package:greenit_version1/models/comment.dart';
 import 'package:greenit_version1/models/post.dart';
 
 class Body extends StatefulWidget {
@@ -46,29 +48,13 @@ class _BodyState extends State<Body> {
           const SliverToBoxAdapter(
             child: Divider(height: 1),
           ),
-          SliverPadding(
-            padding: EdgeInsets.symmetric(
-              vertical: kSecondaryVerticalPadding,
-            ),
-            sliver: SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      color: index % 2 == 0 ? Colors.green : Colors.greenAccent,
-                      height: 80,
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Item $index",
-                        style: const TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  );
-                },
-                // 40 list items
-                childCount: 40,
-              ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              childCount: postData.postCommentLength,
+              (BuildContext context, int index) {
+                Comment comment = postData.postComments![index];
+                return CommentCard(comment: comment);
+              },
             ),
           ),
         ],
