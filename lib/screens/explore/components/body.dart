@@ -89,7 +89,6 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             leading: const SizedBox.shrink(),
             scrolledUnderElevation: 0,
             backgroundColor: const Color(0x66868686).withOpacity(0.1),
-            // backgroundColor: Colors.transparent,
             expandedHeight: 70.0,
             collapsedHeight: 70.0,
             flexibleSpace: Container(
