@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_version1/components/options/card_options.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class PostInteractionBar extends StatelessWidget {
   const PostInteractionBar({
+    this.suffix,
     super.key,
   });
+
+  final Widget? suffix;
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +55,8 @@ class PostInteractionBar extends StatelessWidget {
             color: kPrimaryBodyTextColor,
           ),
         ),
+        const Spacer(),
+        suffix ?? const SizedBox.shrink(),
       ],
     );
   }

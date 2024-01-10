@@ -14,13 +14,20 @@ enum PostBodyType {
 class PostBody extends StatelessWidget {
   const PostBody({
     super.key,
+    this.isViewPost = false,
+    this.isBottomSheet = false,
     required this.post,
   }) : postBodyType = PostBodyType.defaultType;
 
   const PostBody.shared({
     super.key,
+    this.isViewPost = false,
+    this.isBottomSheet = false,
     required this.post,
   }) : postBodyType = PostBodyType.sharedType;
+
+  final bool isViewPost;
+  final bool isBottomSheet;
 
   final Post post;
   final PostBodyType postBodyType;
@@ -30,17 +37,31 @@ class PostBody extends StatelessWidget {
     Widget? postBodyOutput;
 
     if (postBodyType == PostBodyType.defaultType) {
-      postBodyOutput = buildPostBodyDefaultType(post);
+      postBodyOutput = buildPostBodyDefaultType(
+        post,
+        isViewPost,
+        isBottomSheet,
+      );
     } else if (postBodyType == PostBodyType.sharedType) {
-      postBodyOutput = buildPostBodySharedType(post);
+      postBodyOutput = buildPostBodySharedType(
+        post,
+        isViewPost,
+        isBottomSheet,
+      );
     }
     return postBodyOutput!;
   }
 }
 
-Container buildPostBodyDefaultType(Post post) {
+Container buildPostBodyDefaultType(
+  Post post,
+  bool isViewPost,
+  bool isBottomSheet,
+) {
   return Container(
-    padding: EdgeInsets.only(left: getProportionateScreenWidth(50)),
+    padding: (isViewPost)
+        ? EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding)
+        : EdgeInsets.only(left: getProportionateScreenWidth(50)),
     width: double.infinity,
     child: Column(
       mainAxisSize: MainAxisSize.min,
@@ -102,15 +123,23 @@ Container buildPostBodyDefaultType(Post post) {
           ),
         ),
         const VerticalSpacing(of: 20),
-        const PostInteractionBar()
+        if (isViewPost || isBottomSheet)
+          const PostInteractionBar(suffix: CardOptions(press: null)),
+        if (!(isViewPost || isBottomSheet)) const PostInteractionBar(),
       ],
     ),
   );
 }
 
-Container buildPostBodySharedType(Post post) {
+Container buildPostBodySharedType(
+  Post post,
+  bool isViewPost,
+  bool isBottomSheet,
+) {
   return Container(
-    padding: EdgeInsets.only(left: getProportionateScreenWidth(50)),
+    padding: (isViewPost)
+        ? EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding)
+        : EdgeInsets.only(left: getProportionateScreenWidth(50)),
     width: double.infinity,
     child: Column(
       mainAxisSize: MainAxisSize.min,
@@ -170,7 +199,9 @@ Container buildPostBodySharedType(Post post) {
           ),
         ),
         const VerticalSpacing(of: 20),
-        const PostInteractionBar(),
+        if (isViewPost || isBottomSheet)
+          const PostInteractionBar(suffix: CardOptions(press: null)),
+        if (!(isViewPost || isBottomSheet)) const PostInteractionBar(),
       ],
     ),
   );

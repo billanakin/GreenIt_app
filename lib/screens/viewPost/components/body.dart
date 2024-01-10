@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/appBar/view_post_app_bar.dart';
+import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
 
@@ -24,6 +25,15 @@ class _BodyState extends State<Body> {
             floating: true,
             flexibleSpace: ViewPostAppBar(
               viewedPost: postData,
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(
+              horizontal: kDefaultHorizontalPadding,
+              vertical: kSecondaryVerticalPadding,
+            ),
+            sliver: SliverToBoxAdapter(
+              child: Container(),
             ),
           ),
           SliverList(
