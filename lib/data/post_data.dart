@@ -1,4 +1,5 @@
 // Demo Post Data
+import 'package:greenit_version1/models/comment.dart';
 import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
 import 'package:intl/intl.dart';
@@ -25,6 +26,54 @@ class DemoPostData {
         'assets/images/posts/post_image6.png',
         'assets/images/posts/post_image7.png',
       ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
     Post(
       id: 3,
@@ -44,6 +93,54 @@ class DemoPostData {
         'assets/images/posts/post_image2.png',
         'assets/images/posts/post_image3.png',
       ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
     Post(
       id: 0,
@@ -60,6 +157,54 @@ class DemoPostData {
           "Recent actions by the Argao LGU have raised concerns within our community. It's crucial that we engage in open dialogue to address these issues and work together for a more transparent and accountable local government. Let's channel our concerns into constructive solutions. 🤝 #CommunityEngagement #ArgaoLGU #Accountability",
       postImages: [
         'assets/images/posts/post_image8.png',
+      ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
       ],
     ),
     Post.shared(
@@ -92,6 +237,54 @@ class DemoPostData {
           'assets/images/posts/post_image3.png',
         ],
       ),
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
   ];
 
@@ -113,6 +306,54 @@ class DemoPostData {
       postImages: [
         'assets/images/posts/post_image8.png',
       ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
     Post(
       id: 3,
@@ -131,6 +372,54 @@ class DemoPostData {
         'assets/images/posts/post_image1.png',
         'assets/images/posts/post_image2.png',
         'assets/images/posts/post_image3.png',
+      ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
       ],
     ),
     Post(
@@ -151,6 +440,54 @@ class DemoPostData {
         'assets/images/posts/post_image5.png',
         'assets/images/posts/post_image6.png',
         'assets/images/posts/post_image7.png',
+      ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
       ],
     ),
     Post.shared(
@@ -183,6 +520,54 @@ class DemoPostData {
           'assets/images/posts/post_image3.png',
         ],
       ),
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
   ];
 
@@ -218,6 +603,54 @@ class DemoPostData {
           'assets/images/posts/post_image3.png',
         ],
       ),
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
     Post(
       id: 3,
@@ -236,6 +669,54 @@ class DemoPostData {
         'assets/images/posts/post_image1.png',
         'assets/images/posts/post_image2.png',
         'assets/images/posts/post_image3.png',
+      ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
       ],
     ),
     Post(
@@ -257,6 +738,54 @@ class DemoPostData {
         'assets/images/posts/post_image6.png',
         'assets/images/posts/post_image7.png',
       ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
     Post(
       id: 0,
@@ -273,6 +802,54 @@ class DemoPostData {
           "Recent actions by the Argao LGU have raised concerns within our community. It's crucial that we engage in open dialogue to address these issues and work together for a more transparent and accountable local government. Let's channel our concerns into constructive solutions. 🤝 #CommunityEngagement #ArgaoLGU #Accountability",
       postImages: [
         'assets/images/posts/post_image8.png',
+      ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
       ],
     ),
   ];
@@ -297,6 +874,54 @@ class DemoPostData {
         'assets/images/posts/post_image2.png',
         'assets/images/posts/post_image3.png',
       ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
     Post(
       id: 1,
@@ -316,6 +941,54 @@ class DemoPostData {
         'assets/images/posts/post_image5.png',
         'assets/images/posts/post_image6.png',
         'assets/images/posts/post_image7.png',
+      ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
       ],
     ),
     Post.shared(
@@ -348,6 +1021,54 @@ class DemoPostData {
           'assets/images/posts/post_image3.png',
         ],
       ),
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
     Post(
       id: 3,
@@ -366,6 +1087,54 @@ class DemoPostData {
         'assets/images/posts/post_image1.png',
         'assets/images/posts/post_image2.png',
         'assets/images/posts/post_image3.png',
+      ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
       ],
     ),
   ];
@@ -388,6 +1157,54 @@ class DemoPostData {
       postImages: [
         'assets/images/posts/post_image8.png',
       ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
     Post(
       id: 1,
@@ -408,6 +1225,54 @@ class DemoPostData {
         'assets/images/posts/post_image6.png',
         'assets/images/posts/post_image7.png',
       ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
     Post(
       id: 2,
@@ -424,6 +1289,54 @@ class DemoPostData {
           "It's great to see organizations like Talaytay FC taking action on climate change! Let's keep the momentum going and inspire others to join the cause. Together, we can make a real impact in the fight against climate change. 🌍💚 #ClimateAction #TalaytayFC #ClimateChangeAwareness",
       postImages: [
         'assets/images/posts/post_image9.png',
+      ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
       ],
     ),
     Post(
@@ -443,6 +1356,54 @@ class DemoPostData {
         'assets/images/posts/post_image1.png',
         'assets/images/posts/post_image2.png',
         'assets/images/posts/post_image3.png',
+      ],
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
       ],
     ),
     Post.shared(
@@ -506,6 +1467,54 @@ class DemoPostData {
           'assets/images/posts/post_image3.png',
         ],
       ),
+      // --------------------- Comments ------------------------
+      postComments: [
+        Comment(
+          profile: Profile(
+            id: 3,
+            name: 'Lionel Messi',
+            profileAvatar: 'assets/images/profile/user_profile.jpeg',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️🌊 Joining forces to make our beaches cleaner and healthier reflects a collective commitment to environmental stewardship. Let's unite to protect our oceans and preserve the beauty of our coastal communities. Mark your calendar for this impactful event and be a part of the positive change we can achieve together! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas #CommunityImpact 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 1,
+            name: 'Henry Yap Three',
+            profileAvatar: 'assets/images/profile/profile6.png',
+          ),
+          comment:
+              "Excited to be part of the Coastal Cleanup Day! 🌊 Let's transform our beaches for the better. Your involvement can make a significant impact on preserving our coastal communities. Save the date and let's make waves for a cleaner, healthier environment! 🏖️🌎 #CoastalCleanup #CleanSeas #EnvironmentalResponsibility 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 2,
+            name: 'Anakin Vader',
+            profileAvatar: 'assets/images/profile/profile7.png',
+          ),
+          comment:
+              "Absolutely thrilled about the Coastal Cleanup Day initiative! 🏖️Dive into action with us on Coastal Cleanup Day! 🌊 Join the movement for cleaner, healthier beaches. Together, we can make a lasting impact on our oceans and coastal communities. Save the date and be the change our environment needs! 🏖️🌍 #CoastalCleanup #SustainableLiving #ProtectOurOceans 🤝",
+        ),
+        Comment(
+          profile: Profile(
+            id: 4,
+            name: 'Russy Fluffy',
+            profileAvatar: 'assets/images/profile/profile5.png',
+          ),
+          comment:
+              "In light of recent actions by the Argao LGU, it's imperative that our community engages in an open dialogue to address concerns that have arisen. The call for transparency and accountability underscores the importance of trust in the functioning of our local government. By fostering a culture of open communication, we pave the way for constructive solutions to emerge, ensuring that our collective voice is heard and acknowledged.",
+        ),
+        Comment(
+          profile: Profile(
+            id: 5,
+            name: 'Carlos Sainz',
+            profileAvatar: 'assets/images/profile/profile3.png',
+          ),
+          comment:
+              "Let's harness the power of our collective voice to ensure that our concerns are not only heard but also translated into meaningful actions. Through collaborative efforts, we can contribute to a more responsive, transparent, and accountable Argao LGU, laying the foundation for a stronger and more resilient community. 🌐🤝 #ArgaoLGU #BuildingTrust #ActiveCitizenship",
+        ),
+      ],
     ),
   ];
 }
