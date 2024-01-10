@@ -4,6 +4,7 @@ import 'package:greenit_version1/components/posts/post_card/post_body.dart';
 import 'package:greenit_version1/components/posts/post_card/post_header.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/post.dart';
+import 'package:greenit_version1/screens/viewPost/view_post_screen.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class PostCard extends StatelessWidget {
@@ -24,7 +25,16 @@ class PostCard extends StatelessWidget {
       postCardOutput = buildSharedPostCard(post);
     }
 
-    return postCardOutput!;
+    return InkWell(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ViewPostScreen(),
+          settings: RouteSettings(arguments: post),
+        ),
+      ),
+      child: postCardOutput!,
+    );
   }
 
   Container buildSharedPostCard(Post post) {

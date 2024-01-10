@@ -86,9 +86,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           SliverAppBar(
             primary: false,
             pinned: true,
+            leading: const SizedBox.shrink(),
             scrolledUnderElevation: 0,
             backgroundColor: const Color(0x66868686).withOpacity(0.1),
-            // backgroundColor: Colors.transparent,
             expandedHeight: 70.0,
             collapsedHeight: 70.0,
             flexibleSpace: Container(
@@ -127,6 +127,12 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                       child: Text(
                         tabPage[index]['title'].toString(),
                         style: kPrimaryBodyTextStyle.copyWith(
+                          fontFamily: (currentIndex == index)
+                              ? 'Helvetica'
+                              : 'Helvetica Neue',
+                          fontWeight: (currentIndex == index)
+                              ? FontWeight.w700
+                              : FontWeight.w300,
                           color: (currentIndex == index)
                               ? kPrimaryActiveColor
                               : Colors.black,
