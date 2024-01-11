@@ -13,9 +13,9 @@ class Body extends StatefulWidget {
   State<Body> createState() => _BodyState();
 }
 
-List<Post> demoPostData = DemoPostData.demoPostListData;
-
 class _BodyState extends State<Body> {
+  List<Post> demoPostData = DemoPostData.demoPostListData;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -36,11 +36,8 @@ class _BodyState extends State<Body> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               childCount: demoPostData.length,
-              (context, index) => InkWell(
-                onTap: () {},
-                child: PostCard(
-                  post: demoPostData[index],
-                ),
+              (context, index) => PostCard(
+                post: demoPostData[index],
               ),
             ),
           ),

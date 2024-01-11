@@ -36,45 +36,65 @@ class PostHeader extends StatelessWidget {
       children: [
         ProfileAvatar.secondary(profileAvatarImage: post.profileImage),
         const HorizontalSpacing(of: 10),
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                post.profileName,
-                style: kPrimaryBodyTextStyle,
-              ),
-              DefaultTextStyle(
-                style: kSecondaryBodyTextStyle,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(post.time.toString()),
-                    const HorizontalSpacing(of: 5),
-                    const InlineTextDivider(),
-                    const HorizontalSpacing(of: 5),
-                    Text(post.date.toString()),
-                    const HorizontalSpacing(of: 5),
-                    if (postHeaderType == PostHeaderType.defaultType)
-                      Row(
-                        children: [
-                          const InlineTextDivider(),
-                          const HorizontalSpacing(of: 5),
-                          Text(
-                              '${post.locationRange.toString()} km') // TODO: Format location Range
-                        ],
-                      ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+        PostHeaderInfo(
+          post: post,
         ),
-        const HorizontalSpacing(of: 10),
+        const Spacer(),
         suffix,
       ],
+    );
+  }
+}
+
+class PostHeaderInfo extends StatelessWidget {
+  const PostHeaderInfo({
+    super.key,
+    required this.post,
+  });
+
+  final Post post;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Flexible(
+        fit: FlexFit.loose,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              post.profileName,
+              style: kPrimaryBodyTextStyle,
+            ),
+            DefaultTextStyle(
+              style: kSecondaryBodyTextStyle,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(post.time.toString()),
+                  const HorizontalSpacing(of: 5),
+                  const InlineTextDivider(),
+                  const HorizontalSpacing(of: 5),
+                  Text(post.date.toString()),
+                  const HorizontalSpacing(of: 5),
+                  if (post.postType == PostConstructorType.defaultPost)
+                    Row(
+                      children: [
+                        const InlineTextDivider(),
+                        const HorizontalSpacing(of: 5),
+                        Text(
+                            '${post.locationRange.toString()} km') // TODO: Format location Range
+                      ],
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

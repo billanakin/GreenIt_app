@@ -5,7 +5,7 @@ import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/profile.dart';
 import 'package:greenit_version1/size_config.dart';
 
-class ExplorePageAppBar extends StatelessWidget {
+class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
   ExplorePageAppBar({
     super.key,
     this.height = 70,

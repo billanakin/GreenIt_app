@@ -63,7 +63,7 @@ const ButtonThemeData buttonThemeData = ButtonThemeData(
 );
 
 const DividerThemeData dividerThemeData = DividerThemeData(
-  color: Color(0x66868686),
+  color: kPrimaryBorderColor,
   space: 0,
   thickness: 1,
 );
