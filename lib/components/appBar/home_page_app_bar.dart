@@ -4,6 +4,7 @@ import 'package:greenit_version1/components/logo/inline_logo.dart';
 import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/profile.dart';
+import 'package:greenit_version1/screens/profile/profile_screen.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -35,7 +36,6 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           decoration: BoxDecoration(
             color: const Color(0x66868686).withOpacity(0.5),
-            // color: Colors.green.withOpacity(0.3),
             border: const Border(
               bottom: BorderSide(
                 width: 1,
@@ -60,6 +60,17 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
               const HorizontalSpacing(of: 10),
               ProfileAvatar(
                 profileAvatarImage: userProfile.profileAvatar,
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfileScreen(),
+                      settings: RouteSettings(
+                        arguments: userProfile,
+                      ),
+                    ),
+                  );
+                },
               ),
             ],
           ),

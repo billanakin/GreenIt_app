@@ -5,22 +5,29 @@ class ProfileAvatar extends StatelessWidget {
     super.key,
     required this.profileAvatarImage,
     this.radius = 22.0,
+    this.press,
   });
 
   const ProfileAvatar.secondary({
     super.key,
     required this.profileAvatarImage,
     this.radius = 20.0,
+    this.press,
   });
 
   final String profileAvatarImage;
   final double radius;
 
+  final void Function()? press;
+
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: radius,
-      backgroundImage: AssetImage(profileAvatarImage),
+    return GestureDetector(
+      onTap: press,
+      child: CircleAvatar(
+        radius: radius,
+        backgroundImage: AssetImage(profileAvatarImage),
+      ),
     );
   }
 }
