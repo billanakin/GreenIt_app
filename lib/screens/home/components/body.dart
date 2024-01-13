@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'package:greenit_version1/constants.dart';
 
 import '../../../components/sheets/map_display_modal_bottom_sheet.dart';
@@ -11,17 +13,32 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(9.901566, 123.586010);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.topRight,
       children: [
         // =============== PLACE GOOGLE MAP INTERFACE HERE===============
-        Placeholder(
-          color: Colors.black,
-          child: Container(
-            color: Colors.green.shade200,
-            // color: Colors.white,
+        // Placeholder(
+        //   color: Colors.black,
+        //   child: Container(
+        //     color: Colors.green.shade200,
+        //     // color: Colors.white,
+        //   ),
+        // ),
+        GoogleMap(
+          onMapCreated: _onMapCreated,
+          initialCameraPosition: CameraPosition(
+            target: _center,
+            zoom: 14.0,
           ),
         ),
         // ==============================================================

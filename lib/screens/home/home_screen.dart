@@ -10,8 +10,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
+    return PopScope(
+      onPopInvoked: (bool popped) async => false,
       child: SafeArea(
         child: Scaffold(
           extendBodyBehindAppBar: true,
