@@ -10,7 +10,6 @@ class ProfileScreen extends StatelessWidget {
     final profileData = ModalRoute.of(context)!.settings.arguments as Profile;
 
     return Scaffold(
-      appBar: AppBar(),
       body: Body(profile: profileData),
     );
   }

@@ -5,6 +5,7 @@ import 'package:greenit_version1/components/posts/post_card/post_body.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/comment.dart';
 import 'package:greenit_version1/models/post.dart';
+import 'package:greenit_version1/size_config.dart';
 
 class Body extends StatefulWidget {
   const Body({
@@ -26,7 +27,7 @@ class _BodyState extends State<Body> {
         slivers: <Widget>[
           SliverAppBar(
             leading: const SizedBox.shrink(),
-            expandedHeight: 70,
+            expandedHeight: getProportionateScreenHeight(70),
             floating: true,
             flexibleSpace: ViewPostAppBar(
               viewedPost: widget.post,

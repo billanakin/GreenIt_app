@@ -12,7 +12,6 @@ class ViewPostAppBar extends StatefulWidget implements PreferredSizeWidget {
   const ViewPostAppBar({
     super.key,
     this.height = 70,
-    // required this.autoScrollToTop,
     required this.viewedPost,
   });
 
@@ -20,8 +19,6 @@ class ViewPostAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   final double height;
   final Post viewedPost;
-
-  // final Function() autoScrollToTop;
 
   @override
   State<ViewPostAppBar> createState() => _ViewPostAppBarState();

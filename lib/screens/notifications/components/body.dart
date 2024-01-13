@@ -3,6 +3,7 @@ import 'package:greenit_version1/components/appBar/default_app_bar.dart';
 import 'package:greenit_version1/data/notification_data.dart';
 import 'package:greenit_version1/models/notification.dart' as AppNotif;
 import 'package:greenit_version1/screens/notifications/components/notification_card.dart';
+import 'package:greenit_version1/size_config.dart';
 
 import '../../../models/profile.dart';
 
@@ -24,7 +25,7 @@ class _BodyState extends State<Body> {
         slivers: <Widget>[
           SliverAppBar(
             leading: const SizedBox.shrink(),
-            expandedHeight: 70,
+            expandedHeight: getProportionateScreenHeight(70),
             floating: true,
             flexibleSpace: DefaultAppBar(
               userProfile: Profile(
