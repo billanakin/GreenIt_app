@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/constants.dart';
+import 'package:greenit_version1/data/profile_data.dart';
+import 'package:greenit_version1/models/profile.dart';
 
 import '../../../components/sheets/map_display_modal_bottom_sheet.dart';
 

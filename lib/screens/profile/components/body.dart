@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/profile/profile_avatar.dart';
+import 'package:greenit_version1/components/posts/post_card/post_card.dart';
+import 'package:greenit_version1/components/posts/section_header.dart';
 import 'package:greenit_version1/constants.dart';
+import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
+import 'package:greenit_version1/screens/profile/components/flexible_space_content.dart';
+import 'package:greenit_version1/screens/profile/components/profile_info_button.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -16,13 +20,15 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+    final collapsedBarHeight = getProportionateScreenHeight(70);
+    final expandedBarHeight = getProportionateScreenHeight(400);
+
     return SafeArea(
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: getProportionateScreenHeight(400),
-            collapsedHeight: getProportionateScreenHeight(70),
-            title: Text(widget.profile.name),
+            expandedHeight: expandedBarHeight,
+            collapsedHeight: collapsedBarHeight,
             leading: IconButton.filledTonal(
               style: IconButton.styleFrom(
                   backgroundColor: const Color(0x33868686)),
@@ -30,93 +36,35 @@ class _BodyState extends State<Body> {
               onPressed: () => Navigator.pop(context),
               icon: const Icon(Icons.arrow_back_rounded),
             ),
-            flexibleSpace: Container(
-              height: getProportionateScreenHeight(400),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(widget.profile.profileAvatar),
-                  fit: BoxFit.cover,
-                ),
+            flexibleSpace: FlexibleSpaceContent(widget: widget),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(
+              horizontal: kDefaultHorizontalPadding,
+              vertical: kSecondaryVerticalPadding,
+            ),
+            sliver: SliverToBoxAdapter(
+              child: profileInfoButton(
+                profile: widget.profile,
               ),
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  SingleChildScrollView(
-                    child: Container(
-                      width: double.infinity,
-                      height: getProportionateScreenHeight(140),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: kDefaultHorizontalPadding,
-                        vertical: kSecondaryVerticalPadding,
-                      ),
-                      decoration: const BoxDecoration(
-                        color: Color(0x33868686),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              text: "Hi! I'm\n",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: getProportionateScreenHeight(16),
-                                fontWeight: FontWeight.w400,
-                                height: 1.5,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: widget.profile.name,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: getProportionateScreenHeight(26),
-                                    fontFamily: 'Helvetica',
-                                    fontWeight: FontWeight.w700,
-                                    height: 1.5,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const VerticalSpacing(of: 17),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Stack(
-                                children: [
-                                  ...List.generate(2, (index) => Placeholder())
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(
+              horizontal: kSecondaryVerticalPadding,
+            ),
+            sliver: const SliverToBoxAdapter(
+              child: SectionHeader(
+                title: 'My Posts',
+                subtitle: 'These are my contributions!',
               ),
             ),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    color: index % 2 == 0 ? Colors.green : Colors.greenAccent,
-                    height: 80,
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Item $index",
-                      style: const TextStyle(fontSize: 30),
-                    ),
-                  ),
-                );
-              },
-              // 40 list items
-              childCount: 40,
+              childCount: widget.profile.posts.length,
+              (BuildContext context, int index) =>
+                  PostCard(post: widget.profile.posts[index]),
             ),
           ),
         ],
@@ -124,5 +72,3 @@ class _BodyState extends State<Body> {
     );
   }
 }
-// onTap: () => Navigator.pop(context),
-//                 child: const Icon(Icons.arrow_back_rounded),

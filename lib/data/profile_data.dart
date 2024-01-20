@@ -4,6 +4,66 @@ import 'package:greenit_version1/models/profile.dart';
 import 'package:intl/intl.dart';
 
 class DemoProfilesData {
+  static Profile userProfile = Profile(
+    id: 3,
+    name: 'Lionel Messi',
+    profileAvatar: 'assets/images/profile/user_profile.jpeg',
+    isCurrentUser: true,
+    followers: [
+      Profile(
+        id: 0,
+        name: 'Dominic Osorio',
+        profileAvatar: 'assets/images/profile/profile1.png',
+      ),
+      Profile(
+        id: 1,
+        name: 'Henry Yap Three',
+        profileAvatar: 'assets/images/profile/profile6.png',
+      ),
+      Profile(
+        id: 2,
+        name: 'Anakin Vader',
+        profileAvatar: 'assets/images/profile/profile7.png',
+      ),
+    ],
+    following: [
+      Profile(
+        id: 5,
+        name: 'Carlos Sainz',
+        profileAvatar: 'assets/images/profile/profile3.png',
+      ),
+      Profile(
+        id: 6,
+        name: 'Bill Zamora',
+        profileAvatar: 'assets/images/profile/profile4.png',
+      ),
+      Profile(
+        id: 7,
+        name: 'Cinate Rica',
+        profileAvatar: 'assets/images/profile/profile2.png',
+      ),
+    ],
+    posts: [
+      Post(
+        id: 2,
+        profile: Profile(
+          id: 3,
+          name: 'Lionel Messi',
+          profileAvatar: 'assets/images/profile/user_profile.jpeg',
+        ),
+        time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
+        date: DateFormat.yMMMd().format(DateTime.now()),
+        locationRange: 5,
+        messageTitle: 'Keep up the good work, Talaytay FC!',
+        messageDescription:
+            "It's great to see organizations like Talaytay FC taking action on climate change! Let's keep the momentum going and inspire others to join the cause. Together, we can make a real impact in the fight against climate change. 🌍💚 #ClimateAction #TalaytayFC #ClimateChangeAwareness",
+        postImages: [
+          'assets/images/posts/post_image9.png',
+        ],
+      ),
+    ],
+  );
+
   static List<Profile> demoProfilesListData = [
     Profile(
       id: 0,

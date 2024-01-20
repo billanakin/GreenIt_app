@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/appBar/home_page_app_bar.dart';
 import 'package:greenit_version1/constants.dart';
+import 'package:greenit_version1/data/profile_data.dart';
 import 'package:greenit_version1/screens/home/components/body.dart';
 
 import '../../models/profile.dart';
@@ -10,17 +11,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Profile userProfile = DemoProfilesData.userProfile;
+
     return WillPopScope(
       onWillPop: () async => false,
       child: SafeArea(
         child: Scaffold(
           extendBodyBehindAppBar: true,
           appBar: HomePageAppBar(
-            userProfile: Profile(
-              id: 3,
-              name: 'Lionel Messi',
-              profileAvatar: 'assets/images/profile/user_profile.jpeg',
-            ),
+            userProfile: userProfile,
           ),
           body: const Body(),
           floatingActionButton: Container(

@@ -5,6 +5,7 @@ class ProfileAvatar extends StatelessWidget {
     super.key,
     required this.profileAvatarImage,
     this.radius = 22.0,
+    this.hasBorder = false,
     this.press,
   });
 
@@ -12,6 +13,7 @@ class ProfileAvatar extends StatelessWidget {
     super.key,
     required this.profileAvatarImage,
     this.radius = 20.0,
+    this.hasBorder = false,
     this.press,
   });
 
@@ -19,15 +21,33 @@ class ProfileAvatar extends StatelessWidget {
   final double radius;
 
   final void Function()? press;
+  final bool hasBorder;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: CircleAvatar(
-        radius: radius,
-        backgroundImage: AssetImage(profileAvatarImage),
-      ),
-    );
+    Widget profileAvatarOutput;
+
+    if (hasBorder) {
+      profileAvatarOutput = GestureDetector(
+        onTap: press,
+        child: CircleAvatar(
+          backgroundColor: Colors.white,
+          radius: radius + 1,
+          child: CircleAvatar(
+            radius: radius,
+            backgroundImage: AssetImage(profileAvatarImage),
+          ),
+        ),
+      );
+    } else {
+      profileAvatarOutput = GestureDetector(
+        onTap: press,
+        child: CircleAvatar(
+          radius: radius,
+          backgroundImage: AssetImage(profileAvatarImage),
+        ),
+      );
+    }
+    return profileAvatarOutput;
   }
 }
