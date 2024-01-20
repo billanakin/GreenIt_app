@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/posts/section_header.dart';
+import 'package:greenit_version1/components/sheets/map_display/map_display_card.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/size_config.dart';
 
@@ -8,7 +9,7 @@ Future mapDisplayModalBottomSheet(BuildContext context) {
     context: context,
     builder: (context) => SafeArea(
       child: Container(
-        height: getProportionateScreenHeight(250),
+        height: getProportionateScreenHeight(260),
         width: SizeConfig.screenWidth,
         padding: EdgeInsets.symmetric(
           horizontal: kDefaultHorizontalPadding,
@@ -35,7 +36,7 @@ Future mapDisplayModalBottomSheet(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SectionHeader(
+            const SectionHeader(
               title: 'Choose Map',
               subtitle: 'Personalize your map visuals',
             ),
@@ -44,27 +45,20 @@ Future mapDisplayModalBottomSheet(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  width: getProportionateScreenWidth(170),
-                  height: getProportionateScreenHeight(140),
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        width: 1,
-                        color: kPrimaryBorderColor,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Stack(
-                    clipBehavior: Clip.antiAlias,
-                    children: [
-                      Container(color: Colors.green),
-                    ],
-                  ),
+                MapDisplayCard(
+                  image:
+                      'assets/images/home/map_display/explore-map-display.png',
+                  text: 'Explore',
+                  press: () {}, // ADD GOOGLE MAP CONFIGURATION HERE
+                ),
+                MapDisplayCard(
+                  image:
+                      'assets/images/home/map_display/satellite-map-display.png',
+                  text: 'Satellite',
+                  press: () {}, // ADD GOOGLE MAP CONFIGURATION HERE
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
