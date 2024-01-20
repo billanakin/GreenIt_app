@@ -5,7 +5,7 @@ import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/data/profile_data.dart';
 import 'package:greenit_version1/models/profile.dart';
 
-import '../../../components/sheets/map_display_modal_bottom_sheet.dart';
+import '../../../components/sheets/map_display/map_display_modal_bottom_sheet.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -53,7 +53,6 @@ class _BodyState extends State<Body> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // TODO: ADD INK WELL
                   InkWell(
                     onTap: () {
                       mapDisplayModalBottomSheet(context);
@@ -72,7 +71,6 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                   ),
-                  // TODO: ADD INK WELL
                   Container(
                     height: 50,
                     width: 50,
