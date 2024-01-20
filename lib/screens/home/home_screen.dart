@@ -13,8 +13,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Profile userProfile = DemoProfilesData.userProfile;
 
-    return WillPopScope(
-      onWillPop: () async => false,
+
+    return PopScope(
+      onPopInvoked: (bool popped) async => false,
+
       child: SafeArea(
         child: Scaffold(
           extendBodyBehindAppBar: true,
