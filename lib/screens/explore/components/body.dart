@@ -4,6 +4,7 @@ import 'package:greenit_version1/components/posts/post_card/post_card.dart';
 import 'package:greenit_version1/components/posts/section_header.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/data/post_data.dart';
+import 'package:greenit_version1/data/profile_data.dart';
 import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
 import 'package:greenit_version1/size_config.dart';
@@ -63,6 +64,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
     );
   }
 
+  Profile userProfile = DemoProfilesData.userProfile;
+
   @override
   Widget build(BuildContext context) {
     List<Post> currentPostData = tabPage[currentIndex]['data'];
@@ -76,11 +79,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             floating: true,
             expandedHeight: 70.0,
             flexibleSpace: ExplorePageAppBar(
-              userProfile: Profile(
-                id: 3,
-                name: 'Lionel Messi',
-                profileAvatar: 'assets/images/profile/user_profile.jpeg',
-              ),
+              userProfile: userProfile,
             ),
           ),
           SliverAppBar(
@@ -147,9 +146,10 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(
-              horizontal: kDefaultHorizontalPadding,
-              vertical: kSecondaryVerticalPadding,
+            padding: EdgeInsets.only(
+              top: kDefaultHorizontalPadding,
+              right: kSecondaryVerticalPadding,
+              left: kSecondaryVerticalPadding,
             ),
             sliver: SliverToBoxAdapter(
               child: SectionHeader(
@@ -162,11 +162,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               childCount: currentPostData.length,
-              (context, index) => InkWell(
-                onTap: () {},
-                child: PostCard(
-                  post: currentPostData[index],
-                ),
+              (context, index) => PostCard(
+                post: currentPostData[index],
               ),
             ),
           ),

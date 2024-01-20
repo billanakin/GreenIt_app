@@ -4,15 +4,12 @@ import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/components/text/inline_text_divider.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/post.dart';
-import 'package:greenit_version1/screens/home/home_screen.dart';
-import 'package:greenit_version1/screens/main_navigation.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class ViewPostAppBar extends StatefulWidget implements PreferredSizeWidget {
   const ViewPostAppBar({
     super.key,
     this.height = 70,
-    // required this.autoScrollToTop,
     required this.viewedPost,
   });
 
@@ -20,8 +17,6 @@ class ViewPostAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   final double height;
   final Post viewedPost;
-
-  // final Function() autoScrollToTop;
 
   @override
   State<ViewPostAppBar> createState() => _ViewPostAppBarState();
@@ -62,7 +57,7 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
               ),
               const HorizontalSpacing(of: 15),
               ProfileAvatar.secondary(
-                profileAvatarImage: widget.viewedPost.profileImage,
+                profile: widget.viewedPost.profile,
                 radius: 18,
               ),
               const HorizontalSpacing(of: 10),
