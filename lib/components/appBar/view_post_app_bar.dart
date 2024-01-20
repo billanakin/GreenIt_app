@@ -57,7 +57,7 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
               ),
               const HorizontalSpacing(of: 15),
               ProfileAvatar.secondary(
-                profileAvatarImage: widget.viewedPost.profileImage,
+                profile: widget.viewedPost.profile,
                 radius: 18,
               ),
               const HorizontalSpacing(of: 10),

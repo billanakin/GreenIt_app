@@ -89,16 +89,14 @@ class FlexibleSpaceContent extends StatelessWidget {
                               clipBehavior: Clip.none,
                               children: [
                                 ProfileAvatar(
-                                  profileAvatarImage: widget
-                                      .profile.followers.first.profileAvatar,
+                                  profile: widget.profile.followers.first,
                                   radius: 10,
                                   hasBorder: true,
                                 ),
                                 Positioned(
                                   right: -17,
                                   child: ProfileAvatar(
-                                    profileAvatarImage: widget
-                                        .profile.followers[1].profileAvatar,
+                                    profile: widget.profile.followers[1],
                                     radius: 10,
                                     hasBorder: true,
                                   ),
@@ -106,8 +104,7 @@ class FlexibleSpaceContent extends StatelessWidget {
                                 Positioned(
                                   right: -34,
                                   child: ProfileAvatar(
-                                    profileAvatarImage: widget
-                                        .profile.followers[2].profileAvatar,
+                                    profile: widget.profile.followers[2],
                                     radius: 10,
                                     hasBorder: true,
                                   ),
@@ -137,16 +134,14 @@ class FlexibleSpaceContent extends StatelessWidget {
                               clipBehavior: Clip.none,
                               children: [
                                 ProfileAvatar(
-                                  profileAvatarImage: widget
-                                      .profile.following.first.profileAvatar,
+                                  profile: widget.profile.following.first,
                                   radius: 10,
                                   hasBorder: true,
                                 ),
                                 Positioned(
                                   right: -17,
                                   child: ProfileAvatar(
-                                    profileAvatarImage: widget
-                                        .profile.following[1].profileAvatar,
+                                    profile: widget.profile.following[1],
                                     radius: 10,
                                     hasBorder: true,
                                   ),
@@ -154,8 +149,7 @@ class FlexibleSpaceContent extends StatelessWidget {
                                 Positioned(
                                   right: -34,
                                   child: ProfileAvatar(
-                                    profileAvatarImage: widget
-                                        .profile.following[2].profileAvatar,
+                                    profile: widget.profile.following[2],
                                     radius: 10,
                                     hasBorder: true,
                                   ),

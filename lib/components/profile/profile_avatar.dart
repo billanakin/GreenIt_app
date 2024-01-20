@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_version1/models/profile.dart';
+import 'package:greenit_version1/screens/profile/profile_screen.dart';
 
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({
     super.key,
-    required this.profileAvatarImage,
+    required this.profile,
     this.radius = 22.0,
     this.hasBorder = false,
-    this.press,
   });
 
   const ProfileAvatar.secondary({
     super.key,
-    required this.profileAvatarImage,
+    required this.profile,
     this.radius = 20.0,
     this.hasBorder = false,
-    this.press,
   });
 
-  final String profileAvatarImage;
   final double radius;
+  final Profile profile;
 
-  final void Function()? press;
   final bool hasBorder;
 
   @override
@@ -28,26 +27,33 @@ class ProfileAvatar extends StatelessWidget {
     Widget profileAvatarOutput;
 
     if (hasBorder) {
-      profileAvatarOutput = GestureDetector(
-        onTap: press,
+      profileAvatarOutput = CircleAvatar(
+        backgroundColor: Colors.white,
+        radius: radius + 1,
         child: CircleAvatar(
-          backgroundColor: Colors.white,
-          radius: radius + 1,
-          child: CircleAvatar(
-            radius: radius,
-            backgroundImage: AssetImage(profileAvatarImage),
-          ),
+          radius: radius,
+          backgroundImage: AssetImage(profile.profileAvatar),
         ),
       );
     } else {
-      profileAvatarOutput = GestureDetector(
-        onTap: press,
-        child: CircleAvatar(
-          radius: radius,
-          backgroundImage: AssetImage(profileAvatarImage),
-        ),
+      profileAvatarOutput = CircleAvatar(
+        radius: radius,
+        backgroundImage: AssetImage(profile.profileAvatar),
       );
     }
-    return profileAvatarOutput;
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ProfileScreen(),
+            settings: RouteSettings(
+              arguments: profile,
+            ),
+          ),
+        );
+      },
+      child: profileAvatarOutput,
+    );
   }
 }

@@ -47,18 +47,7 @@ class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ProfileAvatar(
-                profileAvatarImage: userProfile.profileAvatar,
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProfileScreen(),
-                      settings: RouteSettings(
-                        arguments: userProfile,
-                      ),
-                    ),
-                  );
-                },
+                profile: userProfile,
               ),
               const HorizontalSpacing(of: 15),
               Expanded(

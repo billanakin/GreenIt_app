@@ -59,18 +59,7 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               const HorizontalSpacing(of: 10),
               ProfileAvatar(
-                profileAvatarImage: userProfile.profileAvatar,
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProfileScreen(),
-                      settings: RouteSettings(
-                        arguments: userProfile,
-                      ),
-                    ),
-                  );
-                },
+                profile: userProfile,
               ),
             ],
           ),
