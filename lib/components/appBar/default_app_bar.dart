@@ -3,6 +3,7 @@ import 'package:greenit_version1/components/logo/inline_logo.dart';
 import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/screens/main_navigation.dart';
+import 'package:greenit_version1/screens/profile/profile_screen.dart';
 import 'package:greenit_version1/size_config.dart';
 
 import '../../models/profile.dart';
@@ -27,7 +28,6 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
       preferredSize: preferredSize,
       child: SafeArea(
         child: Container(
-          height: height,
           padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding,
             vertical: kDefaultVerticalPadding,
@@ -46,7 +46,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ProfileAvatar(
-                profileAvatarImage: userProfile.profileAvatar,
+                profile: userProfile,
               ),
               const SizedBox(width: 10),
               GestureDetector(

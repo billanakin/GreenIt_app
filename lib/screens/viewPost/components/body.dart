@@ -5,9 +5,15 @@ import 'package:greenit_version1/components/posts/post_card/post_body.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/comment.dart';
 import 'package:greenit_version1/models/post.dart';
+import 'package:greenit_version1/size_config.dart';
 
 class Body extends StatefulWidget {
-  const Body({super.key});
+  const Body({
+    super.key,
+    required this.post,
+  });
+
+  final Post post;
 
   @override
   State<Body> createState() => _BodyState();
@@ -16,17 +22,15 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    final postData = ModalRoute.of(context)!.settings.arguments as Post;
-
     return SafeArea(
       child: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
             leading: const SizedBox.shrink(),
-            expandedHeight: 70,
+            expandedHeight: getProportionateScreenHeight(70),
             floating: true,
             flexibleSpace: ViewPostAppBar(
-              viewedPost: postData,
+              viewedPost: widget.post,
             ),
           ),
           SliverPadding(
@@ -34,14 +38,14 @@ class _BodyState extends State<Body> {
               vertical: kSecondaryVerticalPadding,
             ),
             sliver: SliverToBoxAdapter(
-              child: (postData.postType == PostConstructorType.defaultPost)
+              child: (widget.post.postType == PostConstructorType.defaultPost)
                   ? PostBody(
                       isViewPost: true,
-                      post: postData,
+                      post: widget.post,
                     )
                   : PostBody.shared(
                       isViewPost: true,
-                      post: postData,
+                      post: widget.post,
                     ),
             ),
           ),
@@ -50,9 +54,9 @@ class _BodyState extends State<Body> {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              childCount: postData.postCommentLength,
+              childCount: widget.post.postCommentLength,
               (BuildContext context, int index) {
-                Comment comment = postData.postComments![index];
+                Comment comment = widget.post.postComments![index];
                 return CommentCard(comment: comment);
               },
             ),
