@@ -16,20 +16,20 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  String? commentMessage;
+  String? quoteMessage;
 
-  FocusNode? _commentMessageNode;
+  FocusNode? _quoteMessageNode;
 
   @override
   void initState() {
     super.initState();
-    _commentMessageNode = FocusNode();
+    _quoteMessageNode = FocusNode();
   }
 
   @override
   void dispose() {
     super.dispose();
-    _commentMessageNode!.dispose();
+    _quoteMessageNode!.dispose();
   }
 
   @override
@@ -81,7 +81,7 @@ class _BodyState extends State<Body> {
                 style: kPrimaryBodyTextStyle,
               ),
               Text(
-                "Replying to ${widget.post.profile.name}",
+                "Sharing post from ${widget.post.profile.name}",
                 style: kSecondaryBodyTextStyle.copyWith(
                   color: kPrimaryBodyTextColor,
                 ),
@@ -95,10 +95,10 @@ class _BodyState extends State<Body> {
 
   TextField buildCommentMessageField() {
     return TextField(
-      focusNode: _commentMessageNode,
+      focusNode: _quoteMessageNode,
       textInputAction: TextInputAction.done,
-      onEditingComplete: () => _commentMessageNode!.unfocus(),
-      onChanged: (value) => commentMessage = value, // POST MESSAGE HERE
+      onEditingComplete: () => _quoteMessageNode!.unfocus(),
+      onChanged: (value) => quoteMessage = value, // POST MESSAGE HERE
       style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       maxLines: null,
@@ -112,7 +112,7 @@ class _BodyState extends State<Body> {
         enabledBorder: InputBorder.none,
         errorBorder: InputBorder.none,
         disabledBorder: InputBorder.none,
-        hintText: "Share your response...",
+        hintText: "Share your insights regarding the post...",
         hintStyle: kPrimaryBodyTextStyle,
       ),
     );

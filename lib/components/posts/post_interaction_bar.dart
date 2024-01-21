@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/sheets/comment/comment_post_sheet.dart';
+import 'package:greenit_version1/components/sheets/share/share_post_sheet.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/size_config.dart';
@@ -42,21 +43,26 @@ class PostInteractionBar extends StatelessWidget {
           ),
         ),
         const HorizontalSpacing(of: 25),
-        Row(
-          children: [
-            Icon(
-              Icons.share_outlined,
-              size: 22,
-              color: Colors.black.withOpacity(0.6),
-            ),
-            const HorizontalSpacing(of: 5),
-            Text(
-              '2.3k', // TODO: Change to dynamic soon with  Model
-              style: kSecondaryBodyTextStyle.copyWith(
-                color: kPrimaryBodyTextColor,
+        GestureDetector(
+          onTap: () {
+            quoteModalBottomSheet(context, post);
+          },
+          child: Row(
+            children: [
+              Icon(
+                Icons.share_outlined,
+                size: 22,
+                color: Colors.black.withOpacity(0.6),
               ),
-            ),
-          ],
+              const HorizontalSpacing(of: 5),
+              Text(
+                '2.3k', // TODO: Change to dynamic soon with  Model
+                style: kSecondaryBodyTextStyle.copyWith(
+                  color: kPrimaryBodyTextColor,
+                ),
+              ),
+            ],
+          ),
         ),
         const HorizontalSpacing(of: 25),
         Row(
