@@ -4,6 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/data/profile_data.dart';
 import 'package:greenit_version1/models/profile.dart';
+import 'package:greenit_version1/size_config.dart';
 
 import '../../../components/sheets/map_display/map_display_modal_bottom_sheet.dart';
 
@@ -45,7 +46,7 @@ class _BodyState extends State<Body> {
         ),
         // ==============================================================
         Positioned(
-          top: 80,
+          top: getProportionateScreenHeight(80),
           child: Padding(
             padding: EdgeInsets.only(right: kDefaultHorizontalPadding / 1.3),
             child: SizedBox(
