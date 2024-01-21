@@ -14,7 +14,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  static String? postTitle, postMessage;
+  String? postTitle, postMessage;
 
   FocusNode? _postTitleNode, _postMessageNode;
 

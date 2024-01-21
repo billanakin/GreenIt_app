@@ -22,7 +22,7 @@ class PostInteractionBar extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            commentModalBottomSheet(context);
+            commentModalBottomSheet(context, post);
           },
           child: Row(
             children: [

@@ -1,19 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/appBar/utility_app_bar.dart';
 import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/data/profile_data.dart';
+import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class Body extends StatefulWidget {
-  const Body({super.key});
+  const Body({super.key, required this.post});
+
+  final Post post;
 
   @override
   State<Body> createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
+  String? postMessage;
+
+  FocusNode? _postMessageNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _postMessageNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _postMessageNode!.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Profile userProfile = DemoProfilesData.userProfile;
@@ -33,38 +51,69 @@ class _BodyState extends State<Body> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const VerticalSpacing(of: 20),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    ProfileAvatar.secondary(
-                      profile: userProfile,
-                    ),
-                    const HorizontalSpacing(of: 10),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            userProfile.name,
-                            style: kPrimaryBodyTextStyle,
-                          ),
-                          Text(
-                            'Posting your thoughts',
-                            style: kSecondaryBodyTextStyle.copyWith(
-                              color: kPrimaryBodyTextColor,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                buildProfileHeader(userProfile),
+                const VerticalSpacing(of: 20),
+                buildCommentMessageField(),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Row buildProfileHeader(Profile userProfile) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        ProfileAvatar.secondary(
+          profile: userProfile,
+        ),
+        const HorizontalSpacing(of: 10),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                userProfile.name,
+                style: kPrimaryBodyTextStyle,
+              ),
+              Text(
+                "Replying to ${widget.post.profile.name}",
+                style: kSecondaryBodyTextStyle.copyWith(
+                  color: kPrimaryBodyTextColor,
+                ),
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  TextField buildCommentMessageField() {
+    return TextField(
+      focusNode: _postMessageNode,
+      textInputAction: TextInputAction.done,
+      onEditingComplete: () => _postMessageNode!.unfocus(),
+      onChanged: (value) => postMessage = value, // POST MESSAGE HERE
+      style: kPrimaryBodyTextStyle,
+      cursorColor: kPrimaryActiveColor,
+      maxLines: null,
+      maxLength: 750,
+      decoration: InputDecoration(
+        fillColor: Colors.white,
+        contentPadding: EdgeInsets.zero,
+        isDense: true,
+        border: InputBorder.none,
+        focusedBorder: InputBorder.none,
+        enabledBorder: InputBorder.none,
+        errorBorder: InputBorder.none,
+        disabledBorder: InputBorder.none,
+        hintText: "Share your response...",
+        hintStyle: kPrimaryBodyTextStyle,
       ),
     );
   }

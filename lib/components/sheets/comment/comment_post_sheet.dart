@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/appBar/utility_app_bar.dart';
-import 'package:greenit_version1/components/profile/profile_avatar.dart';
 import 'package:greenit_version1/components/sheets/comment/components/body.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/data/profile_data.dart';
-import 'package:greenit_version1/models/profile.dart';
+import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/size_config.dart';
 
-Future commentModalBottomSheet(BuildContext context) {
+Future commentModalBottomSheet(BuildContext context, Post post) {
   SizeConfig().init(context);
 
   return showModalBottomSheet(
@@ -29,6 +26,7 @@ Future commentModalBottomSheet(BuildContext context) {
         topRight: Radius.circular(10),
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: UtilityAppBar(
           leadingText: 'Cancel',
           title: 'Comment',
@@ -36,7 +34,7 @@ Future commentModalBottomSheet(BuildContext context) {
           actionButtonPress:
               () {}, // TOOD: post button, all fields are required
         ),
-        body: const Body(),
+        body: Body(post: post),
       ),
     ),
   );
