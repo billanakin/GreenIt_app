@@ -80,8 +80,8 @@ class _MainNavigationState extends State<MainNavigation>
   Widget build(BuildContext context) {
     SizeConfig().init(context);
 
-    return WillPopScope(
-      onWillPop: () async => false,
+    return PopScope(
+      onPopInvoked: (bool popped) async => false,
       child: Scaffold(
         body: TabBarView(
           controller: _tabController,

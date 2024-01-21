@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:greenit_version1/screens/main_navigation.dart';
-import 'package:greenit_version1/screens/onboarding/components/onboarding_content.dart';
-import 'package:greenit_version1/screens/onboarding/onboarding_screen.dart';
 import 'package:greenit_version1/size_config.dart';
 import 'package:greenit_version1/theme.dart';
 

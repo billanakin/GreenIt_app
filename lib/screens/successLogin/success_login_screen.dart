@@ -6,8 +6,8 @@ class SuccessLoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
+    return PopScope(
+      onPopInvoked: (bool popped) async => false,
       child: const Scaffold(
         body: Body(),
       ),
