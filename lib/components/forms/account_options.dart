@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/buttons/socal_button.dart';
+import 'package:greenit_app/components/buttons/socal_button.dart';
 
 class AccountOptions extends StatelessWidget {
   const AccountOptions({

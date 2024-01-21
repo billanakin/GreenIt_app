@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/size_config.dart';
 
 // =============== FONTS ================
 const kPrimaryFontFamily = 'Helvetica Neue'; // DEFAULT

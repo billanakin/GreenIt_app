@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/home/components/map_display_button.dart';
-import 'package:greenit_version1/screens/home/components/user_location_focus_button.dart';
-import 'package:greenit_version1/size_config.dart';
-
-import '../../../components/sheets/map_display/map_display_modal_bottom_sheet.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/screens/home/components/map_display_button.dart';
+import 'package:greenit_app/screens/home/components/user_location_focus_button.dart';
+import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -23,8 +21,27 @@ class _BodyState extends State<Body> {
     mapController = controller;
   }
 
+  bool isLoaded = false;
+  String? output;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    return Center(
+      child: isLoaded
+          ? Text(
+              output as String,
+              textAlign: TextAlign.center,
+            )
+          : const CircularProgressIndicator(),
+    );
+  }
+
+  Widget xxbuild(BuildContext context) {
     return Stack(
       alignment: Alignment.topRight,
       children: [

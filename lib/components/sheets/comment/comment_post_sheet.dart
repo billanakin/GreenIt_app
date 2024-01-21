@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/appBar/utility_app_bar.dart';
-import 'package:greenit_version1/components/sheets/comment/components/body.dart';
-import 'package:greenit_version1/models/post.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/app_bar/utility_app_bar.dart';
+import 'package:greenit_app/components/sheets/comment/components/body.dart';
+import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/size_config.dart';
 
 Future commentModalBottomSheet(BuildContext context, Post post) {
   SizeConfig().init(context);

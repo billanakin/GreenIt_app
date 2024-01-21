@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/options/card_options.dart';
-import 'package:greenit_version1/components/profile/profile_avatar.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/models/comment.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/options/card_options.dart';
+import 'package:greenit_app/components/profile/profile_avatar.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/comment.dart';
+import 'package:greenit_app/size_config.dart';
 
 class CommentCard extends StatelessWidget {
   const CommentCard({

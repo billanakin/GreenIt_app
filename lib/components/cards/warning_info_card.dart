@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/size_config.dart';
 
 class WarningInfoCard extends StatelessWidget {
   const WarningInfoCard({

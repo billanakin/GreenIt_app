@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/size_config.dart';
 
 class SocalButton extends StatelessWidget {
   const SocalButton({

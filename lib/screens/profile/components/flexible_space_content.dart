@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/profile/profile_avatar.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/profile/components/body.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/profile/profile_avatar.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/screens/profile/components/body.dart';
+import 'package:greenit_app/size_config.dart';
 
 class FlexibleSpaceContent extends StatelessWidget {
   const FlexibleSpaceContent({

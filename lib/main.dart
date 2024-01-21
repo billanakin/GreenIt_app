@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:greenit_version1/screens/main_navigation.dart';
-import 'package:greenit_version1/size_config.dart';
-import 'package:greenit_version1/theme.dart';
+import 'package:greenit_app/screens/main_navigation.dart';
+import 'package:greenit_app/size_config.dart';
+import 'package:greenit_app/theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

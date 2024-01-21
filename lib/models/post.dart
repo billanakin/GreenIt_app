@@ -1,5 +1,5 @@
-import 'package:greenit_version1/models/comment.dart';
-import 'package:greenit_version1/models/profile.dart';
+import 'package:greenit_app/models/comment.dart';
+import 'package:greenit_app/models/profile.dart';
 
 enum PostConstructorType {
   defaultPost,

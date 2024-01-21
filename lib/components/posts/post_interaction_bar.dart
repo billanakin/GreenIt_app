@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/sheets/comment/comment_post_sheet.dart';
-import 'package:greenit_version1/components/sheets/share/share_post_sheet.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/models/post.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/sheets/comment/comment_post_sheet.dart';
+import 'package:greenit_app/components/sheets/share/share_post_sheet.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/size_config.dart';
 
 class PostInteractionBar extends StatefulWidget {
   const PostInteractionBar({
