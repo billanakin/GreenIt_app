@@ -5,7 +5,7 @@ import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/size_config.dart';
 
-class PostInteractionBar extends StatelessWidget {
+class PostInteractionBar extends StatefulWidget {
   const PostInteractionBar({
     super.key,
     required this.post,
@@ -16,6 +16,13 @@ class PostInteractionBar extends StatelessWidget {
   final Post post;
 
   @override
+  State<PostInteractionBar> createState() => _PostInteractionBarState();
+}
+
+class _PostInteractionBarState extends State<PostInteractionBar> {
+  bool isLiked = false;
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -23,7 +30,7 @@ class PostInteractionBar extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            commentModalBottomSheet(context, post);
+            commentModalBottomSheet(context, widget.post);
           },
           child: Row(
             children: [
@@ -45,7 +52,7 @@ class PostInteractionBar extends StatelessWidget {
         const HorizontalSpacing(of: 25),
         GestureDetector(
           onTap: () {
-            quoteModalBottomSheet(context, post);
+            quoteModalBottomSheet(context, widget.post);
           },
           child: Row(
             children: [
@@ -65,24 +72,34 @@ class PostInteractionBar extends StatelessWidget {
           ),
         ),
         const HorizontalSpacing(of: 25),
-        Row(
-          children: [
-            Icon(
-              Icons.favorite_border_rounded,
-              size: 22,
-              color: Colors.black.withOpacity(0.6),
-            ),
-            const HorizontalSpacing(of: 5),
-            Text(
-              '25.5k', // TODO: Change to dynamic soon with  Model
-              style: kSecondaryBodyTextStyle.copyWith(
-                color: kPrimaryBodyTextColor,
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              isLiked =
+                  !isLiked; // Update Post class not just postInteractionWidget
+            });
+          },
+          child: Row(
+            children: [
+              Icon(
+                (isLiked)
+                    ? Icons.favorite_rounded
+                    : Icons.favorite_border_rounded,
+                size: 22,
+                color: (isLiked) ? Colors.red : Colors.black.withOpacity(0.6),
               ),
-            ),
-          ],
+              const HorizontalSpacing(of: 5),
+              Text(
+                '25.5k', // TODO: Change to dynamic soon with  Model
+                style: kSecondaryBodyTextStyle.copyWith(
+                  color: kPrimaryBodyTextColor,
+                ),
+              ),
+            ],
+          ),
         ),
         const Spacer(),
-        suffix ?? const SizedBox.shrink(),
+        widget.suffix ?? const SizedBox.shrink(),
       ],
     );
   }
