@@ -1,4 +1,4 @@
-import 'package:greenit_version1/models/post.dart';
+import 'package:greenit_app/models/post.dart';
 
 class Profile {
   final int id;

@@ -1,4 +1,4 @@
-package com.example.greenit_version1
+package io.github.billanakin.greenit_app
 
 import io.flutter.embedding.android.FlutterActivity
 

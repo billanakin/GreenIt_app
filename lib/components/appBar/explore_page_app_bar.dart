@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/fields/search_bar.dart';
-import 'package:greenit_version1/components/profile/profile_avatar.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/models/profile.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/fields/search_bar.dart';
+import 'package:greenit_app/components/profile/profile_avatar.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/profile.dart';
+import 'package:greenit_app/size_config.dart';
 
 class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
   ExplorePageAppBar({

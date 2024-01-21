@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/appBar/default_app_bar.dart';
-import 'package:greenit_version1/data/notification_data.dart';
-import 'package:greenit_version1/models/notification.dart' as AppNotif;
-import 'package:greenit_version1/screens/notifications/components/notification_card.dart';
+import 'package:greenit_app/components/appBar/default_app_bar.dart';
+import 'package:greenit_app/dummy_data/notification_data.dart';
+import 'package:greenit_app/models/notification.dart' as AppNotif;
+import 'package:greenit_app/screens/notifications/components/notification_card.dart';
 
-import '../../../models/profile.dart';
+import 'package:greenit_app/models/profile.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});

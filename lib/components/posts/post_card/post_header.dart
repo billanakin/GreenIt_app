@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/profile/profile_avatar.dart';
-import 'package:greenit_version1/components/text/inline_text_divider.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/models/post.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/profile/profile_avatar.dart';
+import 'package:greenit_app/components/text/inline_text_divider.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/size_config.dart';
 
 enum PostHeaderType {
   defaultType,

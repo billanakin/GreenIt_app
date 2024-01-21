@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/appBar/home_page_app_bar.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/home/components/body.dart';
+import 'package:greenit_app/components/appBar/home_page_app_bar.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/screens/home/components/body.dart';
 
-import '../../models/profile.dart';
+import 'package:greenit_app/models/profile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      onPopInvoked: (bool popped) async => false,
+      canPop: false,
       child: SafeArea(
         child: Scaffold(
           extendBodyBehindAppBar: true,

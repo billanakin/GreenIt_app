@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/buttons/secondary_button.dart';
-import 'package:greenit_version1/components/profile/profile_avatar.dart';
-import 'package:greenit_version1/components/text/inline_text_divider.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/models/post.dart';
-import 'package:greenit_version1/screens/home/home_screen.dart';
-import 'package:greenit_version1/screens/main_navigation.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/buttons/secondary_button.dart';
+import 'package:greenit_app/components/profile/profile_avatar.dart';
+import 'package:greenit_app/components/text/inline_text_divider.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/screens/home/home_screen.dart';
+import 'package:greenit_app/screens/main_navigation.dart';
+import 'package:greenit_app/size_config.dart';
 
 class ViewPostAppBar extends StatefulWidget implements PreferredSizeWidget {
   const ViewPostAppBar({

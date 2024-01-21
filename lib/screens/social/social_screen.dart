@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/screens/social/components/body.dart';
+import 'package:greenit_app/screens/social/components/body.dart';
 
 class SocialScreen extends StatelessWidget {
   const SocialScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: const Scaffold(
+    return const PopScope(
+      canPop: false,
+      child: Scaffold(
         body: Body(),
       ),
     );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/logo/inline_logo.dart';
-import 'package:greenit_version1/components/profile/profile_avatar.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/main_navigation.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/logo/inline_logo.dart';
+import 'package:greenit_app/components/profile/profile_avatar.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/screens/main_navigation.dart';
+import 'package:greenit_app/size_config.dart';
 
 import '../../models/profile.dart';
 
