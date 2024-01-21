@@ -44,23 +44,27 @@ class _BodyState extends State<Body> {
           ),
         ),
         // ==============================================================
-        Positioned(
-          top: getProportionateScreenHeight(80),
-          child: Padding(
-            padding: EdgeInsets.only(right: kDefaultHorizontalPadding / 1.3),
-            child: const SizedBox(
-              height: 110,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  MapDisplayButton(),
-                  UserLocationFocusButton(),
-                ],
-              ),
-            ),
+        buildMapOptionsButtons(),
+      ],
+    );
+  }
+
+  Positioned buildMapOptionsButtons() {
+    return Positioned(
+      top: getProportionateScreenHeight(80),
+      child: Padding(
+        padding: EdgeInsets.only(right: kDefaultHorizontalPadding / 1.3),
+        child: const SizedBox(
+          height: 110,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              MapDisplayButton(),
+              UserLocationFocusButton(),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 }

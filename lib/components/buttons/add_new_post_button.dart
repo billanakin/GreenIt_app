@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/newPost/new_post_screen.dart';
+import 'package:greenit_version1/screens/newPost/newPostStepOne/new_post_step_one_screen.dart';
 import 'package:greenit_version1/size_config.dart';
 
 class AddNewPostButton extends StatelessWidget {
@@ -14,7 +14,7 @@ class AddNewPostButton extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const NewPostScreen(),
+          builder: (context) => const NewPostStepOneScreen(),
         ),
       ),
       child: Container(

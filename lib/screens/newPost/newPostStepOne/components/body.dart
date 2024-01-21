@@ -14,7 +14,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  String? postTitle, postMessage;
+  static String? postTitle, postMessage;
 
   FocusNode? _postTitleNode, _postMessageNode;
 
@@ -42,41 +42,17 @@ class _BodyState extends State<Body> {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+            padding: EdgeInsets.only(
+              left: kDefaultHorizontalPadding,
+              right: kDefaultHorizontalPadding,
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const VerticalSpacing(of: 20),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    ProfileAvatar.secondary(
-                      profile: userProfile,
-                    ),
-                    const HorizontalSpacing(of: 10),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            userProfile.name,
-                            style: kPrimaryBodyTextStyle,
-                          ),
-                          Text(
-                            'Posting your thoughts',
-                            style: kSecondaryBodyTextStyle.copyWith(
-                              color: kPrimaryBodyTextColor,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                buildProfileHeader(userProfile),
                 const VerticalSpacing(of: 30),
                 buildPostTitleField(),
                 const VerticalSpacing(of: 5),
@@ -93,6 +69,37 @@ class _BodyState extends State<Body> {
           ),
         ),
       ),
+    );
+  }
+
+  Row buildProfileHeader(Profile userProfile) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        ProfileAvatar.secondary(
+          profile: userProfile,
+        ),
+        const HorizontalSpacing(of: 10),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                userProfile.name,
+                style: kPrimaryBodyTextStyle,
+              ),
+              Text(
+                'Posting your thoughts',
+                style: kSecondaryBodyTextStyle.copyWith(
+                  color: kPrimaryBodyTextColor,
+                ),
+              )
+            ],
+          ),
+        ),
+      ],
     );
   }
 
