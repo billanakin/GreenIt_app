@@ -109,6 +109,10 @@ flutter:
     - assets/images/posts/post_image8.png
     - assets/images/posts/post_image9.png
 
+    # images > home > map display
+    - assets/images/home/map_display/explore-map-display.png
+    - assets/images/home/map_display/satellite-map-display.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
