@@ -33,7 +33,7 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
       preferredSize: widget.preferredSize,
       child: SafeArea(
         child: Container(
-          height: widget.height,
+          height: getProportionateScreenHeight(70),
           padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding,
             vertical: kDefaultVerticalPadding,
@@ -107,8 +107,11 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
                 ),
               ),
               const Spacer(),
-              const SecondaryButton(
+              SecondaryButton(
                 text: 'Show Map',
+                press: () {},
+                width: getProportionateScreenWidth(110),
+                height: 40,
               ),
             ],
           ),

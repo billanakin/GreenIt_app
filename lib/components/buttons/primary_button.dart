@@ -5,18 +5,22 @@ import 'package:greenit_version1/size_config.dart';
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     super.key,
+    this.width = double.infinity,
+    this.height = 60,
     required this.text,
     required this.press,
   });
 
   final String text;
+  final double width;
+  final double height;
   final void Function() press;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: getProportionateScreenHeight(60),
+      width: width,
+      height: getProportionateScreenHeight(height),
       child: FilledButton(
         style: FilledButton.styleFrom(
           shape: const ContinuousRectangleBorder(

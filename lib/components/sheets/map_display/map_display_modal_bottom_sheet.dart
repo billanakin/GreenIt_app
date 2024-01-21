@@ -5,8 +5,13 @@ import 'package:greenit_version1/constants.dart';
 import 'package:greenit_version1/size_config.dart';
 
 Future mapDisplayModalBottomSheet(BuildContext context) {
+  SizeConfig().init(context);
+
   return showModalBottomSheet(
     context: context,
+    constraints: BoxConstraints(
+      maxWidth: SizeConfig.screenWidth,
+    ),
     builder: (context) => SafeArea(
       child: Container(
         height: getProportionateScreenHeight(260),

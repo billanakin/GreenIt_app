@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/fields/search_bar.dart';
-import 'package:greenit_version1/components/profile/profile_avatar.dart';
+import 'package:greenit_version1/components/buttons/primary_button.dart';
 import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/models/profile.dart';
 import 'package:greenit_version1/size_config.dart';
 
-class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
-  ExplorePageAppBar({
+class UtilityAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const UtilityAppBar({
     super.key,
     this.height = 70,
-    required this.userProfile,
+    required this.leadingText,
+    required this.title,
+    required this.actionButtonText,
+    required this.actionButtonPress,
   });
 
   final double height;
-  final Profile userProfile;
+
+  final String leadingText;
+  final String title;
+  final String actionButtonText;
+  final void Function() actionButtonPress;
 
   @override
   Size get preferredSize =>
       Size(double.maxFinite, getProportionateScreenHeight(height));
-
-  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +48,31 @@ class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ProfileAvatar(
-                profile: userProfile,
-              ),
-              const HorizontalSpacing(of: 15),
-              Expanded(
-                child: CustomSearchBar(
-                  searchController: _searchController,
-                  hintText: 'Search Posts',
+              GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: Text(
+                  leadingText,
+                  style: kPrimaryBodyTextStyle,
                 ),
               ),
+              const HorizontalSpacing(of: 30),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    title,
+                    style: kPrimaryBodyTextStyle.copyWith(
+                      fontFamily: 'Helvetica',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              PrimaryButton(
+                text: actionButtonText,
+                width: getProportionateScreenWidth(80),
+                height: 40,
+                press: actionButtonPress,
+              )
             ],
           ),
         ),
