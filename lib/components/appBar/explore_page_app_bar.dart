@@ -27,7 +27,7 @@ class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
       preferredSize: preferredSize,
       child: SafeArea(
         child: Container(
-          height: height,
+          height: getProportionateScreenHeight(70),
           padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding,
             vertical: kDefaultVerticalPadding,

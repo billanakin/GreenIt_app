@@ -77,7 +77,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           SliverAppBar(
             leading: const SizedBox.shrink(),
             floating: true,
-            expandedHeight: 70.0,
+            expandedHeight: getProportionateScreenHeight(70),
             flexibleSpace: ExplorePageAppBar(
               userProfile: userProfile,
             ),
@@ -88,10 +88,10 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             leading: const SizedBox.shrink(),
             scrolledUnderElevation: 0,
             backgroundColor: const Color(0x66868686).withOpacity(0.1),
-            expandedHeight: 70.0,
-            collapsedHeight: 70.0,
+            expandedHeight: getProportionateScreenHeight(70),
+            collapsedHeight: getProportionateScreenHeight(70),
             flexibleSpace: Container(
-              height: 70,
+              height: getProportionateScreenHeight(70),
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: ListView.separated(
                 physics: const BouncingScrollPhysics(),

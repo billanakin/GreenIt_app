@@ -28,7 +28,6 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
       preferredSize: preferredSize,
       child: SafeArea(
         child: Container(
-          height: height,
           padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding,
             vertical: kDefaultVerticalPadding,

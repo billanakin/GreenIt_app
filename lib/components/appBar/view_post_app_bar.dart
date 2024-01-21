@@ -33,7 +33,6 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
       preferredSize: widget.preferredSize,
       child: SafeArea(
         child: Container(
-          height: widget.height,
           padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding,
             vertical: kDefaultVerticalPadding,
