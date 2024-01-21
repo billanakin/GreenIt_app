@@ -31,7 +31,7 @@ class CommentCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ProfileAvatar.secondary(
-                profileAvatarImage: comment.profileImage,
+                profile: comment.profile,
               ),
               const HorizontalSpacing(of: 10),
               Expanded(

@@ -28,14 +28,12 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
       preferredSize: preferredSize,
       child: SafeArea(
         child: Container(
-          height: height,
           padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding,
             vertical: kDefaultVerticalPadding,
           ),
           decoration: BoxDecoration(
             color: const Color(0x66868686).withOpacity(0.5),
-            // color: Colors.green.withOpacity(0.3),
             border: const Border(
               bottom: BorderSide(
                 width: 1,
@@ -59,7 +57,7 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               const HorizontalSpacing(of: 10),
               ProfileAvatar(
-                profileAvatarImage: userProfile.profileAvatar,
+                profile: userProfile,
               ),
             ],
           ),

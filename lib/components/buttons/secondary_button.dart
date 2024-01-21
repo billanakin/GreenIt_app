@@ -7,14 +7,21 @@ class SecondaryButton extends StatelessWidget {
   const SecondaryButton({
     super.key,
     required this.text,
+    required this.press,
+    this.width = double.infinity,
+    this.height = 60,
   });
 
   final String text;
+  final void Function() press;
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: getProportionateScreenWidth(110),
+      height: getProportionateScreenHeight(height),
+      width: width,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
           backgroundColor: Colors.white,
@@ -27,7 +34,7 @@ class SecondaryButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        onPressed: () {},
+        onPressed: press,
         child: Text(
           text,
           style: kPrimaryBodyTextStyle.copyWith(

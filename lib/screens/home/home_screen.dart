@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_app/components/appBar/home_page_app_bar.dart';
-import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/components/app_bar/home_page_app_bar.dart';
+import 'package:greenit_app/components/buttons/add_new_post_button.dart';
+import 'package:greenit_app/dummy_data/profile_data.dart';
 import 'package:greenit_app/screens/home/components/body.dart';
 
 import 'package:greenit_app/models/profile.dart';
@@ -10,40 +11,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Profile userProfile = DemoProfilesData.userProfile;
     return PopScope(
       canPop: false,
       child: SafeArea(
         child: Scaffold(
           extendBodyBehindAppBar: true,
           appBar: HomePageAppBar(
-            userProfile: Profile(
-              id: 3,
-              name: 'Lionel Messi',
-              profileAvatar: 'assets/images/profile/user_profile.jpeg',
-            ),
+            userProfile: userProfile,
           ),
           body: const Body(),
-          floatingActionButton: Container(
-            height: 75,
-            width: 75,
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: kPrimaryActiveColor,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  blurRadius: 7,
-                  spreadRadius: 0.8,
-                  offset: const Offset(1.0, 3.0),
-                ),
-              ],
-            ),
-            child: const Center(
-              child:
-                  Icon(Icons.post_add_outlined, color: Colors.white, size: 35),
-            ),
-          ),
+          floatingActionButton: const AddNewPostButton(),
         ),
       ),
     );

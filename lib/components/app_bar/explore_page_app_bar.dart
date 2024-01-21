@@ -27,7 +27,7 @@ class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
       preferredSize: preferredSize,
       child: SafeArea(
         child: Container(
-          height: height,
+          height: getProportionateScreenHeight(70),
           padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding,
             vertical: kDefaultVerticalPadding,
@@ -46,7 +46,7 @@ class ExplorePageAppBar extends StatelessWidget implements PreferredSizeWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ProfileAvatar(
-                profileAvatarImage: userProfile.profileAvatar,
+                profile: userProfile,
               ),
               const HorizontalSpacing(of: 15),
               Expanded(

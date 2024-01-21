@@ -7,10 +7,13 @@ class Profile {
   final List<Post> posts;
   final String profileAvatar;
 
+  final bool isCurrentUser;
+
   Profile({
     List<Profile>? followers,
     List<Profile>? following,
     List<Post>? posts,
+    this.isCurrentUser = false,
     required this.id,
     required this.name,
     required this.profileAvatar,

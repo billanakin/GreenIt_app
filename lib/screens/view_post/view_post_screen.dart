@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/screens/view_post/components/body.dart';
 
 class ViewPostScreen extends StatelessWidget {
@@ -6,8 +7,10 @@ class ViewPostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final postData = ModalRoute.of(context)!.settings.arguments as Post;
+
     return Scaffold(
-      body: Body(),
+      body: Body(post: postData),
     );
   }
 }

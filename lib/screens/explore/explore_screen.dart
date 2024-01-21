@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_app/components/buttons/add_new_post_button.dart';
 import 'package:greenit_app/screens/explore/components/body.dart';
 
 class ExploreScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class ExploreScreen extends StatelessWidget {
       canPop: false,
       child: Scaffold(
         body: Body(),
+        floatingActionButton: AddNewPostButton(),
       ),
     );
   }

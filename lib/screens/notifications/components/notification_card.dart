@@ -55,8 +55,7 @@ class NotificationCard extends StatelessWidget {
                 (index) => Padding(
                   padding: const EdgeInsets.only(left: 5),
                   child: ProfileAvatar.secondary(
-                      profileAvatarImage: notification
-                          .listOfProfilesLiked![index].profileAvatar),
+                      profile: notification.listOfProfilesLiked![index]),
                 ),
               ),
               const HorizontalSpacing(of: 10),
@@ -130,7 +129,7 @@ class NotificationCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ProfileAvatar.secondary(
-                profileAvatarImage: notification.profileRecentlyPostedImage,
+                profile: notification.profileRecentlyPosted!,
               ),
               const HorizontalSpacing(of: 10),
               Expanded(
@@ -206,7 +205,7 @@ class NotificationCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ProfileAvatar.secondary(
-                profileAvatarImage: notification.profileRecentlyFollowingImage,
+                profile: notification.profileRecentlyFollowing!,
               ),
               const HorizontalSpacing(of: 10),
               Expanded(

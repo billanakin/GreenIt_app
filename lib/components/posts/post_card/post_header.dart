@@ -34,7 +34,7 @@ class PostHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ProfileAvatar.secondary(profileAvatarImage: post.profileImage),
+        ProfileAvatar.secondary(profile: post.profile),
         const HorizontalSpacing(of: 10),
         PostHeaderInfo(
           post: post,

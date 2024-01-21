@@ -4,15 +4,12 @@ import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/components/text/inline_text_divider.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
-import 'package:greenit_app/screens/home/home_screen.dart';
-import 'package:greenit_app/screens/main_navigation.dart';
 import 'package:greenit_app/size_config.dart';
 
 class ViewPostAppBar extends StatefulWidget implements PreferredSizeWidget {
   const ViewPostAppBar({
     super.key,
     this.height = 70,
-    // required this.autoScrollToTop,
     required this.viewedPost,
   });
 
@@ -20,8 +17,6 @@ class ViewPostAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   final double height;
   final Post viewedPost;
-
-  // final Function() autoScrollToTop;
 
   @override
   State<ViewPostAppBar> createState() => _ViewPostAppBarState();
@@ -38,7 +33,7 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
       preferredSize: widget.preferredSize,
       child: SafeArea(
         child: Container(
-          height: widget.height,
+          height: getProportionateScreenHeight(70),
           padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding,
             vertical: kDefaultVerticalPadding,
@@ -62,7 +57,7 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
               ),
               const HorizontalSpacing(of: 15),
               ProfileAvatar.secondary(
-                profileAvatarImage: widget.viewedPost.profileImage,
+                profile: widget.viewedPost.profile,
                 radius: 18,
               ),
               const HorizontalSpacing(of: 10),
@@ -112,8 +107,11 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
                 ),
               ),
               const Spacer(),
-              const SecondaryButton(
+              SecondaryButton(
                 text: 'Show Map',
+                press: () {},
+                width: getProportionateScreenWidth(110),
+                height: 40,
               ),
             ],
           ),

@@ -34,7 +34,9 @@ class CompleteProfileScreen extends StatelessWidget {
       currentStep: 2,
       totalSteps: 2,
       selectedColor: kPrimaryActiveColor,
-      size: 2,
+      unselectedColor: Color(0x66868686),
+      padding: 0,
+      size: 4,
     );
   }
 }

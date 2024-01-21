@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_app/components/appBar/explore_page_app_bar.dart';
+import 'package:greenit_app/components/app_bar/explore_page_app_bar.dart';
 import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/dummy_data/post_data.dart';
+import 'package:greenit_app/dummy_data/profile_data.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
@@ -63,6 +64,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
     );
   }
 
+  Profile userProfile = DemoProfilesData.userProfile;
+
   @override
   Widget build(BuildContext context) {
     List<Post> currentPostData = tabPage[currentIndex]['data'];
@@ -74,13 +77,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           SliverAppBar(
             leading: const SizedBox.shrink(),
             floating: true,
-            expandedHeight: 70.0,
+            expandedHeight: getProportionateScreenHeight(70),
             flexibleSpace: ExplorePageAppBar(
-              userProfile: Profile(
-                id: 3,
-                name: 'Lionel Messi',
-                profileAvatar: 'assets/images/profile/user_profile.jpeg',
-              ),
+              userProfile: userProfile,
             ),
           ),
           SliverAppBar(
@@ -89,10 +88,10 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             leading: const SizedBox.shrink(),
             scrolledUnderElevation: 0,
             backgroundColor: const Color(0x66868686).withOpacity(0.1),
-            expandedHeight: 70.0,
-            collapsedHeight: 70.0,
+            expandedHeight: getProportionateScreenHeight(70),
+            collapsedHeight: getProportionateScreenHeight(70),
             flexibleSpace: Container(
-              height: 70,
+              height: getProportionateScreenHeight(70),
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
@@ -147,9 +146,10 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(
-              horizontal: kDefaultHorizontalPadding,
-              vertical: kSecondaryVerticalPadding,
+            padding: EdgeInsets.only(
+              top: kDefaultHorizontalPadding,
+              right: kSecondaryVerticalPadding,
+              left: kSecondaryVerticalPadding,
             ),
             sliver: SliverToBoxAdapter(
               child: SectionHeader(
@@ -162,11 +162,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               childCount: currentPostData.length,
-              (context, index) => InkWell(
-                onTap: () {},
-                child: PostCard(
-                  post: currentPostData[index],
-                ),
+              (context, index) => PostCard(
+                post: currentPostData[index],
               ),
             ),
           ),

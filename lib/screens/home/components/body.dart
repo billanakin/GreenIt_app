@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/components/sheets/map_display_modal_bottom_sheet.dart';
+import 'package:greenit_app/screens/home/components/map_display_button.dart';
+import 'package:greenit_app/screens/home/components/user_location_focus_button.dart';
+import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -60,55 +61,27 @@ class _BodyState extends State<Body> {
           ),
         ),
         // ==============================================================
-        Positioned(
-          top: 80,
-          child: Padding(
-            padding: EdgeInsets.only(right: kDefaultHorizontalPadding / 1.3),
-            child: SizedBox(
-              height: 110,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // TODO: ADD INK WELL
-                  InkWell(
-                    onTap: () {
-                      mapDisplayModalBottomSheet(context);
-                    },
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Icon(
-                        Icons.map_outlined,
-                        color: kPrimaryIconColor,
-                      ),
-                    ),
-                  ),
-                  // TODO: ADD INK WELL
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: const Icon(
-                      Icons.near_me_outlined,
-                      color: kPrimaryIconColor,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+        buildMapOptionsButtons(),
+      ],
+    );
+  }
+
+  Positioned buildMapOptionsButtons() {
+    return Positioned(
+      top: getProportionateScreenHeight(80),
+      child: Padding(
+        padding: EdgeInsets.only(right: kDefaultHorizontalPadding / 1.3),
+        child: const SizedBox(
+          height: 110,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              MapDisplayButton(),
+              UserLocationFocusButton(),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 }
