@@ -31,10 +31,12 @@ class SignUpScreen extends StatelessWidget {
 
   StepProgressIndicator buildProgressIndicator() {
     return const StepProgressIndicator(
+      padding: 0,
+      selectedColor: kPrimaryActiveColor,
+      unselectedColor: Color(0x66868686),
       currentStep: 1,
       totalSteps: 2,
-      selectedColor: kPrimaryActiveColor,
-      size: 2,
+      size: 4,
     );
   }
 }

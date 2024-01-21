@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:greenit_version1/components/posts/post_card/post_card.dart';
 import 'package:greenit_version1/components/posts/section_header.dart';
 import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/models/post.dart';
 import 'package:greenit_version1/models/profile.dart';
 import 'package:greenit_version1/screens/profile/components/flexible_space_content.dart';
 import 'package:greenit_version1/screens/profile/components/profile_info_button.dart';
