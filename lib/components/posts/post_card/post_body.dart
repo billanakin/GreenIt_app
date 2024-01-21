@@ -119,8 +119,14 @@ Container buildPostBodyDefaultType(
           ),
         const VerticalSpacing(of: 20),
         if (isViewPost || isBottomSheet)
-          const PostInteractionBar(suffix: CardOptions(press: null)),
-        if (!(isViewPost || isBottomSheet)) const PostInteractionBar(),
+          PostInteractionBar(
+            suffix: const CardOptions(press: null),
+            post: post,
+          ),
+        if (!(isViewPost || isBottomSheet))
+          PostInteractionBar(
+            post: post,
+          ),
       ],
     ),
   );
@@ -195,8 +201,14 @@ Container buildPostBodySharedType(
         ),
         const VerticalSpacing(of: 20),
         if (isViewPost || isBottomSheet)
-          const PostInteractionBar(suffix: CardOptions(press: null)),
-        if (!(isViewPost || isBottomSheet)) const PostInteractionBar(),
+          PostInteractionBar(
+            suffix: const CardOptions(press: null),
+            post: post,
+          ),
+        if (!(isViewPost || isBottomSheet))
+          PostInteractionBar(
+            post: post,
+          ),
       ],
     ),
   );
