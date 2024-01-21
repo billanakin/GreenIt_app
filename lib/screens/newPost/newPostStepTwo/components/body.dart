@@ -36,7 +36,7 @@ class _BodyState extends State<Body> {
       alignment: Alignment.bottomCenter,
       child: Container(
         width: double.infinity,
-        height: getProportionateScreenHeight(100),
+        height: getProportionateScreenHeight(120),
         padding: EdgeInsets.symmetric(
           horizontal: kDefaultHorizontalPadding,
           vertical: kSecondaryVerticalPadding,

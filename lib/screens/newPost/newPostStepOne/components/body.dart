@@ -64,6 +64,7 @@ class _BodyState extends State<Body> {
                   info:
                       'To ensure your post is truthful, enhance it by including a relevant photograph.',
                 ),
+                const VerticalSpacing(of: 20),
               ],
             ),
           ),
