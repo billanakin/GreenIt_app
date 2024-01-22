@@ -3,8 +3,8 @@ import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
 
-class profileInfoButton extends StatefulWidget {
-  const profileInfoButton({
+class ProfileInfoButton extends StatefulWidget {
+  const ProfileInfoButton({
     super.key,
     required this.profile,
   });
@@ -12,10 +12,10 @@ class profileInfoButton extends StatefulWidget {
   final Profile profile;
 
   @override
-  State<profileInfoButton> createState() => _profileInfoButtonState();
+  State<ProfileInfoButton> createState() => _ProfileInfoButtonState();
 }
 
-class _profileInfoButtonState extends State<profileInfoButton> {
+class _ProfileInfoButtonState extends State<ProfileInfoButton> {
   bool isFollowing = false;
 
   @override
@@ -35,7 +35,7 @@ class _profileInfoButtonState extends State<profileInfoButton> {
                   primary: kPrimaryBorderColor,
                   side: const BorderSide(
                     width: 1,
-                    color: const Color(0xFF868686),
+                    color: Color(0xFF868686),
                   ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),

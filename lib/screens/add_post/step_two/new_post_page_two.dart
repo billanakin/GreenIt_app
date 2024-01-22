@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/app_bar/utility_app_bar.dart';
-import 'package:greenit_app/components/buttons/primary_button.dart';
 import 'package:greenit_app/components/buttons/secondary_button.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/screens/add_post/step_two/components/body.dart';

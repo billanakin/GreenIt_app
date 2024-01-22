@@ -43,7 +43,7 @@ class _BodyState extends State<Body> {
               vertical: kSecondaryVerticalPadding,
             ),
             sliver: SliverToBoxAdapter(
-              child: profileInfoButton(
+              child: ProfileInfoButton(
                 profile: widget.profile,
               ),
             ),
