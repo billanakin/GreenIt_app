@@ -25,27 +25,58 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton> {
       child: Column(
         children: [
           if (widget.profile.isCurrentUser)
-            SizedBox(
-              width: getProportionateScreenWidth(150),
-              height: getProportionateScreenHeight(40),
-              child: OutlinedButton(
-                onPressed: () {},
-                style: OutlinedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  primary: kPrimaryBorderColor,
-                  side: const BorderSide(
-                    width: 1,
-                    color: Color(0xFF868686),
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: getProportionateScreenWidth(150),
+                  height: getProportionateScreenHeight(40),
+                  child: OutlinedButton(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      primary: kPrimaryBorderColor,
+                      side: const BorderSide(
+                        width: 1,
+                        color: Color(0xFF868686),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Text(
+                      'Edit Profile',
+                      style: kPrimaryBodyTextStyle,
+                    ),
                   ),
                 ),
-                child: Text(
-                  'Edit Profile',
-                  style: kPrimaryBodyTextStyle,
+                const HorizontalSpacing(of: 10),
+                SizedBox(
+                  width: getProportionateScreenWidth(150),
+                  height: getProportionateScreenHeight(40),
+                  child: OutlinedButton(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      primary: kPrimaryBorderColor,
+                      side: const BorderSide(
+                        width: 1,
+                        color: Color(0xFFC33E3E),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Text(
+                      'Logout',
+                      style: kPrimaryBodyTextStyle.copyWith(
+                        color: const Color(0xFFC33E3E),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
           if (!widget.profile.isCurrentUser)
             SizedBox(
