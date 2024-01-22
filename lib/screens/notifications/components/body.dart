@@ -37,11 +37,8 @@ class _BodyState extends State<Body> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               childCount: demoNotificationData.length,
-              (context, index) => InkWell(
-                onTap: () {},
-                child:
-                    NotificationCard(notification: demoNotificationData[index]),
-              ),
+              (context, index) =>
+                  NotificationCard(notification: demoNotificationData[index]),
             ),
           ),
         ],
