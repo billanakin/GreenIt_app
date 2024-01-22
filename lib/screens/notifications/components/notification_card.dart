@@ -4,6 +4,8 @@ import 'package:greenit_app/components/options/card_options.dart';
 import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/notification.dart' as AppNotif;
+import 'package:greenit_app/screens/profile/profile_screen.dart';
+import 'package:greenit_app/screens/view_post/view_post_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
 class NotificationCard extends StatelessWidget {
@@ -20,16 +22,46 @@ class NotificationCard extends StatelessWidget {
 
     if (notification.notificationConstructorType ==
         AppNotif.NotificationConstructorType.recentlyFollowed) {
-      notificationCardOutput =
-          buildRecentlyFollowedTypeNotificationCard(notification);
+      notificationCardOutput = InkWell(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ProfileScreen(),
+            settings: RouteSettings(
+              arguments: notification.profileRecentlyFollowing,
+            ),
+          ),
+        ),
+        child: buildRecentlyFollowedTypeNotificationCard(notification),
+      );
     } else if (notification.notificationConstructorType ==
         AppNotif.NotificationConstructorType.recentlyPosted) {
-      notificationCardOutput =
-          buildRecentlyPostedTypeNotificationCard(notification);
+      notificationCardOutput = InkWell(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ViewPostScreen(),
+            settings: RouteSettings(
+              arguments: notification.postRecentlyPosted!,
+            ), // TODO: Configure Null Check Value Error
+          ),
+        ),
+        child: buildRecentlyPostedTypeNotificationCard(notification),
+      );
     } else if (notification.notificationConstructorType ==
         AppNotif.NotificationConstructorType.recentlyLikedPost) {
-      notificationCardOutput =
-          buildRecentlyLikedPostTypeNotificationCard(notification);
+      notificationCardOutput = InkWell(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ViewPostScreen(),
+            settings: RouteSettings(
+              arguments: notification.postLiked!,
+            ), // TODO: Configure Null Check Value Error
+          ),
+        ),
+        child: buildRecentlyLikedPostTypeNotificationCard(notification),
+      );
     }
     return notificationCardOutput!;
   }

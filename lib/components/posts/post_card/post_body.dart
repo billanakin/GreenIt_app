@@ -4,6 +4,7 @@ import 'package:greenit_app/components/posts/post_card/post_header.dart';
 import 'package:greenit_app/components/posts/post_interaction_bar.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/screens/view_post/view_post_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
 enum PostBodyType {
@@ -47,6 +48,7 @@ class PostBody extends StatelessWidget {
         post,
         isViewPost,
         isBottomSheet,
+        context,
       );
     }
     return postBodyOutput!;
@@ -136,6 +138,7 @@ Container buildPostBodySharedType(
   Post post,
   bool isViewPost,
   bool isBottomSheet,
+  BuildContext context,
 ) {
   return Container(
     padding: (isViewPost || isBottomSheet)
@@ -152,51 +155,62 @@ Container buildPostBodySharedType(
           style: kPrimaryBodyTextStyle,
         ),
         const VerticalSpacing(of: 10),
-        Container(
-          width: double.maxFinite,
-          height: getProportionateScreenHeight(200),
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              width: 1,
-              color: const Color(0xFF868686),
+        InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ViewPostScreen(),
+              settings: RouteSettings(
+                  arguments: post
+                      .sharedPost), // TODO: Configure Null Check Value Error
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              PostHeader(
-                post: post.sharedPost!,
-                suffix: const CardOptions(press: null),
+          child: Container(
+            width: double.maxFinite,
+            height: getProportionateScreenHeight(200),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                width: 1,
+                color: const Color(0xFF868686),
               ),
-              const VerticalSpacing(of: 20),
-              Container(
-                padding: const EdgeInsets.only(left: 45),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      post.sharedPost!.messageTitle!,
-                      style: kPrimaryBodyTextStyle.copyWith(
-                        fontFamily: 'Helvetica',
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const VerticalSpacing(of: 10),
-                    Text(
-                      post.sharedPost!.messageDescription,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: kPrimaryBodyTextStyle,
-                    ),
-                  ],
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                PostHeader(
+                  post: post.sharedPost!,
+                  suffix: const CardOptions(press: null),
                 ),
-              ),
-            ],
+                const VerticalSpacing(of: 20),
+                Container(
+                  padding: const EdgeInsets.only(left: 45),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        post.sharedPost!.messageTitle!,
+                        style: kPrimaryBodyTextStyle.copyWith(
+                          fontFamily: 'Helvetica',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const VerticalSpacing(of: 10),
+                      Text(
+                        post.sharedPost!.messageDescription,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: kPrimaryBodyTextStyle,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         const VerticalSpacing(of: 20),
