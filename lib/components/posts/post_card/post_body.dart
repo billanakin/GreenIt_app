@@ -165,7 +165,7 @@ Container buildPostBodySharedType(
                       .sharedPost), // TODO: Configure Null Check Value Error
             ),
           ),
-          child: Ink(
+          child: Container(
             width: double.maxFinite,
             height: getProportionateScreenHeight(200),
             padding: const EdgeInsets.all(10),
