@@ -114,7 +114,7 @@ class FlexibleSpaceContent extends StatelessWidget {
                             const HorizontalSpacing(of: 40),
                             Text(
                               // widget.profile.numOfFollowers.toString(),
-                              '1.2k Followers',
+                              '1.2k Followers', // TODO: CHANGE TO DYNAMIC SOON
                               style: kSecondaryBodyTextStyle.copyWith(
                                 color: Colors.white,
                                 fontFamily: 'Helvetica',
@@ -159,7 +159,7 @@ class FlexibleSpaceContent extends StatelessWidget {
                             const HorizontalSpacing(of: 40),
                             Text(
                               // widget.profile.numOfFollowing.toString(),
-                              '245 Following',
+                              '245 Following', // TODO: CHANGE TO DYNAMIC SOON
                               style: kSecondaryBodyTextStyle.copyWith(
                                 color: Colors.white,
                                 fontFamily: 'Helvetica',
