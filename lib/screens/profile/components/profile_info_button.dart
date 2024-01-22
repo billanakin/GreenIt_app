@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_app/components/sheets/edit_profile/edit_profile_sheet.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
@@ -33,7 +34,9 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton> {
                   width: getProportionateScreenWidth(150),
                   height: getProportionateScreenHeight(40),
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      editProfileModalBottomSheet(context, widget.profile);
+                    },
                     style: OutlinedButton.styleFrom(
                       backgroundColor: Colors.white,
                       primary: kPrimaryBorderColor,
