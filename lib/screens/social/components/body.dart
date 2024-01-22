@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/appBar/default_app_bar.dart';
-import 'package:greenit_version1/components/posts/post_card/post_card.dart';
-import 'package:greenit_version1/data/post_data.dart';
-import 'package:greenit_version1/data/profile_data.dart';
-import 'package:greenit_version1/models/post.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/app_bar/default_app_bar.dart';
+import 'package:greenit_app/components/posts/post_card/post_card.dart';
+import 'package:greenit_app/dummy_data/post_data.dart';
+import 'package:greenit_app/dummy_data/profile_data.dart';
+import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/size_config.dart';
 
-import '../../../models/profile.dart';
+import 'package:greenit_app/models/profile.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});

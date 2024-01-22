@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/sheets/map_display/map_display_modal_bottom_sheet.dart';
-import 'package:greenit_version1/constants.dart';
+import 'package:greenit_app/components/sheets/map_display/map_display_modal_bottom_sheet.dart';
+import 'package:greenit_app/constants.dart';
 
 class MapDisplayButton extends StatelessWidget {
   const MapDisplayButton({

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/screens/notifications/components/body.dart';
+import 'package:greenit_app/screens/notifications/components/body.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      onPopInvoked: (bool popped) async => false,
-      child: const Scaffold(
+    return const PopScope(
+      canPop: false,
+      child: Scaffold(
         body: Body(),
       ),
     );

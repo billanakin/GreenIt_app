@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/options/card_options.dart';
-import 'package:greenit_version1/components/posts/post_card/post_body.dart';
-import 'package:greenit_version1/components/posts/post_card/post_header.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/models/post.dart';
-import 'package:greenit_version1/screens/viewPost/view_post_screen.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/options/card_options.dart';
+import 'package:greenit_app/components/posts/post_card/post_body.dart';
+import 'package:greenit_app/components/posts/post_card/post_header.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/screens/view_post/view_post_screen.dart';
+import 'package:greenit_app/size_config.dart';
 
 class PostCard extends StatelessWidget {
   const PostCard({

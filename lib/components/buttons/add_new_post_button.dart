@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/newPost/newPostStepOne/new_post_step_one_screen.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/screens/add_post/step_one/new_post_step_one_screen.dart';
+import 'package:greenit_app/size_config.dart';
 
 class AddNewPostButton extends StatelessWidget {
   const AddNewPostButton({

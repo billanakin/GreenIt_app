@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/size_config.dart';
 
 class CardOptions extends StatelessWidget {
   const CardOptions({

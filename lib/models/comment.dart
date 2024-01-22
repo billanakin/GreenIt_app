@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/models/profile.dart';
+import 'package:greenit_app/models/profile.dart';
 
 class Comment {
   final Profile profile;

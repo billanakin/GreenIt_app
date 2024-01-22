@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/explore/explore_screen.dart';
-import 'package:greenit_version1/screens/home/home_screen.dart';
-import 'package:greenit_version1/screens/notifications/notifications.dart';
-import 'package:greenit_version1/screens/social/social_screen.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/screens/explore/explore_screen.dart';
+import 'package:greenit_app/screens/home/home_screen.dart';
+import 'package:greenit_app/screens/notifications/notifications.dart';
+import 'package:greenit_app/screens/social/social_screen.dart';
+import 'package:greenit_app/size_config.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({
@@ -81,7 +81,7 @@ class _MainNavigationState extends State<MainNavigation>
     SizeConfig().init(context);
 
     return PopScope(
-      onPopInvoked: (bool popped) async => false,
+      canPop: false,
       child: Scaffold(
         body: TabBarView(
           controller: _tabController,

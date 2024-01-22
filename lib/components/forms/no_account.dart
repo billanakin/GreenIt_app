@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/screens/signUp/sign_up_screen.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/screens/sign_up/sign_up_screen.dart';
 
 class NoAccount extends StatelessWidget {
   const NoAccount({

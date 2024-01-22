@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/components/posts/section_header.dart';
-import 'package:greenit_version1/components/sheets/map_display/map_display_card.dart';
-import 'package:greenit_version1/constants.dart';
-import 'package:greenit_version1/size_config.dart';
+import 'package:greenit_app/components/posts/section_header.dart';
+import 'package:greenit_app/components/sheets/map_display/map_display_card.dart';
+import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/size_config.dart';
 
 Future mapDisplayModalBottomSheet(BuildContext context) {
   SizeConfig().init(context);

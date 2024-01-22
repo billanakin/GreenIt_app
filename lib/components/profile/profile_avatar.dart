@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_version1/models/profile.dart';
-import 'package:greenit_version1/screens/profile/profile_screen.dart';
+import 'package:greenit_app/models/profile.dart';
+import 'package:greenit_app/screens/profile/profile_screen.dart';
 
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({
