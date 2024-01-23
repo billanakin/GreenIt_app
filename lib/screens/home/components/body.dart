@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:greenit_app/components/buttons/view_post_button.dart';
+import 'package:greenit_app/components/forms/header_description.dart';
 import 'package:greenit_app/components/posts/post_card/post_card.dart';
+import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/dummy_data/post_data.dart';
 import 'package:greenit_app/models/post.dart';
@@ -32,7 +35,9 @@ class _BodyState extends State<Body> {
     super.initState();
   }
 
-  List<Post> demoPostData = DemoPostData.demoPostListData;
+  List<Post> demoLatestNowPost = DemoPostData.demoLatestNowPostData;
+  List<Post> demoNearMePost = DemoPostData.demoNearMeListData;
+  List<Post> demoBrowsePost = DemoPostData.demoPostListData;
 
   @override
   Widget build(BuildContext context) {
@@ -70,20 +75,20 @@ class _BodyState extends State<Body> {
         buildMapOptionsButtons(),
         Align(
           alignment: Alignment.bottomCenter,
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-            ),
-            child: DraggableScrollableSheet(
-              initialChildSize: 0.15,
-              minChildSize: 0.15,
-              maxChildSize: 1,
-              snap: true,
-              expand: false,
-              snapSizes: const [0.6, 1],
-              snapAnimationDuration: kDefaultDuration,
-              builder: (context, scrollController) => Container(
+          child: DraggableScrollableSheet(
+            initialChildSize: 0.13,
+            minChildSize: 0.13,
+            maxChildSize: 1,
+            snap: true,
+            expand: false,
+            snapSizes: const [0.6, 1],
+            snapAnimationDuration: kDefaultDuration,
+            builder: (context, scrollController) => ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+              child: Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
@@ -100,18 +105,10 @@ class _BodyState extends State<Body> {
                   ],
                 ),
                 width: SizeConfig.screenWidth,
-                child: Stack(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  controller: scrollController,
                   children: [
-                    ListView.builder(
-                      controller: scrollController,
-                      shrinkWrap: false,
-                      itemCount: demoPostData.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return PostCard(
-                          post: demoPostData[index],
-                        );
-                      },
-                    ),
                     Align(
                       alignment: Alignment.topCenter,
                       child: IgnorePointer(
@@ -129,6 +126,75 @@ class _BodyState extends State<Body> {
                         ),
                       ),
                     ),
+                    const VerticalSpacing(of: 10),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: kDefaultHorizontalPadding,
+                      ),
+                      child: const SectionHeader(
+                        title: 'Latest Now',
+                        subtitle: 'Checkout recent happenings worldwide!',
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        ...List.generate(
+                          demoLatestNowPost.length,
+                          (index) => PostCard(post: demoLatestNowPost[index]),
+                        )
+                      ],
+                    ),
+                    const VerticalSpacing(of: 20),
+                    PrimaryTextButton(
+                      press: () {},
+                      text: 'View more latest',
+                    ),
+                    const VerticalSpacing(of: 20),
+                    const Divider(),
+                    const VerticalSpacing(of: 20),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: kDefaultHorizontalPadding,
+                      ),
+                      child: const SectionHeader(
+                        title: 'Near Me',
+                        subtitle: "Explore what's close!",
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        ...List.generate(
+                          demoNearMePost.length,
+                          (index) => PostCard(post: demoNearMePost[index]),
+                        )
+                      ],
+                    ),
+                    const VerticalSpacing(of: 20),
+                    PrimaryTextButton(
+                      press: () {},
+                      text: 'View more near me',
+                    ),
+                    const VerticalSpacing(of: 20),
+                    const Divider(),
+                    const VerticalSpacing(of: 20),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: kDefaultHorizontalPadding,
+                      ),
+                      child: const SectionHeader(
+                        title: 'Browse',
+                        subtitle: "Discover diverse events!",
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        ...List.generate(
+                          demoBrowsePost.length,
+                          (index) => PostCard(post: demoBrowsePost[index]),
+                        )
+                      ],
+                    ),
+                    const VerticalSpacing(of: 20),
                   ],
                 ),
               ),

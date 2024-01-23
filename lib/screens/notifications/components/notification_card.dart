@@ -131,9 +131,12 @@ class NotificationCard extends StatelessWidget {
                 ),
               ),
               const VerticalSpacing(of: 20),
-              const SizedBox(
+              SizedBox(
                 width: double.infinity,
-                child: ViewPostButton(press: null),
+                child: PrimaryTextButton(
+                  press: () {},
+                  text: 'View Post',
+                ),
               )
             ],
           ),
@@ -207,9 +210,12 @@ class NotificationCard extends StatelessWidget {
                 ),
               ),
               const VerticalSpacing(of: 20),
-              const SizedBox(
+              SizedBox(
                 width: double.infinity,
-                child: ViewPostButton(press: null),
+                child: PrimaryTextButton(
+                  press: () {},
+                  text: 'View Post',
+                ),
               )
             ],
           ),
