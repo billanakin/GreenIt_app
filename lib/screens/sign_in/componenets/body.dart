@@ -17,8 +17,11 @@ class Body extends StatelessWidget {
         width: double.infinity,
         child: SingleChildScrollView(
           child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+            padding: EdgeInsets.only(
+              left: kDefaultHorizontalPadding,
+              right: kDefaultHorizontalPadding,
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
             child: Column(
               children: [
                 VerticalSpacing(of: SizeConfig.screenHeight * 0.04),

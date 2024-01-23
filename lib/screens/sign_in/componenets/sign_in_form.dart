@@ -104,7 +104,8 @@ class _SignInFormState extends State<SignInForm> {
       obscureText: _obscureText,
       onSaved: (value) => _password = value,
       onChanged: (value) => _password = value,
-      textInputAction: TextInputAction.next,
+      onEditingComplete: () => _passwordNode!.unfocus(),
+      textInputAction: TextInputAction.done,
       style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       decoration: InputDecoration(
