@@ -21,7 +21,7 @@ class _BodyState extends State<Body> {
     mapController = controller;
   }
 
-  bool isLoaded = false;
+  bool isLoaded = true; // Debug Only: set to true
   String? output;
 
   @override
@@ -33,17 +33,18 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Center(
       child: isLoaded
-          ? Text(
-              output as String,
-              textAlign: TextAlign.center,
-            )
+          // ? Text(
+          //     output as String,
+          //     textAlign: TextAlign.center,
+          //   )
+          ? xxbuild(context)
           : const CircularProgressIndicator(),
     );
   }
 
   Widget xxbuild(BuildContext context) {
     return Stack(
-      alignment: Alignment.topRight,
+      fit: StackFit.expand,
       children: [
         // =============== PLACE GOOGLE MAP INTERFACE HERE===============
         // Placeholder(
@@ -62,15 +63,55 @@ class _BodyState extends State<Body> {
         ),
         // ==============================================================
         buildMapOptionsButtons(),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: DraggableScrollableSheet(
+            initialChildSize: 0.20,
+            minChildSize: 0.20,
+            maxChildSize: 1,
+            snap: true,
+            expand: false,
+            snapSizes: const [0.6, 1],
+            snapAnimationDuration: kDefaultDuration,
+            builder: (context, scrollController) => Scaffold(
+              body: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                  ),
+                ),
+                width: SizeConfig.screenWidth,
+                child: ListView.builder(
+                  controller: scrollController,
+                  shrinkWrap: true,
+                  itemCount: 50,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListTile(
+                        leading: const Icon(Icons.list),
+                        trailing: const Text(
+                          "GFG",
+                          style: TextStyle(color: Colors.green, fontSize: 15),
+                        ),
+                        title: Text("List item $index"));
+                  },
+                ),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }
 
-  Positioned buildMapOptionsButtons() {
-    return Positioned(
-      top: getProportionateScreenHeight(80),
+  Align buildMapOptionsButtons() {
+    return Align(
+      alignment: Alignment.topRight,
       child: Padding(
-        padding: EdgeInsets.only(right: kDefaultHorizontalPadding / 1.3),
+        padding: EdgeInsets.only(
+          right: kDefaultHorizontalPadding / 1.3,
+          top: getProportionateScreenHeight(80),
+        ),
         child: const SizedBox(
           height: 110,
           child: Column(
