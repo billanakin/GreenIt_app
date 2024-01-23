@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/dummy_data/post_data.dart';
+import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/screens/home/components/map_display_button.dart';
 import 'package:greenit_app/screens/home/components/user_location_focus_button.dart';
 import 'package:greenit_app/size_config.dart';
@@ -28,6 +31,8 @@ class _BodyState extends State<Body> {
   void initState() {
     super.initState();
   }
+
+  List<Post> demoPostData = DemoPostData.demoPostListData;
 
   @override
   Widget build(BuildContext context) {
@@ -65,41 +70,71 @@ class _BodyState extends State<Body> {
         buildMapOptionsButtons(),
         Align(
           alignment: Alignment.bottomCenter,
-          child: DraggableScrollableSheet(
-            initialChildSize: 0.20,
-            minChildSize: 0.20,
-            maxChildSize: 1,
-            snap: true,
-            expand: false,
-            snapSizes: const [0.6, 1],
-            snapAnimationDuration: kDefaultDuration,
-            builder: (context, scrollController) => Scaffold(
-              body: Container(
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+            ),
+            child: DraggableScrollableSheet(
+              initialChildSize: 0.15,
+              minChildSize: 0.15,
+              maxChildSize: 1,
+              snap: true,
+              expand: false,
+              snapSizes: const [0.6, 1],
+              snapAnimationDuration: kDefaultDuration,
+              builder: (context, scrollController) => Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   ),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x21000000),
+                      blurRadius: 6,
+                      offset: Offset(0, 0),
+                      spreadRadius: 0,
+                    )
+                  ],
                 ),
                 width: SizeConfig.screenWidth,
-                child: ListView.builder(
-                  controller: scrollController,
-                  shrinkWrap: true,
-                  itemCount: 50,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                        leading: const Icon(Icons.list),
-                        trailing: const Text(
-                          "GFG",
-                          style: TextStyle(color: Colors.green, fontSize: 15),
+                child: Stack(
+                  children: [
+                    ListView.builder(
+                      controller: scrollController,
+                      shrinkWrap: false,
+                      itemCount: demoPostData.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return PostCard(
+                          post: demoPostData[index],
+                        );
+                      },
+                    ),
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: IgnorePointer(
+                        child: Container(
+                          margin: EdgeInsets.only(
+                            top: getProportionateScreenHeight(10),
+                            bottom: getProportionateScreenHeight(10),
+                          ),
+                          height: getProportionateScreenHeight(5),
+                          width: getProportionateScreenWidth(50),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: kPrimaryBorderColor,
+                          ),
                         ),
-                        title: Text("List item $index"));
-                  },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
