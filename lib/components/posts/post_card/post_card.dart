@@ -26,6 +26,7 @@ class PostCard extends StatelessWidget {
     }
 
     return InkWell(
+      // TODO: Configure Null Check Value Error
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(

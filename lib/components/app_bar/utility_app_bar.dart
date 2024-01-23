@@ -69,7 +69,7 @@ class UtilityAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               PrimaryButton(
                 text: actionButtonText,
-                width: getProportionateScreenWidth(80),
+                width: getProportionateScreenWidth(85),
                 height: 40,
                 press: actionButtonPress,
               )
