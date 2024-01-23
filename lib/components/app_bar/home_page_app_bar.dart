@@ -11,10 +11,13 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.height = 70.0001,
     required this.userProfile,
+    this.isPinFocus = false,
   });
 
   final double height;
   final Profile userProfile;
+
+  final bool isPinFocus;
 
   @override
   Size get preferredSize =>
@@ -46,9 +49,21 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const InlineLogo(
-                width: 50,
-              ),
+              if (isPinFocus)
+                Row(
+                  children: [
+                    const HorizontalSpacing(of: 5),
+                    GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: const Icon(Icons.arrow_back_rounded),
+                    ),
+                    const HorizontalSpacing(of: 10),
+                  ],
+                )
+              else
+                const InlineLogo(
+                  width: 50,
+                ),
               const HorizontalSpacing(of: 10),
               Expanded(
                 child: CustomSearchBar(

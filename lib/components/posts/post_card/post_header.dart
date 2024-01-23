@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_app/components/buttons/secondary_button.dart';
 import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/components/text/inline_text_divider.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/screens/pin_focus/pin_focus_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
 enum PostHeaderType {
@@ -15,18 +17,21 @@ class PostHeader extends StatelessWidget {
     super.key,
     required this.post,
     required this.suffix,
+    this.isBottomSheet = false,
   }) : postHeaderType = PostHeaderType.defaultType;
 
   const PostHeader.shared({
     super.key,
     required this.post,
     required this.suffix,
+    this.isBottomSheet = false,
   }) : postHeaderType = PostHeaderType.sharedType;
 
   final Post post;
   final Widget suffix;
 
   final PostHeaderType postHeaderType;
+  final bool isBottomSheet;
 
   @override
   Widget build(BuildContext context) {
@@ -36,26 +41,28 @@ class PostHeader extends StatelessWidget {
       children: [
         ProfileAvatar.secondary(profile: post.profile),
         const HorizontalSpacing(of: 10),
-        PostHeaderInfo(
-          post: post,
-        ),
+        postHeaderInfo(),
         const Spacer(),
-        suffix,
+        if (isBottomSheet)
+          SecondaryButton(
+            text: 'Show Map',
+            press: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const PinFocusScreen(),
+                settings: RouteSettings(arguments: post),
+              ),
+            ),
+            width: getProportionateScreenWidth(110),
+            height: 40,
+          )
+        else
+          suffix,
       ],
     );
   }
-}
 
-class PostHeaderInfo extends StatelessWidget {
-  const PostHeaderInfo({
-    super.key,
-    required this.post,
-  });
-
-  final Post post;
-
-  @override
-  Widget build(BuildContext context) {
+  SingleChildScrollView postHeaderInfo() {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Flexible(
@@ -80,8 +87,9 @@ class PostHeaderInfo extends StatelessWidget {
                   const HorizontalSpacing(of: 5),
                   Text(post.date.toString()),
                   const HorizontalSpacing(of: 5),
-                  if (post.postType == PostConstructorType.defaultPost)
-                    Row(
+                  Visibility(
+                    visible: (post.postType == PostConstructorType.defaultPost),
+                    child: Row(
                       children: [
                         const InlineTextDivider(),
                         const HorizontalSpacing(of: 5),
@@ -89,6 +97,7 @@ class PostHeaderInfo extends StatelessWidget {
                             '${post.locationRange.toString()} km') // TODO: Format location Range
                       ],
                     ),
+                  ),
                 ],
               ),
             ),
