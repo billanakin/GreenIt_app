@@ -9,7 +9,7 @@ import 'package:greenit_app/size_config.dart';
 class ViewPostAppBar extends StatefulWidget implements PreferredSizeWidget {
   const ViewPostAppBar({
     super.key,
-    this.height = 70,
+    this.height = 70.0001,
     required this.viewedPost,
   });
 

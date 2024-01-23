@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'GreenIt',
       debugShowCheckedModeBanner: false,
       theme: buildThemeData(),
-      home: const CompleteProfileScreen(), // For Debug Purposes
+      home: const MainNavigation(), // For Debug Purposes
     );
   }
 }

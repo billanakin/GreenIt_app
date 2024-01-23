@@ -6,7 +6,7 @@ import 'package:greenit_app/size_config.dart';
 class UtilityAppBar extends StatelessWidget implements PreferredSizeWidget {
   const UtilityAppBar({
     super.key,
-    this.height = 70,
+    this.height = 70.0001,
     required this.leadingText,
     required this.title,
     required this.actionButtonText,
