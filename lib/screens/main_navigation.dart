@@ -83,14 +83,16 @@ class _MainNavigationState extends State<MainNavigation>
     return PopScope(
       canPop: false,
       child: Scaffold(
-        body: TabBarView(
-          controller: _tabController,
-          children: const <Widget>[
-            HomeScreen(),
-            SocialScreen(),
-            ExploreScreen(),
-            NotificationsScreen(),
-          ],
+        body: SafeArea(
+          child: TabBarView(
+            controller: _tabController,
+            children: const <Widget>[
+              HomeScreen(),
+              SocialScreen(),
+              ExploreScreen(),
+              NotificationsScreen(),
+            ],
+          ),
         ),
         bottomNavigationBar: SafeArea(
           child: Container(

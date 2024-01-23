@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/screens/complete_profile/components/body.dart';
+import 'package:greenit_app/size_config.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class CompleteProfileScreen extends StatelessWidget {
@@ -11,21 +12,19 @@ class CompleteProfileScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         title: Text(
           'Sign Up',
           style: kAppBarTitleTextStyle.copyWith(
             color: kSecondaryBodyTextColor,
           ),
         ),
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            buildProgressIndicator(),
-            const Body(),
-          ],
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(getProportionateScreenHeight(5)),
+          child: buildProgressIndicator(),
         ),
       ),
+      body: const Body(),
     );
   }
 

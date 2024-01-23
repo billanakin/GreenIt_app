@@ -12,28 +12,34 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-          child: Column(
-            children: [
-              VerticalSpacing(of: SizeConfig.screenHeight * 0.04),
-              const HeaderDescription(
-                title: 'Register Account',
-                text:
-                    "Begin your journey by providing the following\n details to create your account.",
-              ),
-              VerticalSpacing(of: SizeConfig.screenHeight * 0.05),
-              const SignUpForm(),
-              VerticalSpacing(of: SizeConfig.screenHeight * 0.03),
-              const AccountOptionsDivider(),
-              VerticalSpacing(of: SizeConfig.screenHeight * 0.03),
-              const AccountOptions(),
-              const VerticalSpacing(),
-              const PolicyAndServicesText(),
-            ],
+    return SafeArea(
+      child: SizedBox(
+        width: double.infinity,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: kDefaultHorizontalPadding,
+              right: kDefaultHorizontalPadding,
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
+            child: Column(
+              children: [
+                VerticalSpacing(of: SizeConfig.screenHeight * 0.04),
+                const HeaderDescription(
+                  title: 'Register Account',
+                  text:
+                      "Begin your journey by providing the following\n details to create your account.",
+                ),
+                VerticalSpacing(of: SizeConfig.screenHeight * 0.05),
+                const SignUpForm(),
+                VerticalSpacing(of: SizeConfig.screenHeight * 0.03),
+                const AccountOptionsDivider(),
+                VerticalSpacing(of: SizeConfig.screenHeight * 0.03),
+                const AccountOptions(),
+                const VerticalSpacing(),
+                const PolicyAndServicesText(),
+              ],
+            ),
           ),
         ),
       ),

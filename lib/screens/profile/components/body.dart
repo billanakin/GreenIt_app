@@ -19,18 +19,17 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    final collapsedBarHeight = getProportionateScreenHeight(70);
-    final expandedBarHeight = getProportionateScreenHeight(400);
+    final expandedBarHeight = getProportionateScreenHeight(400.0001);
 
     return SafeArea(
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
             expandedHeight: expandedBarHeight,
-            collapsedHeight: collapsedBarHeight,
             leading: IconButton.filledTonal(
               style: IconButton.styleFrom(
-                  backgroundColor: const Color(0x33868686)),
+                backgroundColor: const Color(0x33868686),
+              ),
               color: Colors.white,
               onPressed: () => Navigator.pop(context),
               icon: const Icon(Icons.arrow_back_rounded),

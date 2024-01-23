@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:greenit_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:greenit_app/screens/main_navigation.dart';
 import 'package:greenit_app/screens/on_boarding/onboarding_screen.dart';
 import 'package:greenit_app/size_config.dart';

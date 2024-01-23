@@ -9,7 +9,7 @@ import 'package:greenit_app/size_config.dart';
 class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
   HomePageAppBar({
     super.key,
-    this.height = 70,
+    this.height = 70.0001,
     required this.userProfile,
   });
 
@@ -28,6 +28,7 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
       preferredSize: preferredSize,
       child: SafeArea(
         child: Container(
+          height: getProportionateScreenHeight(70),
           padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding,
             vertical: kDefaultVerticalPadding,

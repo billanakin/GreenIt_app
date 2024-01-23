@@ -10,6 +10,7 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         title: Text(
           'Sign In',
           style: kAppBarTitleTextStyle.copyWith(

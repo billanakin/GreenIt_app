@@ -76,7 +76,8 @@ class _SignUpFormState extends State<SignUpForm> {
       obscureText: _obscureText,
       onSaved: (value) => _confirmPassword = value,
       onChanged: (value) => _confirmPassword = value,
-      textInputAction: TextInputAction.next,
+      textInputAction: TextInputAction.done,
+      onEditingComplete: () => _confirmPasswordNode!.unfocus(),
       style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       decoration: InputDecoration(
