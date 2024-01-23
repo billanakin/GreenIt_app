@@ -4,11 +4,13 @@ import 'package:greenit_app/components/sheets/edit_profile/components/body.dart'
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
 
-Future editProfileModalBottomSheet(BuildContext context, Profile profile) {
+Future editProfileModalBottomSheet(BuildContext context, Profile profile,
+    AnimationController modalSheetcontroller) {
   SizeConfig().init(context);
 
   return showModalBottomSheet(
     context: context,
+    transitionAnimationController: modalSheetcontroller,
     isScrollControlled: true,
     constraints: BoxConstraints(
       maxWidth: SizeConfig.screenWidth,

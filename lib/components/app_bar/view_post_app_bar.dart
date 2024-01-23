@@ -4,6 +4,7 @@ import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/components/text/inline_text_divider.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/screens/pin_focus/pin_focus_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
 class ViewPostAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -109,7 +110,13 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
               const Spacer(),
               SecondaryButton(
                 text: 'Show Map',
-                press: () {},
+                press: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PinFocusScreen(),
+                    settings: RouteSettings(arguments: widget.viewedPost),
+                  ),
+                ),
                 width: getProportionateScreenWidth(110),
                 height: 40,
               ),

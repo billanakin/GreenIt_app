@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:greenit_app/components/buttons/map_display_button.dart';
 import 'package:greenit_app/components/buttons/user_location_focus_button.dart';
-import 'package:greenit_app/components/buttons/view_post_button.dart';
-import 'package:greenit_app/components/posts/post_card/post_card.dart';
-import 'package:greenit_app/components/posts/section_header.dart';
+import 'package:greenit_app/components/posts/comment_card.dart';
+import 'package:greenit_app/components/posts/post_card/post_body.dart';
+import 'package:greenit_app/components/posts/post_card/post_header.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/dummy_data/post_data.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
-  const Body({super.key});
+  const Body({super.key, required this.post});
+
+  final Post post;
 
   @override
   State<Body> createState() => _BodyState();
@@ -33,10 +35,6 @@ class _BodyState extends State<Body> {
   void initState() {
     super.initState();
   }
-
-  List<Post> demoLatestNowPost = DemoPostData.demoLatestNowPostData;
-  List<Post> demoNearMePost = DemoPostData.demoNearMeListData;
-  List<Post> demoBrowsePost = DemoPostData.demoPostListData;
 
   @override
   Widget build(BuildContext context) {
@@ -75,12 +73,12 @@ class _BodyState extends State<Body> {
         Align(
           alignment: Alignment.bottomCenter,
           child: DraggableScrollableSheet(
-            initialChildSize: 0.13,
+            initialChildSize: 0.4,
             minChildSize: 0.13,
             maxChildSize: 1,
             snap: true,
             expand: false,
-            snapSizes: const [0.6, 1],
+            snapSizes: const [0.4, 0.9, 1],
             snapAnimationDuration: kDefaultDuration,
             builder: (context, scrollController) => ClipRRect(
               borderRadius: const BorderRadius.only(
@@ -130,79 +128,32 @@ class _BodyState extends State<Body> {
                       padding: EdgeInsets.symmetric(
                         horizontal: kDefaultHorizontalPadding,
                       ),
-                      child: const SectionHeader(
-                        title: 'Latest Now',
-                        subtitle: 'Checkout recent happenings worldwide!',
-                      ),
-                    ),
-                    Column(
-                      children: [
-                        ...List.generate(
-                          demoLatestNowPost.length,
-                          (index) => PostCard(
-                            post: demoLatestNowPost[index],
-                            isBottomSheet: true,
-                          ),
-                        )
-                      ],
+                      child: PostHeader(
+                          post: widget.post, suffix: const SizedBox.shrink()),
                     ),
                     const VerticalSpacing(of: 20),
-                    PrimaryTextButton(
-                      press: () {},
-                      text: 'View more latest',
-                    ),
+                    if (widget.post.postType == PostConstructorType.defaultPost)
+                      PostBody(
+                        isViewPost: true,
+                        post: widget.post,
+                      )
+                    else
+                      PostBody.shared(
+                        isViewPost: true,
+                        post: widget.post,
+                      ),
                     const VerticalSpacing(of: 20),
                     const Divider(),
-                    const VerticalSpacing(of: 20),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: kDefaultHorizontalPadding,
-                      ),
-                      child: const SectionHeader(
-                        title: 'Near Me',
-                        subtitle: "Explore what's close!",
-                      ),
-                    ),
                     Column(
                       children: [
                         ...List.generate(
-                          demoNearMePost.length,
-                          (index) => PostCard(
-                            post: demoNearMePost[index],
-                            isBottomSheet: true,
+                          widget.post.postCommentLength,
+                          (index) => CommentCard(
+                            comment: widget.post.postComments![index],
                           ),
                         )
                       ],
-                    ),
-                    const VerticalSpacing(of: 20),
-                    PrimaryTextButton(
-                      press: () {},
-                      text: 'View more near me',
-                    ),
-                    const VerticalSpacing(of: 20),
-                    const Divider(),
-                    const VerticalSpacing(of: 20),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: kDefaultHorizontalPadding,
-                      ),
-                      child: const SectionHeader(
-                        title: 'Browse',
-                        subtitle: "Discover diverse events!",
-                      ),
-                    ),
-                    Column(
-                      children: [
-                        ...List.generate(
-                          demoBrowsePost.length,
-                          (index) => PostCard(
-                            post: demoBrowsePost[index],
-                            isBottomSheet: true,
-                          ),
-                        )
-                      ],
-                    ),
-                    const VerticalSpacing(of: 20),
+                    )
                   ],
                 ),
               ),

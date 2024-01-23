@@ -16,8 +16,26 @@ class ProfileInfoButton extends StatefulWidget {
   State<ProfileInfoButton> createState() => _ProfileInfoButtonState();
 }
 
-class _ProfileInfoButtonState extends State<ProfileInfoButton> {
+class _ProfileInfoButtonState extends State<ProfileInfoButton>
+    with TickerProviderStateMixin {
   bool isFollowing = false;
+
+  late AnimationController modalSheetcontroller;
+
+  @override
+  initState() {
+    super.initState();
+    modalSheetcontroller = BottomSheet.createAnimationController(this);
+    modalSheetcontroller.duration = kDefaultDuration;
+    modalSheetcontroller.reverseDuration = kDefaultDuration;
+    modalSheetcontroller.drive(CurveTween(curve: Curves.easeIn));
+  }
+
+  @override
+  void dispose() {
+    modalSheetcontroller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +53,8 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton> {
                   height: getProportionateScreenHeight(40),
                   child: OutlinedButton(
                     onPressed: () {
-                      editProfileModalBottomSheet(context, widget.profile);
+                      editProfileModalBottomSheet(
+                          context, widget.profile, modalSheetcontroller);
                     },
                     style: OutlinedButton.styleFrom(
                       backgroundColor: Colors.white,
