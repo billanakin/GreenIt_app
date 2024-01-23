@@ -19,8 +19,26 @@ class PostInteractionBar extends StatefulWidget {
   State<PostInteractionBar> createState() => _PostInteractionBarState();
 }
 
-class _PostInteractionBarState extends State<PostInteractionBar> {
+class _PostInteractionBarState extends State<PostInteractionBar>
+    with TickerProviderStateMixin {
   bool isLiked = false;
+
+  late AnimationController modalSheetcontroller;
+
+  @override
+  initState() {
+    super.initState();
+    modalSheetcontroller = BottomSheet.createAnimationController(this);
+    modalSheetcontroller.duration = kDefaultDuration;
+    modalSheetcontroller.reverseDuration = kDefaultDuration;
+    modalSheetcontroller.drive(CurveTween(curve: Curves.easeIn));
+  }
+
+  @override
+  void dispose() {
+    modalSheetcontroller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +48,7 @@ class _PostInteractionBarState extends State<PostInteractionBar> {
       children: [
         GestureDetector(
           onTap: () {
-            commentModalBottomSheet(context, widget.post);
+            commentModalBottomSheet(context, widget.post, modalSheetcontroller);
           },
           child: Row(
             children: [
@@ -56,7 +74,8 @@ class _PostInteractionBarState extends State<PostInteractionBar> {
             children: [
               GestureDetector(
                 onTap: () {
-                  quoteModalBottomSheet(context, widget.post);
+                  quoteModalBottomSheet(
+                      context, widget.post, modalSheetcontroller);
                 },
                 child: Row(
                   children: [

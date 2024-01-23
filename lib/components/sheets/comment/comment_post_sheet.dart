@@ -4,11 +4,13 @@ import 'package:greenit_app/components/sheets/comment/components/body.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';
 
-Future commentModalBottomSheet(BuildContext context, Post post) {
+Future commentModalBottomSheet(
+    BuildContext context, Post post, AnimationController modalSheetcontroller) {
   SizeConfig().init(context);
 
   return showModalBottomSheet(
     context: context,
+    transitionAnimationController: modalSheetcontroller,
     isScrollControlled: true,
     constraints: BoxConstraints(
       maxWidth: SizeConfig.screenWidth,
