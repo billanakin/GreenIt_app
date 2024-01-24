@@ -16,7 +16,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  List<Post> demoPostData = DemoPostData.demoPostListData;
+  List<Post> demoPostData = DemoPostData.demoBrowsePostListData;
 
   Profile userProfile = DemoProfilesData.userProfile;
 

@@ -34,10 +34,9 @@ class _BodyState extends State<Body> {
     super.initState();
   }
 
-  List<Post> demoLatestNowPost = DemoPostData.demoLatestNowPostData;
-  List<Post> demoNearMePost = DemoPostData.demoNearMeListData;
-  List<Post> demoBrowsePost = DemoPostData.demoPostListData;
-
+  List<Post> demoLatestNowPost = DemoPostData.demoLatestNowPostListData;
+  List<Post> demoNearMePost = DemoPostData.demoNearMePostListData;
+  List<Post> demoBrowsePost = DemoPostData.demoBrowsePostListData;
   @override
   Widget build(BuildContext context) {
     return Center(

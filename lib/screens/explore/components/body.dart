@@ -26,12 +26,12 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
     {
       'title': 'Near Me',
       'subtitle': "Explore local events just steps away!",
-      'data': DemoPostData.demoNearMeListData,
+      'data': DemoPostData.demoNearMePostListData,
     },
     {
       'title': 'Latest Now',
       'subtitle': "Explore ahead with the freshest events!",
-      'data': DemoPostData.demoLatestNowPostData,
+      'data': DemoPostData.demoLatestNowPostListData,
     },
     {
       'title': 'Recommended',
