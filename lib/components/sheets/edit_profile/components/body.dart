@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/dummy_data/profile_data.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
 

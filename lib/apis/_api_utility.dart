@@ -28,7 +28,7 @@ class ApiUtility {
   }
 
   static Map<String, String> _requestHeaders(String? authToken) {
-    var requestHeaders = Map<String, String>();
+    var requestHeaders = <String, String>{};
     if (authToken != null) {
       requestHeaders["Authorization"] = "Bearer $authToken";
     }

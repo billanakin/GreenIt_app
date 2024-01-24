@@ -57,8 +57,7 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton>
                           context, widget.profile, modalSheetcontroller);
                     },
                     style: OutlinedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      primary: kPrimaryBorderColor,
+                      foregroundColor: kPrimaryBorderColor, backgroundColor: Colors.white,
                       side: const BorderSide(
                         width: 1,
                         color: Color(0xFF868686),
@@ -80,8 +79,7 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton>
                   child: OutlinedButton(
                     onPressed: () {},
                     style: OutlinedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      primary: kPrimaryBorderColor,
+                      foregroundColor: kPrimaryBorderColor, backgroundColor: Colors.white,
                       side: const BorderSide(
                         width: 1,
                         color: Color(0xFFC33E3E),
@@ -111,8 +109,7 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton>
                   });
                 },
                 style: OutlinedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  primary: kPrimaryBorderColor,
+                  foregroundColor: kPrimaryBorderColor, backgroundColor: Colors.white,
                   side: BorderSide(
                     width: 1,
                     color: (isFollowing)

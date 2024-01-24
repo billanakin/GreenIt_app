@@ -105,8 +105,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                     width: getProportionateScreenWidth(150),
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        primary: kPrimaryBorderColor,
+                        foregroundColor: kPrimaryBorderColor, backgroundColor: Colors.white,
                         side: BorderSide(
                           width: 1,
                           color: (currentIndex == index)
