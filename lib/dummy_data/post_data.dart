@@ -1,4 +1,5 @@
 // Demo Post Data
+import 'package:greenit_app/dummy_data/profile_data.dart';
 import 'package:greenit_app/models/comment.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/models/profile.dart';
@@ -6,11 +7,7 @@ import 'package:intl/intl.dart';
 
 Post post0 = Post(
   id: 0,
-  profile: Profile(
-    id: 0,
-    name: 'Dominic Osorio',
-    profileAvatar: 'assets/images/profile/profile1.png',
-  ),
+  profile: profile0,
   time: DateFormat('h:mm a').format(DateTime.now()), // H:MM A
   date: DateFormat.yMMMd().format(DateTime.now()),
   locationRange: 5,
