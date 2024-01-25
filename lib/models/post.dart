@@ -55,8 +55,8 @@ class Post {
   String get profileSharedName => sharedPost!.profileName;
   String get profileSharedImage => sharedPost!.profileImage;
 
-  int get postImagesLength => postImages!.length;
-  int get postCommentLength => postComments!.length;
+  int get postImagesLength => postImages?.length ?? 0;
+  int get postCommentLength => postComments?.length ?? 0;
 
   PostConstructorType get postType => postConstructorType;
 }

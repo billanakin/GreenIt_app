@@ -43,7 +43,7 @@ class NotificationCard extends StatelessWidget {
             builder: (context) => const ViewPostScreen(),
             settings: RouteSettings(
               arguments: notification.postRecentlyPosted!,
-            ), // TODO: Configure Null Check Value Error
+            ),
           ),
         ),
         child: buildRecentlyPostedTypeNotificationCard(notification),
@@ -57,7 +57,7 @@ class NotificationCard extends StatelessWidget {
             builder: (context) => const ViewPostScreen(),
             settings: RouteSettings(
               arguments: notification.postLiked!,
-            ), // TODO: Configure Null Check Value Error
+            ),
           ),
         ),
         child: buildRecentlyLikedPostTypeNotificationCard(notification),
