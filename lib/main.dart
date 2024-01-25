@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         splash: const Splash(),
         splashIconSize: 250,
         centered: true,
-        nextScreen: const MainNavigation(), // For Debug Purposes
+        nextScreen: const OnBoardingScreen(), // For Debug Purposes
         splashTransition: SplashTransition.fadeTransition,
       ),
       // home: const OnBoardingScreen(), // For Debug Purposes
