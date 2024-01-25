@@ -6,7 +6,6 @@ import 'package:greenit_app/components/posts/comment_card.dart';
 import 'package:greenit_app/components/posts/post_card/post_body.dart';
 import 'package:greenit_app/components/posts/post_card/post_header.dart';
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/dummy_data/post_data.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';
 
