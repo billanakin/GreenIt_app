@@ -160,9 +160,7 @@ Container buildPostBodySharedType(
             context,
             MaterialPageRoute(
               builder: (context) => const ViewPostScreen(),
-              settings: RouteSettings(
-                  arguments: post
-                      .sharedPost), // TODO: Configure Null Check Value Error
+              settings: RouteSettings(arguments: post.sharedPost),
             ),
           ),
           child: Container(

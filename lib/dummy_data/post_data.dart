@@ -21,10 +21,10 @@ class DemoPostData {
       messageDescription:
           "🏖️ Join us for a Coastal Cleanup Day! Together, we can make our beaches cleaner and healthier for all. 🌊 Let's protect our oceans and preserve the beauty of our coastal communities. Mark your calendar and be a part of the change! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas",
       postImages: [
-        'assets/images/posts/post_image4.png',
-        'assets/images/posts/post_image5.png',
-        'assets/images/posts/post_image6.png',
-        'assets/images/posts/post_image7.png',
+        'assets/images/Posts/post_image4.png',
+        'assets/images/Posts/post_image5.png',
+        'assets/images/Posts/post_image6.png',
+        'assets/images/Posts/post_image7.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -89,9 +89,9 @@ class DemoPostData {
       messageDescription:
           "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
       postImages: [
-        'assets/images/posts/post_image1.png',
-        'assets/images/posts/post_image2.png',
-        'assets/images/posts/post_image3.png',
+        'assets/images/Posts/post_image1.png',
+        'assets/images/Posts/post_image2.png',
+        'assets/images/Posts/post_image3.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -156,7 +156,7 @@ class DemoPostData {
       messageDescription:
           "Recent actions by the Argao LGU have raised concerns within our community. It's crucial that we engage in open dialogue to address these issues and work together for a more transparent and accountable local government. Let's channel our concerns into constructive solutions. 🤝 #CommunityEngagement #ArgaoLGU #Accountability",
       postImages: [
-        'assets/images/posts/post_image8.png',
+        'assets/images/Posts/post_image8.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -232,9 +232,9 @@ class DemoPostData {
         messageDescription:
             "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
         postImages: [
-          'assets/images/posts/post_image1.png',
-          'assets/images/posts/post_image2.png',
-          'assets/images/posts/post_image3.png',
+          'assets/images/Posts/post_image1.png',
+          'assets/images/Posts/post_image2.png',
+          'assets/images/Posts/post_image3.png',
         ],
       ),
       // --------------------- Comments ------------------------
@@ -304,7 +304,7 @@ class DemoPostData {
       messageDescription:
           "Recent actions by the Argao LGU have raised concerns within our community. It's crucial that we engage in open dialogue to address these issues and work together for a more transparent and accountable local government. Let's channel our concerns into constructive solutions. 🤝 #CommunityEngagement #ArgaoLGU #Accountability",
       postImages: [
-        'assets/images/posts/post_image8.png',
+        'assets/images/Posts/post_image8.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -369,9 +369,9 @@ class DemoPostData {
       messageDescription:
           "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
       postImages: [
-        'assets/images/posts/post_image1.png',
-        'assets/images/posts/post_image2.png',
-        'assets/images/posts/post_image3.png',
+        'assets/images/Posts/post_image1.png',
+        'assets/images/Posts/post_image2.png',
+        'assets/images/Posts/post_image3.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -436,10 +436,10 @@ class DemoPostData {
       messageDescription:
           "🏖️ Join us for a Coastal Cleanup Day! Together, we can make our beaches cleaner and healthier for all. 🌊 Let's protect our oceans and preserve the beauty of our coastal communities. Mark your calendar and be a part of the change! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas",
       postImages: [
-        'assets/images/posts/post_image4.png',
-        'assets/images/posts/post_image5.png',
-        'assets/images/posts/post_image6.png',
-        'assets/images/posts/post_image7.png',
+        'assets/images/Posts/post_image4.png',
+        'assets/images/Posts/post_image5.png',
+        'assets/images/Posts/post_image6.png',
+        'assets/images/Posts/post_image7.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -515,9 +515,9 @@ class DemoPostData {
         messageDescription:
             "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
         postImages: [
-          'assets/images/posts/post_image1.png',
-          'assets/images/posts/post_image2.png',
-          'assets/images/posts/post_image3.png',
+          'assets/images/Posts/post_image1.png',
+          'assets/images/Posts/post_image2.png',
+          'assets/images/Posts/post_image3.png',
         ],
       ),
       // --------------------- Comments ------------------------
@@ -598,9 +598,9 @@ class DemoPostData {
         messageDescription:
             "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
         postImages: [
-          'assets/images/posts/post_image1.png',
-          'assets/images/posts/post_image2.png',
-          'assets/images/posts/post_image3.png',
+          'assets/images/Posts/post_image1.png',
+          'assets/images/Posts/post_image2.png',
+          'assets/images/Posts/post_image3.png',
         ],
       ),
       // --------------------- Comments ------------------------
@@ -666,9 +666,9 @@ class DemoPostData {
       messageDescription:
           "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
       postImages: [
-        'assets/images/posts/post_image1.png',
-        'assets/images/posts/post_image2.png',
-        'assets/images/posts/post_image3.png',
+        'assets/images/Posts/post_image1.png',
+        'assets/images/Posts/post_image2.png',
+        'assets/images/Posts/post_image3.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -733,10 +733,10 @@ class DemoPostData {
       messageDescription:
           "🏖️ Join us for a Coastal Cleanup Day! Together, we can make our beaches cleaner and healthier for all. 🌊 Let's protect our oceans and preserve the beauty of our coastal communities. Mark your calendar and be a part of the change! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas",
       postImages: [
-        'assets/images/posts/post_image4.png',
-        'assets/images/posts/post_image5.png',
-        'assets/images/posts/post_image6.png',
-        'assets/images/posts/post_image7.png',
+        'assets/images/Posts/post_image4.png',
+        'assets/images/Posts/post_image5.png',
+        'assets/images/Posts/post_image6.png',
+        'assets/images/Posts/post_image7.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -801,7 +801,7 @@ class DemoPostData {
       messageDescription:
           "Recent actions by the Argao LGU have raised concerns within our community. It's crucial that we engage in open dialogue to address these issues and work together for a more transparent and accountable local government. Let's channel our concerns into constructive solutions. 🤝 #CommunityEngagement #ArgaoLGU #Accountability",
       postImages: [
-        'assets/images/posts/post_image8.png',
+        'assets/images/Posts/post_image8.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -870,9 +870,9 @@ class DemoPostData {
       messageDescription:
           "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
       postImages: [
-        'assets/images/posts/post_image1.png',
-        'assets/images/posts/post_image2.png',
-        'assets/images/posts/post_image3.png',
+        'assets/images/Posts/post_image1.png',
+        'assets/images/Posts/post_image2.png',
+        'assets/images/Posts/post_image3.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -937,10 +937,10 @@ class DemoPostData {
       messageDescription:
           "🏖️ Join us for a Coastal Cleanup Day! Together, we can make our beaches cleaner and healthier for all. 🌊 Let's protect our oceans and preserve the beauty of our coastal communities. Mark your calendar and be a part of the change! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas",
       postImages: [
-        'assets/images/posts/post_image4.png',
-        'assets/images/posts/post_image5.png',
-        'assets/images/posts/post_image6.png',
-        'assets/images/posts/post_image7.png',
+        'assets/images/Posts/post_image4.png',
+        'assets/images/Posts/post_image5.png',
+        'assets/images/Posts/post_image6.png',
+        'assets/images/Posts/post_image7.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -1016,9 +1016,9 @@ class DemoPostData {
         messageDescription:
             "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
         postImages: [
-          'assets/images/posts/post_image1.png',
-          'assets/images/posts/post_image2.png',
-          'assets/images/posts/post_image3.png',
+          'assets/images/Posts/post_image1.png',
+          'assets/images/Posts/post_image2.png',
+          'assets/images/Posts/post_image3.png',
         ],
       ),
       // --------------------- Comments ------------------------
@@ -1084,9 +1084,9 @@ class DemoPostData {
       messageDescription:
           "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
       postImages: [
-        'assets/images/posts/post_image1.png',
-        'assets/images/posts/post_image2.png',
-        'assets/images/posts/post_image3.png',
+        'assets/images/Posts/post_image1.png',
+        'assets/images/Posts/post_image2.png',
+        'assets/images/Posts/post_image3.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -1155,7 +1155,7 @@ class DemoPostData {
       messageDescription:
           "Recent actions by the Argao LGU have raised concerns within our community. It's crucial that we engage in open dialogue to address these issues and work together for a more transparent and accountable local government. Let's channel our concerns into constructive solutions. 🤝 #CommunityEngagement #ArgaoLGU #Accountability",
       postImages: [
-        'assets/images/posts/post_image8.png',
+        'assets/images/Posts/post_image8.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -1220,10 +1220,10 @@ class DemoPostData {
       messageDescription:
           "🏖️ Join us for a Coastal Cleanup Day! Together, we can make our beaches cleaner and healthier for all. 🌊 Let's protect our oceans and preserve the beauty of our coastal communities. Mark your calendar and be a part of the change! 🌎 #CoastalCleanup #EnvironmentalAction #CleanSeas",
       postImages: [
-        'assets/images/posts/post_image4.png',
-        'assets/images/posts/post_image5.png',
-        'assets/images/posts/post_image6.png',
-        'assets/images/posts/post_image7.png',
+        'assets/images/Posts/post_image4.png',
+        'assets/images/Posts/post_image5.png',
+        'assets/images/Posts/post_image6.png',
+        'assets/images/Posts/post_image7.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -1288,7 +1288,7 @@ class DemoPostData {
       messageDescription:
           "It's great to see organizations like Talaytay FC taking action on climate change! Let's keep the momentum going and inspire others to join the cause. Together, we can make a real impact in the fight against climate change. 🌍💚 #ClimateAction #TalaytayFC #ClimateChangeAwareness",
       postImages: [
-        'assets/images/posts/post_image9.png',
+        'assets/images/Posts/post_image9.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -1353,9 +1353,9 @@ class DemoPostData {
       messageDescription:
           "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
       postImages: [
-        'assets/images/posts/post_image1.png',
-        'assets/images/posts/post_image2.png',
-        'assets/images/posts/post_image3.png',
+        'assets/images/Posts/post_image1.png',
+        'assets/images/Posts/post_image2.png',
+        'assets/images/Posts/post_image3.png',
       ],
       // --------------------- Comments ------------------------
       postComments: [
@@ -1431,9 +1431,9 @@ class DemoPostData {
         messageDescription:
             "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
         postImages: [
-          'assets/images/posts/post_image1.png',
-          'assets/images/posts/post_image2.png',
-          'assets/images/posts/post_image3.png',
+          'assets/images/Posts/post_image1.png',
+          'assets/images/Posts/post_image2.png',
+          'assets/images/Posts/post_image3.png',
         ],
       ),
       // --------------------- Comments ------------------------
@@ -1510,9 +1510,9 @@ class DemoPostData {
         messageDescription:
             "Disheartened by the slow progress on climate action in Cebu. Let's raise our voices, demand change, and work together for a greener, sustainable future. We have the power to make a difference. 🌍💚 #ClimateAction #Cebu #TogetherForChange",
         postImages: [
-          'assets/images/posts/post_image1.png',
-          'assets/images/posts/post_image2.png',
-          'assets/images/posts/post_image3.png',
+          'assets/images/Posts/post_image1.png',
+          'assets/images/Posts/post_image2.png',
+          'assets/images/Posts/post_image3.png',
         ],
       ),
       // --------------------- Comments ------------------------
