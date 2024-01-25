@@ -87,29 +87,7 @@ class FlexibleSpaceContent extends StatelessWidget {
                           children: [
                             Stack(
                               clipBehavior: Clip.none,
-                              children: [
-                                ProfileAvatar(
-                                  profile: widget.profile.followers.first,
-                                  radius: 10,
-                                  hasBorder: true,
-                                ),
-                                Positioned(
-                                  right: -17,
-                                  child: ProfileAvatar(
-                                    profile: widget.profile.followers[1],
-                                    radius: 10,
-                                    hasBorder: true,
-                                  ),
-                                ),
-                                Positioned(
-                                  right: -34,
-                                  child: ProfileAvatar(
-                                    profile: widget.profile.followers[2],
-                                    radius: 10,
-                                    hasBorder: true,
-                                  ),
-                                ),
-                              ],
+                              children: buildProfileFollowersWidgets(),
                             ),
                             const HorizontalSpacing(of: 40),
                             Text(
@@ -132,29 +110,7 @@ class FlexibleSpaceContent extends StatelessWidget {
                           children: [
                             Stack(
                               clipBehavior: Clip.none,
-                              children: [
-                                ProfileAvatar(
-                                  profile: widget.profile.following.first,
-                                  radius: 10,
-                                  hasBorder: true,
-                                ),
-                                Positioned(
-                                  right: -17,
-                                  child: ProfileAvatar(
-                                    profile: widget.profile.following[1],
-                                    radius: 10,
-                                    hasBorder: true,
-                                  ),
-                                ),
-                                Positioned(
-                                  right: -34,
-                                  child: ProfileAvatar(
-                                    profile: widget.profile.following[2],
-                                    radius: 10,
-                                    hasBorder: true,
-                                  ),
-                                ),
-                              ],
+                              children: buildProfileFollowersWidgets(),
                             ),
                             const HorizontalSpacing(of: 40),
                             Text(
@@ -179,5 +135,61 @@ class FlexibleSpaceContent extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<Widget> buildProfileFollowersWidgets() {
+    if (widget.profile.followers.isEmpty) {
+      return [];
+    } else if (widget.profile.followers.length == 1) {
+      return [
+        ProfileAvatar(
+          profile: widget.profile.followers.first,
+          radius: 10,
+          hasBorder: true,
+        )
+      ];
+    } else if (widget.profile.followers.length == 2) {
+      return [
+        ProfileAvatar(
+          profile: widget.profile.followers.first,
+          radius: 10,
+          hasBorder: true,
+        ),
+        Positioned(
+          right: -17,
+          child: ProfileAvatar(
+            profile: widget.profile.followers[1],
+            radius: 10,
+            hasBorder: true,
+          ),
+        ),
+      ];
+    } else if (widget.profile.followers.length >= 3) {
+      return [
+        ProfileAvatar(
+          profile: widget.profile.followers.first,
+          radius: 10,
+          hasBorder: true,
+        ),
+        Positioned(
+          right: -17,
+          child: ProfileAvatar(
+            profile: widget.profile.followers[1],
+            radius: 10,
+            hasBorder: true,
+          ),
+        ),
+        Positioned(
+          right: -34,
+          child: ProfileAvatar(
+            profile: widget.profile.followers[2],
+            radius: 10,
+            hasBorder: true,
+          ),
+        ),
+      ];
+    } else {
+      return [];
+    }
   }
 }
