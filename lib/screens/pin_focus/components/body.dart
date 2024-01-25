@@ -21,7 +21,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   late GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(9.901566, 123.586010);
+  final LatLng _center = const LatLng(9.901015489980256, 123.58620122862442);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -66,6 +66,12 @@ class _BodyState extends State<Body> {
             target: _center,
             zoom: 14.0,
           ),
+          markers: {
+            Marker(
+              markerId: const MarkerId("Pisay"),
+              position: _center,
+            ), // Marker
+          },
         ),
         // ==============================================================
         buildMapOptionsButtons(),

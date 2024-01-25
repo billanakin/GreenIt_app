@@ -8,6 +8,7 @@ class ProfileAvatar extends StatelessWidget {
     required this.profile,
     this.radius = 22.0,
     this.hasBorder = false,
+    this.isrouteDisabled = false,
   });
 
   const ProfileAvatar.secondary({
@@ -15,10 +16,12 @@ class ProfileAvatar extends StatelessWidget {
     required this.profile,
     this.radius = 20.0,
     this.hasBorder = false,
+    this.isrouteDisabled = false,
   });
 
   final double radius;
   final Profile profile;
+  final bool isrouteDisabled;
 
   final bool hasBorder;
 
@@ -43,15 +46,17 @@ class ProfileAvatar extends StatelessWidget {
     }
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const ProfileScreen(),
-            settings: RouteSettings(
-              arguments: profile,
+        if (!isrouteDisabled) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ProfileScreen(),
+              settings: RouteSettings(
+                arguments: profile,
+              ),
             ),
-          ),
-        );
+          );
+        }
       },
       child: profileAvatarOutput,
     );

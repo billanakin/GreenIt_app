@@ -13,11 +13,13 @@ class PostCard extends StatelessWidget {
     required this.post,
     this.isViewPost = false,
     this.isBottomSheet = false,
+    this.isProfile = false,
   });
 
   final Post post;
   final bool isViewPost;
   final bool isBottomSheet;
+  final bool isProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,7 @@ class PostCard extends StatelessWidget {
               post: post,
               suffix: const CardOptions(press: null),
               isBottomSheet: isBottomSheet,
+              isProfile: isProfile,
             ),
             const VerticalSpacing(of: 10),
             PostBody.shared(post: post),
@@ -86,6 +89,7 @@ class PostCard extends StatelessWidget {
               post: post,
               suffix: const CardOptions(press: null),
               isBottomSheet: isBottomSheet,
+              isProfile: isProfile,
             ),
             const VerticalSpacing(of: 20),
             PostBody(post: post),

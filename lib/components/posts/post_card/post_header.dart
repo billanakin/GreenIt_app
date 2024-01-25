@@ -18,6 +18,7 @@ class PostHeader extends StatelessWidget {
     required this.post,
     required this.suffix,
     this.isBottomSheet = false,
+    this.isProfile = false,
   }) : postHeaderType = PostHeaderType.defaultType;
 
   const PostHeader.shared({
@@ -25,6 +26,7 @@ class PostHeader extends StatelessWidget {
     required this.post,
     required this.suffix,
     this.isBottomSheet = false,
+    this.isProfile = false,
   }) : postHeaderType = PostHeaderType.sharedType;
 
   final Post post;
@@ -32,14 +34,20 @@ class PostHeader extends StatelessWidget {
 
   final PostHeaderType postHeaderType;
   final bool isBottomSheet;
+  final bool isProfile;
 
   @override
   Widget build(BuildContext context) {
+    bool isrouteDisabled = isProfile;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ProfileAvatar.secondary(profile: post.profile),
+        ProfileAvatar.secondary(
+          profile: post.profile,
+          isrouteDisabled: isrouteDisabled,
+        ),
         const HorizontalSpacing(of: 10),
         postHeaderInfo(),
         const Spacer(),

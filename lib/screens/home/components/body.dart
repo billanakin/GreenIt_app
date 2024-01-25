@@ -20,7 +20,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   late GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(9.901566, 123.586010);
+  final LatLng _center = const LatLng(10.308878513658154, 123.89138682763317);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -69,6 +69,48 @@ class _BodyState extends State<Body> {
             target: _center,
             zoom: 14.0,
           ),
+          markers: {
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.25407710951034, 123.7998278550254),
+            ),
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.308970250044645, 123.85645857742605),
+            ),
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.290272050705086, 123.97267457853074),
+            ),
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.272756400550008, 123.92870938703349),
+            ),
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.27736355323591, 123.90885506433185),
+            ),
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.254912959623585, 123.81188610891611),
+            ),
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.242618956205648, 123.79746577533182),
+            ),
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.283224423040528, 123.88072452151957),
+            ),
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.31896040808202, 123.90661741199126),
+            ),
+            const Marker(
+              markerId: MarkerId("Pisay"),
+              position: LatLng(10.314564616598185, 123.90105748207873),
+            ),
+          },
         ),
         // ==============================================================
         buildMapOptionsButtons(),

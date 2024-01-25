@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:greenit_app/screens/main_navigation.dart';
 import 'package:greenit_app/screens/on_boarding/onboarding_screen.dart';
 import 'package:greenit_app/screens/splash.dart';
 import 'package:greenit_app/size_config.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         splash: const Splash(),
         splashIconSize: 250,
         centered: true,
-        nextScreen: const OnBoardingScreen(), // For Debug Purposes
+        nextScreen: const MainNavigation(), // For Debug Purposes
         splashTransition: SplashTransition.fadeTransition,
       ),
       // home: const OnBoardingScreen(), // For Debug Purposes
