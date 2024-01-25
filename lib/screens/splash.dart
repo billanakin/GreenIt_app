@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_app/size_config.dart';
 
 class Splash extends StatelessWidget {
   const Splash({super.key});
