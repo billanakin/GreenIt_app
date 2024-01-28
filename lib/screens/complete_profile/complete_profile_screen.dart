@@ -4,11 +4,16 @@ import 'package:greenit_app/screens/complete_profile/components/body.dart';
 import 'package:greenit_app/size_config.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
+import 'package:greenit_app/models/forms/signup_form.dart' as model;
+
 class CompleteProfileScreen extends StatelessWidget {
   const CompleteProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var signupForm =
+        ModalRoute.of(context)!.settings.arguments as model.SignupForm;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -24,7 +29,7 @@ class CompleteProfileScreen extends StatelessWidget {
           child: buildProgressIndicator(),
         ),
       ),
-      body: const Body(),
+      body: Body(signupForm: signupForm),
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:greenit_app/components/buttons/primary_button.dart';
 import 'package:greenit_app/components/onboarding/dot_indicator.dart';
 import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/screens/on_boarding/components/onboarding_content.dart';
 import 'package:greenit_app/screens/sign_in/sign_in_screen.dart';
 import 'package:greenit_app/size_config.dart';
@@ -87,12 +88,16 @@ class _BodyState extends State<Body> {
                     const Spacer(flex: 3),
                     PrimaryButton(
                       text: 'Continue',
-                      press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SignInScreen(),
-                        ),
-                      ),
+                      press: () async {
+                        await Current.markAsNotFirstTimeUse();
+
+                        if (!context.mounted) return;
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const SignInScreen(),
+                          ),
+                        );
+                      },
                     ),
                     const Spacer(),
                   ],

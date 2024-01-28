@@ -5,8 +5,12 @@ import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/screens/complete_profile/components/complete_profile_form.dart';
 import 'package:greenit_app/size_config.dart';
 
+import 'package:greenit_app/models/forms/signup_form.dart' as model;
+
 class Body extends StatelessWidget {
-  const Body({super.key});
+  final model.SignupForm signupForm;
+
+  const Body({super.key, required this.signupForm});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class Body extends StatelessWidget {
                       "Almost there! Complete your profile\n to personalize your experience.",
                 ),
                 VerticalSpacing(of: SizeConfig.screenHeight * 0.05),
-                const CompleteProfileForm(),
+                CompleteProfileForm(signupForm: signupForm),
                 VerticalSpacing(of: SizeConfig.screenHeight * 0.03),
                 const PolicyAndServicesText(),
               ],

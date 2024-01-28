@@ -18,7 +18,7 @@ class NewPostStepOneScreen extends StatelessWidget {
         actionButtonText: 'Next',
         actionButtonPress: () {
           /* TODO:
-            Button wont navigate if not postTitle, postMessage, postImages is not present
+            Button wont navigate if  postTitle, postMessage, postImages is not present
             If null, present a dialog box or snackbar
           */
           Navigator.push(

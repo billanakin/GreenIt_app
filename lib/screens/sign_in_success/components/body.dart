@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/buttons/primary_button.dart';
 import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/screens/main_navigation.dart';
 import 'package:greenit_app/size_config.dart';
 
@@ -25,6 +26,8 @@ class Body extends StatelessWidget {
                       Image.asset('assets/images/logo/Greenit_logo_main.png'),
                 ),
               ),
+              const Spacer(flex: 2),
+              Text('Hello ${Current.user!.firstName}'),
               const Spacer(flex: 2),
               PrimaryButton(
                 text: 'Continue',
