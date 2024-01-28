@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_app/apis/api_response.dart';
 import 'package:greenit_app/components/buttons/primary_button.dart';
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/screens/otp_verification/otp_screen.dart';
+import 'package:greenit_app/screens/sign_in/sign_in_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
+import 'package:greenit_app/models/forms/signup_form.dart' as model;
+import 'package:greenit_app/apis/signup_api.dart';
+
 class CompleteProfileForm extends StatefulWidget {
+  final model.SignupForm signupForm;
+
   const CompleteProfileForm({
     super.key,
+    required this.signupForm,
   });
 
   @override
@@ -37,6 +44,18 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     _addressNode!.dispose();
   }
 
+  Future<ApiResponse> _doSignUp() async {
+    var signupForm = widget.signupForm;
+    signupForm.firstName = _firstName;
+    signupForm.lastName = _lastName;
+    print(signupForm);
+
+    var apiResponse = await SignupApi().call(signupForm);
+    print(apiResponse);
+
+    return apiResponse;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -46,23 +65,28 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           buildFirstNameField(),
           const VerticalSpacing(of: 25),
           buildLastNameField(),
-          const VerticalSpacing(of: 25),
-          buildPhoneNumberField(),
-          const VerticalSpacing(of: 25),
-          buildAddressField(),
           const VerticalSpacing(of: 30),
           PrimaryButton(
             text: 'Register Account',
             press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const OtpVerficationScreen(),
-                  ),
-                );
+                _doSignUp().then((apiResponse) {
+                  // TODO: What if there is a:
+                  //       - validation error
+                  //       - server error
+                  //       - client error, e.g. no internet
+                  if (apiResponse.success) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        // TODO: Show sign up success
+                        //       and let user sign in automatically after sign up
+                        builder: (context) => const SignInScreen(),
+                      ),
+                    );
+                  }
+                });
               }
             },
           ),
@@ -71,46 +95,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     );
   }
 
-  TextFormField buildAddressField() {
-    return TextFormField(
-      focusNode: _addressNode,
-      validator: requiredValidator.call,
-      onSaved: (value) => _address = value,
-      textInputAction: TextInputAction.done,
-      onEditingComplete: () => _addressNode!.unfocus(),
-      style: kPrimaryBodyTextStyle,
-      cursorColor: kPrimaryActiveColor,
-      keyboardType: TextInputType.name,
-      decoration: InputDecoration(
-        hintText: 'Enter your address',
-        labelText: 'Address',
-        contentPadding: kTextFieldPadding,
-      ),
-    );
-  }
-
-  TextFormField buildPhoneNumberField() {
-    return TextFormField(
-      focusNode: _phoneNumberNode,
-      validator: phoneNumberValidator.call,
-      onSaved: (value) => _phoneNumber = value,
-      textInputAction: TextInputAction.next,
-      onEditingComplete: () => _addressNode!.requestFocus(),
-      style: kPrimaryBodyTextStyle,
-      cursorColor: kPrimaryActiveColor,
-      keyboardType: TextInputType.phone,
-      decoration: InputDecoration(
-        hintText: 'Enter your phone number',
-        labelText: 'Phone Number',
-        contentPadding: kTextFieldPadding,
-      ),
-    );
-  }
-
   TextFormField buildLastNameField() {
     return TextFormField(
       focusNode: _lastNameNode,
       validator: requiredValidator.call,
+      onChanged: (value) => _lastName = value,
       onSaved: (value) => _lastName = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _phoneNumberNode!.requestFocus(),
@@ -128,6 +117,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildFirstNameField() {
     return TextFormField(
       validator: requiredValidator.call,
+      onChanged: (value) => _firstName = value,
       onSaved: (value) => _firstName = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _lastNameNode!.requestFocus(),

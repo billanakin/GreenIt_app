@@ -4,6 +4,8 @@ import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
+import 'package:greenit_app/models/forms/signup_form.dart' as model;
+
 class SignUpForm extends StatefulWidget {
   const SignUpForm({
     super.key,
@@ -37,6 +39,26 @@ class _SignUpFormState extends State<SignUpForm> {
     _confirmPasswordNode!.dispose();
   }
 
+  void doSignup() async {
+    var form = model.SignupForm(
+      email: _email,
+      password: _password,
+      passwordConfirmation: _confirmPassword,
+    );
+
+    if (_formKey.currentState!.validate()) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const CompleteProfileScreen(),
+          settings: RouteSettings(
+            arguments: form,
+          ),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -51,18 +73,7 @@ class _SignUpFormState extends State<SignUpForm> {
           const VerticalSpacing(of: 30),
           PrimaryButton(
             text: 'Continue',
-            press: () {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CompleteProfileScreen(),
-                  ),
-                );
-              }
-            },
+            press: doSignup,
           ),
         ],
       ),
@@ -130,6 +141,7 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildEmailField() {
     return TextFormField(
       validator: emailValidator.call,
+      onChanged: (value) => _email = value,
       onSaved: (value) => _email = value,
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _passwordNode!.requestFocus(),

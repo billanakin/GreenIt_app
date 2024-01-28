@@ -1,5 +1,4 @@
 // Demo Notification Data
-import 'package:geocoding/geocoding.dart';
 import 'package:greenit_app/models/notification.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/models/profile.dart';
