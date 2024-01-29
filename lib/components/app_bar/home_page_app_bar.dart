@@ -3,6 +3,7 @@ import 'package:greenit_app/components/fields/search_bar.dart';
 import 'package:greenit_app/components/logo/inline_logo.dart';
 import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
 
@@ -72,9 +73,11 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               const HorizontalSpacing(of: 10),
-              ProfileAvatar(
-                profile: userProfile,
-              ),
+              Current.authenticated
+                  ? ProfileAvatar(
+                      profile: userProfile,
+                    )
+                  : const SizedBox.shrink(),
             ],
           ),
         ),

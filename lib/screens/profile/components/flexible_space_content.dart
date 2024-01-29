@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/screens/profile/components/body.dart';
 import 'package:greenit_app/size_config.dart';
 
@@ -18,7 +19,7 @@ class FlexibleSpaceContent extends StatelessWidget {
       height: getProportionateScreenHeight(400),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(widget.profile.profileAvatar),
+          image: NetworkImage(widget.profile.profileAvatar),
           fit: BoxFit.cover,
         ),
       ),
@@ -63,7 +64,7 @@ class FlexibleSpaceContent extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: widget.profile.name,
+                            text: Current.user!.name,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: getProportionateScreenHeight(26),

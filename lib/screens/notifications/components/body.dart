@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/app_bar/default_app_bar.dart';
-import 'package:greenit_app/dummy_data/notification_data.dart';
-import 'package:greenit_app/dummy_data/profile_data.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/notification.dart' as app_notif;
 import 'package:greenit_app/screens/notifications/components/notification_card.dart';
 import 'package:greenit_app/size_config.dart';
@@ -16,10 +15,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  List<app_notif.Notification> demoNotificationData =
-      DemoNotificationData.demoNotificationListData;
-
-  Profile userProfile = DemoProfilesData.userProfile;
+  Profile userProfile = Profile.fromUser(Current.user!);
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +30,14 @@ class _BodyState extends State<Body> {
               userProfile: userProfile,
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              childCount: demoNotificationData.length,
-              (context, index) =>
-                  NotificationCard(notification: demoNotificationData[index]),
-            ),
-          ),
+          //TODO
+          // SliverList(
+          //   delegate: SliverChildBuilderDelegate(
+          //     childCount: demoNotificationData.length,
+          //     (context, index) =>
+          //         NotificationCard(notification: demoNotificationData[index]),
+          //   ),
+          // ),
         ],
       ),
     );

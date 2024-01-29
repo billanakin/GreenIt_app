@@ -58,15 +58,16 @@ class _BodyState extends State<Body> {
               ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              childCount: widget.profile.posts.length,
-              (BuildContext context, int index) => PostCard(
-                post: widget.profile.posts[index],
-                isProfile: true,
-              ),
-            ),
-          ),
+          //TODO
+          // SliverList(
+          //   delegate: SliverChildBuilderDelegate(
+          //     childCount: widget.profile.posts.length,
+          //     (BuildContext context, int index) => PostCard(
+          //       post: widget.profile.posts[index],
+          //       isProfile: true,
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

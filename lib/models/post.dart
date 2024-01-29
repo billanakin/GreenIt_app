@@ -1,62 +1,55 @@
-import 'package:greenit_app/models/comment.dart';
-import 'package:greenit_app/models/profile.dart';
-
-enum PostConstructorType {
-  defaultPost,
-  sharedPost,
-}
+import 'package:intl/intl.dart';
+import 'package:greenit_app/models/post_image.dart';
+import 'package:greenit_app/models/user.dart';
 
 class Post {
-  final int id;
-  final Profile profile;
-  final String time, date;
-  final int? locationRange;
-  final String? messageTitle;
-  final String messageDescription;
-  final List<String>? postImages;
-  final List<Comment>? postComments;
-  final int postLikes;
+  int id;
+  String title;
+  String body;
+  double latitude;
+  double longitude;
+  User author;
+  List<PostImage>? images;
+  DateTime createdAt;
+  DateTime updatedAt;
 
-  final Post? sharedPost;
-
-  final PostConstructorType postConstructorType;
-
-  const Post({
+  Post({
     required this.id,
-    required this.profile,
-    required this.time,
-    required this.date,
-    required this.locationRange,
-    required this.messageTitle,
-    required this.messageDescription,
-    required this.postImages,
-    this.postComments,
-    this.postLikes = 0,
-  })  : postConstructorType = PostConstructorType.defaultPost,
-        sharedPost = null;
+    required this.title,
+    required this.body,
+    required this.latitude,
+    required this.longitude,
+    required this.author,
+    this.images,
+    required this.createdAt,
+    required this.updatedAt,
+  });
 
-  const Post.shared({
-    required this.id,
-    required this.profile,
-    required this.time,
-    required this.date,
-    required this.messageDescription,
-    required this.sharedPost,
-    this.postComments,
-    this.postLikes = 0,
-  })  : postConstructorType = PostConstructorType.sharedPost,
-        postImages = null,
-        locationRange = null,
-        messageTitle = null;
+  factory Post.fromJson(Map<String, dynamic> json) {
+    var imagesJson = (json["images"] != null) ? json["images"] : [];
+    var mappedImagesJson =
+        imagesJson.map((json) => PostImage.fromJson(json)).toList();
+    List<PostImage> images = [...mappedImagesJson];
+    images.sort((a, b) => a.rank.compareTo(b.rank));
 
-  String get profileName => profile.name;
-  String get profileImage => profile.profileAvatar;
+    return Post(
+      id: json["id"] as int,
+      title: json["title"] as String,
+      body: json["body"] as String,
+      latitude: json["latitude"] as double,
+      longitude: json["longitude"] as double,
+      author: User.fromJson(json['author']),
+      images: images,
+      createdAt: DateTime.parse(json['created_at'].toString()),
+      updatedAt: DateTime.parse(json['updated_at'].toString()),
+    );
+  }
 
-  String get profileSharedName => sharedPost!.profileName;
-  String get profileSharedImage => sharedPost!.profileImage;
+  String get formattedDate {
+    return DateFormat('MMM d, yyyy').format(createdAt);
+  }
 
-  int get postImagesLength => postImages?.length ?? 0;
-  int get postCommentLength => postComments?.length ?? 0;
-
-  PostConstructorType get postType => postConstructorType;
+  String get formattedTime {
+    return DateFormat('HH:mm a').format(createdAt);
+  }
 }

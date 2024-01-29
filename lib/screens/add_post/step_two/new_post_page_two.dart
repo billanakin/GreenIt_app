@@ -1,13 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/app_bar/utility_app_bar.dart';
 import 'package:greenit_app/components/buttons/secondary_button.dart';
 import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/current.dart';
+import 'package:greenit_app/models/forms/create_post_form.dart';
 import 'package:greenit_app/screens/add_post/step_two/components/body.dart';
+import 'package:greenit_app/screens/main_navigation.dart';
 import 'package:greenit_app/size_config.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class NewPostScreenStepTwo extends StatelessWidget {
-  const NewPostScreenStepTwo({super.key});
+  const NewPostScreenStepTwo({super.key, required this.createPostForm});
+
+  final CreatePostForm createPostForm;
+
+  void _onGeoLocationChanged(double? latitude, double? longitude) {
+    createPostForm.latitude = latitude;
+    createPostForm.longitude = longitude;
+  }
+
+  Future<void> _onPostButtonPressed(BuildContext context) async {
+    //TODO: For now set hard code the location
+    createPostForm.latitude = 9.88140512313607;
+    createPostForm.longitude = 123.60863617997391;
+
+    var apiResponse =
+        await PostApi().create(createPostForm, Current.authToken!);
+    if (apiResponse.success) {
+      if (!context.mounted) return;
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const MainNavigation(),
+        ),
+      );
+      //TODO: show popup that creating post was successful
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +46,15 @@ class NewPostScreenStepTwo extends StatelessWidget {
         leadingText: 'Previous',
         title: 'New Post  ',
         actionButtonText: 'Post ',
-        actionButtonPress:
-            () {}, // TODO: Insert Here code to post, after that add dialog box or snackbar for successful posting.
+        actionButtonPress: () async {
+          await _onPostButtonPressed(context);
+        }, // TODO: Insert Here code to post, after that add dialog box or snackbar for successful posting.
       ),
       body: SafeArea(
         child: Column(
           children: [
             buildProgressIndicator(),
-            const Body(),
+            Body(onGeoLocationChanged: _onGeoLocationChanged),
           ],
         ),
       ),

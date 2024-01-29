@@ -4,7 +4,7 @@ import 'package:greenit_app/components/posts/post_card/post_header.dart';
 import 'package:greenit_app/components/posts/post_interaction_bar.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
-import 'package:greenit_app/screens/view_post/view_post_screen.dart';
+//import 'package:greenit_app/screens/view_post/view_post_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
 enum PostBodyType {
@@ -68,7 +68,7 @@ Container buildPostBodyDefaultType(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          post.messageTitle!,
+          post.title,
           style: kPrimaryBodyTextStyle.copyWith(
             fontFamily: 'Helvetica',
             fontWeight: FontWeight.w600,
@@ -76,29 +76,29 @@ Container buildPostBodyDefaultType(
         ),
         const VerticalSpacing(of: 10),
         Text(
-          post.messageDescription,
+          post.body,
           style: kPrimaryBodyTextStyle,
         ),
         const VerticalSpacing(of: 10),
-        if (post.postImagesLength == 1)
+        if (post.images?.length == 1)
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: AspectRatio(
               aspectRatio: 16 / 9,
-              child: Image.asset(
-                post.postImages![0],
+              child: Image.network(
+                post.images![0].url,
                 width: double.infinity,
                 fit: BoxFit.fitWidth,
               ),
             ),
           ),
-        if (post.postImagesLength > 1)
+        if ((post.images?.length ?? 0) > 1)
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
                 ...List.generate(
-                  post.postImagesLength,
+                  post.images!.length,
                   (index) => Padding(
                     padding: const EdgeInsets.only(right: 5),
                     child: ClipRRect(
@@ -107,8 +107,8 @@ Container buildPostBodyDefaultType(
                         height: getProportionateScreenHeight(180),
                         child: AspectRatio(
                           aspectRatio: 4 / 5,
-                          child: Image.asset(
-                            post.postImages![index],
+                          child: Image.network(
+                            post.images![index].url,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -151,18 +151,21 @@ Container buildPostBodySharedType(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          post.messageDescription,
+          post.body,
           style: kPrimaryBodyTextStyle,
         ),
         const VerticalSpacing(of: 10),
         InkWell(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const ViewPostScreen(),
-              settings: RouteSettings(arguments: post.sharedPost),
-            ),
-          ),
+          onTap: () {
+            //TODO
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => const ViewPostScreen(),
+            //     settings: RouteSettings(arguments: post.sharedPost),
+            //   ),
+            // );
+          },
           child: Container(
             width: double.maxFinite,
             height: getProportionateScreenHeight(200),
@@ -179,7 +182,7 @@ Container buildPostBodySharedType(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 PostHeader(
-                  post: post.sharedPost!,
+                  post: post,
                   suffix: const CardOptions(press: null),
                 ),
                 const VerticalSpacing(of: 20),
@@ -191,7 +194,7 @@ Container buildPostBodySharedType(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        post.sharedPost!.messageTitle!,
+                        post.title,
                         style: kPrimaryBodyTextStyle.copyWith(
                           fontFamily: 'Helvetica',
                           fontWeight: FontWeight.w700,
@@ -199,7 +202,7 @@ Container buildPostBodySharedType(
                       ),
                       const VerticalSpacing(of: 10),
                       Text(
-                        post.sharedPost!.messageDescription,
+                        post.body,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style: kPrimaryBodyTextStyle,

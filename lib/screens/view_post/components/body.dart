@@ -38,29 +38,35 @@ class _BodyState extends State<Body> {
               vertical: kSecondaryVerticalPadding,
             ),
             sliver: SliverToBoxAdapter(
-              child: (widget.post.postType == PostConstructorType.defaultPost)
-                  ? PostBody(
-                      isViewPost: true,
-                      post: widget.post,
-                    )
-                  : PostBody.shared(
-                      isViewPost: true,
-                      post: widget.post,
-                    ),
+              //TODO
+              child: PostBody(
+                isViewPost: true,
+                post: widget.post,
+              ),
+              // child: (widget.post.postType == PostConstructorType.defaultPost)
+              //     ? PostBody(
+              //         isViewPost: true,
+              //         post: widget.post,
+              //       )
+              //     : PostBody.shared(
+              //         isViewPost: true,
+              //         post: widget.post,
+              //       ),
             ),
           ),
           const SliverToBoxAdapter(
             child: Divider(height: 1),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              childCount: widget.post.postCommentLength,
-              (BuildContext context, int index) {
-                Comment comment = widget.post.postComments![index];
-                return CommentCard(comment: comment);
-              },
-            ),
-          ),
+          //TODO:
+          // SliverList(
+          //   delegate: SliverChildBuilderDelegate(
+          //     childCount: widget.post.postCommentLength,
+          //     (BuildContext context, int index) {
+          //       Comment comment = widget.post.postComments![index];
+          //       return CommentCard(comment: comment);
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );

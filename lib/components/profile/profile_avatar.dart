@@ -35,13 +35,13 @@ class ProfileAvatar extends StatelessWidget {
         radius: radius + 1,
         child: CircleAvatar(
           radius: radius,
-          backgroundImage: AssetImage(profile.profileAvatar),
+          backgroundImage: NetworkImage(profile.profileAvatar),
         ),
       );
     } else {
       profileAvatarOutput = CircleAvatar(
         radius: radius,
-        backgroundImage: AssetImage(profile.profileAvatar),
+        backgroundImage: NetworkImage(profile.profileAvatar),
       );
     }
     return InkWell(

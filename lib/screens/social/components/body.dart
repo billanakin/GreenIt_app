@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/app_bar/default_app_bar.dart';
 import 'package:greenit_app/components/posts/post_card/post_card.dart';
-import 'package:greenit_app/dummy_data/post_data.dart';
-import 'package:greenit_app/dummy_data/profile_data.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';
 
@@ -16,12 +16,34 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  List<Post> demoPostData = DemoPostData.demoPostListData;
-
-  Profile userProfile = DemoProfilesData.userProfile;
+  Future<List<Post>> _loadData() async {
+    var apiResponse = await PostApi().fromFriends();
+    if (apiResponse.success) {
+      return apiResponse.data!.list;
+    } else {
+      return <Post>[];
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    return SafeArea(
+      child: FutureBuilder<List<Post>>(
+        future: _loadData(),
+        builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
+          if (snapshot.hasData) {
+            return buildWidgets(context, snapshot.data!);
+          } else {
+            return const Center(
+              child: Text('Loading...'),
+            );
+          }
+        },
+      ),
+    );
+  }
+
+  Widget buildWidgets(BuildContext context, List<Post> data) {
     return SafeArea(
       child: CustomScrollView(
         slivers: <Widget>[
@@ -30,14 +52,14 @@ class _BodyState extends State<Body> {
             expandedHeight: getProportionateScreenHeight(70),
             floating: true,
             flexibleSpace: DefaultAppBar(
-              userProfile: userProfile,
+              userProfile: Profile.fromUser(Current.user!),
             ),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              childCount: demoPostData.length,
+              childCount: data.length,
               (context, index) => PostCard(
-                post: demoPostData[index],
+                post: data[index],
               ),
             ),
           ),

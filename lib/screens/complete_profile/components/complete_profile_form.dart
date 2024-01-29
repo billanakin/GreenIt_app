@@ -48,10 +48,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     var signupForm = widget.signupForm;
     signupForm.firstName = _firstName;
     signupForm.lastName = _lastName;
-    print(signupForm);
 
     var apiResponse = await SignupApi().call(signupForm);
-    print(apiResponse);
 
     return apiResponse;
   }

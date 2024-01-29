@@ -3,9 +3,7 @@ import 'package:greenit_app/apis/api_response.dart';
 import 'package:greenit_app/apis/session_api.dart';
 import 'package:greenit_app/components/buttons/primary_button.dart';
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/forms/login_form.dart';
-import 'package:greenit_app/models/user_with_auth_token.dart';
 import 'package:greenit_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:greenit_app/screens/sign_in_success/sign_in_success_screen.dart';
 import 'package:greenit_app/size_config.dart';
@@ -44,9 +42,7 @@ class _SignInFormState extends State<SignInForm> {
 
   Future<ApiResponse> _doSignin() async {
     var loginForm = LoginForm(email: _email, password: _password);
-    print(loginForm);
     var apiResponse = await SessionApi().login(loginForm);
-    print(apiResponse);
     return apiResponse;
   }
 
@@ -95,14 +91,9 @@ class _SignInFormState extends State<SignInForm> {
             press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                _doSignin().then((apiResponse) async {
+                _doSignin().then((apiResponse) {
                   // TODO: What if no success?
                   if (apiResponse.success) {
-                    var userWithAuthToken =
-                        apiResponse.data as UserWithAuthToken;
-                    await Current.refreshUserWithAuthToken(userWithAuthToken);
-
-                    if (!context.mounted) return;
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => const SignInSuccessScreen(),

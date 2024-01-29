@@ -1,20 +1,32 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/cards/warning_info_card.dart';
 import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/dummy_data/profile_data.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Body extends StatefulWidget {
-  const Body({super.key});
+  const Body({
+    super.key,
+    required this.onTitleTextChanged,
+    required this.onBodyTextChanged,
+    required this.onImagePathsChanged,
+  });
+
+  final Function onTitleTextChanged;
+  final Function onBodyTextChanged;
+  final Function onImagePathsChanged;
 
   @override
   State<Body> createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
-  String? postTitle, postMessage;
+  List<XFile>? postImages = [];
 
   FocusNode? _postTitleNode, _postMessageNode;
 
@@ -32,9 +44,20 @@ class _BodyState extends State<Body> {
     _postMessageNode!.dispose();
   }
 
+  final ImagePicker imagePicker = ImagePicker();
+  Future _pickImageFromGallery() async {
+    final List<XFile> selectedImages = await imagePicker.pickMultiImage();
+    if (selectedImages.isNotEmpty) {
+      setState(() {
+        postImages!.addAll(selectedImages);
+        widget.onImagePathsChanged(postImages!.map((img) => img.path).toList());
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    Profile userProfile = DemoProfilesData.userProfile;
+    Profile userProfile = Profile.fromUser(Current.user!);
 
     return Expanded(
       child: SizedBox(
@@ -88,7 +111,7 @@ class _BodyState extends State<Body> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                userProfile.name,
+                Current.user!.name,
                 style: kPrimaryBodyTextStyle,
               ),
               Text(
@@ -106,34 +129,38 @@ class _BodyState extends State<Body> {
 
   InkWell buildInputPhotoCard() {
     return InkWell(
-      onTap: () {}, // ADD access to gallery here
+      onTap: () {
+        _pickImageFromGallery();
+      },
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            ...List.generate(
-              4,
-              (index) => Padding(
-                padding: const EdgeInsets.only(right: 5),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: SizedBox(
-                    height: getProportionateScreenHeight(180),
-                    child: AspectRatio(
-                      aspectRatio: 4 / 5,
-                      child: Container(
-                        decoration: ShapeDecoration(
-                          shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                                width: 1, color: Color(0x66868686)),
-                            borderRadius: BorderRadius.circular(10),
+            if (postImages!.isEmpty)
+              ...List.generate(
+                4,
+                (index) => Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: SizedBox(
+                      height: getProportionateScreenHeight(180),
+                      child: AspectRatio(
+                        aspectRatio: 4 / 5,
+                        child: Container(
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              side: const BorderSide(
+                                  width: 1, color: Color(0x66868686)),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
-                        ),
-                        child: const Center(
-                          child: Icon(
-                            Icons.insert_photo_outlined,
-                            color: kPrimaryBorderColor,
-                            size: 75,
+                          child: const Center(
+                            child: Icon(
+                              Icons.insert_photo_outlined,
+                              color: kPrimaryBorderColor,
+                              size: 75,
+                            ),
                           ),
                         ),
                       ),
@@ -141,7 +168,26 @@ class _BodyState extends State<Body> {
                   ),
                 ),
               ),
-            ),
+            if (postImages!.isNotEmpty)
+              ...List.generate(
+                postImages!.length,
+                (index) => Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: SizedBox(
+                      height: getProportionateScreenHeight(180),
+                      child: AspectRatio(
+                        aspectRatio: 4 / 5,
+                        child: Image.file(
+                          File(postImages![index].path),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
           ],
         ),
       ),
@@ -153,7 +199,8 @@ class _BodyState extends State<Body> {
       focusNode: _postMessageNode,
       textInputAction: TextInputAction.done,
       onEditingComplete: () => _postMessageNode!.unfocus(),
-      onChanged: (value) => postMessage = value, // POST MESSAGE HERE
+      onChanged: (value) =>
+          widget.onBodyTextChanged(value), // POST MESSAGE HERE
       style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       maxLines: null,
@@ -178,7 +225,7 @@ class _BodyState extends State<Body> {
       focusNode: _postTitleNode,
       textInputAction: TextInputAction.done,
       onEditingComplete: () => _postTitleNode!.unfocus(),
-      onChanged: (value) => postTitle = value, // POST TITLE HERE
+      onChanged: (value) => widget.onTitleTextChanged(value), // POST TITLE HERE
       style: kPrimaryBodyTextStyle.copyWith(
         fontFamily: 'Helvetica',
         fontWeight: FontWeight.w600,

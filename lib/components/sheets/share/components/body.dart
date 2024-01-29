@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/dummy_data/profile_data.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
@@ -34,7 +34,7 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    Profile userProfile = DemoProfilesData.userProfile;
+    Profile userProfile = Profile.fromUser(Current.user!);
 
     return Expanded(
       child: SizedBox(
@@ -81,7 +81,7 @@ class _BodyState extends State<Body> {
                 style: kPrimaryBodyTextStyle,
               ),
               Text(
-                "Sharing post from ${widget.post.profile.name}",
+                "Sharing post from ${widget.post.author.name}",
                 style: kSecondaryBodyTextStyle.copyWith(
                   color: kPrimaryBodyTextColor,
                 ),

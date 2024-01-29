@@ -14,8 +14,8 @@ class ApiResponse<T> {
     _parseDataFunc = parseDataFunc;
   }
 
-  dynamic get genericData => ApiUtility.jsonBody(_response)['data'];
-  dynamic get validationErrors => genericData;
+  dynamic get validationErrors => ApiUtility.jsonBody(_response)['errors'];
+  String get message => ApiUtility.jsonBody(_response)['message'];
   T? get data => _parseDataFunc?.call();
 
   bool get success => _response.statusCode == 200;
