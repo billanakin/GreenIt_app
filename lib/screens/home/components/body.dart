@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/buttons/map_display_button.dart';
 import 'package:greenit_app/components/buttons/user_location_focus_button.dart';
 import 'package:greenit_app/components/buttons/view_post_button.dart';
 // import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -16,12 +19,34 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  late GoogleMapController mapController;
+  late GoogleMapController _mapController;
 
   final LatLng _center = const LatLng(10.308878513658154, 123.89138682763317);
 
   void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+    _mapController = controller;
+    _changeMapMode();
+  }
+
+  _changeMapMode() {
+    _getJsonFile("assets/google_maps_style.json").then(_setMapStyle);
+  }
+
+  Future<String> _getJsonFile(String path) async {
+    return await rootBundle.loadString(path);
+  }
+
+  void _setMapStyle(String mapStyle) {
+    _mapController.setMapStyle(mapStyle);
+  }
+
+  Future<List<Post>> _loadData() async {
+    var apiResponse = await PostApi().latest();
+    if (apiResponse.success) {
+      return apiResponse.data!.list;
+    } else {
+      return <Post>[];
+    }
   }
 
   bool isLoaded = true; // Debug Only: set to true
@@ -34,57 +59,47 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder<List<Post>>(
+      future: _loadData(),
+      builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
+        if (snapshot.hasData) {
+          return buildWidgets(context, snapshot.data!);
+        } else {
+          return const SafeArea(
+            child: Center(
+              child: Text('Loading...'),
+            ),
+          );
+        }
+      },
+    );
+  }
+
+  Widget buildWidgets(BuildContext context, List<Post> data) {
     return Stack(
       fit: StackFit.expand,
       children: [
         GoogleMap(
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(
-            target: _center,
+            target: (data.isNotEmpty)
+                ? LatLng(data[0].latitude, data[0].longitude)
+                : _center,
             zoom: 14.0,
           ),
-          markers: {
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.25407710951034, 123.7998278550254),
-            ),
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.308970250044645, 123.85645857742605),
-            ),
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.290272050705086, 123.97267457853074),
-            ),
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.272756400550008, 123.92870938703349),
-            ),
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.27736355323591, 123.90885506433185),
-            ),
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.254912959623585, 123.81188610891611),
-            ),
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.242618956205648, 123.79746577533182),
-            ),
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.283224423040528, 123.88072452151957),
-            ),
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.31896040808202, 123.90661741199126),
-            ),
-            const Marker(
-              markerId: MarkerId("Pisay"),
-              position: LatLng(10.314564616598185, 123.90105748207873),
-            ),
-          },
+          markers: data
+              .map(
+                (post) => Marker(
+                  markerId: MarkerId("${post.id}: ${post.title}"),
+                  position: LatLng(
+                    post.latitude,
+                    post.longitude,
+                  ),
+                ),
+              )
+              .toSet(),
+          scrollGesturesEnabled: true,
+          zoomGesturesEnabled: true,
         ),
         // ==============================================================
         buildMapOptionsButtons(),
