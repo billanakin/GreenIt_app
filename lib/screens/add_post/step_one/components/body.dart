@@ -4,20 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:greenit_app/components/cards/warning_info_card.dart';
 import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/dummy_data/profile_data.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Body extends StatefulWidget {
-  const Body({super.key});
+  const Body({
+    super.key,
+    required this.onTitleTextChanged,
+    required this.onBodyTextChanged,
+    required this.onImagePathsChanged,
+  });
+
+  final Function onTitleTextChanged;
+  final Function onBodyTextChanged;
+  final Function onImagePathsChanged;
 
   @override
   State<Body> createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
-  String? postTitle, postMessage;
   List<XFile>? postImages = [];
 
   FocusNode? _postTitleNode, _postMessageNode;
@@ -42,13 +50,14 @@ class _BodyState extends State<Body> {
     if (selectedImages.isNotEmpty) {
       setState(() {
         postImages!.addAll(selectedImages);
+        widget.onImagePathsChanged(postImages!.map((img) => img.path).toList());
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    Profile userProfile = DemoProfilesData.userProfile;
+    Profile userProfile = Profile.fromUser(Current.user!);
 
     return Expanded(
       child: SizedBox(
@@ -102,7 +111,7 @@ class _BodyState extends State<Body> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                userProfile.name,
+                Current.user!.name,
                 style: kPrimaryBodyTextStyle,
               ),
               Text(
@@ -190,7 +199,8 @@ class _BodyState extends State<Body> {
       focusNode: _postMessageNode,
       textInputAction: TextInputAction.done,
       onEditingComplete: () => _postMessageNode!.unfocus(),
-      onChanged: (value) => postMessage = value, // POST MESSAGE HERE
+      onChanged: (value) =>
+          widget.onBodyTextChanged(value), // POST MESSAGE HERE
       style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       maxLines: null,
@@ -215,7 +225,7 @@ class _BodyState extends State<Body> {
       focusNode: _postTitleNode,
       textInputAction: TextInputAction.done,
       onEditingComplete: () => _postTitleNode!.unfocus(),
-      onChanged: (value) => postTitle = value, // POST TITLE HERE
+      onChanged: (value) => widget.onTitleTextChanged(value), // POST TITLE HERE
       style: kPrimaryBodyTextStyle.copyWith(
         fontFamily: 'Helvetica',
         fontWeight: FontWeight.w600,

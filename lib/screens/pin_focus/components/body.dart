@@ -137,26 +137,28 @@ class _BodyState extends State<Body> {
                           post: widget.post, suffix: const SizedBox.shrink()),
                     ),
                     const VerticalSpacing(of: 20),
-                    if (widget.post.postType == PostConstructorType.defaultPost)
-                      PostBody(
-                        isViewPost: true,
-                        post: widget.post,
-                      )
-                    else
-                      PostBody.shared(
-                        isViewPost: true,
-                        post: widget.post,
-                      ),
+                    //TODO
+                    // if (widget.post.postType == PostConstructorType.defaultPost)
+                    PostBody(
+                      isViewPost: true,
+                      post: widget.post,
+                    ),
+                    // else
+                    //   PostBody.shared(
+                    //     isViewPost: true,
+                    //     post: widget.post,
+                    //   ),
                     const VerticalSpacing(of: 20),
                     const Divider(),
-                    Column(
+                    const Column(
                       children: [
-                        ...List.generate(
-                          widget.post.postCommentLength,
-                          (index) => CommentCard(
-                            comment: widget.post.postComments![index],
-                          ),
-                        )
+                        //TODO
+                        // ...List.generate(
+                        //   widget.post.postCommentLength,
+                        //   (index) => CommentCard(
+                        //     comment: widget.post.postComments![index],
+                        //   ),
+                        // )
                       ],
                     )
                   ],

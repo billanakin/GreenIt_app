@@ -1,5 +1,4 @@
 import 'package:greenit_app/models/user.dart';
-import 'package:greenit_app/models/user_with_auth_token.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Current {
@@ -13,6 +12,7 @@ class Current {
       email: _prefs.getString('user:authToken')!,
       firstName: _prefs.getString('user:firstName')!,
       lastName: _prefs.getString('user:lastName')!,
+      avatarUrl: _prefs.getString('user:avatarUrl')!,
     );
   }
 
@@ -37,12 +37,23 @@ class Current {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  static refreshUserWithAuthToken(UserWithAuthToken userWithAuthToken) async {
-    await _prefs.setString('user:authToken', userWithAuthToken.token);
-    await _prefs.setInt('user:id', userWithAuthToken.id);
-    await _prefs.setString('user:email', userWithAuthToken.email);
-    await _prefs.setString('user:firstName', userWithAuthToken.firstName);
-    await _prefs.setString('user:lastName', userWithAuthToken.lastName);
+  static refreshUserAndAuthToken(User user, String userWithAuthToken) async {
+    var futures = <Future>[
+      refreshUser(user),
+      _prefs.setString('user:authToken', userWithAuthToken),
+    ];
+    await Future.wait(futures);
+  }
+
+  static refreshUser(User user) async {
+    var futures = <Future>[
+      _prefs.setInt('user:id', user.id),
+      _prefs.setString('user:email', user.email),
+      _prefs.setString('user:firstName', user.firstName),
+      _prefs.setString('user:lastName', user.lastName),
+      _prefs.setString('user:avatarUrl', user.avatarUrl),
+    ];
+    await Future.wait(futures);
   }
 
   static invalidate() async {
@@ -51,5 +62,6 @@ class Current {
     await _prefs.remove('user:email');
     await _prefs.remove('user:firstName');
     await _prefs.remove('user:lastName');
+    await _prefs.remove('user:avatarUrl');
   }
 }

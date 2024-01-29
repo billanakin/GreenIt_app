@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/app_bar/utility_app_bar.dart';
 import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/forms/create_post_form.dart';
 import 'package:greenit_app/screens/add_post/step_one/components/body.dart';
 import 'package:greenit_app/screens/add_post/step_two/new_post_page_two.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
-class NewPostStepOneScreen extends StatelessWidget {
+class NewPostStepOneScreen extends StatefulWidget {
   const NewPostStepOneScreen({super.key});
+
+  @override
+  State<NewPostStepOneScreen> createState() => _NewPostStepOneScreenState();
+}
+
+class _NewPostStepOneScreenState extends State<NewPostStepOneScreen> {
+  final CreatePostForm _createPostForm = CreatePostForm();
+
+  void _onTitleTextChanged(String title) {
+    _createPostForm.title = title;
+  }
+
+  void _onBodyTextChanged(String body) {
+    _createPostForm.body = body;
+  }
+
+  void _onImagePathsChanged(List<String> imagePaths) {
+    _createPostForm.imagePaths = imagePaths;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +44,8 @@ class NewPostStepOneScreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const NewPostScreenStepTwo(),
+              builder: (context) =>
+                  NewPostScreenStepTwo(createPostForm: _createPostForm),
             ),
           );
         },
@@ -32,7 +53,11 @@ class NewPostStepOneScreen extends StatelessWidget {
       body: Column(
         children: [
           buildProgressIndicator(),
-          const Body(),
+          Body(
+            onTitleTextChanged: _onTitleTextChanged,
+            onBodyTextChanged: _onBodyTextChanged,
+            onImagePathsChanged: _onImagePathsChanged,
+          ),
         ],
       ),
     );

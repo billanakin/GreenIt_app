@@ -4,6 +4,7 @@ import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/components/text/inline_text_divider.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/screens/pin_focus/pin_focus_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
@@ -58,7 +59,7 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
               ),
               const HorizontalSpacing(of: 15),
               ProfileAvatar.secondary(
-                profile: widget.viewedPost.profile,
+                profile: Profile.fromUser(widget.viewedPost.author),
                 radius: 18,
               ),
               const HorizontalSpacing(of: 10),
@@ -70,7 +71,7 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.viewedPost.profileName,
+                        widget.viewedPost.author.name,
                         style: kPrimaryBodyTextStyle.copyWith(
                           fontSize: getProportionateScreenHeight(12),
                         ),
@@ -84,22 +85,22 @@ class _ViewPostAppBarState extends State<ViewPostAppBar> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(widget.viewedPost.time.toString()),
+                            Text(widget.viewedPost.formattedTime),
                             const HorizontalSpacing(of: 5),
                             const InlineTextDivider(),
                             const HorizontalSpacing(of: 5),
-                            Text(widget.viewedPost.date.toString()),
+                            Text(widget.viewedPost.formattedDate),
                             const HorizontalSpacing(of: 5),
-                            if (widget.viewedPost.postType ==
-                                PostConstructorType.defaultPost)
-                              Row(
-                                children: [
-                                  const InlineTextDivider(),
-                                  const HorizontalSpacing(of: 5),
-                                  Text(
-                                      '${widget.viewedPost.locationRange.toString()} km') // TODO: Format location Range
-                                ],
-                              ),
+                            // if (widget.viewedPost.postType ==
+                            //     PostConstructorType.defaultPost)
+                            //   Row(
+                            //     children: [
+                            //       const InlineTextDivider(),
+                            //       const HorizontalSpacing(of: 5),
+                            //       Text(
+                            //           '${widget.viewedPost.locationRange.toString()} km') // TODO: Format location Range
+                            //     ],
+                            //   ),
                           ],
                         ),
                       ),

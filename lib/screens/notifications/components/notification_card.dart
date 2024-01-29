@@ -114,7 +114,7 @@ class NotificationCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                notification.postLiked!.messageTitle!,
+                notification.postLiked!.title,
                 style: kPrimaryBodyTextStyle.copyWith(
                   fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w700,
@@ -124,7 +124,7 @@ class NotificationCard extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: Text(
-                  notification.postLiked!.messageDescription,
+                  notification.postLiked!.body,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: kPrimaryBodyTextStyle,
@@ -193,7 +193,7 @@ class NotificationCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                notification.postRecentlyPosted!.messageTitle!,
+                notification.postRecentlyPosted!.title,
                 style: kPrimaryBodyTextStyle.copyWith(
                   fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w700,
@@ -203,7 +203,7 @@ class NotificationCard extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: Text(
-                  notification.postRecentlyPosted!.messageDescription,
+                  notification.postRecentlyPosted!.body,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: kPrimaryBodyTextStyle,

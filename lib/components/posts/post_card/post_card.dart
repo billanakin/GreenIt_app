@@ -25,11 +25,7 @@ class PostCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget? postCardOutput;
 
-    if (post.postConstructorType == PostConstructorType.defaultPost) {
-      postCardOutput = buildDefaultPostCard(post);
-    } else if (post.postConstructorType == PostConstructorType.sharedPost) {
-      postCardOutput = buildSharedPostCard(post);
-    }
+    postCardOutput = buildDefaultPostCard(post);
 
     return InkWell(
       onTap: () => Navigator.push(
@@ -39,7 +35,7 @@ class PostCard extends StatelessWidget {
           settings: RouteSettings(arguments: post),
         ),
       ),
-      child: postCardOutput!,
+      child: postCardOutput,
     );
   }
 

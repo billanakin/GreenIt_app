@@ -3,11 +3,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:greenit_app/components/buttons/map_display_button.dart';
 import 'package:greenit_app/components/buttons/user_location_focus_button.dart';
 import 'package:greenit_app/components/buttons/view_post_button.dart';
-import 'package:greenit_app/components/posts/post_card/post_card.dart';
+// import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/dummy_data/post_data.dart';
-import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -34,35 +32,11 @@ class _BodyState extends State<Body> {
     super.initState();
   }
 
-  List<Post> demoLatestNowPost = DemoPostData.demoLatestNowPostData;
-  List<Post> demoNearMePost = DemoPostData.demoNearMeListData;
-  List<Post> demoBrowsePost = DemoPostData.demoPostListData;
-
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: isLoaded
-          // ? Text(
-          //     output as String,
-          //     textAlign: TextAlign.center,
-          //   )
-          ? xxbuild(context)
-          : const CircularProgressIndicator(),
-    );
-  }
-
-  Widget xxbuild(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
       children: [
-        // =============== PLACE GOOGLE MAP INTERFACE HERE===============
-        // Placeholder(
-        //   color: Colors.black,
-        //   child: Container(
-        //     color: Colors.green.shade200,
-        //     // color: Colors.white,
-        //   ),
-        // ),
         GoogleMap(
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(
@@ -177,15 +151,16 @@ class _BodyState extends State<Body> {
                         subtitle: 'Checkout recent happenings worldwide!',
                       ),
                     ),
-                    Column(
+                    const Column(
                       children: [
-                        ...List.generate(
-                          demoLatestNowPost.length,
-                          (index) => PostCard(
-                            post: demoLatestNowPost[index],
-                            isBottomSheet: true,
-                          ),
-                        )
+                        //TODO
+                        // ...List.generate(
+                        //   demoLatestNowPost.length,
+                        //   (index) => PostCard(
+                        //     post: demoLatestNowPost[index],
+                        //     isBottomSheet: true,
+                        //   ),
+                        // )
                       ],
                     ),
                     const VerticalSpacing(of: 20),
@@ -205,15 +180,16 @@ class _BodyState extends State<Body> {
                         subtitle: "Explore what's close!",
                       ),
                     ),
-                    Column(
+                    const Column(
                       children: [
-                        ...List.generate(
-                          demoNearMePost.length,
-                          (index) => PostCard(
-                            post: demoNearMePost[index],
-                            isBottomSheet: true,
-                          ),
-                        )
+                        // TODO
+                        // ...List.generate(
+                        //   demoNearMePost.length,
+                        //   (index) => PostCard(
+                        //     post: demoNearMePost[index],
+                        //     isBottomSheet: true,
+                        //   ),
+                        // )
                       ],
                     ),
                     const VerticalSpacing(of: 20),
@@ -233,15 +209,16 @@ class _BodyState extends State<Body> {
                         subtitle: "Discover diverse events!",
                       ),
                     ),
-                    Column(
+                    const Column(
                       children: [
-                        ...List.generate(
-                          demoBrowsePost.length,
-                          (index) => PostCard(
-                            post: demoBrowsePost[index],
-                            isBottomSheet: true,
-                          ),
-                        )
+                        // TODO
+                        // ...List.generate(
+                        //   demoBrowsePost.length,
+                        //   (index) => PostCard(
+                        //     post: demoBrowsePost[index],
+                        //     isBottomSheet: true,
+                        //   ),
+                        // )
                       ],
                     ),
                     const VerticalSpacing(of: 20),

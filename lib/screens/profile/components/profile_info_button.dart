@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:greenit_app/apis/session_api.dart';
 import 'package:greenit_app/components/sheets/edit_profile/edit_profile_sheet.dart';
 import 'package:greenit_app/constants.dart';
+import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/profile.dart';
+import 'package:greenit_app/screens/sign_in/sign_in_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
 class ProfileInfoButton extends StatefulWidget {
@@ -57,7 +60,8 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton>
                           context, widget.profile, modalSheetcontroller);
                     },
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: kPrimaryBorderColor, backgroundColor: Colors.white,
+                      foregroundColor: kPrimaryBorderColor,
+                      backgroundColor: Colors.white,
                       side: const BorderSide(
                         width: 1,
                         color: Color(0xFF868686),
@@ -77,9 +81,12 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton>
                   width: getProportionateScreenWidth(150),
                   height: getProportionateScreenHeight(40),
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await _onLogoutPressed(context);
+                    },
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: kPrimaryBorderColor, backgroundColor: Colors.white,
+                      foregroundColor: kPrimaryBorderColor,
+                      backgroundColor: Colors.white,
                       side: const BorderSide(
                         width: 1,
                         color: Color(0xFFC33E3E),
@@ -109,7 +116,8 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton>
                   });
                 },
                 style: OutlinedButton.styleFrom(
-                  foregroundColor: kPrimaryBorderColor, backgroundColor: Colors.white,
+                  foregroundColor: kPrimaryBorderColor,
+                  backgroundColor: Colors.white,
                   side: BorderSide(
                     width: 1,
                     color: (isFollowing)
@@ -134,5 +142,19 @@ class _ProfileInfoButtonState extends State<ProfileInfoButton>
         ],
       ),
     );
+  }
+
+  Future<void> _onLogoutPressed(BuildContext context) async {
+    //TODO: Add a confirmation modal
+    var apiResponse = await SessionApi().logout(Current.authToken!);
+    if (apiResponse.success) {
+      if (!context.mounted) return;
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) => const SignInScreen(),
+        ),
+        (_) => false,
+      );
+    }
   }
 }

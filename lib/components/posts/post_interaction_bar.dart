@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/sheets/comment/comment_post_sheet.dart';
-import 'package:greenit_app/components/sheets/share/share_post_sheet.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';
@@ -68,35 +67,35 @@ class _PostInteractionBarState extends State<PostInteractionBar>
           ),
         ),
         const HorizontalSpacing(of: 25),
-        if (!(widget.post.postConstructorType ==
-            PostConstructorType.sharedPost))
-          Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  quoteModalBottomSheet(
-                      context, widget.post, modalSheetcontroller);
-                },
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.share_outlined,
-                      size: 22,
-                      color: Colors.black.withOpacity(0.6),
-                    ),
-                    const HorizontalSpacing(of: 5),
-                    Text(
-                      '2.3k', // TODO: Change to dynamic soon with  Model
-                      style: kSecondaryBodyTextStyle.copyWith(
-                        color: kPrimaryBodyTextColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const HorizontalSpacing(of: 25),
-            ],
-          ),
+        // if (!(widget.post.postConstructorType ==
+        //     PostConstructorType.sharedPost))
+        //   Row(
+        //     children: [
+        //       GestureDetector(
+        //         onTap: () {
+        //           quoteModalBottomSheet(
+        //               context, widget.post, modalSheetcontroller);
+        //         },
+        //         child: Row(
+        //           children: [
+        //             Icon(
+        //               Icons.share_outlined,
+        //               size: 22,
+        //               color: Colors.black.withOpacity(0.6),
+        //             ),
+        //             const HorizontalSpacing(of: 5),
+        //             Text(
+        //               '2.3k', // TODO: Change to dynamic soon with  Model
+        //               style: kSecondaryBodyTextStyle.copyWith(
+        //                 color: kPrimaryBodyTextColor,
+        //               ),
+        //             ),
+        //           ],
+        //         ),
+        //       ),
+        //       const HorizontalSpacing(of: 25),
+        //     ],
+        //   ),
         GestureDetector(
           onTap: () {
             setState(() {

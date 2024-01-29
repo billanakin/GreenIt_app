@@ -1,27 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:greenit_app/components/cards/warning_info_card.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
-  const Body({super.key});
+  const Body({super.key, required this.onGeoLocationChanged});
+
+  final Function onGeoLocationChanged;
 
   @override
   State<Body> createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(10.308878513658154, 123.89138682763317);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Stack(
         children: [
           // =============== PLACE GOOGLE MAP INTERFACE HERE===============
-          Placeholder(
-            color: Colors.black,
-            child: Container(
-              color: Colors.green.shade200,
-              // color: Colors.white,
+          GoogleMap(
+            onMapCreated: _onMapCreated,
+            initialCameraPosition: CameraPosition(
+              target: _center,
+              zoom: 14.0,
             ),
           ),
           // ==============================================================

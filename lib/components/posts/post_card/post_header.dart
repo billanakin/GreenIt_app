@@ -4,6 +4,7 @@ import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/components/text/inline_text_divider.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/screens/pin_focus/pin_focus_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
@@ -45,7 +46,7 @@ class PostHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ProfileAvatar.secondary(
-          profile: post.profile,
+          profile: Profile.fromUser(post.author),
           isrouteDisabled: isrouteDisabled,
         ),
         const HorizontalSpacing(of: 10),
@@ -80,7 +81,7 @@ class PostHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              post.profileName,
+              post.author.name,
               style: kPrimaryBodyTextStyle,
             ),
             DefaultTextStyle(
@@ -89,20 +90,19 @@ class PostHeader extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(post.time.toString()),
+                  Text(post.formattedTime),
                   const HorizontalSpacing(of: 5),
                   const InlineTextDivider(),
                   const HorizontalSpacing(of: 5),
-                  Text(post.date.toString()),
+                  Text(post.formattedDate),
                   const HorizontalSpacing(of: 5),
-                  Visibility(
-                    visible: (post.postType == PostConstructorType.defaultPost),
+                  const Visibility(
+                    visible: false,
                     child: Row(
                       children: [
-                        const InlineTextDivider(),
-                        const HorizontalSpacing(of: 5),
-                        Text(
-                            '${post.locationRange.toString()} km') // TODO: Format location Range
+                        InlineTextDivider(),
+                        HorizontalSpacing(of: 5),
+                        Text('5 km todo') // TODO: Format location Range
                       ],
                     ),
                   ),

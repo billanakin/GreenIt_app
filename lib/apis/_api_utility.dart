@@ -11,6 +11,12 @@ class ApiUtility {
 
   static Uri constructUri(path) => Uri.parse("$defaultHost$path");
 
+  static Future<http.Response> doGet(String path, {String? authToken}) async {
+    var client = http.Client();
+    var uri = constructUri(path);
+    return await client.get(uri, headers: _requestHeaders(authToken));
+  }
+
   static Future<http.Response> doPost(String path,
       {String? body, String? authToken}) async {
     var client = http.Client();
