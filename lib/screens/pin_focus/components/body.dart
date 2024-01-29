@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:greenit_app/components/buttons/map_display_button.dart';
 import 'package:greenit_app/components/buttons/user_location_focus_button.dart';
@@ -19,16 +20,26 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  late GoogleMapController mapController;
+  late GoogleMapController _mapController;
 
   final LatLng _center = const LatLng(9.901015489980256, 123.58620122862442);
 
   void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+    _mapController = controller;
+    _changeMapMode();
   }
 
-  bool isLoaded = true; // Debug Only: set to true
-  String? output;
+  _changeMapMode() {
+    _getJsonFile("assets/google_maps_style.json").then(_setMapStyle);
+  }
+
+  Future<String> _getJsonFile(String path) async {
+    return await rootBundle.loadString(path);
+  }
+
+  void _setMapStyle(String mapStyle) {
+    _mapController.setMapStyle(mapStyle);
+  }
 
   @override
   void initState() {
@@ -37,43 +48,27 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: isLoaded
-          // ? Text(
-          //     output as String,
-          //     textAlign: TextAlign.center,
-          //   )
-          ? xxbuild(context)
-          : const CircularProgressIndicator(),
-    );
-  }
-
-  Widget xxbuild(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
       children: [
-        // =============== PLACE GOOGLE MAP INTERFACE HERE===============
-        // Placeholder(
-        //   color: Colors.black,
-        //   child: Container(
-        //     color: Colors.green.shade200,
-        //     // color: Colors.white,
-        //   ),
-        // ),
         GoogleMap(
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(
-            target: _center,
+            target: LatLng(widget.post.latitude, widget.post.longitude),
             zoom: 14.0,
           ),
           markers: {
             Marker(
-              markerId: const MarkerId("Pisay"),
-              position: _center,
-            ), // Marker
+              markerId: MarkerId(widget.post.id.toString()),
+              position: LatLng(
+                widget.post.latitude,
+                widget.post.longitude,
+              ),
+            ),
           },
+          scrollGesturesEnabled: true,
+          zoomGesturesEnabled: true,
         ),
-        // ==============================================================
         buildMapOptionsButtons(),
         Align(
           alignment: Alignment.bottomCenter,

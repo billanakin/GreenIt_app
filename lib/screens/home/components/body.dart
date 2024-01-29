@@ -9,6 +9,7 @@ import 'package:greenit_app/components/buttons/view_post_button.dart';
 import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/screens/view_post/view_post_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -49,9 +50,6 @@ class _BodyState extends State<Body> {
     }
   }
 
-  bool isLoaded = true; // Debug Only: set to true
-  String? output;
-
   @override
   void initState() {
     super.initState();
@@ -75,22 +73,30 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Widget buildWidgets(BuildContext context, List<Post> data) {
+  Widget buildWidgets(BuildContext context, List<Post> posts) {
     return Stack(
       fit: StackFit.expand,
       children: [
         GoogleMap(
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(
-            target: (data.isNotEmpty)
-                ? LatLng(data[0].latitude, data[0].longitude)
+            target: (posts.isNotEmpty)
+                ? LatLng(posts.first.latitude, posts.first.longitude)
                 : _center,
             zoom: 14.0,
           ),
-          markers: data
+          markers: posts
               .map(
                 (post) => Marker(
-                  markerId: MarkerId("${post.id}: ${post.title}"),
+                  markerId: MarkerId(post.id.toString()),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ViewPostScreen(),
+                        settings: RouteSettings(arguments: post),
+                      ),
+                    );
+                  },
                   position: LatLng(
                     post.latitude,
                     post.longitude,
@@ -100,6 +106,8 @@ class _BodyState extends State<Body> {
               .toSet(),
           scrollGesturesEnabled: true,
           zoomGesturesEnabled: true,
+          myLocationButtonEnabled: true,
+          myLocationEnabled: true,
         ),
         // ==============================================================
         buildMapOptionsButtons(),

@@ -11,14 +11,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Profile userProfile = Profile.fromUser(Current.user!);
     return PopScope(
       canPop: false,
       child: SafeArea(
         child: Scaffold(
           extendBodyBehindAppBar: true,
           appBar: HomePageAppBar(
-            userProfile: userProfile,
+            userProfile: Profile.fromUser(Current.user!),
           ),
           body: const Body(),
           floatingActionButton: const AddNewPostButton(),
