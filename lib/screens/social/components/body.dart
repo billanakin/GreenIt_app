@@ -4,6 +4,7 @@ import 'package:greenit_app/components/app_bar/default_app_bar.dart';
 import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/screens/social/loading/social_screen_loading.dart';
 import 'package:greenit_app/size_config.dart';
 
 import 'package:greenit_app/models/profile.dart';
@@ -34,9 +35,7 @@ class _BodyState extends State<Body> {
           if (snapshot.hasData) {
             return buildWidgets(context, snapshot.data!);
           } else {
-            return const Center(
-              child: Text('Loading...'),
-            );
+            return const SocialScreenLoading();
           }
         },
       ),

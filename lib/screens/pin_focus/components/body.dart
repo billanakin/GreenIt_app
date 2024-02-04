@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:greenit_app/components/buttons/map_display_button.dart';
 import 'package:greenit_app/components/buttons/user_location_focus_button.dart';
-import 'package:greenit_app/components/posts/comment_card.dart';
 import 'package:greenit_app/components/posts/post_card/post_body.dart';
 import 'package:greenit_app/components/posts/post_card/post_header.dart';
 import 'package:greenit_app/constants.dart';
@@ -129,7 +128,8 @@ class _BodyState extends State<Body> {
                         horizontal: kDefaultHorizontalPadding,
                       ),
                       child: PostHeader(
-                          post: widget.post, suffix: const SizedBox.shrink()),
+                        post: widget.post,
+                      ),
                     ),
                     const VerticalSpacing(of: 20),
                     //TODO

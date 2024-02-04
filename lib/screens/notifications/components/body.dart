@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/app_bar/default_app_bar.dart';
 import 'package:greenit_app/models/current.dart';
-import 'package:greenit_app/models/notification.dart' as app_notif;
-import 'package:greenit_app/screens/notifications/components/notification_card.dart';
 import 'package:greenit_app/size_config.dart';
 
 import 'package:greenit_app/models/profile.dart';

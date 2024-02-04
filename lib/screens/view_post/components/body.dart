@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/app_bar/view_post_app_bar.dart';
-import 'package:greenit_app/components/posts/comment_card.dart';
 import 'package:greenit_app/components/posts/post_card/post_body.dart';
 import 'package:greenit_app/constants.dart';
-import 'package:greenit_app/models/comment.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';
 

@@ -183,7 +183,6 @@ Container buildPostBodySharedType(
               children: [
                 PostHeader(
                   post: post,
-                  suffix: const CardOptions(press: null),
                 ),
                 const VerticalSpacing(of: 20),
                 Container(
