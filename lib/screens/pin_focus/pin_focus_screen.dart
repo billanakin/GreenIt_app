@@ -14,15 +14,13 @@ class PinFocusScreen extends StatelessWidget {
     Profile userProfile = Profile.fromUser(Current.user!);
     final postData = ModalRoute.of(context)!.settings.arguments as Post;
 
-    return SafeArea(
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: HomePageAppBar(
-          userProfile: userProfile,
-          isPinFocus: true,
-        ),
-        body: Body(post: postData),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: HomePageAppBar(
+        userProfile: userProfile,
+        isPinFocus: true,
       ),
+      body: Body(post: postData),
     );
   }
 }
