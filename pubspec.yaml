@@ -92,6 +92,7 @@ flutter:
     - assets/images/logo/
     - assets/images/profile/
     - assets/Illustrations/
+    - assets/Illustrations/states/
     - assets/google_maps_style.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
