@@ -143,28 +143,32 @@ class _MainNavigationState extends State<MainNavigation>
                       ? _navItems[0]['selected_icon']
                       : _navItems[0]['unSelected_icon'],
                   text: _navItems[0]['label'],
-                  iconMargin: const EdgeInsets.only(bottom: 2),
+                  iconMargin:
+                      EdgeInsets.only(bottom: getProportionateScreenHeight(2)),
                 ),
                 Tab(
                   icon: _currentIndex == 1
                       ? _navItems[1]['selected_icon']
                       : _navItems[1]['unSelected_icon'],
                   text: _navItems[1]['label'],
-                  iconMargin: const EdgeInsets.only(bottom: 2),
+                  iconMargin:
+                      EdgeInsets.only(bottom: getProportionateScreenHeight(2)),
                 ),
                 Tab(
                   icon: _currentIndex == 2
                       ? _navItems[2]['selected_icon']
                       : _navItems[2]['unSelected_icon'],
                   text: _navItems[2]['label'],
-                  iconMargin: const EdgeInsets.only(bottom: 2),
+                  iconMargin:
+                      EdgeInsets.only(bottom: getProportionateScreenHeight(2)),
                 ),
                 Tab(
                   icon: _currentIndex == 3
                       ? _navItems[3]['selected_icon']
                       : _navItems[3]['unSelected_icon'],
                   text: _navItems[3]['label'],
-                  iconMargin: const EdgeInsets.only(bottom: 2),
+                  iconMargin:
+                      EdgeInsets.only(bottom: getProportionateScreenHeight(2)),
                 ),
               ],
             ),
