@@ -116,6 +116,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
         builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
           if (snapshot.hasData) {
             // return buildWidgets(context, snapshot.data!);
+
+            // This is for demo purposes only
             return ErrorState(
               appBar: ExplorePageAppBar(
                 userProfile: Profile.fromUser(Current.user!),
