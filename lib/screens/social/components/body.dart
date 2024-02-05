@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/app_bar/default_app_bar.dart';
+import 'package:greenit_app/components/error_state/error_state.dart';
 import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/post.dart';
@@ -33,10 +34,24 @@ class _BodyState extends State<Body> {
         future: _loadData(),
         builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
           if (snapshot.hasData) {
-            return buildWidgets(context, snapshot.data!);
+            // return buildWidgets(context, snapshot.data!);
+
+            // This for demo purposes only
+            return ErrorState(
+              appBar: DefaultAppBar(
+                userProfile: Profile.fromUser(Current.user!),
+              ),
+            );
           } else {
             return const SocialScreenLoading();
           }
+
+          // Error Condition:
+          // return ErrorState(
+          //   appBar: DefaultAppBar(
+          //     userProfile: Profile.fromUser(Current.user!),
+          //   ),
+          // );
         },
       ),
     );

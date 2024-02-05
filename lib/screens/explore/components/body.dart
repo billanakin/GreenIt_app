@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/app_bar/explore_page_app_bar.dart';
+import 'package:greenit_app/components/error_state/error_state.dart';
 import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
@@ -114,10 +115,22 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
         future: _loadData(),
         builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
           if (snapshot.hasData) {
-            return buildWidgets(context, snapshot.data!);
+            // return buildWidgets(context, snapshot.data!);
+            return ErrorState(
+              appBar: ExplorePageAppBar(
+                userProfile: Profile.fromUser(Current.user!),
+              ),
+            );
           } else {
             return const ExploreScreenLoading();
           }
+
+          // Error Condition
+          // return ErrorState(
+          //   appBar: ExplorePageAppBar(
+          //     userProfile: Profile.fromUser(Current.user!),
+          //   ),
+          // );
         },
       ),
     );
