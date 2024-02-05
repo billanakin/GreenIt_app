@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_app/components/options/card_options.dart';
 import 'package:greenit_app/components/posts/post_card/post_body.dart';
 import 'package:greenit_app/components/posts/post_card/post_header.dart';
 import 'package:greenit_app/constants.dart';
@@ -11,13 +10,11 @@ class PostCard extends StatelessWidget {
   const PostCard({
     super.key,
     required this.post,
-    this.isViewPost = false,
     this.isBottomSheet = false,
     this.isProfile = false,
   });
 
   final Post post;
-  final bool isViewPost;
   final bool isBottomSheet;
   final bool isProfile;
 
@@ -54,7 +51,6 @@ class PostCard extends StatelessWidget {
           children: [
             PostHeader.shared(
               post: post,
-              suffix: const CardOptions(press: null),
               isBottomSheet: isBottomSheet,
               isProfile: isProfile,
             ),
@@ -83,7 +79,6 @@ class PostCard extends StatelessWidget {
           children: [
             PostHeader(
               post: post,
-              suffix: const CardOptions(press: null),
               isBottomSheet: isBottomSheet,
               isProfile: isProfile,
             ),

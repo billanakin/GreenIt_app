@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/buttons/secondary_button.dart';
+import 'package:greenit_app/components/options/card_options.dart';
 import 'package:greenit_app/components/profile/profile_avatar.dart';
 import 'package:greenit_app/components/text/inline_text_divider.dart';
 import 'package:greenit_app/constants.dart';
@@ -17,7 +18,6 @@ class PostHeader extends StatelessWidget {
   const PostHeader({
     super.key,
     required this.post,
-    required this.suffix,
     this.isBottomSheet = false,
     this.isProfile = false,
   }) : postHeaderType = PostHeaderType.defaultType;
@@ -25,13 +25,11 @@ class PostHeader extends StatelessWidget {
   const PostHeader.shared({
     super.key,
     required this.post,
-    required this.suffix,
     this.isBottomSheet = false,
     this.isProfile = false,
   }) : postHeaderType = PostHeaderType.sharedType;
 
   final Post post;
-  final Widget suffix;
 
   final PostHeaderType postHeaderType;
   final bool isBottomSheet;
@@ -66,7 +64,7 @@ class PostHeader extends StatelessWidget {
             height: 40,
           )
         else
-          suffix,
+          const CardOptions(press: null),
       ],
     );
   }

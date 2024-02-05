@@ -1,8 +1,5 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
 import 'package:greenit_app/components/cards/warning_info_card.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/size_config.dart';

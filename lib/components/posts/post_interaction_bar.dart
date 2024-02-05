@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/sheets/comment/comment_post_sheet.dart';
+import 'package:greenit_app/components/sheets/share/share_post_sheet.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';

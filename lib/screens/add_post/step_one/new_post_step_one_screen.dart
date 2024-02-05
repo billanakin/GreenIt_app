@@ -66,7 +66,7 @@ class _NewPostStepOneScreenState extends State<NewPostStepOneScreen> {
           if (_placedPicked) {
             await _createPost(context);
           } else {
-            if (!context.mounted) ;
+            if (!context.mounted) {}
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => PlacePicker(
@@ -77,8 +77,8 @@ class _NewPostStepOneScreenState extends State<NewPostStepOneScreen> {
                       const LatLng(10.308878513658154, 123.89138682763317),
                   useCurrentLocation: true,
                   onPlacePicked: (result) {
-                    _createPostForm.latitude = result.geometry?.location?.lat;
-                    _createPostForm.longitude = result.geometry?.location?.lng;
+                    _createPostForm.latitude = result.geometry?.location.lat;
+                    _createPostForm.longitude = result.geometry?.location.lng;
                     _placedPicked = true;
                     Navigator.of(context).pop();
                   },

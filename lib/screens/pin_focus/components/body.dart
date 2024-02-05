@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:greenit_app/components/buttons/map_display_button.dart';
 import 'package:greenit_app/components/buttons/user_location_focus_button.dart';
-import 'package:greenit_app/components/posts/comment_card.dart';
 import 'package:greenit_app/components/posts/post_card/post_body.dart';
 import 'package:greenit_app/components/posts/post_card/post_header.dart';
 import 'package:greenit_app/constants.dart';
@@ -48,121 +47,124 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        GoogleMap(
-          onMapCreated: _onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: LatLng(widget.post.latitude, widget.post.longitude),
-            zoom: 14.0,
-          ),
-          markers: {
-            Marker(
-              markerId: MarkerId(widget.post.id.toString()),
-              position: LatLng(
-                widget.post.latitude,
-                widget.post.longitude,
-              ),
+    return SafeArea(
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          GoogleMap(
+            onMapCreated: _onMapCreated,
+            initialCameraPosition: CameraPosition(
+              target: LatLng(widget.post.latitude, widget.post.longitude),
+              zoom: 14.0,
             ),
-          },
-          scrollGesturesEnabled: true,
-          zoomGesturesEnabled: true,
-        ),
-        buildMapOptionsButtons(),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: DraggableScrollableSheet(
-            initialChildSize: 0.4,
-            minChildSize: 0.13,
-            maxChildSize: 1,
-            snap: true,
-            expand: false,
-            snapSizes: const [0.4, 0.9, 1],
-            snapAnimationDuration: kDefaultDuration,
-            builder: (context, scrollController) => ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
-              child: Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                  ),
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x21000000),
-                      blurRadius: 6,
-                      offset: Offset(0, 0),
-                      spreadRadius: 0,
-                    )
-                  ],
+            markers: {
+              Marker(
+                markerId: MarkerId(widget.post.id.toString()),
+                position: LatLng(
+                  widget.post.latitude,
+                  widget.post.longitude,
                 ),
-                width: SizeConfig.screenWidth,
-                child: ListView(
-                  padding: EdgeInsets.zero,
-                  controller: scrollController,
-                  children: [
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: IgnorePointer(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            top: getProportionateScreenHeight(10),
-                            bottom: getProportionateScreenHeight(10),
-                          ),
-                          height: getProportionateScreenHeight(5),
-                          width: getProportionateScreenWidth(50),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: kPrimaryBorderColor,
+              ),
+            },
+            scrollGesturesEnabled: true,
+            zoomGesturesEnabled: true,
+          ),
+          buildMapOptionsButtons(),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: DraggableScrollableSheet(
+              initialChildSize: 0.4,
+              minChildSize: 0.13,
+              maxChildSize: 1,
+              snap: true,
+              expand: false,
+              snapSizes: const [0.4, 1],
+              snapAnimationDuration: kDefaultDuration,
+              builder: (context, scrollController) => ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                ),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
+                    ),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0x21000000),
+                        blurRadius: 6,
+                        offset: Offset(0, 0),
+                        spreadRadius: 0,
+                      )
+                    ],
+                  ),
+                  width: SizeConfig.screenWidth,
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    controller: scrollController,
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: IgnorePointer(
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              top: getProportionateScreenHeight(10),
+                              bottom: getProportionateScreenHeight(10),
+                            ),
+                            height: getProportionateScreenHeight(5),
+                            width: getProportionateScreenWidth(50),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: kPrimaryBorderColor,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const VerticalSpacing(of: 10),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: kDefaultHorizontalPadding,
+                      const VerticalSpacing(of: 10),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: kDefaultHorizontalPadding,
+                        ),
+                        child: PostHeader(
+                          post: widget.post,
+                        ),
                       ),
-                      child: PostHeader(
-                          post: widget.post, suffix: const SizedBox.shrink()),
-                    ),
-                    const VerticalSpacing(of: 20),
-                    //TODO
-                    // if (widget.post.postType == PostConstructorType.defaultPost)
-                    PostBody(
-                      isViewPost: true,
-                      post: widget.post,
-                    ),
-                    // else
-                    //   PostBody.shared(
-                    //     isViewPost: true,
-                    //     post: widget.post,
-                    //   ),
-                    const VerticalSpacing(of: 20),
-                    const Divider(),
-                    const Column(
-                      children: [
-                        //TODO
-                        // ...List.generate(
-                        //   widget.post.postCommentLength,
-                        //   (index) => CommentCard(
-                        //     comment: widget.post.postComments![index],
-                        //   ),
-                        // )
-                      ],
-                    )
-                  ],
+                      const VerticalSpacing(of: 20),
+                      //TODO
+                      // if (widget.post.postType == PostConstructorType.defaultPost)
+                      PostBody(
+                        isViewPost: true,
+                        post: widget.post,
+                      ),
+                      // else
+                      //   PostBody.shared(
+                      //     isViewPost: true,
+                      //     post: widget.post,
+                      //   ),
+                      const VerticalSpacing(of: 20),
+                      const Divider(),
+                      const Column(
+                        children: [
+                          //TODO
+                          // ...List.generate(
+                          //   widget.post.postCommentLength,
+                          //   (index) => CommentCard(
+                          //     comment: widget.post.postComments![index],
+                          //   ),
+                          // )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -172,7 +174,7 @@ class _BodyState extends State<Body> {
       child: Padding(
         padding: EdgeInsets.only(
           right: kDefaultHorizontalPadding / 1.3,
-          top: getProportionateScreenHeight(80),
+          top: getProportionateScreenHeight(10),
         ),
         child: const SizedBox(
           height: 110,

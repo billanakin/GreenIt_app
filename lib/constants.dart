@@ -17,6 +17,7 @@ const kPrimaryIconColor = Color(0xFF6C6C6C);
 
 const kTextFieldInputColor = Color(0xFFF6F8F6);
 const kBackgroundColor = Colors.white;
+const kLoadingSkeletonColor = Color(0xFFE6E6E6);
 
 // =============== TEXT STYLES ===============
 final TextStyle kH1TextStyle = TextStyle(

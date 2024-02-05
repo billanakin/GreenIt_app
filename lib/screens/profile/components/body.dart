@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/profile.dart';
