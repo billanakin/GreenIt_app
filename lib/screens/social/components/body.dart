@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/app_bar/default_app_bar.dart';
+import 'package:greenit_app/components/empty_state/empty_state.dart';
 import 'package:greenit_app/components/error_state/error_state.dart';
 import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/models/current.dart';
@@ -48,6 +49,13 @@ class _BodyState extends State<Body> {
 
           // Error Condition:
           // return ErrorState(
+          //   appBar: DefaultAppBar(
+          //     userProfile: Profile.fromUser(Current.user!),
+          //   ),
+          // );
+
+          // Empty Condition
+          // return EmptyState(
           //   appBar: DefaultAppBar(
           //     userProfile: Profile.fromUser(Current.user!),
           //   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/app_bar/explore_page_app_bar.dart';
+import 'package:greenit_app/components/empty_state/empty_state.dart';
 import 'package:greenit_app/components/error_state/error_state.dart';
 import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/components/posts/section_header.dart';
@@ -115,14 +116,14 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
         future: _loadData(),
         builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
           if (snapshot.hasData) {
-            // return buildWidgets(context, snapshot.data!);
+            return buildWidgets(context, snapshot.data!);
 
             // This is for demo purposes only
-            return ErrorState(
-              appBar: ExplorePageAppBar(
-                userProfile: Profile.fromUser(Current.user!),
-              ),
-            );
+            // return ErrorState(
+            //   appBar: ExplorePageAppBar(
+            //     userProfile: Profile.fromUser(Current.user!),
+            //   ),
+            // );
           } else {
             return const ExploreScreenLoading();
           }
@@ -215,28 +216,34 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
           ),
         ),
-        SliverPadding(
-          padding: EdgeInsets.only(
-            top: kDefaultHorizontalPadding,
-            right: kSecondaryVerticalPadding,
-            left: kSecondaryVerticalPadding,
-          ),
-          sliver: SliverToBoxAdapter(
-            child: SectionHeader(
-              currentIndex: currentIndex,
-              title: tabPageInfos[currentIndex]['title'].toString(),
-              subtitle: tabPageInfos[currentIndex]['subtitle'].toString(),
+        if (data.isNotEmpty) ...[
+          SliverPadding(
+            padding: EdgeInsets.only(
+              top: kDefaultHorizontalPadding,
+              right: kSecondaryVerticalPadding,
+              left: kSecondaryVerticalPadding,
+            ),
+            sliver: SliverToBoxAdapter(
+              child: SectionHeader(
+                currentIndex: currentIndex,
+                title: tabPageInfos[currentIndex]['title'].toString(),
+                subtitle: tabPageInfos[currentIndex]['subtitle'].toString(),
+              ),
             ),
           ),
-        ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            childCount: data.length,
-            (context, index) => PostCard(
-              post: data[index],
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              childCount: data.length,
+              (context, index) => PostCard(
+                post: data[index],
+              ),
             ),
           ),
-        ),
+        ],
+        if (data.isEmpty) // Empty Condition
+          const SliverToBoxAdapter(
+            child: EmptyState(),
+          ),
       ],
     );
   }

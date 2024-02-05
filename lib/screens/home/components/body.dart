@@ -5,6 +5,8 @@ import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/buttons/map_display_button.dart';
 import 'package:greenit_app/components/buttons/user_location_focus_button.dart';
 import 'package:greenit_app/components/buttons/view_post_button.dart';
+import 'package:greenit_app/components/empty_state/empty_state.dart';
+import 'package:greenit_app/components/error_state/error_state.dart';
 // import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
@@ -154,87 +156,89 @@ class _BodyState extends State<Body> {
                     ),
                   ),
                 ),
-                const VerticalSpacing(of: 10),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: kDefaultHorizontalPadding,
-                  ),
-                  child: const SectionHeader(
-                    title: 'Latest Now',
-                    subtitle: 'Checkout recent happenings worldwide!',
-                  ),
-                ),
-                const Column(
-                  children: [
-                    //TODO
-                    // ...List.generate(
-                    //   demoLatestNowPost.length,
-                    //   (index) => PostCard(
-                    //     post: demoLatestNowPost[index],
-                    //     isBottomSheet: true,
-                    //   ),
-                    // )
-                  ],
-                ),
-                const VerticalSpacing(of: 20),
-                PrimaryTextButton(
-                  press: () {},
-                  text: 'View more latest',
-                ),
-                const VerticalSpacing(of: 20),
-                const Divider(),
-                const VerticalSpacing(of: 20),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: kDefaultHorizontalPadding,
-                  ),
-                  child: const SectionHeader(
-                    title: 'Near Me',
-                    subtitle: "Explore what's close!",
-                  ),
-                ),
-                const Column(
-                  children: [
-                    // TODO
-                    // ...List.generate(
-                    //   demoNearMePost.length,
-                    //   (index) => PostCard(
-                    //     post: demoNearMePost[index],
-                    //     isBottomSheet: true,
-                    //   ),
-                    // )
-                  ],
-                ),
-                const VerticalSpacing(of: 20),
-                PrimaryTextButton(
-                  press: () {},
-                  text: 'View more near me',
-                ),
-                const VerticalSpacing(of: 20),
-                const Divider(),
-                const VerticalSpacing(of: 20),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: kDefaultHorizontalPadding,
-                  ),
-                  child: const SectionHeader(
-                    title: 'Browse',
-                    subtitle: "Discover diverse events!",
-                  ),
-                ),
-                const Column(
-                  children: [
-                    // TODO
-                    // ...List.generate(
-                    //   demoBrowsePost.length,
-                    //   (index) => PostCard(
-                    //     post: demoBrowsePost[index],
-                    //     isBottomSheet: true,
-                    //   ),
-                    // )
-                  ],
-                ),
-                const VerticalSpacing(of: 20),
+                const EmptyState(), // Empty Condition
+                // TODO: IF Data is not empty
+                // const VerticalSpacing(of: 10),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(
+                //     horizontal: kDefaultHorizontalPadding,
+                //   ),
+                //   child: const SectionHeader(
+                //     title: 'Latest Now',
+                //     subtitle: 'Checkout recent happenings worldwide!',
+                //   ),
+                // ),
+                // const Column(
+                //   children: [
+                //     //TODO
+                //     // ...List.generate(
+                //     //   demoLatestNowPost.length,
+                //     //   (index) => PostCard(
+                //     //     post: demoLatestNowPost[index],
+                //     //     isBottomSheet: true,
+                //     //   ),
+                //     // )
+                //   ],
+                // ),
+                // const VerticalSpacing(of: 20),
+                // PrimaryTextButton(
+                //   press: () {},
+                //   text: 'View more latest',
+                // ),
+                // const VerticalSpacing(of: 20),
+                // const Divider(),
+                // const VerticalSpacing(of: 20),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(
+                //     horizontal: kDefaultHorizontalPadding,
+                //   ),
+                //   child: const SectionHeader(
+                //     title: 'Near Me',
+                //     subtitle: "Explore what's close!",
+                //   ),
+                // ),
+                // const Column(
+                //   children: [
+                //     // TODO
+                //     // ...List.generate(
+                //     //   demoNearMePost.length,
+                //     //   (index) => PostCard(
+                //     //     post: demoNearMePost[index],
+                //     //     isBottomSheet: true,
+                //     //   ),
+                //     // )
+                //   ],
+                // ),
+                // const VerticalSpacing(of: 20),
+                // PrimaryTextButton(
+                //   press: () {},
+                //   text: 'View more near me',
+                // ),
+                // const VerticalSpacing(of: 20),
+                // const Divider(),
+                // const VerticalSpacing(of: 20),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(
+                //     horizontal: kDefaultHorizontalPadding,
+                //   ),
+                //   child: const SectionHeader(
+                //     title: 'Browse',
+                //     subtitle: "Discover diverse events!",
+                //   ),
+                // ),
+                // const Column(
+                //   children: [
+                //     // TODO
+                //     // ...List.generate(
+                //     //   demoBrowsePost.length,
+                //     //   (index) => PostCard(
+                //     //     post: demoBrowsePost[index],
+                //     //     isBottomSheet: true,
+                //     //   ),
+                //     // )
+                //   ],
+                // ),
+                // const VerticalSpacing(of: 20),
               ],
             ),
           ),
