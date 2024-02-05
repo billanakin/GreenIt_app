@@ -10,8 +10,8 @@ import 'package:greenit_app/screens/main_navigation.dart';
 import 'package:greenit_app/size_config.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
-class NewPostScreenStepTwo extends StatelessWidget {
-  const NewPostScreenStepTwo({super.key, required this.createPostForm});
+class NewPostStepTwoScreen extends StatelessWidget {
+  const NewPostStepTwoScreen({super.key, required this.createPostForm});
 
   final CreatePostForm createPostForm;
 
