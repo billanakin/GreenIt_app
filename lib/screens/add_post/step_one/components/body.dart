@@ -133,6 +133,7 @@ class _BodyState extends State<Body> {
         _pickImageFromGallery();
       },
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
@@ -144,7 +145,7 @@ class _BodyState extends State<Body> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: SizedBox(
-                      height: getProportionateScreenHeight(180),
+                      height: getProportionateScreenHeight(220),
                       child: AspectRatio(
                         aspectRatio: 4 / 5,
                         child: Container(
@@ -176,12 +177,48 @@ class _BodyState extends State<Body> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: SizedBox(
-                      height: getProportionateScreenHeight(180),
+                      height: getProportionateScreenHeight(220),
                       child: AspectRatio(
                         aspectRatio: 4 / 5,
-                        child: Image.file(
-                          File(postImages![index].path),
-                          fit: BoxFit.cover,
+                        child: Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: FileImage(
+                                    File(postImages![index].path),
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  top: getProportionateScreenHeight(10),
+                                  right: getProportionateScreenWidth(10),
+                                ),
+                                child: CircleAvatar(
+                                  radius: 15,
+                                  backgroundColor: const Color(0x33868686),
+                                  child: IconButton(
+                                    icon: const Icon(
+                                      Icons.close_rounded,
+                                      color: Colors.white,
+                                      size: 15,
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        postImages!.removeAt(index);
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
