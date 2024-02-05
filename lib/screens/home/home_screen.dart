@@ -28,14 +28,14 @@ class HomeScreen extends StatelessWidget {
       future: _loadData(),
       builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
         if (snapshot.hasData) {
-          // return buildWidgets(context, snapshot.data!);
+          return buildWidgets(context, snapshot.data!);
 
           // This is for demo purposes only
-          return ErrorState(
-            appBar: HomePageAppBar(
-              userProfile: Profile.fromUser(Current.user!),
-            ),
-          );
+          // return ErrorState(
+          //   appBar: HomePageAppBar(
+          //     userProfile: Profile.fromUser(Current.user!),
+          //   ),
+          // );
         } else {
           return const HomeScreenLoading();
         }
