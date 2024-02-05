@@ -13,66 +13,74 @@ class EmptyState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: getProportionateScreenWidth(370),
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: Image.asset(
-                  'assets/Illustrations/states/empty-post-state.png',
+    if (appBar != null) {
+      return Scaffold(
+        appBar: appBar,
+        body: buildBody(context),
+      );
+    } else {
+      return buildBody(context);
+    }
+  }
+
+  Center buildBody(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: getProportionateScreenWidth(370),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Image.asset(
+                'assets/Illustrations/states/empty-post-state.png',
+              ),
+            ),
+          ),
+          Text(
+            'No posts at the moment',
+            style: kPrimaryHeaderTextStyle.copyWith(
+              fontSize: getProportionateScreenHeight(20),
+            ),
+          ),
+          const VerticalSpacing(of: 10),
+          Text(
+            'There are no events posted so far. Kindly\n stay tuned, or feel free to make a post.',
+            style: kPrimaryBodyTextStyle,
+            textAlign: TextAlign.center,
+          ),
+          const VerticalSpacing(of: 50),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NewPostStepOneScreen(),
                 ),
-              ),
-            ),
-            Text(
-              'No posts at the moment',
-              style: kPrimaryHeaderTextStyle.copyWith(
-                fontSize: getProportionateScreenHeight(20),
-              ),
-            ),
-            const VerticalSpacing(of: 10),
-            Text(
-              'There are no events posted so far. Kindly\n stay tuned, or feel free to make a post.',
-              style: kPrimaryBodyTextStyle,
-              textAlign: TextAlign.center,
-            ),
-            const VerticalSpacing(of: 50),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const NewPostStepOneScreen(),
-                  ),
-                );
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.post_add_outlined,
+              );
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.post_add_outlined,
+                  color: kPrimaryActiveColor,
+                ),
+                const HorizontalSpacing(of: 10),
+                Text(
+                  'Create Post',
+                  style: kPrimaryBodyTextStyle.copyWith(
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Helvetica',
                     color: kPrimaryActiveColor,
                   ),
-                  const HorizontalSpacing(of: 10),
-                  Text(
-                    'Create Post',
-                    style: kPrimaryBodyTextStyle.copyWith(
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Helvetica',
-                      color: kPrimaryActiveColor,
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
