@@ -7,6 +7,7 @@ import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/models/profile.dart';
+import 'package:greenit_app/screens/explore/loading/explore_screen_loading.dart';
 import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -113,7 +114,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
         future: _loadData(),
         builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
           if (snapshot.hasData) {
-            return buildWidgets(context, snapshot.data!);
+            // return buildWidgets(context, snapshot.data!);
+            return const ExploreScreenLoading();
           } else {
             return const Center(
               child: Text('Loading...'),
