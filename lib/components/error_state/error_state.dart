@@ -34,7 +34,7 @@ class ErrorState extends StatelessWidget {
                 fontSize: getProportionateScreenHeight(20),
               ),
             ),
-            const VerticalSpacing(of: 15),
+            const VerticalSpacing(of: 10),
             Text(
               'We are working to resolve the issue, please\n retry or check your internet.',
               style: kPrimaryBodyTextStyle,
