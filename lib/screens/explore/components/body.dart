@@ -114,12 +114,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
         future: _loadData(),
         builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
           if (snapshot.hasData) {
-            // return buildWidgets(context, snapshot.data!);
-            return const ExploreScreenLoading();
+            return buildWidgets(context, snapshot.data!);
           } else {
-            return const Center(
-              child: Text('Loading...'),
-            );
+            return const ExploreScreenLoading();
           }
         },
       ),

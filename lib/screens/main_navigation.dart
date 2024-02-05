@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/screens/explore/explore_screen.dart';
 import 'package:greenit_app/screens/home/home_screen.dart';
-import 'package:greenit_app/screens/notifications/notifications.dart';
+import 'package:greenit_app/screens/notifications/notifications_screen.dart';
 import 'package:greenit_app/screens/social/social_screen.dart';
 import 'package:greenit_app/size_config.dart';
 
