@@ -85,6 +85,7 @@ class _MainNavigationState extends State<MainNavigation>
       child: Scaffold(
         body: SafeArea(
           child: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
             controller: _tabController,
             children: const <Widget>[
               HomeScreen(),
