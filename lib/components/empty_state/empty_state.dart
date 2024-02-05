@@ -7,9 +7,11 @@ class EmptyState extends StatelessWidget {
   const EmptyState({
     super.key,
     this.appBar,
+    this.isNotification = false,
   });
 
   final PreferredSizeWidget? appBar;
+  final bool isNotification;
 
   @override
   Widget build(BuildContext context) {
@@ -34,52 +36,59 @@ class EmptyState extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 1,
               child: Image.asset(
-                'assets/Illustrations/states/empty-post-state.png',
+                (isNotification)
+                    ? 'assets/Illustrations/states/empty-notif-state.png'
+                    : 'assets/Illustrations/states/empty-post-state.png',
               ),
             ),
           ),
           Text(
-            'No posts at the moment',
+            (isNotification)
+                ? 'No updates at the moment'
+                : 'No posts at the moment',
             style: kPrimaryHeaderTextStyle.copyWith(
               fontSize: getProportionateScreenHeight(20),
             ),
           ),
           const VerticalSpacing(of: 10),
           Text(
-            'There are no events posted so far. Kindly\n stay tuned, or feel free to make a post.',
+            (isNotification)
+                ? " We're keeping an eye out and will inform\n you when there are updates."
+                : 'There are no events posted so far. Kindly\n stay tuned, or feel free to make a post.',
             style: kPrimaryBodyTextStyle,
             textAlign: TextAlign.center,
           ),
           const VerticalSpacing(of: 50),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const NewPostStepOneScreen(),
-                ),
-              );
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Icon(
-                  Icons.post_add_outlined,
-                  color: kPrimaryActiveColor,
-                ),
-                const HorizontalSpacing(of: 10),
-                Text(
-                  'Create Post',
-                  style: kPrimaryBodyTextStyle.copyWith(
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Helvetica',
+          if (!isNotification)
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NewPostStepOneScreen(),
+                  ),
+                );
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.post_add_outlined,
                     color: kPrimaryActiveColor,
                   ),
-                )
-              ],
+                  const HorizontalSpacing(of: 10),
+                  Text(
+                    'Create Post',
+                    style: kPrimaryBodyTextStyle.copyWith(
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Helvetica',
+                      color: kPrimaryActiveColor,
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
         ],
       ),
     );

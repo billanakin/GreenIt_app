@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/app_bar/default_app_bar.dart';
+import 'package:greenit_app/components/empty_state/empty_state.dart';
 import 'package:greenit_app/components/error_state/error_state.dart';
 import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/screens/notifications/loading/notifications_screen_loading.dart';
@@ -20,7 +21,7 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     // Loading Condition
-    return const NotificationsScreenLoading();
+    // return const NotificationsScreenLoading();
 
     // Error Condition
     // return ErrorState(
@@ -28,6 +29,14 @@ class _BodyState extends State<Body> {
     //     userProfile: Profile.fromUser(Current.user!),
     //   ),
     // );
+
+    // Empty Condition
+    return EmptyState(
+      appBar: DefaultAppBar(
+        userProfile: Profile.fromUser(Current.user!),
+      ),
+      isNotification: true,
+    );
 
     // TODO: buildWidget notifs
     // return SafeArea(
