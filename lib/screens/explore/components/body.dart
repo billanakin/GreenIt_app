@@ -216,7 +216,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
           ),
         ),
-        if (data.isEmpty) ...[
+        if (data.isNotEmpty) ...[
           SliverPadding(
             padding: EdgeInsets.only(
               top: kDefaultHorizontalPadding,
@@ -240,7 +240,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
           ),
         ],
-        if (data.isNotEmpty) // Empty Condition
+        if (data.isEmpty) // Empty Condition
           const SliverToBoxAdapter(
             child: EmptyState(),
           ),
