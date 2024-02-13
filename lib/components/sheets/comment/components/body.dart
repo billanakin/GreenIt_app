@@ -7,18 +7,24 @@ import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
-  const Body({super.key, required this.post});
+  const Body({
+    super.key,
+    required this.post,
+    required this.callback,
+  });
 
   final Post post;
+
+  final Function callback;
 
   @override
   State<Body> createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
-  String? commentMessage;
-
   FocusNode? _commentMessageNode;
+
+  String? commentMessage;
 
   @override
   void initState() {
@@ -98,7 +104,10 @@ class _BodyState extends State<Body> {
       focusNode: _commentMessageNode,
       textInputAction: TextInputAction.done,
       onEditingComplete: () => _commentMessageNode!.unfocus(),
-      onChanged: (value) => commentMessage = value, // POST MESSAGE HERE
+      onChanged: (value) {
+        widget.callback(value.isEmpty);
+        commentMessage = value;
+      }, // POST MESSAGE HERE
       style: kPrimaryBodyTextStyle,
       cursorColor: kPrimaryActiveColor,
       maxLines: null,

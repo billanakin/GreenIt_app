@@ -4,6 +4,12 @@ import 'package:greenit_app/components/sheets/comment/components/body.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/size_config.dart';
 
+bool? isValidated;
+
+void validateDiscard(bool isFieldEmpty) {
+  isValidated = isFieldEmpty;
+}
+
 Future commentModalBottomSheet(
     BuildContext context, Post post, AnimationController modalSheetcontroller) {
   SizeConfig().init(context);
@@ -31,12 +37,16 @@ Future commentModalBottomSheet(
         resizeToAvoidBottomInset: false,
         appBar: UtilityAppBar(
           leadingText: 'Cancel',
+          discardValidate: isValidated ?? true,
           title: 'Comment',
           actionButtonText: 'Post',
           actionButtonPress:
               () {}, // TOOD: post button, all fields are required
         ),
-        body: Body(post: post),
+        body: Body(
+          post: post,
+          callback: validateDiscard,
+        ),
       ),
     ),
   );

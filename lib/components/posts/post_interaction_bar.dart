@@ -70,33 +70,34 @@ class _PostInteractionBarState extends State<PostInteractionBar>
         const HorizontalSpacing(of: 25),
         // if (!(widget.post.postConstructorType ==
         //     PostConstructorType.sharedPost))
-        //   Row(
-        //     children: [
-        //       GestureDetector(
-        //         onTap: () {
-        //           quoteModalBottomSheet(
-        //               context, widget.post, modalSheetcontroller);
-        //         },
-        //         child: Row(
-        //           children: [
-        //             Icon(
-        //               Icons.share_outlined,
-        //               size: 22,
-        //               color: Colors.black.withOpacity(0.6),
-        //             ),
-        //             const HorizontalSpacing(of: 5),
-        //             Text(
-        //               '2.3k', // TODO: Change to dynamic soon with  Model
-        //               style: kSecondaryBodyTextStyle.copyWith(
-        //                 color: kPrimaryBodyTextColor,
-        //               ),
-        //             ),
-        //           ],
-        //         ),
-        //       ),
-        //       const HorizontalSpacing(of: 25),
-        //     ],
-        //   ),
+        // TODO: If post type is shared then display share post option
+        Row(
+          children: [
+            GestureDetector(
+              onTap: () {
+                quoteModalBottomSheet(
+                    context, widget.post, modalSheetcontroller);
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.share_outlined,
+                    size: 22,
+                    color: Colors.black.withOpacity(0.6),
+                  ),
+                  const HorizontalSpacing(of: 5),
+                  Text(
+                    '2.3k', // TODO: Change to dynamic soon with  Model
+                    style: kSecondaryBodyTextStyle.copyWith(
+                      color: kPrimaryBodyTextColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const HorizontalSpacing(of: 25),
+          ],
+        ),
         GestureDetector(
           onTap: () {
             setState(() {

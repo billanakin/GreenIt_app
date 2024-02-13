@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/app_bar/home_page_app_bar.dart';
 import 'package:greenit_app/components/buttons/add_new_post_button.dart';
-import 'package:greenit_app/components/error_state/error_state.dart';
 import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/screens/home/components/body.dart';

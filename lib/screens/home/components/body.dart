@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/buttons/map_display_button.dart';
 import 'package:greenit_app/components/buttons/user_location_focus_button.dart';
-import 'package:greenit_app/components/buttons/view_post_button.dart';
 import 'package:greenit_app/components/empty_state/empty_state.dart';
-import 'package:greenit_app/components/error_state/error_state.dart';
 // import 'package:greenit_app/components/posts/post_card/post_card.dart';
-import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
-import 'package:greenit_app/screens/home/home_screen.dart';
-import 'package:greenit_app/screens/home/loading/home_screen_loading.dart';
 import 'package:greenit_app/screens/view_post/view_post_screen.dart';
 import 'package:greenit_app/size_config.dart';
 

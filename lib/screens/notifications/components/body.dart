@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenit_app/components/app_bar/default_app_bar.dart';
 import 'package:greenit_app/components/empty_state/empty_state.dart';
-import 'package:greenit_app/components/error_state/error_state.dart';
 import 'package:greenit_app/models/current.dart';
-import 'package:greenit_app/screens/notifications/loading/notifications_screen_loading.dart';
-import 'package:greenit_app/size_config.dart';
 
 import 'package:greenit_app/models/profile.dart';
 

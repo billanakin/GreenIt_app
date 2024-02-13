@@ -7,6 +7,7 @@ class UtilityAppBar extends StatelessWidget implements PreferredSizeWidget {
   const UtilityAppBar({
     super.key,
     this.height = 70.0001,
+    this.discardValidate = false,
     required this.leadingText,
     required this.title,
     required this.actionButtonText,
@@ -14,6 +15,8 @@ class UtilityAppBar extends StatelessWidget implements PreferredSizeWidget {
   });
 
   final double height;
+
+  final bool discardValidate;
 
   final String leadingText;
   final String title;
@@ -49,7 +52,24 @@ class UtilityAppBar extends StatelessWidget implements PreferredSizeWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               GestureDetector(
-                onTap: () => Navigator.pop(context),
+                onTap: () {
+                  if (discardValidate) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      // For Debug Purposes only
+                      const SnackBar(
+                        content: Text('DISCARD VALIDATE: TRUE'),
+                      ),
+                    );
+                    Navigator.pop(context);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      // For Debug Purposes only
+                      const SnackBar(
+                        content: Text('DISCARD VALIDATE: FALSE'),
+                      ),
+                    );
+                  }
+                },
                 child: Text(
                   leadingText,
                   style: kPrimaryBodyTextStyle,
