@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:greenit_app/screens/home/home_screen.dart';
 import 'package:greenit_app/screens/sign_in/sign_in_screen.dart';
 
 import 'package:greenit_app/size_config.dart';
@@ -33,9 +34,11 @@ class MainApp extends StatelessWidget {
 
   Widget _determineNextScreen() {
     if (Current.firstTimeUse) {
-      return const OnBoardingScreen();
+      // return const OnBoardingScreen();
+      return const HomeScreen();
     } else if (Current.authenticated) {
-      return const MainNavigation();
+      // return const MainNavigation();
+      return const HomeScreen();
     } else {
       return const SignInScreen();
     }

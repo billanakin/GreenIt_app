@@ -9,56 +9,69 @@ import 'package:greenit_app/screens/home/components/body.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/screens/home/loading/home_screen_loading.dart';
 
+// class HomeScreen extends StatelessWidget {
+//   const HomeScreen({super.key});
+
+//   Future<List<Post>> _loadData() async {
+//     var apiResponse = await PostApi().latest();
+//     if (apiResponse.success) {
+//       return apiResponse.data!.list;
+//     } else {
+//       return <Post>[];
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return FutureBuilder<List<Post>>(
+//       future: _loadData(),
+//       builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
+//         if (snapshot.hasData) {
+//           return buildWidgets(context, snapshot.data!);
+
+//           // This is for demo purposes only
+//           // return ErrorState(
+//           //   appBar: HomePageAppBar(
+//           //     userProfile: Profile.fromUser(Current.user!),
+//           //   ),
+//           // );
+//         } else {
+//           return const HomeScreenLoading();
+//         }
+
+//         // Error Condition:
+//         // return ErrorState(
+//         //   appBar: HomePageAppBar(
+//         //     userProfile: Profile.fromUser(Current.user!),
+//         //   ),
+//         // );
+//       },
+//     );
+//   }
+
+//   PopScope buildWidgets(BuildContext context, List<Post> data) {
+//     return PopScope(
+//       canPop: false,
+//       child: Scaffold(
+//         extendBodyBehindAppBar: true,
+//         appBar: HomePageAppBar(
+//           userProfile: Profile.fromUser(Current.user!),
+//         ),
+//         body: Body(posts: data),
+//         floatingActionButton: const AddNewPostButton(),
+//       ),
+//     );
+//   }
+// }
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  Future<List<Post>> _loadData() async {
-    var apiResponse = await PostApi().latest();
-    if (apiResponse.success) {
-      return apiResponse.data!.list;
-    } else {
-      return <Post>[];
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Post>>(
-      future: _loadData(),
-      builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
-        if (snapshot.hasData) {
-          return buildWidgets(context, snapshot.data!);
-
-          // This is for demo purposes only
-          // return ErrorState(
-          //   appBar: HomePageAppBar(
-          //     userProfile: Profile.fromUser(Current.user!),
-          //   ),
-          // );
-        } else {
-          return const HomeScreenLoading();
-        }
-
-        // Error Condition:
-        // return ErrorState(
-        //   appBar: HomePageAppBar(
-        //     userProfile: Profile.fromUser(Current.user!),
-        //   ),
-        // );
-      },
-    );
-  }
-
-  PopScope buildWidgets(BuildContext context, List<Post> data) {
-    return PopScope(
-      canPop: false,
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: HomePageAppBar(
-          userProfile: Profile.fromUser(Current.user!),
-        ),
-        body: Body(posts: data),
-        floatingActionButton: const AddNewPostButton(),
+    return const Scaffold(
+      body: Center(
+        child: Text('Hello World'),
       ),
     );
   }
