@@ -32,8 +32,17 @@
 	<string>Used to demonstrate image picker plugin</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Used to capture audio for image picker plugin</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to location when open.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<!--Geolocator Purpose Key-->
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+	<dict>
+		<key>YourPurposeKey</key>
+		<string>The example App requires temporary access to the device&apos;s precise location.</string>
+	</dict>
+	<!--                      -->
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
