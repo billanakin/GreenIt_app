@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:greenit_app/models/post.dart';
-import 'package:greenit_app/services/determine_position.dart'
-    as determine_position_service;
-import 'package:greenit_app/services/get_nearest_posts.dart'
-    as get_nearest_posts_service;
+import 'package:greenit_app/models/user.dart';
+import 'package:greenit_app/services/login.dart' as login_service;
 
 class Screen extends StatelessWidget {
   const Screen({super.key});
 
-  Future<List> getNearestPosts() async {
-    var pos = await determine_position_service.call();
-    var posts = await get_nearest_posts_service.call(
-        latitude: pos.latitude, longitude: pos.longitude);
-    return posts;
+  Future<User?> login() async {
+    return await login_service.call("email", "password");
   }
 
   @override
@@ -24,9 +17,9 @@ class Screen extends StatelessWidget {
   }
 
   Widget buildBody(BuildContext context) {
-    return FutureBuilder<List>(
-        future: getNearestPosts(),
-        builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+    return FutureBuilder<User?>(
+        future: login(),
+        builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
           if (snapshot.hasData) {
             return buildBodyWithData(context, snapshot.data);
           } else if (snapshot.hasError) {
@@ -37,13 +30,13 @@ class Screen extends StatelessWidget {
         });
   }
 
-  Widget buildBodyWithData(BuildContext context, List? posts) {
+  Widget buildBodyWithData(BuildContext context, User? loggedInUser) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Posts: ${posts!.length}",
+            "You logged in as ${loggedInUser!.email}",
           ),
         ],
       ),
