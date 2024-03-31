@@ -2,16 +2,14 @@ import "package:greenit_app/models/current.dart";
 import "package:greenit_app/models/user.dart";
 import "package:greenit_app/services/_helper.dart";
 
-Future<User?> call(String email, String password) async {
+Future<bool?> call() async {
   int statusCode;
   dynamic jsonBody;
+  var authToken = await Current().authToken;
   (statusCode, jsonBody) = await callHttp(
-    method: 'POST',
+    method: 'GET',
     path: '/sessions',
-    body: {
-      "email": email,
-      "password": password,
-    },
+    authToken: authToken,
   );
   if (statusCode == 200) {
     User? user = User(
@@ -22,13 +20,16 @@ Future<User?> call(String email, String password) async {
       avatarUrl: jsonBody['data']['avatar_url'],
       followedUsersCount: jsonBody['data']['followed_users_count'],
       followingUsersCount: jsonBody['data']['following_users_count'],
-      authToken: jsonBody['auth_token'],
+      authToken: authToken!,
     );
 
     Current().callAfterLoginOrCheck(user);
 
-    return user;
-  } else if (statusCode == 422) {
-    return Future.error('Invalid email/password combination.');
+    return true;
+  } else if (statusCode == 401) {
+    Current().clearUser();
+    return false;
   }
+
+  return null;
 }

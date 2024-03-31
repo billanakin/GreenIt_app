@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greenit_app/screens/home/screen.dart' as home;
+import 'package:greenit_app/screens/login/screen.dart' as login;
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -7,7 +7,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: home.Screen(),
+      home: login.Screen(),
     );
   }
 }
