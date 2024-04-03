@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/app_bar/explore_page_app_bar.dart';
 import 'package:greenit_app/components/empty_state/empty_state.dart';
@@ -10,6 +11,7 @@ import 'package:greenit_app/models/current.dart';
 import 'package:greenit_app/models/post.dart';
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/screens/explore/loading/explore_screen_loading.dart';
+import 'package:greenit_app/services/determine_position_service.dart';
 import 'package:greenit_app/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -57,7 +59,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
   }
 
   static Future<List<Post>> _loadNearMe() async {
-    var apiResponse = await PostApi().nearMe();
+    Position position = await getCurrentPositionService();
+    var apiResponse =
+        await PostApi().nearMe(position.latitude, position.longitude);
     if (apiResponse.success) {
       return apiResponse.data!.list;
     } else {

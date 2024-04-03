@@ -45,6 +45,14 @@ class Current {
     await Future.wait(futures);
   }
 
+  static setLocation(double latitude, double longitude) async {
+    var futures = <Future>[
+      _prefs.setDouble('location:latitude', latitude),
+      _prefs.setDouble('location:longitude', longitude),
+    ];
+    await Future.wait(futures);
+  }
+
   static refreshUser(User user) async {
     var futures = <Future>[
       _prefs.setInt('user:id', user.id),

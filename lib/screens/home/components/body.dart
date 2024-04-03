@@ -7,10 +7,12 @@ import 'package:greenit_app/components/buttons/user_location_focus_button.dart';
 import 'package:greenit_app/components/buttons/view_post_button.dart';
 import 'package:greenit_app/components/empty_state/empty_state.dart';
 import 'package:greenit_app/components/error_state/error_state.dart';
+import 'package:greenit_app/components/posts/post_card/post_card.dart';
 // import 'package:greenit_app/components/posts/post_card/post_card.dart';
 import 'package:greenit_app/components/posts/section_header.dart';
 import 'package:greenit_app/constants.dart';
 import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/models/post_data.dart';
 import 'package:greenit_app/screens/home/home_screen.dart';
 import 'package:greenit_app/screens/home/loading/home_screen_loading.dart';
 import 'package:greenit_app/screens/view_post/view_post_screen.dart';
@@ -19,10 +21,10 @@ import 'package:greenit_app/size_config.dart';
 class Body extends StatefulWidget {
   const Body({
     super.key,
-    required this.posts,
+    required this.postData,
   });
 
-  final List<Post> posts;
+  final PostData postData;
 
   @override
   State<Body> createState() => _BodyState();
@@ -64,13 +66,13 @@ class _BodyState extends State<Body> {
           GoogleMap(
             onMapCreated: _onMapCreated,
             initialCameraPosition: CameraPosition(
-              target: (widget.posts.isNotEmpty)
-                  ? LatLng(
-                      widget.posts.first.latitude, widget.posts.first.longitude)
+              target: (widget.postData.isNotEmpty)
+                  ? LatLng(widget.postData.all.first.latitude,
+                      widget.postData.all.first.longitude)
                   : _center,
               zoom: 14.0,
             ),
-            markers: widget.posts
+            markers: widget.postData.all
                 .map(
                   (post) => Marker(
                     markerId: MarkerId(post.id.toString()),
@@ -156,65 +158,74 @@ class _BodyState extends State<Body> {
                     ),
                   ),
                 ),
-                const EmptyState(), // Empty Condition
-                // TODO: IF Data is not empty
-                // const VerticalSpacing(of: 10),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(
-                //     horizontal: kDefaultHorizontalPadding,
-                //   ),
-                //   child: const SectionHeader(
-                //     title: 'Latest Now',
-                //     subtitle: 'Checkout recent happenings worldwide!',
-                //   ),
-                // ),
-                // const Column(
-                //   children: [
-                //     //TODO
-                //     // ...List.generate(
-                //     //   demoLatestNowPost.length,
-                //     //   (index) => PostCard(
-                //     //     post: demoLatestNowPost[index],
-                //     //     isBottomSheet: true,
-                //     //   ),
-                //     // )
-                //   ],
-                // ),
-                // const VerticalSpacing(of: 20),
-                // PrimaryTextButton(
-                //   press: () {},
-                //   text: 'View more latest',
-                // ),
-                // const VerticalSpacing(of: 20),
-                // const Divider(),
-                // const VerticalSpacing(of: 20),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(
-                //     horizontal: kDefaultHorizontalPadding,
-                //   ),
-                //   child: const SectionHeader(
-                //     title: 'Near Me',
-                //     subtitle: "Explore what's close!",
-                //   ),
-                // ),
-                // const Column(
-                //   children: [
-                //     // TODO
-                //     // ...List.generate(
-                //     //   demoNearMePost.length,
-                //     //   (index) => PostCard(
-                //     //     post: demoNearMePost[index],
-                //     //     isBottomSheet: true,
-                //     //   ),
-                //     // )
-                //   ],
-                // ),
-                // const VerticalSpacing(of: 20),
-                // PrimaryTextButton(
-                //   press: () {},
-                //   text: 'View more near me',
-                // ),
-                // const VerticalSpacing(of: 20),
+                if (widget.postData.isEmpty) const EmptyState(),
+                if (widget.postData.latest.isNotEmpty)
+                  const VerticalSpacing(of: 10),
+                if (widget.postData.latest.isNotEmpty)
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: kDefaultHorizontalPadding,
+                    ),
+                    child: const SectionHeader(
+                      title: 'Latest Now',
+                      subtitle: 'Checkout recent happenings worldwide!',
+                    ),
+                  ),
+                if (widget.postData.latest.isNotEmpty)
+                  Column(
+                    children: [
+                      ...List.generate(
+                        widget.postData.latest.length,
+                        (index) => PostCard(
+                          post: widget.postData.latest[index],
+                          isBottomSheet: true,
+                        ),
+                      )
+                    ],
+                  ),
+                if (widget.postData.latest.isNotEmpty)
+                  const VerticalSpacing(of: 20),
+                if (widget.postData.latest.isNotEmpty)
+                  PrimaryTextButton(
+                    press: () {},
+                    text: 'View more latest',
+                  ),
+                if (widget.postData.latest.isNotEmpty)
+                  const VerticalSpacing(of: 20),
+                if (widget.postData.nearMe.isNotEmpty) const Divider(),
+                if (widget.postData.nearMe.isNotEmpty)
+                  const VerticalSpacing(of: 20),
+                if (widget.postData.nearMe.isNotEmpty)
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: kDefaultHorizontalPadding,
+                    ),
+                    child: const SectionHeader(
+                      title: 'Near Me',
+                      subtitle: "Explore what's close!",
+                    ),
+                  ),
+                if (widget.postData.nearMe.isNotEmpty)
+                  Column(
+                    children: [
+                      ...List.generate(
+                        widget.postData.nearMe.length,
+                        (index) => PostCard(
+                          post: widget.postData.nearMe[index],
+                          isBottomSheet: true,
+                        ),
+                      )
+                    ],
+                  ),
+                if (widget.postData.nearMe.isNotEmpty)
+                  const VerticalSpacing(of: 20),
+                if (widget.postData.nearMe.isNotEmpty)
+                  PrimaryTextButton(
+                    press: () {},
+                    text: 'View more near me',
+                  ),
+                if (widget.postData.nearMe.isNotEmpty)
+                  const VerticalSpacing(of: 20),
                 // const Divider(),
                 // const VerticalSpacing(of: 20),
                 // Padding(

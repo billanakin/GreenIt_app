@@ -16,8 +16,10 @@ class PostApi {
             _parsePagedListJson(ApiUtility.jsonBody(response)));
   }
 
-  Future<ApiResponse<PagedList<Post>>> nearMe() async {
-    var response = await ApiUtility.doGet("/posts/near_me");
+  Future<ApiResponse<PagedList<Post>>> nearMe(
+      double latitude, double longitude) async {
+    var response = await ApiUtility.doGet(
+        "/posts/near_me?latitude=$latitude&longitude=$longitude");
     return ApiResponse<PagedList<Post>>(response,
         parseDataFunc: () =>
             _parsePagedListJson(ApiUtility.jsonBody(response)));

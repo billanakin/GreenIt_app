@@ -22,6 +22,8 @@ class _SignInFormState extends State<SignInForm> {
 
   // ignore: unused_field
   String? _email, _password;
+  bool _hasError = false;
+  String? _errorMessage;
 
   FocusNode? _passwordNode;
 
@@ -52,6 +54,26 @@ class _SignInFormState extends State<SignInForm> {
       key: _formKey,
       child: Column(
         children: [
+          if (_hasError)
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 5.0,
+                vertical: 2.0,
+              ),
+              decoration: const BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(3.0),
+                ),
+              ),
+              child: Text(
+                _errorMessage!,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          if (_hasError) const VerticalSpacing(of: 30),
           buildEmailField(),
           const VerticalSpacing(of: 30),
           buildPasswordField(),
@@ -89,16 +111,26 @@ class _SignInFormState extends State<SignInForm> {
           PrimaryButton(
             text: 'Sign In',
             press: () {
+              _hasError = false;
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 _doSignin().then((apiResponse) {
-                  // TODO: What if no success?
                   if (apiResponse.success) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => const SignInSuccessScreen(),
                       ),
                     );
+                  } else if (apiResponse.validationError) {
+                    setState(() {
+                      _hasError = true;
+                      _errorMessage = 'Invalid email/password combination.';
+                    });
+                  } else {
+                    setState(() {
+                      _hasError = true;
+                      _errorMessage = 'An error has occured.';
+                    });
                   }
                 });
               }

@@ -1,32 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+
 import 'package:greenit_app/apis/post_api.dart';
 import 'package:greenit_app/components/app_bar/home_page_app_bar.dart';
 import 'package:greenit_app/components/buttons/add_new_post_button.dart';
-import 'package:greenit_app/components/error_state/error_state.dart';
 import 'package:greenit_app/models/current.dart';
-import 'package:greenit_app/models/post.dart';
+import 'package:greenit_app/models/post_data.dart';
 import 'package:greenit_app/screens/home/components/body.dart';
 
 import 'package:greenit_app/models/profile.dart';
 import 'package:greenit_app/screens/home/loading/home_screen_loading.dart';
+import 'package:greenit_app/services/determine_position_service.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  Future<List<Post>> _loadData() async {
-    var apiResponse = await PostApi().latest();
+  Future<PostData> _loadData() async {
+    PostData data = PostData();
+    Position position = await getCurrentPositionService();
+    var apiResponse =
+        await PostApi().nearMe(position.latitude, position.longitude);
     if (apiResponse.success) {
-      return apiResponse.data!.list;
-    } else {
-      return <Post>[];
+      data.nearMe = apiResponse.data!.list;
     }
+
+    apiResponse = await PostApi().latest();
+    if (apiResponse.success) {
+      data.latest = apiResponse.data!.list;
+    }
+
+    apiResponse = await PostApi().trending();
+    if (apiResponse.success) {
+      data.trending = apiResponse.data!.list;
+    }
+
+    apiResponse = await PostApi().recommended();
+    if (apiResponse.success) {
+      data.recommended = apiResponse.data!.list;
+    }
+
+    return data;
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Post>>(
+    return FutureBuilder<PostData>(
       future: _loadData(),
-      builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<PostData> snapshot) {
         if (snapshot.hasData) {
           return buildWidgets(context, snapshot.data!);
 
@@ -50,7 +70,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  PopScope buildWidgets(BuildContext context, List<Post> data) {
+  PopScope buildWidgets(BuildContext context, PostData data) {
     return PopScope(
       canPop: false,
       child: Scaffold(
@@ -58,7 +78,7 @@ class HomeScreen extends StatelessWidget {
         appBar: HomePageAppBar(
           userProfile: Profile.fromUser(Current.user!),
         ),
-        body: Body(posts: data),
+        body: Body(postData: data),
         floatingActionButton: const AddNewPostButton(),
       ),
     );
